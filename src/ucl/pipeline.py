@@ -192,31 +192,17 @@ def run_matchday(
         entry.setdefault("market", None)
         entry.setdefault("market_in_play_withheld", False)
         price = market_by_pair.get((entry["home"], entry["away"]))
-        if price is None:
-            continue
-        # A price seen at or after kickoff reflects the score, not the market's
-        # pre-match opinion. Using it would manufacture a phantom edge and, worse,
-        # corrupt the season scoreboard when every arm gets scored against it.
-        # The EPL lab logged a 14.88% "edge" from exactly this mistake. Withhold
-        # the price entirely - downstream already treats "no market" correctly.
-        if not odds_module.is_pre_kickoff(price):
+        status, resolved = resolve_market(price, team_registry,
+                                          entry["home"], entry["away"])
+        if status == "in_play":
             entry["market_in_play_withheld"] = True
             notes.append(
                 f"{entry['home_display']} v {entry['away_display']}: market "
                 f"withheld (kicked off {price.commence_time.isoformat()}); "
                 f"model shown without a benchmark"
             )
-            continue
-        devigged = price.devigged()
-        mapped = _map_market_outcomes(devigged, price, team_registry,
-                                      entry["home"], entry["away"])
-        entry["market"] = {
-            "home": mapped.get("home"), "draw": mapped.get("draw"), "away": mapped.get("away"),
-            "overround": price.overround,
-            "bookmakers": price.bookmaker_count,
-            "commence_time": price.commence_time.isoformat(),
-            "pre_kickoff": True,
-        }
+        elif status == "ok":
+            entry["market"] = resolved
 
     # 5. paper ledger -------------------------------------------------------
     ledger = Ledger.load()
@@ -269,6 +255,39 @@ def run_matchday(
     out.write_text(brief.to_json(), encoding="utf-8")
     (PROCESSED / "brief_latest.json").write_text(brief.to_json(), encoding="utf-8")
     return brief
+
+
+def resolve_market(price, registry: TeamRegistry, home_key: str, away_key: str):
+    """Classify a matched market price for one fixture.
+
+    Returns one of:
+        ("none", None)     - no price was matched to this fixture
+        ("in_play", None)  - a price exists but the match has kicked off. A price
+                             seen at or after kickoff reflects the score, not the
+                             market's pre-match opinion; using it manufactures a
+                             phantom edge and, worse, corrupts the season
+                             scoreboard when every arm is later scored against it.
+                             The EPL lab logged a 14.88% "edge" from exactly this.
+        ("ok", {...})      - a usable pre-kickoff price, de-vigged and mapped to
+                             home/draw/away.
+
+    Kept as a pure function with no I/O so the in-play guard is unit-testable
+    without a corpus or a live Odds API call.
+    """
+    if price is None:
+        return "none", None
+    if not odds_module.is_pre_kickoff(price):
+        return "in_play", None
+    devigged = price.devigged()
+    mapped = _map_market_outcomes(devigged, price, registry, home_key, away_key)
+    return "ok", {
+        "home": mapped.get("home"), "draw": mapped.get("draw"),
+        "away": mapped.get("away"),
+        "overround": price.overround,
+        "bookmakers": price.bookmaker_count,
+        "commence_time": price.commence_time.isoformat(),
+        "pre_kickoff": True,
+    }
 
 
 def _map_market_outcomes(devigged: dict, price, registry: TeamRegistry,
