@@ -232,3 +232,27 @@ def test_different_totals_lines_are_not_duplicates(tmp_path):
                      away="a", market="totals", selection="over", line=5.5,
                      model_probability=0.1)
     assert a is not None and b is not None
+
+
+# --- telegram formatting -----------------------------------------------------
+
+def test_markdownv2_reserved_characters_are_escaped():
+    """Telegram rejects the whole message with HTTP 400 on an unescaped '-'."""
+    from ucl.report import telegram
+
+    brief = {
+        "as_of": "2026-09-10",
+        "fixtures": [{
+            "date": "2026-09-10", "kickoff": "21:00", "matchday": 1,
+            "home": "h", "away": "a",
+            "home_display": "Bayern", "away_display": "Bodo/Glimt",
+            "arms": {"dixon_coles": {"home": 0.74, "draw": 0.14, "away": 0.12},
+                     "gnn": {"home": 0.70, "draw": 0.16, "away": 0.14}},
+            "market": {"home": 0.87, "draw": 0.08, "away": 0.05},
+        }],
+    }
+    text = telegram.format_brief(brief)
+    # Every '-' and '+' outside a code span must carry a backslash.
+    for index, char in enumerate(text):
+        if char in "-+" and not text.startswith("`", max(0, index - 1)):
+            assert text[index - 1] == "\\", f"unescaped {char!r} at {index}: {text[max(0,index-25):index+10]!r}"

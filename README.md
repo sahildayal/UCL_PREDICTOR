@@ -7,6 +7,10 @@ keeps an honest scoreboard by placing **fake** bets, and leaves every real
 decision to a human. There is no order placement anywhere in this repository and
 no path to add one by configuration.
 
+**Live dashboard: [sahildayal.github.io/UCL_PREDICTOR](https://sahildayal.github.io/UCL_PREDICTOR/)**
+— season scoreboard, the current matchday, and a permanent archive of every
+matchday as it was forecast before kickoff.
+
 See [DESIGN.md](DESIGN.md) for why it is built the way it is.
 
 ## What makes this different from a league predictor
@@ -120,10 +124,23 @@ python scripts/settle.py
 
 # check the club registry for silently duplicated clubs
 python scripts/audit_teams.py
+
+# rebuild the GitHub Pages site from the archived briefs
+python scripts/build_site.py
+
+# log your own pre-kickoff call, so the human arm has something in it
+python scripts/log_pick.py --home "manchester united" --away sabah   --date 2026-09-10 --pick home --confidence 0.88 --note "why"
 ```
 
 Exit codes follow the EPL lab's convention: `0` clean, `1` failed, `2` completed
 but a human should look.
+
+## Telegram
+
+`@ucl_sd_bot` pushes a brief on the morning of each matchday (fixtures, model
+versus market, disagreements flagged at 8+ points) and a results message the
+next morning. Configure `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in `.env`;
+unconfigured, the push is silently skipped and the matchday run still succeeds.
 
 ## Known limitations
 

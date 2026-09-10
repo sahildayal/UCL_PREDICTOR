@@ -21,7 +21,9 @@ load_dotenv()
 
 from ucl.config import force_utf8  # noqa: E402
 from ucl.pipeline import run_matchday  # noqa: E402
+from ucl.report import telegram  # noqa: E402
 from ucl.report.dashboard import write_dashboard  # noqa: E402
+from ucl.report.site import build_site  # noqa: E402
 
 force_utf8()
 
@@ -35,6 +37,7 @@ def main() -> int:
     parser.add_argument("--no-bets", action="store_true", help="do not touch the ledger")
     parser.add_argument("--rebuild-corpus", action="store_true")
     parser.add_argument("--no-dashboard", action="store_true")
+    parser.add_argument("--no-telegram", action="store_true")
     args = parser.parse_args()
 
     as_of = (datetime.strptime(args.as_of, "%Y-%m-%d").date()
@@ -65,6 +68,16 @@ def main() -> int:
     if not args.no_dashboard:
         path = write_dashboard(brief)
         print(f"dashboard: {path}")
+        try:
+            from ucl.data.results import results_map
+            site = build_site(results_map())
+        except Exception as exc:            # noqa: BLE001 - site is not critical
+            print(f"  note: site build skipped ({type(exc).__name__}: {exc})")
+        else:
+            print(f"site: {site}")
+
+    if not args.no_telegram and telegram.send(brief):
+        print("brief pushed to Telegram")
 
     problems = [n for n in brief.notes if "failed" in n or "unavailable" in n]
     if problems or not brief.market_available:

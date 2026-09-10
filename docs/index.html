@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Champions League Forecast Lab</title>
+<meta name="description" content="Six machine-learning models forecasting the 2026/27 Champions League league phase, scored against the closing line.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4f5f9; --panel:#ffffff; --panel-2:#eceef6;
+  --ink:#141830; --ink-soft:#4a5070; --ink-faint:#767ea0;
+  --line:#dcdfeb;
+  --accent:#3a5fd9; --accent-soft:#dbe2fb;
+  --home:#3a5fd9; --draw:#9aa2c4; --away:#c2683f;
+  --up:#1f8a5c; --down:#c0405c; --flat:#767ea0;
+  --shadow:0 1px 2px rgba(20,24,48,.06),0 8px 24px rgba(20,24,48,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0c0f1e; --panel:#141930; --panel-2:#1b2140;
+    --ink:#e8eaf4; --ink-soft:#a8b0cf; --ink-faint:#767ea0;
+    --line:#252c4c;
+    --accent:#7d9bff; --accent-soft:#232b52;
+    --home:#7d9bff; --draw:#6a7299; --away:#e08b5e;
+    --up:#3fc98a; --down:#f0708a; --flat:#767ea0;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0c0f1e; --panel:#141930; --panel-2:#1b2140;
+  --ink:#e8eaf4; --ink-soft:#a8b0cf; --ink-faint:#767ea0;
+  --line:#252c4c;
+  --accent:#7d9bff; --accent-soft:#232b52;
+  --home:#7d9bff; --draw:#6a7299; --away:#e08b5e;
+  --up:#3fc98a; --down:#f0708a; --flat:#767ea0;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:15px; line-height:1.5;
+}
+.wrap{max-width:1080px; margin:0 auto; padding-inline:20px; padding-block:36px 64px}
+.masthead{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline;
+  justify-content:space-between; border-bottom:2px solid var(--ink);
+  padding-bottom:14px; margin-bottom:8px}
+h1{font-family:"Bricolage Grotesque",Georgia,serif; font-weight:700;
+  font-size:clamp(26px,4.4vw,40px); letter-spacing:-.02em; margin:0; text-wrap:balance}
+.masthead__sub{color:var(--ink-soft); font-size:14px;
+  font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink-faint); font-weight:600}
+h2{font-family:"Bricolage Grotesque",Georgia,serif; font-size:21px; margin:0;
+  letter-spacing:-.01em}
+section{margin-top:40px}
+.section__head{display:flex; align-items:baseline; gap:12px; margin-bottom:16px}
+.section__note{color:var(--ink-faint); font-size:13px}
+
+.fixtures{display:flex; flex-direction:column; gap:14px}
+.fixture{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; box-shadow:var(--shadow)}
+.fixture__head{display:flex; flex-wrap:wrap; gap:8px 16px;
+  justify-content:space-between; align-items:baseline}
+.fixture__teams{display:flex; flex-wrap:wrap; align-items:baseline; gap:9px;
+  font-family:"Bricolage Grotesque",Georgia,serif; font-size:19px; font-weight:600}
+.fixture__v{color:var(--ink-faint); font-size:13px; font-weight:400;
+  font-family:"Source Sans 3",sans-serif}
+.fixture__meta{display:flex; gap:12px; flex-wrap:wrap;
+  font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  color:var(--ink-faint)}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 14px}
+.chip{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px;
+  padding:3px 8px; border-radius:5px; background:var(--panel-2);
+  color:var(--ink-soft); white-space:nowrap}
+.chip--wide{background:var(--down); color:#fff}
+.chip--some{background:var(--accent-soft); color:var(--accent)}
+
+.prows{display:flex; flex-direction:column; gap:7px}
+.prow{display:grid; grid-template-columns:112px 1fr 74px 34px; gap:10px;
+  align-items:center}
+.prow--market .prow__name{font-weight:700; color:var(--ink)}
+.prow__name{font-size:12.5px; color:var(--ink-soft); white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis}
+.prow--absent{grid-template-columns:112px 1fr}
+.prow__absent{font-size:12px; color:var(--ink-faint); font-style:italic}
+.bar{display:flex; height:15px; border-radius:3px; overflow:hidden;
+  background:var(--panel-2)}
+.prow--market .bar{height:19px}
+.bar__seg--home{background:var(--home)}
+.bar__seg--draw{background:var(--draw)}
+.bar__seg--away{background:var(--away)}
+.prow__nums{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  font-variant-numeric:tabular-nums; display:flex; gap:7px}
+.prow__nums b{color:var(--home)} .prow__nums i{color:var(--draw); font-style:normal}
+.prow__nums s{color:var(--away); text-decoration:none}
+.delta{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  text-align:right; font-variant-numeric:tabular-nums}
+.delta--up{color:var(--up)} .delta--down{color:var(--down)} .delta--flat{color:var(--flat)}
+
+.scroller{overflow-x:auto; border:1px solid var(--line); border-radius:10px;
+  background:var(--panel)}
+.qtable{border-collapse:collapse; width:100%; font-size:13.5px}
+.qtable th{text-align:left; font-size:11px; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--ink-faint); font-weight:600;
+  padding:11px 12px; border-bottom:1px solid var(--line); white-space:nowrap}
+.qtable td{padding:8px 12px; border-bottom:1px solid var(--line); white-space:nowrap}
+.qtable tbody tr:last-child td{border-bottom:none}
+.num{text-align:right; font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.q__pos{color:var(--ink-faint); font-family:"JetBrains Mono",monospace; width:34px}
+.q--top8 .q__pos{color:var(--up); font-weight:700}
+.q--out .q__club{color:var(--ink-faint)}
+.q__out{color:var(--ink-faint)}
+.q--top8{background:linear-gradient(90deg,color-mix(in srgb,var(--up) 9%,transparent),transparent 40%)}
+.regime{font-size:10.5px; text-transform:uppercase; letter-spacing:.07em;
+  padding:2px 7px; border-radius:4px; background:var(--panel-2); color:var(--ink-soft)}
+.regime--science{background:var(--accent-soft); color:var(--accent)}
+
+.notes{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:8px; padding:14px 16px; font-size:13px; color:var(--ink-soft)}
+.notes ul{margin:8px 0 0; padding-left:18px} .notes li{margin:3px 0}
+.disclaimer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:12.5px; color:var(--ink-faint)}
+.empty{color:var(--ink-faint); font-style:italic}
+@media (max-width:560px){
+  .prow{grid-template-columns:88px 1fr 62px 30px; gap:7px}
+  .prow__name{font-size:11.5px}
+}
+
+.hero{display:grid; gap:6px; margin-bottom:8px}
+.lede{color:var(--ink-soft); max-width:62ch; font-size:15.5px; margin:10px 0 0}
+.grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px}
+.stat__k{font-size:11px; text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink-faint); font-weight:600}
+.stat__v{font-family:"Bricolage Grotesque",Georgia,serif; font-size:27px;
+  font-weight:700; font-variant-numeric:tabular-nums; margin-top:3px}
+.stat__n{font-size:12px; color:var(--ink-faint); margin-top:2px}
+.archive{display:flex; flex-direction:column; gap:0;
+  border:1px solid var(--line); border-radius:10px; background:var(--panel);
+  overflow:hidden}
+.archive a{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline;
+  padding:12px 16px; text-decoration:none; color:inherit;
+  border-bottom:1px solid var(--line)}
+.archive a:last-child{border-bottom:none}
+.archive a:hover{background:var(--panel-2)}
+.archive a:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.archive__md{font-family:"Bricolage Grotesque",Georgia,serif; font-weight:700;
+  font-size:15px; min-width:44px}
+.archive__date{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12px;
+  color:var(--ink-faint)}
+.archive__n{font-size:12.5px; color:var(--ink-soft); margin-left:auto}
+.market-row td{font-weight:700; background:var(--panel-2)}
+.backlink{display:inline-block; margin-bottom:20px; font-size:13.5px;
+  color:var(--accent); text-decoration:none}
+.backlink:hover{text-decoration:underline}
+.pending{color:var(--ink-faint); font-style:italic; font-size:13px}
+.res{font-family:"JetBrains Mono",ui-monospace,monospace; font-weight:500}
+</style>
+</head><body>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">2026/27 League Phase</div>
+      <h1>Champions League Forecast Lab</h1>
+    </div>
+  </header>
+
+  <p class="lede">
+    Six models forecast every league-phase fixture. None of them ever sees a
+    betting price: odds are used only to settle fake bets and to score each model
+    against the de-vigged closing line. Every brief is committed before kickoff,
+    so the record below is what was actually claimed at the time, not a backtest.
+  </p>
+  <p class="lede"><a class="backlink" href="matchday-2026-09-10.html">Latest brief — matchday 1, 2026-09-10 →</a></p>
+
+  <section>
+    <div class="grid">
+      <div class="stat"><div class="stat__k">Matchdays archived</div>
+        <div class="stat__v">1</div>
+        <div class="stat__n">6 fixtures forecast</div></div>
+      <div class="stat"><div class="stat__k">Fixtures settled</div>
+        <div class="stat__v">0</div>
+        <div class="stat__n">scored against the closing line</div></div>
+      <div class="stat"><div class="stat__k">Leading arm</div>
+        <div class="stat__v">—</div>
+        <div class="stat__n">awaiting results</div></div>
+      <div class="stat"><div class="stat__k">Beating the market?</div>
+        <div class="stat__v">—</div>
+        <div class="stat__n">the only question that matters</div></div>
+    </div></section>
+
+  <section>
+    <div class="section__head">
+      <h2>Season scoreboard</h2>
+      <span class="section__note">Lower log loss is better. The
+      <em>vs market</em> column is the market's log loss minus the arm's:
+      positive means the arm beat the closing line.</span>
+    </div>
+    <p class="pending">No settled fixtures yet. The scoreboard fills in from the first settlement run.</p>
+  </section>
+
+  <section>
+    <div class="section__head">
+      <h2>Archive</h2>
+      <span class="section__note">Every matchday as it was forecast, before
+      kickoff.</span>
+    </div>
+    <div class="archive">
+        <a href="matchday-2026-09-10.html">
+          <span class="archive__md">MD1</span>
+          <span class="archive__date">2026-09-10</span>
+          <span class="archive__n">6 fixtures · pending</span>
+        </a></div>
+  </section>
+
+  <p class="disclaimer">
+    No real money and no order placement exists in this system. Prices are read
+    only. Forecasts are decision support for a human, not instructions.
+    Source: <a href="https://github.com/sahildayal/UCL_PREDICTOR">github.com/sahildayal/UCL_PREDICTOR</a>
+  </p>
+</div>
+</body></html>

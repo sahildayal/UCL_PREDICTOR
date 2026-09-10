@@ -44,15 +44,19 @@ def format_brief(brief) -> str:
         if market_home is not None:
             gap = consensus - market_home
             flag = " ⚑" if abs(gap) >= 0.08 else ""
+            # MarkdownV2 treats '-' and '+' as reserved, so a signed number has
+            # to be escaped or Telegram rejects the whole message with HTTP 400.
+            gap_text = _escape(format(gap * 100, "+.0f"))
             lines.append(
                 f"  model {consensus * 100:.0f}% \\| market {market_home * 100:.0f}% "
-                f"\\| gap {gap * 100:+.0f}{flag}")
+                f"\\| gap {gap_text}{flag}")
         else:
             lines.append(f"  model {consensus * 100:.0f}% \\| no market price")
 
         spread = [v["home"] for v in arms.values()]
         if len(spread) > 1:
-            lines.append(f"  arms {min(spread) * 100:.0f}–{max(spread) * 100:.0f}%")
+            span = _escape(f"{min(spread) * 100:.0f}-{max(spread) * 100:.0f}")
+            lines.append(f"  arms {span}%")
         lines.append("")
 
     flagged = [e for e in data["fixtures"] if e.get("market") and e["market"].get("home")
@@ -63,19 +67,78 @@ def format_brief(brief) -> str:
     return "\n".join(lines)[:MAX_LENGTH]
 
 
-def send(brief, *, token: str | None = None, chat_id: str | None = None) -> bool:
-    """Send the brief. Returns False when unconfigured or the API refuses."""
+def format_results(brief, results: dict, ledger=None) -> str:
+    """Post-matchday message: what happened and how each model did.
+
+    The headline number is the probability each arm gave to the result that
+    actually occurred, which is the only per-match summary that is both honest
+    and readable on a phone.
+    """
+    data = brief.__dict__ if hasattr(brief, "__dict__") else brief
+    lines = ["*UCL results*", ""]
+
+    scored: list[tuple[str, dict, str]] = []
+    for entry in data.get("fixtures", []):
+        key = (entry["home"], entry["away"], entry["date"])
+        if key not in results:
+            continue
+        home_goals, away_goals = results[key]
+        actual = ("home" if home_goals > away_goals
+                  else "draw" if home_goals == away_goals else "away")
+        scored.append((f"{home_goals}-{away_goals}", entry, actual))
+
+    if not scored:
+        return ""
+
+    for score, entry, actual in scored:
+        market = (entry.get("market") or {}).get(actual)
+        arms = {k: v for k, v in entry["arms"].items() if v}
+        consensus = (sum(v[actual] for v in arms.values()) / len(arms)) if arms else None
+        line = (f"*{_escape(entry['home_display'])}* {_escape(score)} "
+                f"*{_escape(entry['away_display'])}*")
+        lines.append(line)
+        detail = []
+        if consensus is not None:
+            detail.append(f"models {consensus * 100:.0f}%")
+        if market is not None:
+            detail.append(f"market {market * 100:.0f}%")
+        if detail:
+            lines.append("  " + _escape(" | ".join(detail)) + " on the actual result")
+        lines.append("")
+
+    if ledger is not None:
+        rows = [r for r in ledger.summary() if r["regime"] == "science"]
+        if rows:
+            best = max(rows, key=lambda row: row["profit"])
+            profit = format(best["profit"], "+,.0f")
+            lines.append(f"_Best paper arm: {_escape(best['arm'])} "
+                         f"{_escape(profit)}_")
+    return "\n".join(lines)[:MAX_LENGTH]
+
+
+def _post(text: str, token: str | None, chat_id: str | None) -> bool:
     token = token or os.getenv("TELEGRAM_BOT_TOKEN", "")
     chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID", "")
-    if not token or not chat_id:
+    if not token or not chat_id or not text:
         return False
     try:
         response = requests.post(
             API.format(token=token),
-            json={"chat_id": chat_id, "text": format_brief(brief),
+            json={"chat_id": chat_id, "text": text,
                   "parse_mode": "MarkdownV2", "disable_web_page_preview": True},
             timeout=20,
         )
         return response.status_code == 200
     except requests.RequestException:
         return False
+
+
+def send(brief, *, token: str | None = None, chat_id: str | None = None) -> bool:
+    """Send the pre-matchday brief. False when unconfigured or refused."""
+    return _post(format_brief(brief), token, chat_id)
+
+
+def send_results(brief, results: dict, ledger=None, *,
+                 token: str | None = None, chat_id: str | None = None) -> bool:
+    """Send the post-matchday results message."""
+    return _post(format_results(brief, results, ledger), token, chat_id)

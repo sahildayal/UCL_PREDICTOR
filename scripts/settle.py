@@ -19,9 +19,11 @@ load_dotenv()
 import numpy as np  # noqa: E402
 
 from ucl.config import PROCESSED, force_utf8  # noqa: E402
-from ucl.data import wikipedia  # noqa: E402
+from ucl.data.results import results_map  # noqa: E402
 from ucl.eval import metrics  # noqa: E402
 from ucl.ledger.ledger import Ledger  # noqa: E402
+from ucl.report import telegram  # noqa: E402
+from ucl.report.site import build_site  # noqa: E402
 from ucl.teams import TeamRegistry  # noqa: E402
 
 force_utf8()
@@ -33,15 +35,7 @@ def main() -> int:
     args = parser.parse_args()
 
     registry = TeamRegistry.load()
-    fixtures = wikipedia.load_current_season(max_age_hours=0.25)
-    played = {}
-    for fixture in fixtures:
-        if not fixture.played:
-            continue
-        home = registry.resolve(fixture.home)
-        away = registry.resolve(fixture.away)
-        if home and away:
-            played[(home, away, str(fixture.date))] = (fixture.home_goals, fixture.away_goals)
+    played = results_map(registry)
 
     ledger = Ledger.load()
     settled = 0
@@ -96,6 +90,13 @@ def main() -> int:
             edge = comparison["edge_vs_market"]
             line += f"  vs market: {edge:+.4f} ({'better' if edge > 0 else 'worse'})"
         print(line)
+
+    site = build_site(played)
+    print(f"
+site rebuilt: {site}")
+
+    if telegram.send_results(brief, played, ledger):
+        print("results pushed to Telegram")
     return 0
 
 
