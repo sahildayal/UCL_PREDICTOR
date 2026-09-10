@@ -1,0 +1,17 @@
+# Majors are capped on purpose: an upstream breaking change should arrive as a
+# failed run with a clear error, not as a matchday that silently produces
+# different numbers.
+numpy>=2.0,<3
+pandas>=2.2,<4
+scipy>=1.13,<2
+scikit-learn>=1.5,<2
+pyarrow>=17,<24
+lightgbm>=4.4,<5
+xgboost>=2.1,<4
+pymc>=5.16,<7
+arviz>=0.19,<1
+torch>=2.4,<3
+requests>=2.32,<3
+python-dotenv>=1.0,<2
+jinja2>=3.1,<4
+pytest>=8.3,<9

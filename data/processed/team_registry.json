@@ -1,0 +1,5608 @@
+{
+  "07 elversberg": {
+    "display": "SV 07 Elversberg",
+    "country": "GER",
+    "aliases": [
+      "SV 07 Elversberg"
+    ]
+  },
+  "1 fsv mainz": {
+    "display": "1. FSV Mainz 05",
+    "country": "GER",
+    "aliases": [
+      "1. FSV Mainz 05"
+    ]
+  },
+  "1 heidenheim 1846": {
+    "display": "1. FC Heidenheim 1846",
+    "country": "GER",
+    "aliases": [
+      "1. FC Heidenheim 1846"
+    ]
+  },
+  "1 kaiserslautern": {
+    "display": "1. FC Kaiserslautern",
+    "country": "GER",
+    "aliases": [
+      "1. FC Kaiserslautern"
+    ]
+  },
+  "1 koln": {
+    "display": "1. FC Köln",
+    "country": "GER",
+    "aliases": [
+      "1. FC Köln"
+    ]
+  },
+  "1 nurnberg": {
+    "display": "1. FC Nürnberg",
+    "country": "GER",
+    "aliases": [
+      "1. FC Nürnberg"
+    ]
+  },
+  "1 pribram": {
+    "display": "1. FK Příbram",
+    "country": "CZE",
+    "aliases": [
+      "1. FK Příbram"
+    ]
+  },
+  "1 slovacko": {
+    "display": "1. FC Slovácko",
+    "country": "CZE",
+    "aliases": [
+      "1. FC Slovácko"
+    ]
+  },
+  "1 wiener neustadter": {
+    "display": "1. Wiener Neustädter SC",
+    "country": "AUT",
+    "aliases": [
+      "1. Wiener Neustädter SC"
+    ]
+  },
+  "aalborg": {
+    "display": "Aalborg BK",
+    "country": "DEN",
+    "aliases": [
+      "Aalborg BK"
+    ]
+  },
+  "aalesunds": {
+    "display": "Aalesunds FK",
+    "country": "NOR",
+    "aliases": [
+      "Aalesunds FK"
+    ]
+  },
+  "aarau": {
+    "display": "FC Aarau",
+    "country": "SUI",
+    "aliases": [
+      "FC Aarau"
+    ]
+  },
+  "aarhus gf": {
+    "display": "Aarhus GF",
+    "country": "DEN",
+    "aliases": [
+      "Aarhus GF"
+    ]
+  },
+  "aberdeen": {
+    "display": "Aberdeen FC",
+    "country": "SCO",
+    "aliases": [
+      "Aberdeen FC"
+    ]
+  },
+  "academico viseu": {
+    "display": "Académico de Viseu FC",
+    "country": "POR",
+    "aliases": [
+      "Académico de Viseu FC"
+    ]
+  },
+  "adana demirspor": {
+    "display": "Adana Demirspor",
+    "country": "TUR",
+    "aliases": [
+      "Adana Demirspor"
+    ]
+  },
+  "admira wacker": {
+    "display": "FC Admira Wacker",
+    "country": "AUT",
+    "aliases": [
+      "FC Admira Wacker"
+    ]
+  },
+  "ado den haag": {
+    "display": "ADO Den Haag",
+    "country": "NED",
+    "aliases": [
+      "ADO Den Haag"
+    ]
+  },
+  "ae kifisias": {
+    "display": "AE Kifisias",
+    "country": "GRE",
+    "aliases": [
+      "AE Kifisias"
+    ]
+  },
+  "ae larissa": {
+    "display": "AE Lárissa",
+    "country": "GRE",
+    "aliases": [
+      "AE Lárissa"
+    ]
+  },
+  "ae zakakiou": {
+    "display": "AE Zakakiou",
+    "country": "CYP",
+    "aliases": [
+      "AE Zakakiou"
+    ]
+  },
+  "aek athens": {
+    "display": "AEK Athen",
+    "country": "GRE",
+    "aliases": [
+      "AEK Athen",
+      "AEK Athens"
+    ]
+  },
+  "aek larnaca": {
+    "display": "AEK Larnaca",
+    "country": "CYP",
+    "aliases": [
+      "AEK Larnaca"
+    ]
+  },
+  "ael limassol": {
+    "display": "AEL Limassol",
+    "country": "CYP",
+    "aliases": [
+      "AEL Limassol"
+    ]
+  },
+  "aik solna": {
+    "display": "AIK Solna",
+    "country": "SWE",
+    "aliases": [
+      "AIK Solna"
+    ]
+  },
+  "ajaccio": {
+    "display": "AC Ajaccio",
+    "country": "FRA",
+    "aliases": [
+      "AC Ajaccio"
+    ]
+  },
+  "ajax": {
+    "display": "AFC Ajax",
+    "country": "NED",
+    "aliases": [
+      "AFC Ajax"
+    ]
+  },
+  "akhisar belediyespor": {
+    "display": "Akhisar Belediyespor",
+    "country": "TUR",
+    "aliases": [
+      "Akhisar Belediyespor"
+    ]
+  },
+  "aktobe": {
+    "display": "FK Aktobe",
+    "country": "KAZ",
+    "aliases": [
+      "FK Aktobe"
+    ]
+  },
+  "alanyaspor": {
+    "display": "Alanyaspor",
+    "country": "TUR",
+    "aliases": [
+      "Alanyaspor"
+    ]
+  },
+  "alaves": {
+    "display": "CD Alavés",
+    "country": "ESP",
+    "aliases": [
+      "CD Alavés"
+    ]
+  },
+  "almere city": {
+    "display": "Almere City FC",
+    "country": "NED",
+    "aliases": [
+      "Almere City FC"
+    ]
+  },
+  "almeria": {
+    "display": "UD Almería",
+    "country": "ESP",
+    "aliases": [
+      "UD Almería"
+    ]
+  },
+  "alverca": {
+    "display": "FC Alverca",
+    "country": "POR",
+    "aliases": [
+      "FC Alverca"
+    ]
+  },
+  "amiens": {
+    "display": "Amiens SC",
+    "country": "FRA",
+    "aliases": [
+      "Amiens SC"
+    ]
+  },
+  "anderlecht": {
+    "display": "RSC Anderlecht",
+    "country": "BEL",
+    "aliases": [
+      "RSC Anderlecht"
+    ]
+  },
+  "angers sco": {
+    "display": "Angers SCO",
+    "country": "FRA",
+    "aliases": [
+      "Angers SCO"
+    ]
+  },
+  "anorthosis famagusta": {
+    "display": "Anorthosis Famagusta",
+    "country": "CYP",
+    "aliases": [
+      "Anorthosis Famagusta"
+    ]
+  },
+  "antalyaspor": {
+    "display": "Antalyaspor",
+    "country": "TUR",
+    "aliases": [
+      "Antalyaspor"
+    ]
+  },
+  "antwerp": {
+    "display": "Royal Antwerp FC",
+    "country": "BEL",
+    "aliases": [
+      "Royal Antwerp FC"
+    ]
+  },
+  "apoel nikosia": {
+    "display": "APOEL Nikosia",
+    "country": "CYP",
+    "aliases": [
+      "APOEL Nikosia"
+    ]
+  },
+  "apollon limassol": {
+    "display": "Apollon Limassol",
+    "country": "CYP",
+    "aliases": [
+      "Apollon Limassol"
+    ]
+  },
+  "apollon smyrnis": {
+    "display": "Apollon Smyrnis",
+    "country": "GRE",
+    "aliases": [
+      "Apollon Smyrnis"
+    ]
+  },
+  "ararat armenia": {
+    "display": "FC Ararat-Armenia",
+    "country": "ARM",
+    "aliases": [
+      "FC Ararat-Armenia"
+    ]
+  },
+  "araz naxcivan pfk": {
+    "display": "Araz-Naxçıvan PFK",
+    "country": "AZE",
+    "aliases": [
+      "Araz-Naxçıvan PFK"
+    ]
+  },
+  "arda kardzhali": {
+    "display": "Arda Kardzhali",
+    "country": "BUL",
+    "aliases": [
+      "Arda Kardzhali"
+    ]
+  },
+  "aris limassol": {
+    "display": "Aris Limassol",
+    "country": "CYP",
+    "aliases": [
+      "Aris Limassol"
+    ]
+  },
+  "aris saloniki": {
+    "display": "Aris Saloniki",
+    "country": "GRE",
+    "aliases": [
+      "Aris Saloniki"
+    ]
+  },
+  "arminia bielefeld": {
+    "display": "Arminia Bielefeld",
+    "country": "GER",
+    "aliases": [
+      "Arminia Bielefeld"
+    ]
+  },
+  "arouca": {
+    "display": "FC Arouca",
+    "country": "POR",
+    "aliases": [
+      "FC Arouca"
+    ]
+  },
+  "arsenal": {
+    "display": "Arsenal FC",
+    "country": "ENG",
+    "aliases": [
+      "Arsenal",
+      "Arsenal FC"
+    ]
+  },
+  "astana": {
+    "display": "FK Astana",
+    "country": "KAZ",
+    "aliases": [
+      "FK Astana"
+    ]
+  },
+  "asteras tripolis": {
+    "display": "Asteras Tripolis",
+    "country": "GRE",
+    "aliases": [
+      "Asteras Tripolis"
+    ]
+  },
+  "aston villa": {
+    "display": "Aston Villa FC",
+    "country": "ENG",
+    "aliases": [
+      "Aston Villa",
+      "Aston Villa FC"
+    ]
+  },
+  "atalanta": {
+    "display": "Atalanta",
+    "country": "ITA",
+    "aliases": [
+      "Atalanta",
+      "Atalanta BC"
+    ]
+  },
+  "athletic bilbao": {
+    "display": "Athletic Club",
+    "country": "ESP",
+    "aliases": [
+      "Athletic Club"
+    ]
+  },
+  "atiker konyaspor": {
+    "display": "Atiker Konyaspor",
+    "country": "TUR",
+    "aliases": [
+      "Atiker Konyaspor"
+    ]
+  },
+  "atletic escaldes": {
+    "display": "Atlétic Escaldes",
+    "country": "AND",
+    "aliases": [
+      "Atlétic Escaldes"
+    ]
+  },
+  "atletico madrid": {
+    "display": "Atlético Madrid",
+    "country": "ESP",
+    "aliases": [
+      "Atlético Madrid",
+      "Atlético de Madrid",
+      "Club Atlético de Madrid"
+    ]
+  },
+  "atromitos": {
+    "display": "Atromitos",
+    "country": "GRE",
+    "aliases": [
+      "Atromitos"
+    ]
+  },
+  "auda": {
+    "display": "FK Auda",
+    "country": "LVA",
+    "aliases": [
+      "FK Auda"
+    ]
+  },
+  "augsburg": {
+    "display": "FC Augsburg",
+    "country": "GER",
+    "aliases": [
+      "FC Augsburg"
+    ]
+  },
+  "austria klagenfurt": {
+    "display": "SK Austria Klagenfurt",
+    "country": "AUT",
+    "aliases": [
+      "SK Austria Klagenfurt"
+    ]
+  },
+  "austria lustenau": {
+    "display": "Austria Lustenau",
+    "country": "AUT",
+    "aliases": [
+      "Austria Lustenau"
+    ]
+  },
+  "austria wien": {
+    "display": "Austria Wien",
+    "country": "AUT",
+    "aliases": [
+      "Austria Wien"
+    ]
+  },
+  "auxerre": {
+    "display": "AJ Auxerre",
+    "country": "FRA",
+    "aliases": [
+      "AJ Auxerre",
+      "Auxerre"
+    ]
+  },
+  "aves": {
+    "display": "CD Aves",
+    "country": "POR",
+    "aliases": [
+      "CD Aves"
+    ]
+  },
+  "avs": {
+    "display": "AVS",
+    "country": "POR",
+    "aliases": [
+      "AVS"
+    ]
+  },
+  "az": {
+    "display": "AZ",
+    "country": "NED",
+    "aliases": [
+      "AZ"
+    ]
+  },
+  "az alkmaar": {
+    "display": "AZ Alkmaar",
+    "country": "NED",
+    "aliases": [
+      "AZ Alkmaar"
+    ]
+  },
+  "b36 torshavn": {
+    "display": "B36 Tórshavn",
+    "country": "FRO",
+    "aliases": [
+      "B36 Tórshavn"
+    ]
+  },
+  "bala town": {
+    "display": "Bala Town",
+    "country": "WAL",
+    "aliases": [
+      "Bala Town"
+    ]
+  },
+  "banga gargzdai": {
+    "display": "Banga Gargždai",
+    "country": "LTU",
+    "aliases": [
+      "Banga Gargždai"
+    ]
+  },
+  "banik ostrava": {
+    "display": "Baník Ostrava",
+    "country": "CZE",
+    "aliases": [
+      "Baník Ostrava"
+    ]
+  },
+  "barcelona": {
+    "display": "FC Barcelona",
+    "country": "ESP",
+    "aliases": [
+      "Barcelona",
+      "FC Barcelona"
+    ]
+  },
+  "basel 1893": {
+    "display": "FC Basel 1893",
+    "country": "SUI",
+    "aliases": [
+      "FC Basel 1893"
+    ]
+  },
+  "bastia": {
+    "display": "SC Bastia",
+    "country": "FRA",
+    "aliases": [
+      "SC Bastia"
+    ]
+  },
+  "bate borisov": {
+    "display": "BATE Borisov",
+    "country": "BLR",
+    "aliases": [
+      "BATE Borisov"
+    ]
+  },
+  "bayer leverkusen": {
+    "display": "Bayer Leverkusen",
+    "country": "GER",
+    "aliases": [
+      "Bayer 04 Leverkusen",
+      "Bayer Leverkusen"
+    ]
+  },
+  "bayern munich": {
+    "display": "Bayern München",
+    "country": "GER",
+    "aliases": [
+      "Bayern Munich",
+      "Bayern München",
+      "FC Bayern München"
+    ]
+  },
+  "bb erzurumspor": {
+    "display": "BB Erzurumspor",
+    "country": "TUR",
+    "aliases": [
+      "BB Erzurumspor"
+    ]
+  },
+  "beitar jerusalem": {
+    "display": "Beitar Jerusalem",
+    "country": "ISR",
+    "aliases": [
+      "Beitar Jerusalem"
+    ]
+  },
+  "belenenses sad": {
+    "display": "Belenenses SAD",
+    "country": "POR",
+    "aliases": [
+      "Belenenses SAD"
+    ]
+  },
+  "benevento": {
+    "display": "Benevento Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Benevento Calcio"
+    ]
+  },
+  "benfica": {
+    "display": "SL Benfica",
+    "country": "POR",
+    "aliases": [
+      "SL Benfica"
+    ]
+  },
+  "besiktas": {
+    "display": "Beşiktaş",
+    "country": "TUR",
+    "aliases": [
+      "Beşiktaş"
+    ]
+  },
+  "beveren": {
+    "display": "SK Beveren",
+    "country": "BEL",
+    "aliases": [
+      "SK Beveren"
+    ]
+  },
+  "bfc daugavpils": {
+    "display": "BFC Daugavpils",
+    "country": "LVA",
+    "aliases": [
+      "BFC Daugavpils"
+    ]
+  },
+  "birkirkara": {
+    "display": "Birkirkara FC",
+    "country": "MLT",
+    "aliases": [
+      "Birkirkara FC"
+    ]
+  },
+  "blackburn rovers": {
+    "display": "Blackburn Rovers",
+    "country": "ENG",
+    "aliases": [
+      "Blackburn Rovers"
+    ]
+  },
+  "blau weiss linz": {
+    "display": "FC Blau Weiß Linz",
+    "country": "AUT",
+    "aliases": [
+      "Blau-Weiß Linz",
+      "FC Blau Weiß Linz"
+    ]
+  },
+  "boavista": {
+    "display": "Boavista",
+    "country": "POR",
+    "aliases": [
+      "Boavista",
+      "Boavista FC"
+    ]
+  },
+  "bochum 1848": {
+    "display": "VfL Bochum 1848",
+    "country": "GER",
+    "aliases": [
+      "VfL Bochum 1848"
+    ]
+  },
+  "bodo/glimt": {
+    "display": "FK Bodø/Glimt",
+    "country": "NOR",
+    "aliases": [
+      "Bodø/Glimt",
+      "FK Bodø/Glimt"
+    ]
+  },
+  "bodrum": {
+    "display": "Bodrum FK",
+    "country": "TUR",
+    "aliases": [
+      "Bodrum FK"
+    ]
+  },
+  "bohemians praha": {
+    "display": "Bohemians Praha 1905",
+    "country": "CZE",
+    "aliases": [
+      "Bohemians Praha 1905"
+    ]
+  },
+  "bologna": {
+    "display": "Bologna FC 1909",
+    "country": "ITA",
+    "aliases": [
+      "Bologna",
+      "Bologna FC",
+      "Bologna FC 1909"
+    ]
+  },
+  "bolton wanderers": {
+    "display": "Bolton Wanderers",
+    "country": "ENG",
+    "aliases": [
+      "Bolton Wanderers"
+    ]
+  },
+  "borac banja luka": {
+    "display": "Borac Banja Luka",
+    "country": "BIH",
+    "aliases": [
+      "Borac Banja Luka"
+    ]
+  },
+  "borussia dortmund": {
+    "display": "Borussia Dortmund",
+    "country": "GER",
+    "aliases": [
+      "Borussia Dortmund"
+    ]
+  },
+  "borussia m gladbach": {
+    "display": "Borussia M'gladbach",
+    "country": "GER",
+    "aliases": [
+      "Borussia M'gladbach"
+    ]
+  },
+  "borussia monchengladbach": {
+    "display": "Bor. Mönchengladbach",
+    "country": "GER",
+    "aliases": [
+      "Bor. Mönchengladbach",
+      "Borussia Mönchengladbach"
+    ]
+  },
+  "botev plovdiv": {
+    "display": "Botev Plovdiv",
+    "country": "BUL",
+    "aliases": [
+      "Botev Plovdiv"
+    ]
+  },
+  "botev vratsa": {
+    "display": "Botev Vratsa",
+    "country": "BUL",
+    "aliases": [
+      "Botev Vratsa"
+    ]
+  },
+  "botosani": {
+    "display": "FC Botoşani",
+    "country": "ROU",
+    "aliases": [
+      "FC Botoşani"
+    ]
+  },
+  "bournemouth": {
+    "display": "AFC Bournemouth",
+    "country": "ENG",
+    "aliases": [
+      "AFC Bournemouth",
+      "Bournemouth"
+    ]
+  },
+  "brann": {
+    "display": "SK Brann",
+    "country": "NOR",
+    "aliases": [
+      "SK Brann"
+    ]
+  },
+  "brei ablik": {
+    "display": "Breiðablik",
+    "country": "ISL",
+    "aliases": [
+      "Breiðablik"
+    ]
+  },
+  "brentford": {
+    "display": "Brentford FC",
+    "country": "ENG",
+    "aliases": [
+      "Brentford",
+      "Brentford FC"
+    ]
+  },
+  "brescia": {
+    "display": "Brescia Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Brescia Calcio"
+    ]
+  },
+  "brestois": {
+    "display": "Stade Brestois",
+    "country": "FRA",
+    "aliases": [
+      "Stade Brestois"
+    ]
+  },
+  "brestois 29": {
+    "display": "Stade Brestois 29",
+    "country": "FRA",
+    "aliases": [
+      "Stade Brestois 29"
+    ]
+  },
+  "brighton hove albion": {
+    "display": "Brighton & Hove Albion",
+    "country": "ENG",
+    "aliases": [
+      "Brighton & Hove Albion",
+      "Brighton & Hove Albion FC"
+    ]
+  },
+  "brommapojkarna": {
+    "display": "IF Brommapojkarna",
+    "country": "SWE",
+    "aliases": [
+      "IF Brommapojkarna"
+    ]
+  },
+  "brondby": {
+    "display": "Brøndby IF",
+    "country": "DEN",
+    "aliases": [
+      "Brøndby IF"
+    ]
+  },
+  "bryne": {
+    "display": "Bryne FK",
+    "country": "NOR",
+    "aliases": [
+      "Bryne FK"
+    ]
+  },
+  "bsc young boys": {
+    "display": "BSC Young Boys",
+    "country": "SUI",
+    "aliases": [
+      "BSC Young Boys"
+    ]
+  },
+  "budafoki mte": {
+    "display": "Budafoki MTE",
+    "country": "HUN",
+    "aliases": [
+      "Budafoki MTE"
+    ]
+  },
+  "budapest honved": {
+    "display": "Budapest Honvéd",
+    "country": "HUN",
+    "aliases": [
+      "Budapest Honvéd"
+    ]
+  },
+  "buducnost podgorica": {
+    "display": "FK Budućnost Podgorica",
+    "country": "MNE",
+    "aliases": [
+      "FK Budućnost Podgorica"
+    ]
+  },
+  "burnley": {
+    "display": "Burnley FC",
+    "country": "ENG",
+    "aliases": [
+      "Burnley",
+      "Burnley FC"
+    ]
+  },
+  "bursaspor": {
+    "display": "Bursaspor",
+    "country": "TUR",
+    "aliases": [
+      "Bursaspor"
+    ]
+  },
+  "ca osasuna": {
+    "display": "CA Osasuna",
+    "country": "ESP",
+    "aliases": [
+      "CA Osasuna"
+    ]
+  },
+  "cadiz": {
+    "display": "Cádiz CF",
+    "country": "ESP",
+    "aliases": [
+      "Cádiz CF"
+    ]
+  },
+  "caernarfon town": {
+    "display": "Caernarfon Town",
+    "country": "WAL",
+    "aliases": [
+      "Caernarfon Town"
+    ]
+  },
+  "cagliari": {
+    "display": "Cagliari Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Cagliari",
+      "Cagliari Calcio"
+    ]
+  },
+  "cambuur": {
+    "display": "SC Cambuur",
+    "country": "NED",
+    "aliases": [
+      "SC Cambuur"
+    ]
+  },
+  "cambuur leeuwarden": {
+    "display": "SC Cambuur-Leeuwarden",
+    "country": "NED",
+    "aliases": [
+      "SC Cambuur-Leeuwarden"
+    ]
+  },
+  "cardiff city": {
+    "display": "Cardiff City",
+    "country": "ENG",
+    "aliases": [
+      "Cardiff City"
+    ]
+  },
+  "carpi": {
+    "display": "Carpi FC",
+    "country": "ITA",
+    "aliases": [
+      "Carpi FC"
+    ]
+  },
+  "casa pia": {
+    "display": "Casa Pia AC",
+    "country": "POR",
+    "aliases": [
+      "Casa Pia AC"
+    ]
+  },
+  "catania": {
+    "display": "Calcio Catania",
+    "country": "ITA",
+    "aliases": [
+      "Calcio Catania"
+    ]
+  },
+  "caykur rizespor": {
+    "display": "Çaykur Rizespor",
+    "country": "TUR",
+    "aliases": [
+      "Çaykur Rizespor"
+    ]
+  },
+  "celta": {
+    "display": "RC Celta",
+    "country": "ESP",
+    "aliases": [
+      "RC Celta"
+    ]
+  },
+  "celta vigo": {
+    "display": "RC Celta de Vigo",
+    "country": "ESP",
+    "aliases": [
+      "RC Celta de Vigo"
+    ]
+  },
+  "celtic": {
+    "display": "Celtic FC",
+    "country": "SCO",
+    "aliases": [
+      "Celtic FC"
+    ]
+  },
+  "cercle brugge": {
+    "display": "Cercle Brugge",
+    "country": "BEL",
+    "aliases": [
+      "Cercle Brugge"
+    ]
+  },
+  "cesena": {
+    "display": "AC Cesena",
+    "country": "ITA",
+    "aliases": [
+      "AC Cesena"
+    ]
+  },
+  "cfr cluj": {
+    "display": "CFR Cluj",
+    "country": "ROU",
+    "aliases": [
+      "CFR Cluj"
+    ]
+  },
+  "chelsea": {
+    "display": "Chelsea FC",
+    "country": "ENG",
+    "aliases": [
+      "Chelsea FC"
+    ]
+  },
+  "cherno more varna": {
+    "display": "Cherno More Varna",
+    "country": "BUL",
+    "aliases": [
+      "Cherno More Varna"
+    ]
+  },
+  "chernomorets odessa": {
+    "display": "Chernomorets Odessa",
+    "country": "UKR",
+    "aliases": [
+      "Chernomorets Odessa"
+    ]
+  },
+  "chievo verona": {
+    "display": "Chievo Verona",
+    "country": "ITA",
+    "aliases": [
+      "Chievo Verona"
+    ]
+  },
+  "clermont foot 63": {
+    "display": "Clermont Foot 63",
+    "country": "FRA",
+    "aliases": [
+      "Clermont Foot 63"
+    ]
+  },
+  "cliftonville": {
+    "display": "Cliftonville FC",
+    "country": "NIR",
+    "aliases": [
+      "Cliftonville FC"
+    ]
+  },
+  "club brugge": {
+    "display": "Club Brugge KV",
+    "country": "BEL",
+    "aliases": [
+      "Club Brugge",
+      "Club Brugge KV"
+    ]
+  },
+  "como": {
+    "display": "Como",
+    "country": "ITA",
+    "aliases": [
+      "Como",
+      "Como 1907"
+    ]
+  },
+  "connah s quay nomads": {
+    "display": "Connah's Quay Nomads",
+    "country": "WAL",
+    "aliases": [
+      "Connah's Quay Nomads"
+    ]
+  },
+  "cordoba": {
+    "display": "Córdoba CF",
+    "country": "ESP",
+    "aliases": [
+      "Córdoba CF"
+    ]
+  },
+  "corvinul hunedoara": {
+    "display": "FC Corvinul Hunedoara",
+    "country": "ROU",
+    "aliases": [
+      "FC Corvinul Hunedoara"
+    ]
+  },
+  "coventry city": {
+    "display": "Coventry City FC",
+    "country": "ENG",
+    "aliases": [
+      "Coventry City FC"
+    ]
+  },
+  "cremonese": {
+    "display": "Cremonese",
+    "country": "ITA",
+    "aliases": [
+      "Cremonese"
+    ]
+  },
+  "crotone": {
+    "display": "FC Crotone",
+    "country": "ITA",
+    "aliases": [
+      "FC Crotone"
+    ]
+  },
+  "crusaders": {
+    "display": "Crusaders FC",
+    "country": "NIR",
+    "aliases": [
+      "Crusaders FC"
+    ]
+  },
+  "crvena zvezda": {
+    "display": "Crvena Zvezda",
+    "country": "SRB",
+    "aliases": [
+      "Crvena Zvezda",
+      "FK Crvena Zvezda"
+    ]
+  },
+  "crystal palace": {
+    "display": "Crystal Palace",
+    "country": "ENG",
+    "aliases": [
+      "Crystal Palace",
+      "Crystal Palace FC"
+    ]
+  },
+  "cs maritimo": {
+    "display": "CS Marítimo",
+    "country": "POR",
+    "aliases": [
+      "CS Marítimo"
+    ]
+  },
+  "cs petrocub": {
+    "display": "CS Petrocub",
+    "country": "MDA",
+    "aliases": [
+      "CS Petrocub"
+    ]
+  },
+  "cs universitatea craiova": {
+    "display": "CS Universitatea Craiova",
+    "country": "ROU",
+    "aliases": [
+      "CS Universitatea Craiova"
+    ]
+  },
+  "cska 1948 sofia": {
+    "display": "CSKA 1948 Sofia",
+    "country": "BUL",
+    "aliases": [
+      "CSKA 1948 Sofia"
+    ]
+  },
+  "cska moskva": {
+    "display": "CSKA Moskva",
+    "country": "RUS",
+    "aliases": [
+      "CSKA Moskva"
+    ]
+  },
+  "cska sofia": {
+    "display": "CSKA Sofia",
+    "country": "BUL",
+    "aliases": [
+      "CSKA Sofia"
+    ]
+  },
+  "cukaricki": {
+    "display": "FK Čukarički",
+    "country": "SRB",
+    "aliases": [
+      "FK Čukarički"
+    ]
+  },
+  "dac": {
+    "display": "FC DAC 1904",
+    "country": "SVK",
+    "aliases": [
+      "FC DAC 1904"
+    ]
+  },
+  "darmstadt 98": {
+    "display": "SV Darmstadt 98",
+    "country": "GER",
+    "aliases": [
+      "SV Darmstadt 98"
+    ]
+  },
+  "debreceni vsc": {
+    "display": "Debreceni VSC",
+    "country": "HUN",
+    "aliases": [
+      "Debreceni VSC"
+    ]
+  },
+  "decic tuzi": {
+    "display": "FK Dečić Tuzi",
+    "country": "MNE",
+    "aliases": [
+      "FK Dečić Tuzi"
+    ]
+  },
+  "degerfors": {
+    "display": "Degerfors IF",
+    "country": "SWE",
+    "aliases": [
+      "Degerfors IF"
+    ]
+  },
+  "delfino pescara": {
+    "display": "Delfino Pescara",
+    "country": "ITA",
+    "aliases": [
+      "Delfino Pescara"
+    ]
+  },
+  "denizlispor": {
+    "display": "Denizlispor",
+    "country": "TUR",
+    "aliases": [
+      "Denizlispor"
+    ]
+  },
+  "deportivo alaves": {
+    "display": "Deportivo Alavés",
+    "country": "ESP",
+    "aliases": [
+      "Deportivo Alavés"
+    ]
+  },
+  "deportivo la coruna": {
+    "display": "Deportivo La Coruña",
+    "country": "ESP",
+    "aliases": [
+      "Deportivo La Coruña",
+      "RC Deportivo La Coruña"
+    ]
+  },
+  "derry city": {
+    "display": "Derry City",
+    "country": "IRL",
+    "aliases": [
+      "Derry City"
+    ]
+  },
+  "differdange": {
+    "display": "FC Differdange 03",
+    "country": "LUX",
+    "aliases": [
+      "FC Differdange 03"
+    ]
+  },
+  "dijon fco": {
+    "display": "Dijon FCO",
+    "country": "FRA",
+    "aliases": [
+      "Dijon FCO"
+    ]
+  },
+  "dila gori": {
+    "display": "Dila Gori",
+    "country": "GEO",
+    "aliases": [
+      "Dila Gori"
+    ]
+  },
+  "dinamo batumi": {
+    "display": "Dinamo Batumi",
+    "country": "GEO",
+    "aliases": [
+      "Dinamo Batumi"
+    ]
+  },
+  "dinamo brest": {
+    "display": "Dinamo Brest",
+    "country": "BLR",
+    "aliases": [
+      "Dinamo Brest"
+    ]
+  },
+  "dinamo bucuresti": {
+    "display": "Dinamo Bucureşti",
+    "country": "ROU",
+    "aliases": [
+      "Dinamo Bucureşti"
+    ]
+  },
+  "dinamo city": {
+    "display": "FC Dinamo City",
+    "country": "ALB",
+    "aliases": [
+      "FC Dinamo City"
+    ]
+  },
+  "dinamo kiev": {
+    "display": "Dinamo Kiev",
+    "country": "UKR",
+    "aliases": [
+      "Dinamo Kiev"
+    ]
+  },
+  "dinamo minsk": {
+    "display": "Dinamo Minsk",
+    "country": "BLR",
+    "aliases": [
+      "Dinamo Minsk"
+    ]
+  },
+  "dinamo tbilisi": {
+    "display": "Dinamo Tbilisi",
+    "country": "GEO",
+    "aliases": [
+      "Dinamo Tbilisi"
+    ]
+  },
+  "dinamo zagreb": {
+    "display": "Dinamo Zagreb",
+    "country": "CRO",
+    "aliases": [
+      "Dinamo Zagreb",
+      "GNK Dinamo Zagreb"
+    ]
+  },
+  "diosgyori vtk": {
+    "display": "Diósgyöri VTK",
+    "country": "HUN",
+    "aliases": [
+      "Diósgyöri VTK"
+    ]
+  },
+  "djurgardens": {
+    "display": "Djurgårdens IF",
+    "country": "SWE",
+    "aliases": [
+      "Djurgårdens IF"
+    ]
+  },
+  "dnipro 1": {
+    "display": "SK Dnipro-1",
+    "country": "UKR",
+    "aliases": [
+      "SK Dnipro-1"
+    ]
+  },
+  "doxa katokopias": {
+    "display": "Doxa Katokopias",
+    "country": "CYP",
+    "aliases": [
+      "Doxa Katokopias"
+    ]
+  },
+  "drita gjilan": {
+    "display": "Drita Gjilan",
+    "country": "KOS",
+    "aliases": [
+      "Drita Gjilan"
+    ]
+  },
+  "dukla banska bystrica": {
+    "display": "Dukla Banská Bystrica",
+    "country": "SVK",
+    "aliases": [
+      "Dukla Banská Bystrica"
+    ]
+  },
+  "dukla praha": {
+    "display": "FK Dukla Praha",
+    "country": "CZE",
+    "aliases": [
+      "FK Dukla Praha"
+    ]
+  },
+  "dundee united": {
+    "display": "Dundee United",
+    "country": "SCO",
+    "aliases": [
+      "Dundee United"
+    ]
+  },
+  "dungannon swifts": {
+    "display": "Dungannon Swifts",
+    "country": "NIR",
+    "aliases": [
+      "Dungannon Swifts"
+    ]
+  },
+  "dynamo ceske budejovice": {
+    "display": "Dynamo České Budějovice",
+    "country": "CZE",
+    "aliases": [
+      "Dynamo České Budějovice"
+    ]
+  },
+  "ea guingamp": {
+    "display": "EA Guingamp",
+    "country": "FRA",
+    "aliases": [
+      "EA Guingamp"
+    ]
+  },
+  "egnatia rrogozhine": {
+    "display": "Egnatia Rrogozhine",
+    "country": "ALB",
+    "aliases": [
+      "Egnatia Rrogozhine"
+    ]
+  },
+  "eibar": {
+    "display": "SD Eibar",
+    "country": "ESP",
+    "aliases": [
+      "SD Eibar"
+    ]
+  },
+  "eintracht braunschweig": {
+    "display": "Eintracht Braunschweig",
+    "country": "GER",
+    "aliases": [
+      "Eintracht Braunschweig"
+    ]
+  },
+  "eintracht frankfurt": {
+    "display": "Eintracht Frankfurt",
+    "country": "GER",
+    "aliases": [
+      "Eintracht Frankfurt"
+    ]
+  },
+  "elche": {
+    "display": "Elche CF",
+    "country": "ESP",
+    "aliases": [
+      "Elche CF"
+    ]
+  },
+  "elfsborg": {
+    "display": "IF Elfsborg",
+    "country": "SWE",
+    "aliases": [
+      "IF Elfsborg"
+    ]
+  },
+  "emmen": {
+    "display": "FC Emmen",
+    "country": "NED",
+    "aliases": [
+      "FC Emmen"
+    ]
+  },
+  "empoli": {
+    "display": "Empoli FC",
+    "country": "ITA",
+    "aliases": [
+      "Empoli FC"
+    ]
+  },
+  "enosis neon paralimni": {
+    "display": "Enosis Neon Paralimni",
+    "country": "CYP",
+    "aliases": [
+      "Enosis Neon Paralimni"
+    ]
+  },
+  "es troyes": {
+    "display": "ES Troyes AC",
+    "country": "FRA",
+    "aliases": [
+      "ES Troyes AC"
+    ]
+  },
+  "espanyol": {
+    "display": "RCD Espanyol",
+    "country": "ESP",
+    "aliases": [
+      "RCD Espanyol"
+    ]
+  },
+  "espanyol barcelona": {
+    "display": "Espanyol Barcelona",
+    "country": "ESP",
+    "aliases": [
+      "Espanyol Barcelona",
+      "RCD Espanyol de Barcelona"
+    ]
+  },
+  "estac troyes": {
+    "display": "ESTAC Troyes",
+    "country": "FRA",
+    "aliases": [
+      "ESTAC Troyes"
+    ]
+  },
+  "estrela da amadora": {
+    "display": "CF Estrela da Amadora",
+    "country": "POR",
+    "aliases": [
+      "CF Estrela da Amadora"
+    ]
+  },
+  "etar veliko tarnovo": {
+    "display": "Etar Veliko Tarnovo",
+    "country": "BUL",
+    "aliases": [
+      "Etar Veliko Tarnovo"
+    ]
+  },
+  "ethnikos achna": {
+    "display": "Ethnikos Achna",
+    "country": "CYP",
+    "aliases": [
+      "Ethnikos Achna"
+    ]
+  },
+  "everton": {
+    "display": "Everton FC",
+    "country": "ENG",
+    "aliases": [
+      "Everton",
+      "Everton FC"
+    ]
+  },
+  "evian thonon gaillard": {
+    "display": "Évian Thonon Gaillard",
+    "country": "FRA",
+    "aliases": [
+      "Évian Thonon Gaillard"
+    ]
+  },
+  "eyupspor": {
+    "display": "Eyüpspor",
+    "country": "TUR",
+    "aliases": [
+      "Eyüpspor"
+    ]
+  },
+  "f91 dudelange": {
+    "display": "F91 Dudelange",
+    "country": "LUX",
+    "aliases": [
+      "F91 Dudelange"
+    ]
+  },
+  "fa siauliai": {
+    "display": "FA Šiauliai",
+    "country": "LTU",
+    "aliases": [
+      "FA Šiauliai"
+    ]
+  },
+  "famalicao": {
+    "display": "FC Famalicão",
+    "country": "POR",
+    "aliases": [
+      "FC Famalicão"
+    ]
+  },
+  "farense": {
+    "display": "SC Farense",
+    "country": "POR",
+    "aliases": [
+      "SC Farense"
+    ]
+  },
+  "farul constanta": {
+    "display": "Farul Constanța",
+    "country": "ROU",
+    "aliases": [
+      "Farul Constanța"
+    ]
+  },
+  "fastav zlin": {
+    "display": "FC Fastav Zlín",
+    "country": "CZE",
+    "aliases": [
+      "FC Fastav Zlín"
+    ]
+  },
+  "fatih karagumruk": {
+    "display": "Fatih Karagümrük",
+    "country": "TUR",
+    "aliases": [
+      "Fatih Karagümrük"
+    ]
+  },
+  "fcb magpies": {
+    "display": "FCB Magpies",
+    "country": "GIB",
+    "aliases": [
+      "FCB Magpies"
+    ]
+  },
+  "fci levadia": {
+    "display": "FCI Levadia",
+    "country": "EST",
+    "aliases": [
+      "FCI Levadia"
+    ]
+  },
+  "fcsb": {
+    "display": "FCSB",
+    "country": "ROU",
+    "aliases": [
+      "FCSB"
+    ]
+  },
+  "fcv dender eh": {
+    "display": "FCV Dender EH",
+    "country": "BEL",
+    "aliases": [
+      "FCV Dender EH"
+    ]
+  },
+  "fehervar": {
+    "display": "Fehérvár FC",
+    "country": "HUN",
+    "aliases": [
+      "Fehérvár FC"
+    ]
+  },
+  "feirense": {
+    "display": "CD Feirense",
+    "country": "POR",
+    "aliases": [
+      "CD Feirense"
+    ]
+  },
+  "fenerbahce": {
+    "display": "Fenerbahçe",
+    "country": "TUR",
+    "aliases": [
+      "Fenerbahçe"
+    ]
+  },
+  "ferencvarosi tc": {
+    "display": "Ferencvárosi TC",
+    "country": "HUN",
+    "aliases": [
+      "Ferencvárosi TC"
+    ]
+  },
+  "feyenoord": {
+    "display": "Feyenoord",
+    "country": "NED",
+    "aliases": [
+      "Feyenoord"
+    ]
+  },
+  "feyenoord rotterdam": {
+    "display": "Feyenoord Rotterdam",
+    "country": "NED",
+    "aliases": [
+      "Feyenoord Rotterdam"
+    ]
+  },
+  "fiorentina": {
+    "display": "ACF Fiorentina",
+    "country": "ITA",
+    "aliases": [
+      "ACF Fiorentina",
+      "Fiorentina"
+    ]
+  },
+  "fks stal mielec": {
+    "display": "FKS Stal Mielec",
+    "country": "POL",
+    "aliases": [
+      "FKS Stal Mielec"
+    ]
+  },
+  "flora": {
+    "display": "FC Flora",
+    "country": "EST",
+    "aliases": [
+      "FC Flora"
+    ]
+  },
+  "floriana": {
+    "display": "Floriana FC",
+    "country": "MLT",
+    "aliases": [
+      "Floriana FC"
+    ]
+  },
+  "fortuna dusseldorf": {
+    "display": "Fortuna Düsseldorf",
+    "country": "GER",
+    "aliases": [
+      "Fortuna Düsseldorf"
+    ]
+  },
+  "fortuna sittard": {
+    "display": "Fortuna Sittard",
+    "country": "NED",
+    "aliases": [
+      "Fortuna Sittard"
+    ]
+  },
+  "fredrikstad": {
+    "display": "Fredrikstad FK",
+    "country": "NOR",
+    "aliases": [
+      "Fredrikstad FK"
+    ]
+  },
+  "freiburg": {
+    "display": "SC Freiburg",
+    "country": "GER",
+    "aliases": [
+      "SC Freiburg"
+    ]
+  },
+  "frosinone": {
+    "display": "Frosinone Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Frosinone Calcio"
+    ]
+  },
+  "fulham": {
+    "display": "Fulham FC",
+    "country": "ENG",
+    "aliases": [
+      "Fulham",
+      "Fulham FC"
+    ]
+  },
+  "gabala": {
+    "display": "Gabala FK",
+    "country": "AZE",
+    "aliases": [
+      "Gabala FK"
+    ]
+  },
+  "gais goteborg": {
+    "display": "GAIS Göteborg",
+    "country": "SWE",
+    "aliases": [
+      "GAIS Göteborg"
+    ]
+  },
+  "galatasaray": {
+    "display": "Galatasaray",
+    "country": "TUR",
+    "aliases": [
+      "Galatasaray",
+      "Galatasaray SK"
+    ]
+  },
+  "gazelec ajaccio": {
+    "display": "Gazélec FC Ajaccio",
+    "country": "FRA",
+    "aliases": [
+      "Gazélec FC Ajaccio"
+    ]
+  },
+  "gaziantep": {
+    "display": "Gaziantep FK",
+    "country": "TUR",
+    "aliases": [
+      "Gaziantep FK"
+    ]
+  },
+  "gazisehir gaziantep": {
+    "display": "Gazişehir Gaziantep FK",
+    "country": "TUR",
+    "aliases": [
+      "Gazişehir Gaziantep FK"
+    ]
+  },
+  "gd chaves": {
+    "display": "GD Chaves",
+    "country": "POR",
+    "aliases": [
+      "GD Chaves"
+    ]
+  },
+  "gd estoril": {
+    "display": "GD Estoril",
+    "country": "POR",
+    "aliases": [
+      "GD Estoril"
+    ]
+  },
+  "gd estoril praia": {
+    "display": "GD Estoril Praia",
+    "country": "POR",
+    "aliases": [
+      "GD Estoril Praia"
+    ]
+  },
+  "genclerbirligi": {
+    "display": "Gençlerbirliği",
+    "country": "TUR",
+    "aliases": [
+      "Gençlerbirliği"
+    ]
+  },
+  "genk": {
+    "display": "KRC Genk",
+    "country": "BEL",
+    "aliases": [
+      "KRC Genk"
+    ]
+  },
+  "genoa": {
+    "display": "Genoa",
+    "country": "ITA",
+    "aliases": [
+      "Genoa"
+    ]
+  },
+  "genoa cfc": {
+    "display": "Genoa CFC",
+    "country": "ITA",
+    "aliases": [
+      "Genoa CFC"
+    ]
+  },
+  "gent": {
+    "display": "KAA Gent",
+    "country": "BEL",
+    "aliases": [
+      "KAA Gent"
+    ]
+  },
+  "getafe": {
+    "display": "Getafe CF",
+    "country": "ESP",
+    "aliases": [
+      "Getafe CF"
+    ]
+  },
+  "gfk tikvesh": {
+    "display": "GFK Tikvesh",
+    "country": "MKD",
+    "aliases": [
+      "GFK Tikvesh"
+    ]
+  },
+  "gil vicente": {
+    "display": "Gil Vicente",
+    "country": "POR",
+    "aliases": [
+      "Gil Vicente",
+      "Gil Vicente FC"
+    ]
+  },
+  "girona": {
+    "display": "Girona FC",
+    "country": "ESP",
+    "aliases": [
+      "Girona FC"
+    ]
+  },
+  "girondins bordeaux": {
+    "display": "Girondins Bordeaux",
+    "country": "FRA",
+    "aliases": [
+      "Girondins Bordeaux"
+    ]
+  },
+  "gks katowice": {
+    "display": "GKS Katowice",
+    "country": "POL",
+    "aliases": [
+      "GKS Katowice"
+    ]
+  },
+  "gloria buzau": {
+    "display": "Gloria Buzău",
+    "country": "ROU",
+    "aliases": [
+      "Gloria Buzău"
+    ]
+  },
+  "go ahead eagles": {
+    "display": "Go Ahead Eagles",
+    "country": "NED",
+    "aliases": [
+      "Go Ahead Eagles"
+    ]
+  },
+  "gornik zabrze": {
+    "display": "Górnik Zabrze",
+    "country": "POL",
+    "aliases": [
+      "Górnik Zabrze"
+    ]
+  },
+  "goztepe": {
+    "display": "Göztepe",
+    "country": "TUR",
+    "aliases": [
+      "Göztepe"
+    ]
+  },
+  "graafschap": {
+    "display": "De Graafschap",
+    "country": "NED",
+    "aliases": [
+      "De Graafschap"
+    ]
+  },
+  "granada": {
+    "display": "Granada CF",
+    "country": "ESP",
+    "aliases": [
+      "Granada CF"
+    ]
+  },
+  "grasshopper zurich": {
+    "display": "Grasshopper Club Zürich",
+    "country": "SUI",
+    "aliases": [
+      "Grasshopper Club Zürich"
+    ]
+  },
+  "grazer ak": {
+    "display": "Grazer AK",
+    "country": "AUT",
+    "aliases": [
+      "Grazer AK"
+    ]
+  },
+  "grodig": {
+    "display": "SV Grödig",
+    "country": "AUT",
+    "aliases": [
+      "SV Grödig"
+    ]
+  },
+  "groningen": {
+    "display": "FC Groningen",
+    "country": "NED",
+    "aliases": [
+      "FC Groningen"
+    ]
+  },
+  "gs kallithea": {
+    "display": "GS Kallithea",
+    "country": "GRE",
+    "aliases": [
+      "GS Kallithea"
+    ]
+  },
+  "gyori eto": {
+    "display": "Győri ETO FC",
+    "country": "HUN",
+    "aliases": [
+      "Győri ETO FC"
+    ]
+  },
+  "hacken": {
+    "display": "BK Häcken",
+    "country": "SWE",
+    "aliases": [
+      "BK Häcken"
+    ]
+  },
+  "hajduk split": {
+    "display": "Hajduk Split",
+    "country": "CRO",
+    "aliases": [
+      "Hajduk Split"
+    ]
+  },
+  "halmstads": {
+    "display": "Halmstads BK",
+    "country": "SWE",
+    "aliases": [
+      "Halmstads BK"
+    ]
+  },
+  "hamarkameratene": {
+    "display": "Hamarkameratene",
+    "country": "NOR",
+    "aliases": [
+      "Hamarkameratene"
+    ]
+  },
+  "hamburger": {
+    "display": "Hamburger SV",
+    "country": "GER",
+    "aliases": [
+      "Hamburger SV"
+    ]
+  },
+  "hammarby": {
+    "display": "Hammarby IF",
+    "country": "SWE",
+    "aliases": [
+      "Hammarby IF"
+    ]
+  },
+  "hamrun spartans": {
+    "display": "Hamrun Spartans",
+    "country": "MLT",
+    "aliases": [
+      "Hamrun Spartans"
+    ]
+  },
+  "hannover": {
+    "display": "Hannover 96",
+    "country": "GER",
+    "aliases": [
+      "Hannover 96"
+    ]
+  },
+  "hapoel be er sheva": {
+    "display": "Hapoel Be'er Sheva",
+    "country": "ISR",
+    "aliases": [
+      "Hapoel Be'er Sheva"
+    ]
+  },
+  "hatayspor": {
+    "display": "Hatayspor",
+    "country": "TUR",
+    "aliases": [
+      "Hatayspor"
+    ]
+  },
+  "haugesund": {
+    "display": "FK Haugesund",
+    "country": "NOR",
+    "aliases": [
+      "FK Haugesund"
+    ]
+  },
+  "haverfordwest county": {
+    "display": "Haverfordwest County",
+    "country": "WAL",
+    "aliases": [
+      "Haverfordwest County"
+    ]
+  },
+  "hb torshavn": {
+    "display": "HB Tórshavn",
+    "country": "FRO",
+    "aliases": [
+      "HB Tórshavn"
+    ]
+  },
+  "heart of midlothian": {
+    "display": "Heart of Midlothian",
+    "country": "SCO",
+    "aliases": [
+      "Heart of Midlothian"
+    ]
+  },
+  "hebar pazardzhik": {
+    "display": "Hebar Pazardzhik",
+    "country": "BUL",
+    "aliases": [
+      "Hebar Pazardzhik"
+    ]
+  },
+  "heerenveen": {
+    "display": "sc Heerenveen",
+    "country": "NED",
+    "aliases": [
+      "SC Heerenveen",
+      "sc Heerenveen"
+    ]
+  },
+  "hegelmann": {
+    "display": "FC Hegelmann",
+    "country": "LTU",
+    "aliases": [
+      "FC Hegelmann"
+    ]
+  },
+  "heidenheim": {
+    "display": "Heidenheim",
+    "country": "GER",
+    "aliases": [
+      "Heidenheim"
+    ]
+  },
+  "hellas verona": {
+    "display": "Hellas Verona",
+    "country": "ITA",
+    "aliases": [
+      "Hellas Verona",
+      "Hellas Verona FC"
+    ]
+  },
+  "heracles almelo": {
+    "display": "Heracles Almelo",
+    "country": "NED",
+    "aliases": [
+      "Heracles Almelo"
+    ]
+  },
+  "hermannstadt": {
+    "display": "FC Hermannstadt",
+    "country": "ROU",
+    "aliases": [
+      "FC Hermannstadt"
+    ]
+  },
+  "hertha bsc": {
+    "display": "Hertha BSC",
+    "country": "GER",
+    "aliases": [
+      "Hertha BSC"
+    ]
+  },
+  "hibernian": {
+    "display": "Hibernian FC",
+    "country": "SCO",
+    "aliases": [
+      "Hibernian FC"
+    ]
+  },
+  "hibernians": {
+    "display": "Hibernians FC",
+    "country": "MLT",
+    "aliases": [
+      "Hibernians FC"
+    ]
+  },
+  "hjk helsinki": {
+    "display": "HJK Helsinki",
+    "country": "FIN",
+    "aliases": [
+      "HJK Helsinki"
+    ]
+  },
+  "hnk gorica": {
+    "display": "HNK Gorica",
+    "country": "CRO",
+    "aliases": [
+      "HNK Gorica"
+    ]
+  },
+  "hnk rijeka": {
+    "display": "HNK Rijeka",
+    "country": "CRO",
+    "aliases": [
+      "HNK Rijeka"
+    ]
+  },
+  "hnk sibenik": {
+    "display": "HNK Šibenik",
+    "country": "CRO",
+    "aliases": [
+      "HNK Šibenik"
+    ]
+  },
+  "hoffenheim": {
+    "display": "1899 Hoffenheim",
+    "country": "GER",
+    "aliases": [
+      "1899 Hoffenheim",
+      "TSG 1899 Hoffenheim"
+    ]
+  },
+  "holstein kiel": {
+    "display": "Holstein Kiel",
+    "country": "GER",
+    "aliases": [
+      "Holstein Kiel"
+    ]
+  },
+  "hradec kralove": {
+    "display": "FC Hradec Králové",
+    "country": "CZE",
+    "aliases": [
+      "FC Hradec Králové"
+    ]
+  },
+  "huddersfield town": {
+    "display": "Huddersfield Town",
+    "country": "ENG",
+    "aliases": [
+      "Huddersfield Town"
+    ]
+  },
+  "huesca": {
+    "display": "SD Huesca",
+    "country": "ESP",
+    "aliases": [
+      "SD Huesca"
+    ]
+  },
+  "hull city": {
+    "display": "Hull City",
+    "country": "ENG",
+    "aliases": [
+      "Hull City",
+      "Hull City AFC"
+    ]
+  },
+  "hvidovre": {
+    "display": "Hvidovre IF",
+    "country": "DEN",
+    "aliases": [
+      "Hvidovre IF"
+    ]
+  },
+  "iberia": {
+    "display": "FC Iberia 1999",
+    "country": "GEO",
+    "aliases": [
+      "FC Iberia 1999"
+    ]
+  },
+  "ifk goteborg": {
+    "display": "IFK Göteborg",
+    "country": "SWE",
+    "aliases": [
+      "IFK Göteborg"
+    ]
+  },
+  "ifk norrkoping": {
+    "display": "IFK Norrköping",
+    "country": "SWE",
+    "aliases": [
+      "IFK Norrköping"
+    ]
+  },
+  "ifk varnamo": {
+    "display": "IFK Värnamo",
+    "country": "SWE",
+    "aliases": [
+      "IFK Värnamo"
+    ]
+  },
+  "ik sirius": {
+    "display": "IK Sirius",
+    "country": "SWE",
+    "aliases": [
+      "IK Sirius"
+    ]
+  },
+  "ilves tampere": {
+    "display": "Ilves Tampere",
+    "country": "FIN",
+    "aliases": [
+      "Ilves Tampere"
+    ]
+  },
+  "imt beograd": {
+    "display": "IMT Beograd",
+    "country": "SRB",
+    "aliases": [
+      "IMT Beograd"
+    ]
+  },
+  "ingolstadt": {
+    "display": "FC Ingolstadt 04",
+    "country": "GER",
+    "aliases": [
+      "FC Ingolstadt 04"
+    ]
+  },
+  "inhulets petrove": {
+    "display": "Inhulets Petrove",
+    "country": "UKR",
+    "aliases": [
+      "Inhulets Petrove"
+    ]
+  },
+  "inter": {
+    "display": "Inter",
+    "country": "ITA",
+    "aliases": [
+      "FC Internazionale Milano",
+      "Inter",
+      "Inter Milan"
+    ]
+  },
+  "inter d escaldes": {
+    "display": "Inter Club d'Escaldes",
+    "country": "AND",
+    "aliases": [
+      "Inter Club d'Escaldes"
+    ]
+  },
+  "ipswich town": {
+    "display": "Ipswich Town FC",
+    "country": "ENG",
+    "aliases": [
+      "Ipswich Town FC"
+    ]
+  },
+  "isloch minsk": {
+    "display": "FK Isloch Minsk",
+    "country": "BLR",
+    "aliases": [
+      "FK Isloch Minsk"
+    ]
+  },
+  "istanbul basaksehir": {
+    "display": "İstanbul Başakşehir",
+    "country": "TUR",
+    "aliases": [
+      "İstanbul Başakşehir"
+    ]
+  },
+  "istanbulspor": {
+    "display": "İstanbulspor AŞ",
+    "country": "TUR",
+    "aliases": [
+      "İstanbulspor AŞ"
+    ]
+  },
+  "jablonec": {
+    "display": "FK Jablonec",
+    "country": "CZE",
+    "aliases": [
+      "FK Jablonec"
+    ]
+  },
+  "jagiellonia bialystok": {
+    "display": "Jagiellonia Białystok",
+    "country": "POL",
+    "aliases": [
+      "Jagiellonia Białystok"
+    ]
+  },
+  "javor": {
+    "display": "FK Javor",
+    "country": "SRB",
+    "aliases": [
+      "FK Javor"
+    ]
+  },
+  "jedinstvo ub": {
+    "display": "Jedinstvo Ub",
+    "country": "SRB",
+    "aliases": [
+      "Jedinstvo Ub"
+    ]
+  },
+  "jk nomme kalju": {
+    "display": "JK Nõmme Kalju",
+    "country": "EST",
+    "aliases": [
+      "JK Nõmme Kalju"
+    ]
+  },
+  "jk tallinna kalev": {
+    "display": "JK Tallinna Kalev",
+    "country": "EST",
+    "aliases": [
+      "JK Tallinna Kalev"
+    ]
+  },
+  "juventus": {
+    "display": "Juventus",
+    "country": "ITA",
+    "aliases": [
+      "Juventus",
+      "Juventus FC"
+    ]
+  },
+  "k beerschot va": {
+    "display": "K Beerschot VA",
+    "country": "BEL",
+    "aliases": [
+      "K Beerschot VA"
+    ]
+  },
+  "ka akureyri": {
+    "display": "KA Akureyri",
+    "country": "ISL",
+    "aliases": [
+      "KA Akureyri"
+    ]
+  },
+  "kairat": {
+    "display": "FK Kairat",
+    "country": "KAZ",
+    "aliases": [
+      "FK Kairat"
+    ]
+  },
+  "kalmar": {
+    "display": "Kalmar FF",
+    "country": "SWE",
+    "aliases": [
+      "Kalmar FF"
+    ]
+  },
+  "kapaz pfk": {
+    "display": "Kapaz PFK",
+    "country": "AZE",
+    "aliases": [
+      "Kapaz PFK"
+    ]
+  },
+  "kapfenberger 1919": {
+    "display": "Kapfenberger SV 1919",
+    "country": "AUT",
+    "aliases": [
+      "Kapfenberger SV 1919"
+    ]
+  },
+  "karmiotissa polemidion": {
+    "display": "Karmiotissa Polemidion",
+    "country": "CYP",
+    "aliases": [
+      "Karmiotissa Polemidion"
+    ]
+  },
+  "karpaty lviv": {
+    "display": "Karpaty Lviv",
+    "country": "UKR",
+    "aliases": [
+      "Karpaty Lviv"
+    ]
+  },
+  "kas eupen": {
+    "display": "KAS Eupen",
+    "country": "BEL",
+    "aliases": [
+      "KAS Eupen"
+    ]
+  },
+  "kasimpasa": {
+    "display": "Kasımpaşa SK",
+    "country": "TUR",
+    "aliases": [
+      "Kasımpaşa SK"
+    ]
+  },
+  "kauno zalgiris": {
+    "display": "Kauno Žalgiris",
+    "country": "LTU",
+    "aliases": [
+      "Kauno Žalgiris"
+    ]
+  },
+  "kayserispor": {
+    "display": "Kayserispor",
+    "country": "TUR",
+    "aliases": [
+      "Kayserispor"
+    ]
+  },
+  "kecskemeti te": {
+    "display": "Kecskeméti TE",
+    "country": "HUN",
+    "aliases": [
+      "Kecskeméti TE"
+    ]
+  },
+  "kf ballkani": {
+    "display": "KF Ballkani",
+    "country": "KOS",
+    "aliases": [
+      "KF Ballkani"
+    ]
+  },
+  "kf drita": {
+    "display": "KF Drita",
+    "country": "KOS",
+    "aliases": [
+      "KF Drita"
+    ]
+  },
+  "kf llapi": {
+    "display": "KF Llapi",
+    "country": "KOS",
+    "aliases": [
+      "KF Llapi"
+    ]
+  },
+  "kf malisheva": {
+    "display": "KF Malisheva",
+    "country": "KOS",
+    "aliases": [
+      "KF Malisheva"
+    ]
+  },
+  "kf shkendija": {
+    "display": "KF Shkëndija 79",
+    "country": "MKD",
+    "aliases": [
+      "KF Shkëndija 79"
+    ]
+  },
+  "kf tirane": {
+    "display": "KF Tiranë",
+    "country": "ALB",
+    "aliases": [
+      "KF Tiranë"
+    ]
+  },
+  "kfc komarno": {
+    "display": "KFC Komárno",
+    "country": "SVK",
+    "aliases": [
+      "KFC Komárno"
+    ]
+  },
+  "kfum oslo": {
+    "display": "KFUM Oslo",
+    "country": "NOR",
+    "aliases": [
+      "KFUM Oslo"
+    ]
+  },
+  "ki klaksvik": {
+    "display": "KÍ Klaksvík",
+    "country": "FRO",
+    "aliases": [
+      "KÍ Klaksvík"
+    ]
+  },
+  "kilmarnock": {
+    "display": "Kilmarnock FC",
+    "country": "SCO",
+    "aliases": [
+      "Kilmarnock FC"
+    ]
+  },
+  "kisvarda": {
+    "display": "Kisvárda FC",
+    "country": "HUN",
+    "aliases": [
+      "Kisvárda FC"
+    ]
+  },
+  "kobenhavn": {
+    "display": "FC København",
+    "country": "DEN",
+    "aliases": [
+      "FC København"
+    ]
+  },
+  "kocaelispor": {
+    "display": "Kocaelispor",
+    "country": "TUR",
+    "aliases": [
+      "Kocaelispor"
+    ]
+  },
+  "kolos kovalivka": {
+    "display": "Kolos Kovalivka",
+    "country": "UKR",
+    "aliases": [
+      "Kolos Kovalivka"
+    ]
+  },
+  "konyaspor": {
+    "display": "Konyaspor",
+    "country": "TUR",
+    "aliases": [
+      "Konyaspor"
+    ]
+  },
+  "koper": {
+    "display": "FC Koper",
+    "country": "SVN",
+    "aliases": [
+      "FC Koper"
+    ]
+  },
+  "korona kielce": {
+    "display": "Korona Kielce",
+    "country": "POL",
+    "aliases": [
+      "Korona Kielce"
+    ]
+  },
+  "kortrijk": {
+    "display": "KV Kortrijk",
+    "country": "BEL",
+    "aliases": [
+      "KV Kortrijk"
+    ]
+  },
+  "kortrijk 3 0": {
+    "display": "KV Kortrijk 3-0",
+    "country": "BEL",
+    "aliases": [
+      "KV Kortrijk 3-0"
+    ]
+  },
+  "kosice": {
+    "display": "FC Košice",
+    "country": "SVK",
+    "aliases": [
+      "FC Košice"
+    ]
+  },
+  "krasnodar": {
+    "display": "FK Krasnodar",
+    "country": "RUS",
+    "aliases": [
+      "FK Krasnodar"
+    ]
+  },
+  "kristiansund": {
+    "display": "Kristiansund BK",
+    "country": "NOR",
+    "aliases": [
+      "Kristiansund BK"
+    ]
+  },
+  "krumovgrad": {
+    "display": "FK Krumovgrad",
+    "country": "BUL",
+    "aliases": [
+      "FK Krumovgrad"
+    ]
+  },
+  "kryvbas kryvyi rih": {
+    "display": "Kryvbas Kryvyi Rih",
+    "country": "UKR",
+    "aliases": [
+      "Kryvbas Kryvyi Rih"
+    ]
+  },
+  "ks cracovia": {
+    "display": "KS Cracovia",
+    "country": "POL",
+    "aliases": [
+      "KS Cracovia"
+    ]
+  },
+  "kuopion ps": {
+    "display": "Kuopion PS",
+    "country": "FIN",
+    "aliases": [
+      "Kuopion PS"
+    ]
+  },
+  "kvc westerlo": {
+    "display": "KVC Westerlo",
+    "country": "BEL",
+    "aliases": [
+      "KVC Westerlo"
+    ]
+  },
+  "lamia": {
+    "display": "Lamia",
+    "country": "GRE",
+    "aliases": [
+      "Lamia"
+    ]
+  },
+  "larne": {
+    "display": "Larne FC",
+    "country": "NIR",
+    "aliases": [
+      "Larne FC"
+    ]
+  },
+  "las palmas": {
+    "display": "UD Las Palmas",
+    "country": "ESP",
+    "aliases": [
+      "UD Las Palmas"
+    ]
+  },
+  "lask": {
+    "display": "LASK",
+    "country": "AUT",
+    "aliases": [
+      "LASK"
+    ]
+  },
+  "lask linz": {
+    "display": "LASK Linz",
+    "country": "AUT",
+    "aliases": [
+      "LASK Linz"
+    ]
+  },
+  "lausanne": {
+    "display": "FC Lausanne-Sport",
+    "country": "SUI",
+    "aliases": [
+      "FC Lausanne-Sport"
+    ]
+  },
+  "lausanne ouchy": {
+    "display": "Stade Lausanne-Ouchy",
+    "country": "SUI",
+    "aliases": [
+      "Stade Lausanne-Ouchy"
+    ]
+  },
+  "lazio": {
+    "display": "Lazio",
+    "country": "ITA",
+    "aliases": [
+      "Lazio"
+    ]
+  },
+  "lazio roma": {
+    "display": "Lazio Roma",
+    "country": "ITA",
+    "aliases": [
+      "Lazio Roma"
+    ]
+  },
+  "le havre": {
+    "display": "Le Havre AC",
+    "country": "FRA",
+    "aliases": [
+      "Le Havre",
+      "Le Havre AC"
+    ]
+  },
+  "le mans": {
+    "display": "Le Mans FC",
+    "country": "FRA",
+    "aliases": [
+      "Le Mans FC"
+    ]
+  },
+  "lecce": {
+    "display": "Lecce",
+    "country": "ITA",
+    "aliases": [
+      "Lecce"
+    ]
+  },
+  "lech poznan": {
+    "display": "Lech Poznań",
+    "country": "POL",
+    "aliases": [
+      "Lech Poznań"
+    ]
+  },
+  "lechia gdansk": {
+    "display": "Lechia Gdańsk",
+    "country": "POL",
+    "aliases": [
+      "Lechia Gdańsk"
+    ]
+  },
+  "leeds united": {
+    "display": "Leeds United FC",
+    "country": "ENG",
+    "aliases": [
+      "Leeds United",
+      "Leeds United FC"
+    ]
+  },
+  "leganes": {
+    "display": "CD Leganés",
+    "country": "ESP",
+    "aliases": [
+      "CD Leganés"
+    ]
+  },
+  "legia warszawa": {
+    "display": "Legia Warszawa",
+    "country": "POL",
+    "aliases": [
+      "Legia Warszawa"
+    ]
+  },
+  "leicester city": {
+    "display": "Leicester City",
+    "country": "ENG",
+    "aliases": [
+      "Leicester City",
+      "Leicester City FC"
+    ]
+  },
+  "lens": {
+    "display": "RC Lens",
+    "country": "FRA",
+    "aliases": [
+      "Lens",
+      "RC Lens"
+    ]
+  },
+  "levadiakos": {
+    "display": "Levadiakos",
+    "country": "GRE",
+    "aliases": [
+      "Levadiakos"
+    ]
+  },
+  "levante": {
+    "display": "Levante UD",
+    "country": "ESP",
+    "aliases": [
+      "Levante UD"
+    ]
+  },
+  "levski sofia": {
+    "display": "Levski Sofia",
+    "country": "BUL",
+    "aliases": [
+      "Levski Sofia"
+    ]
+  },
+  "liepaja": {
+    "display": "FK Liepāja",
+    "country": "LVA",
+    "aliases": [
+      "FK Liepāja"
+    ]
+  },
+  "lille": {
+    "display": "Lille",
+    "country": "FRA",
+    "aliases": [
+      "Lille"
+    ]
+  },
+  "lille osc": {
+    "display": "Lille OSC",
+    "country": "FRA",
+    "aliases": [
+      "Lille OSC"
+    ]
+  },
+  "lillestrom": {
+    "display": "Lillestrøm SK",
+    "country": "NOR",
+    "aliases": [
+      "Lillestrøm SK"
+    ]
+  },
+  "lincoln red imps": {
+    "display": "Lincoln Red Imps",
+    "country": "GIB",
+    "aliases": [
+      "Lincoln Red Imps"
+    ]
+  },
+  "linfield": {
+    "display": "Linfield FC",
+    "country": "NIR",
+    "aliases": [
+      "Linfield FC"
+    ]
+  },
+  "lisboa e benfica": {
+    "display": "Sport Lisboa e Benfica",
+    "country": "POR",
+    "aliases": [
+      "Sport Lisboa e Benfica"
+    ]
+  },
+  "liverpool": {
+    "display": "Liverpool FC",
+    "country": "ENG",
+    "aliases": [
+      "Liverpool",
+      "Liverpool FC"
+    ]
+  },
+  "livorno": {
+    "display": "AS Livorno",
+    "country": "ITA",
+    "aliases": [
+      "AS Livorno"
+    ]
+  },
+  "livyi bereh": {
+    "display": "Livyi Bereh",
+    "country": "UKR",
+    "aliases": [
+      "Livyi Bereh"
+    ]
+  },
+  "lks lodz": {
+    "display": "ŁKS Łódź",
+    "country": "POL",
+    "aliases": [
+      "ŁKS Łódź"
+    ]
+  },
+  "lnz cherkasy": {
+    "display": "FC LNZ Cherkasy",
+    "country": "UKR",
+    "aliases": [
+      "FC LNZ Cherkasy"
+    ]
+  },
+  "lokomotiv moskva": {
+    "display": "Lokomotiv Moskva",
+    "country": "RUS",
+    "aliases": [
+      "Lokomotiv Moskva"
+    ]
+  },
+  "lokomotiv plovdiv": {
+    "display": "Lokomotiv Plovdiv",
+    "country": "BUL",
+    "aliases": [
+      "Lokomotiv Plovdiv"
+    ]
+  },
+  "lokomotiv sofia": {
+    "display": "Lokomotiv Sofia",
+    "country": "BUL",
+    "aliases": [
+      "Lokomotiv Sofia"
+    ]
+  },
+  "lokomotiva zagreb": {
+    "display": "Lokomotiva Zagreb",
+    "country": "CRO",
+    "aliases": [
+      "Lokomotiva Zagreb"
+    ]
+  },
+  "lommel": {
+    "display": "Lommel SK",
+    "country": "BEL",
+    "aliases": [
+      "Lommel SK",
+      "Lommel SK (*)"
+    ]
+  },
+  "lorient": {
+    "display": "FC Lorient",
+    "country": "FRA",
+    "aliases": [
+      "FC Lorient"
+    ]
+  },
+  "lugano": {
+    "display": "FC Lugano",
+    "country": "SUI",
+    "aliases": [
+      "FC Lugano"
+    ]
+  },
+  "luton town": {
+    "display": "Luton Town FC",
+    "country": "ENG",
+    "aliases": [
+      "Luton Town FC"
+    ]
+  },
+  "luzern": {
+    "display": "FC Luzern",
+    "country": "SUI",
+    "aliases": [
+      "FC Luzern"
+    ]
+  },
+  "lyngby": {
+    "display": "Lyngby BK",
+    "country": "DEN",
+    "aliases": [
+      "Lyngby BK"
+    ]
+  },
+  "lyon": {
+    "display": "Olympique Lyonnais",
+    "country": "FRA",
+    "aliases": [
+      "Olympique Lyonnais"
+    ]
+  },
+  "maccabi haifa": {
+    "display": "Maccabi Haifa",
+    "country": "ISR",
+    "aliases": [
+      "Maccabi Haifa"
+    ]
+  },
+  "maccabi petach tikva": {
+    "display": "Maccabi Petach-Tikva",
+    "country": "ISR",
+    "aliases": [
+      "Maccabi Petach-Tikva"
+    ]
+  },
+  "maccabi tel aviv": {
+    "display": "Maccabi Tel Aviv",
+    "country": "ISR",
+    "aliases": [
+      "Maccabi Tel Aviv"
+    ]
+  },
+  "malaga": {
+    "display": "Málaga CF",
+    "country": "ESP",
+    "aliases": [
+      "Málaga CF"
+    ]
+  },
+  "mallorca": {
+    "display": "RCD Mallorca",
+    "country": "ESP",
+    "aliases": [
+      "RCD Mallorca"
+    ]
+  },
+  "malmo": {
+    "display": "Malmö FF",
+    "country": "SWE",
+    "aliases": [
+      "Malmö FF"
+    ]
+  },
+  "manchester city": {
+    "display": "Manchester City",
+    "country": "ENG",
+    "aliases": [
+      "Manchester City",
+      "Manchester City FC"
+    ]
+  },
+  "manchester united": {
+    "display": "Manchester United",
+    "country": "ENG",
+    "aliases": [
+      "Manchester United",
+      "Manchester United FC"
+    ]
+  },
+  "marsaxlokk": {
+    "display": "Marsaxlokk FC",
+    "country": "MLT",
+    "aliases": [
+      "Marsaxlokk FC"
+    ]
+  },
+  "marseille": {
+    "display": "Olympique Marseille",
+    "country": "FRA",
+    "aliases": [
+      "Olympique Marseille",
+      "Olympique de Marseille"
+    ]
+  },
+  "mattersburg": {
+    "display": "SV Mattersburg",
+    "country": "AUT",
+    "aliases": [
+      "SV Mattersburg"
+    ]
+  },
+  "mechelen": {
+    "display": "KV Mechelen",
+    "country": "BEL",
+    "aliases": [
+      "KV Mechelen"
+    ]
+  },
+  "metalist 1925 kharkiv": {
+    "display": "Metalist 1925 Kharkiv",
+    "country": "UKR",
+    "aliases": [
+      "Metalist 1925 Kharkiv"
+    ]
+  },
+  "metz": {
+    "display": "FC Metz",
+    "country": "FRA",
+    "aliases": [
+      "FC Metz"
+    ]
+  },
+  "mezokovesdi se": {
+    "display": "Mezőkövesdi SE",
+    "country": "HUN",
+    "aliases": [
+      "Mezőkövesdi SE"
+    ]
+  },
+  "mfk karvina": {
+    "display": "MFK Karviná",
+    "country": "CZE",
+    "aliases": [
+      "MFK Karviná"
+    ]
+  },
+  "mfk ruzomberok": {
+    "display": "MFK Ružomberok",
+    "country": "SVK",
+    "aliases": [
+      "MFK Ružomberok"
+    ]
+  },
+  "mfk skalica": {
+    "display": "MFK Skalica",
+    "country": "SVK",
+    "aliases": [
+      "MFK Skalica"
+    ]
+  },
+  "mfk zemplin michalovce": {
+    "display": "MFK Zemplín Michalovce",
+    "country": "SVK",
+    "aliases": [
+      "MFK Zemplín Michalovce"
+    ]
+  },
+  "middlesbrough": {
+    "display": "Middlesbrough FC",
+    "country": "ENG",
+    "aliases": [
+      "Middlesbrough FC"
+    ]
+  },
+  "midtjylland": {
+    "display": "FC Midtjylland",
+    "country": "DEN",
+    "aliases": [
+      "FC Midtjylland"
+    ]
+  },
+  "milan": {
+    "display": "AC Milan",
+    "country": "ITA",
+    "aliases": [
+      "AC Milan",
+      "Milan"
+    ]
+  },
+  "milsami": {
+    "display": "FC Milsami",
+    "country": "MDA",
+    "aliases": [
+      "FC Milsami"
+    ]
+  },
+  "mjallby aif": {
+    "display": "Mjällby AIF",
+    "country": "SWE",
+    "aliases": [
+      "Mjällby AIF"
+    ]
+  },
+  "mke ankaragucu": {
+    "display": "MKE Ankaragücü",
+    "country": "TUR",
+    "aliases": [
+      "MKE Ankaragücü"
+    ]
+  },
+  "mlada boleslav": {
+    "display": "FK Mladá Boleslav",
+    "country": "CZE",
+    "aliases": [
+      "FK Mladá Boleslav"
+    ]
+  },
+  "mladost lucani": {
+    "display": "Mladost Lučani",
+    "country": "SRB",
+    "aliases": [
+      "Mladost Lučani"
+    ]
+  },
+  "mol vidi": {
+    "display": "MOL Vidi FC",
+    "country": "HUN",
+    "aliases": [
+      "MOL Vidi FC"
+    ]
+  },
+  "molde": {
+    "display": "Molde FK",
+    "country": "NOR",
+    "aliases": [
+      "Molde FK"
+    ]
+  },
+  "monaco": {
+    "display": "AS Monaco",
+    "country": "FRA",
+    "aliases": [
+      "AS Monaco",
+      "AS Monaco FC"
+    ]
+  },
+  "montpellier hsc": {
+    "display": "Montpellier HSC",
+    "country": "FRA",
+    "aliases": [
+      "Montpellier HSC"
+    ]
+  },
+  "monza": {
+    "display": "AC Monza",
+    "country": "ITA",
+    "aliases": [
+      "AC Monza"
+    ]
+  },
+  "moreirense": {
+    "display": "Moreirense FC",
+    "country": "POR",
+    "aliases": [
+      "Moreirense FC"
+    ]
+  },
+  "mornar": {
+    "display": "FK Mornar",
+    "country": "MNE",
+    "aliases": [
+      "FK Mornar"
+    ]
+  },
+  "motor lublin": {
+    "display": "Motor Lublin",
+    "country": "POL",
+    "aliases": [
+      "Motor Lublin"
+    ]
+  },
+  "msk zilina": {
+    "display": "MŠK Žilina",
+    "country": "SVK",
+    "aliases": [
+      "MŠK Žilina"
+    ]
+  },
+  "mtk budapest": {
+    "display": "MTK Budapest",
+    "country": "HUN",
+    "aliases": [
+      "MTK Budapest"
+    ]
+  },
+  "mynai": {
+    "display": "FC Mynai",
+    "country": "UKR",
+    "aliases": [
+      "FC Mynai"
+    ]
+  },
+  "nac breda": {
+    "display": "NAC Breda",
+    "country": "NED",
+    "aliases": [
+      "NAC Breda"
+    ]
+  },
+  "nacional": {
+    "display": "CD Nacional",
+    "country": "POR",
+    "aliases": [
+      "CD Nacional"
+    ]
+  },
+  "nancy lorraine": {
+    "display": "AS Nancy Lorraine",
+    "country": "FRA",
+    "aliases": [
+      "AS Nancy Lorraine"
+    ]
+  },
+  "nantes": {
+    "display": "FC Nantes",
+    "country": "FRA",
+    "aliases": [
+      "FC Nantes"
+    ]
+  },
+  "napoli": {
+    "display": "SSC Napoli",
+    "country": "ITA",
+    "aliases": [
+      "Napoli",
+      "SSC Napoli"
+    ]
+  },
+  "napredak": {
+    "display": "FK Napredak",
+    "country": "SRB",
+    "aliases": [
+      "FK Napredak"
+    ]
+  },
+  "nd primorje": {
+    "display": "ND Primorje",
+    "country": "SVN",
+    "aliases": [
+      "ND Primorje"
+    ]
+  },
+  "nea salamina": {
+    "display": "Nea Salamina",
+    "country": "CYP",
+    "aliases": [
+      "Nea Salamina"
+    ]
+  },
+  "nec": {
+    "display": "NEC",
+    "country": "NED",
+    "aliases": [
+      "NEC"
+    ]
+  },
+  "nec nijmegen": {
+    "display": "NEC Nijmegen",
+    "country": "NED",
+    "aliases": [
+      "NEC Nijmegen"
+    ]
+  },
+  "neftci pfk": {
+    "display": "Neftçi PFK",
+    "country": "AZE",
+    "aliases": [
+      "Neftçi PFK"
+    ]
+  },
+  "neman grodno": {
+    "display": "Neman Grodno",
+    "country": "BLR",
+    "aliases": [
+      "Neman Grodno"
+    ]
+  },
+  "neuchatel xamax fcs": {
+    "display": "Neuchâtel Xamax FCS",
+    "country": "SUI",
+    "aliases": [
+      "Neuchâtel Xamax FCS"
+    ]
+  },
+  "new saints": {
+    "display": "The New Saints",
+    "country": "WAL",
+    "aliases": [
+      "The New Saints"
+    ]
+  },
+  "newcastle": {
+    "display": "Newcastle United FC",
+    "country": "ENG",
+    "aliases": [
+      "Newcastle United",
+      "Newcastle United FC"
+    ]
+  },
+  "nice": {
+    "display": "OGC Nice",
+    "country": "FRA",
+    "aliases": [
+      "OGC Nice"
+    ]
+  },
+  "nimes olympique": {
+    "display": "Nîmes Olympique",
+    "country": "FRA",
+    "aliases": [
+      "Nîmes Olympique"
+    ]
+  },
+  "nk aluminij": {
+    "display": "NK Aluminij",
+    "country": "SVN",
+    "aliases": [
+      "NK Aluminij"
+    ]
+  },
+  "nk bravo": {
+    "display": "NK Bravo",
+    "country": "SVN",
+    "aliases": [
+      "NK Bravo"
+    ]
+  },
+  "nk celje": {
+    "display": "NK Celje",
+    "country": "SVN",
+    "aliases": [
+      "NK Celje"
+    ]
+  },
+  "nk domzale": {
+    "display": "NK Domžale",
+    "country": "SVN",
+    "aliases": [
+      "NK Domžale"
+    ]
+  },
+  "nk istra 1961": {
+    "display": "NK Istra 1961",
+    "country": "CRO",
+    "aliases": [
+      "NK Istra 1961"
+    ]
+  },
+  "nk maribor": {
+    "display": "NK Maribor",
+    "country": "SVN",
+    "aliases": [
+      "NK Maribor"
+    ]
+  },
+  "nk nafta": {
+    "display": "NK Nafta",
+    "country": "SVN",
+    "aliases": [
+      "NK Nafta"
+    ]
+  },
+  "nk osijek": {
+    "display": "NK Osijek",
+    "country": "CRO",
+    "aliases": [
+      "NK Osijek"
+    ]
+  },
+  "nk radomlje": {
+    "display": "NK Radomlje",
+    "country": "SVN",
+    "aliases": [
+      "NK Radomlje"
+    ]
+  },
+  "nk rogaska": {
+    "display": "NK Rogaška",
+    "country": "SVN",
+    "aliases": [
+      "NK Rogaška"
+    ]
+  },
+  "nk rudes": {
+    "display": "NK Rudeš",
+    "country": "CRO",
+    "aliases": [
+      "NK Rudeš"
+    ]
+  },
+  "nk varazdin": {
+    "display": "NK Varaždin",
+    "country": "CRO",
+    "aliases": [
+      "NK Varaždin"
+    ]
+  },
+  "nk veres": {
+    "display": "NK Veres",
+    "country": "UKR",
+    "aliases": [
+      "NK Veres"
+    ]
+  },
+  "noah": {
+    "display": "FC Noah",
+    "country": "ARM",
+    "aliases": [
+      "FC Noah"
+    ]
+  },
+  "nordsjaelland": {
+    "display": "FC Nordsjælland",
+    "country": "DEN",
+    "aliases": [
+      "FC Nordsjælland"
+    ]
+  },
+  "norwich city": {
+    "display": "Norwich City",
+    "country": "ENG",
+    "aliases": [
+      "Norwich City",
+      "Norwich City FC"
+    ]
+  },
+  "nottingham forest": {
+    "display": "Nottingham Forest FC",
+    "country": "ENG",
+    "aliases": [
+      "Nottingham Forest",
+      "Nottingham Forest FC"
+    ]
+  },
+  "novi pazar": {
+    "display": "FK Novi Pazar",
+    "country": "SRB",
+    "aliases": [
+      "FK Novi Pazar"
+    ]
+  },
+  "ns mura": {
+    "display": "NŠ Mura",
+    "country": "SVN",
+    "aliases": [
+      "NŠ Mura"
+    ]
+  },
+  "nsi runavik": {
+    "display": "NSÍ Runavík",
+    "country": "FRO",
+    "aliases": [
+      "NSÍ Runavík"
+    ]
+  },
+  "nyiregyhaza spartacus": {
+    "display": "Nyíregyháza Spartacus",
+    "country": "HUN",
+    "aliases": [
+      "Nyíregyháza Spartacus"
+    ]
+  },
+  "obolon": {
+    "display": "FK Obolon",
+    "country": "UKR",
+    "aliases": [
+      "FK Obolon"
+    ]
+  },
+  "odds": {
+    "display": "Odds BK",
+    "country": "NOR",
+    "aliases": [
+      "Odds BK"
+    ]
+  },
+  "odense": {
+    "display": "Odense BK",
+    "country": "DEN",
+    "aliases": [
+      "Odense BK"
+    ]
+  },
+  "ofi heraklion": {
+    "display": "OFI Heraklion",
+    "country": "GRE",
+    "aliases": [
+      "OFI Heraklion"
+    ]
+  },
+  "ofk beograd": {
+    "display": "OFK Beograd",
+    "country": "SRB",
+    "aliases": [
+      "OFK Beograd"
+    ]
+  },
+  "oh leuven": {
+    "display": "OH Leuven",
+    "country": "BEL",
+    "aliases": [
+      "OH Leuven"
+    ]
+  },
+  "oleksandriya": {
+    "display": "FK Oleksandriya",
+    "country": "UKR",
+    "aliases": [
+      "FK Oleksandriya"
+    ]
+  },
+  "olimpija ljubljana": {
+    "display": "Olimpija Ljubljana",
+    "country": "SVN",
+    "aliases": [
+      "Olimpija Ljubljana"
+    ]
+  },
+  "olympiakos piraeus": {
+    "display": "Olympiakos Piraeus",
+    "country": "GRE",
+    "aliases": [
+      "Olympiakos Piraeus"
+    ]
+  },
+  "omonia 29is maiou": {
+    "display": "Omonia 29is Maiou",
+    "country": "CYP",
+    "aliases": [
+      "Omonia 29is Maiou"
+    ]
+  },
+  "omonia aradippou": {
+    "display": "Omonia Aradippou",
+    "country": "CYP",
+    "aliases": [
+      "Omonia Aradippou"
+    ]
+  },
+  "omonia nikosia": {
+    "display": "Omonia Nikosia",
+    "country": "CYP",
+    "aliases": [
+      "Omonia Nikosia"
+    ]
+  },
+  "oostende": {
+    "display": "KV Oostende",
+    "country": "BEL",
+    "aliases": [
+      "KV Oostende"
+    ]
+  },
+  "ordabasy": {
+    "display": "FK Ordabasy",
+    "country": "KAZ",
+    "aliases": [
+      "FK Ordabasy"
+    ]
+  },
+  "osters": {
+    "display": "Östers IF",
+    "country": "SWE",
+    "aliases": [
+      "Östers IF"
+    ]
+  },
+  "otelul galati": {
+    "display": "Oţelul Galaţi",
+    "country": "ROU",
+    "aliases": [
+      "Oţelul Galaţi"
+    ]
+  },
+  "othellos athienou": {
+    "display": "Othellos Athienou",
+    "country": "CYP",
+    "aliases": [
+      "Othellos Athienou"
+    ]
+  },
+  "oud heverlee leuven": {
+    "display": "Oud-Heverlee Leuven",
+    "country": "BEL",
+    "aliases": [
+      "Oud-Heverlee Leuven"
+    ]
+  },
+  "pacos ferreira": {
+    "display": "Paços de Ferreira",
+    "country": "POR",
+    "aliases": [
+      "Paços de Ferreira"
+    ]
+  },
+  "paderborn 07": {
+    "display": "SC Paderborn 07",
+    "country": "GER",
+    "aliases": [
+      "SC Paderborn 07"
+    ]
+  },
+  "pae olympiakos sfp": {
+    "display": "PAE Olympiakos SFP",
+    "country": "GRE",
+    "aliases": [
+      "PAE Olympiakos SFP"
+    ]
+  },
+  "pafos": {
+    "display": "Pafos FC",
+    "country": "CYP",
+    "aliases": [
+      "Pafos FC"
+    ]
+  },
+  "paide linnameeskond": {
+    "display": "Paide Linnameeskond",
+    "country": "EST",
+    "aliases": [
+      "Paide Linnameeskond"
+    ]
+  },
+  "paksi se": {
+    "display": "Paksi SE",
+    "country": "HUN",
+    "aliases": [
+      "Paksi SE"
+    ]
+  },
+  "panathinaikos": {
+    "display": "Panathinaikos",
+    "country": "GRE",
+    "aliases": [
+      "Panathinaikos"
+    ]
+  },
+  "panetolikos": {
+    "display": "Panetolikos",
+    "country": "GRE",
+    "aliases": [
+      "Panetolikos"
+    ]
+  },
+  "panevezys": {
+    "display": "FK Panevėžys",
+    "country": "LTU",
+    "aliases": [
+      "FK Panevėžys"
+    ]
+  },
+  "panionios gss": {
+    "display": "Panionios GSS",
+    "country": "GRE",
+    "aliases": [
+      "Panionios GSS"
+    ]
+  },
+  "panserraikos": {
+    "display": "Panserraikos",
+    "country": "GRE",
+    "aliases": [
+      "Panserraikos"
+    ]
+  },
+  "paok saloniki": {
+    "display": "PAOK Saloniki",
+    "country": "GRE",
+    "aliases": [
+      "PAOK Saloniki"
+    ]
+  },
+  "paphos": {
+    "display": "Paphos FC",
+    "country": "CYP",
+    "aliases": [
+      "Paphos FC"
+    ]
+  },
+  "pardubice": {
+    "display": "FK Pardubice",
+    "country": "CZE",
+    "aliases": [
+      "FK Pardubice"
+    ]
+  },
+  "paris": {
+    "display": "Paris FC",
+    "country": "FRA",
+    "aliases": [
+      "Paris FC"
+    ]
+  },
+  "parma": {
+    "display": "Parma FC",
+    "country": "ITA",
+    "aliases": [
+      "Parma",
+      "Parma Calcio 1913",
+      "Parma FC"
+    ]
+  },
+  "partizan": {
+    "display": "Partizan",
+    "country": "SRB",
+    "aliases": [
+      "Partizan"
+    ]
+  },
+  "partizani": {
+    "display": "FK Partizani",
+    "country": "ALB",
+    "aliases": [
+      "FK Partizani"
+    ]
+  },
+  "pas giannina": {
+    "display": "PAS Giannina",
+    "country": "GRE",
+    "aliases": [
+      "PAS Giannina"
+    ]
+  },
+  "pec zwolle": {
+    "display": "PEC Zwolle",
+    "country": "NED",
+    "aliases": [
+      "PEC Zwolle"
+    ]
+  },
+  "pendikspor": {
+    "display": "Pendikspor",
+    "country": "TUR",
+    "aliases": [
+      "Pendikspor"
+    ]
+  },
+  "penybont": {
+    "display": "Penybont FC",
+    "country": "WAL",
+    "aliases": [
+      "Penybont FC"
+    ]
+  },
+  "petrolul ploiesti": {
+    "display": "Petrolul Ploieşti",
+    "country": "ROU",
+    "aliases": [
+      "Petrolul Ploieşti"
+    ]
+  },
+  "pfc beroe": {
+    "display": "PFC Beroe",
+    "country": "BUL",
+    "aliases": [
+      "PFC Beroe"
+    ]
+  },
+  "pfc ludogorets razgrad": {
+    "display": "PFC Ludogorets Razgrad",
+    "country": "BUL",
+    "aliases": [
+      "PFC Ludogorets Razgrad"
+    ]
+  },
+  "piast gliwice": {
+    "display": "Piast Gliwice",
+    "country": "POL",
+    "aliases": [
+      "Piast Gliwice"
+    ]
+  },
+  "pirin blagoevgrad": {
+    "display": "Pirin Blagoevgrad",
+    "country": "BUL",
+    "aliases": [
+      "Pirin Blagoevgrad"
+    ]
+  },
+  "pisa": {
+    "display": "Pisa",
+    "country": "ITA",
+    "aliases": [
+      "Pisa"
+    ]
+  },
+  "pogon szczecin": {
+    "display": "Pogoń Szczecin",
+    "country": "POL",
+    "aliases": [
+      "Pogoń Szczecin"
+    ]
+  },
+  "polissya zhytomyr": {
+    "display": "Polissya Zhytomyr",
+    "country": "UKR",
+    "aliases": [
+      "Polissya Zhytomyr"
+    ]
+  },
+  "politehnica iasi": {
+    "display": "FC Politehnica Iași",
+    "country": "ROU",
+    "aliases": [
+      "FC Politehnica Iași"
+    ]
+  },
+  "portimonense": {
+    "display": "Portimonense SC",
+    "country": "POR",
+    "aliases": [
+      "Portimonense SC"
+    ]
+  },
+  "porto": {
+    "display": "FC Porto",
+    "country": "POR",
+    "aliases": [
+      "FC Porto",
+      "Porto"
+    ]
+  },
+  "prishtina": {
+    "display": "FC Prishtina",
+    "country": "KOS",
+    "aliases": [
+      "FC Prishtina"
+    ]
+  },
+  "progres niedercorn": {
+    "display": "Progrès Niedercorn",
+    "country": "LUX",
+    "aliases": [
+      "Progrès Niedercorn"
+    ]
+  },
+  "psg": {
+    "display": "Paris Saint-Germain",
+    "country": "FRA",
+    "aliases": [
+      "Paris Saint-Germain",
+      "Paris Saint-Germain FC"
+    ]
+  },
+  "psv": {
+    "display": "PSV Eindhoven",
+    "country": "NED",
+    "aliases": [
+      "PSV",
+      "PSV Eindhoven"
+    ]
+  },
+  "puskas": {
+    "display": "Puskás FC",
+    "country": "HUN",
+    "aliases": [
+      "Puskás FC"
+    ]
+  },
+  "puszcza niepolomice": {
+    "display": "Puszcza Niepołomice",
+    "country": "POL",
+    "aliases": [
+      "Puszcza Niepołomice"
+    ]
+  },
+  "pyunik": {
+    "display": "Pyunik FC",
+    "country": "ARM",
+    "aliases": [
+      "Pyunik FC"
+    ]
+  },
+  "qarabag": {
+    "display": "Qarabağ FK",
+    "country": "AZE",
+    "aliases": [
+      "Qarabağ Ağdam FK",
+      "Qarabağ FK"
+    ]
+  },
+  "queens park rangers": {
+    "display": "Queens Park Rangers",
+    "country": "ENG",
+    "aliases": [
+      "Queens Park Rangers"
+    ]
+  },
+  "raal la louviere": {
+    "display": "RAAL La Louviére",
+    "country": "BEL",
+    "aliases": [
+      "RAAL La Louvière",
+      "RAAL La Louviére"
+    ]
+  },
+  "rabotnicki": {
+    "display": "FK Rabotnički",
+    "country": "MKD",
+    "aliases": [
+      "FK Rabotnički"
+    ]
+  },
+  "racing lens": {
+    "display": "Racing Club de Lens",
+    "country": "FRA",
+    "aliases": [
+      "Racing Club de Lens"
+    ]
+  },
+  "radnicki 1923": {
+    "display": "FK Radnički 1923",
+    "country": "SRB",
+    "aliases": [
+      "FK Radnički 1923"
+    ]
+  },
+  "radnicki nis": {
+    "display": "Radnički Niš",
+    "country": "SRB",
+    "aliases": [
+      "Radnički Niš"
+    ]
+  },
+  "radnik surdulica": {
+    "display": "Radnik Surdulica",
+    "country": "SRB",
+    "aliases": [
+      "Radnik Surdulica"
+    ]
+  },
+  "radomiak radom": {
+    "display": "Radomiak Radom",
+    "country": "POL",
+    "aliases": [
+      "Radomiak Radom"
+    ]
+  },
+  "rakow czestochowa": {
+    "display": "Raków Częstochowa",
+    "country": "POL",
+    "aliases": [
+      "Raków Częstochowa"
+    ]
+  },
+  "randers": {
+    "display": "Randers FC",
+    "country": "DEN",
+    "aliases": [
+      "Randers FC"
+    ]
+  },
+  "rangers": {
+    "display": "Rangers FC",
+    "country": "SCO",
+    "aliases": [
+      "Rangers FC"
+    ]
+  },
+  "rapid bucuresti": {
+    "display": "Rapid Bucureşti",
+    "country": "ROU",
+    "aliases": [
+      "Rapid Bucureşti"
+    ]
+  },
+  "rapid wien": {
+    "display": "Rapid Wien",
+    "country": "AUT",
+    "aliases": [
+      "Rapid Wien"
+    ]
+  },
+  "rayo vallecano": {
+    "display": "Rayo Vallecano",
+    "country": "ESP",
+    "aliases": [
+      "Rayo Vallecano"
+    ]
+  },
+  "rayo vallecano madrid": {
+    "display": "Rayo Vallecano de Madrid",
+    "country": "ESP",
+    "aliases": [
+      "Rayo Vallecano de Madrid"
+    ]
+  },
+  "rb leipzig": {
+    "display": "RB Leipzig",
+    "country": "GER",
+    "aliases": [
+      "RB Leipzig"
+    ]
+  },
+  "rb salzburg": {
+    "display": "RB Salzburg",
+    "country": "AUT",
+    "aliases": [
+      "RB Salzburg"
+    ]
+  },
+  "reading": {
+    "display": "Reading FC",
+    "country": "ENG",
+    "aliases": [
+      "Reading FC"
+    ]
+  },
+  "real betis": {
+    "display": "Real Betis",
+    "country": "ESP",
+    "aliases": [
+      "Real Betis",
+      "Real Betis Balompié"
+    ]
+  },
+  "real madrid": {
+    "display": "Real Madrid",
+    "country": "ESP",
+    "aliases": [
+      "Real Madrid",
+      "Real Madrid CF"
+    ]
+  },
+  "real madrid c f": {
+    "display": "Real Madrid C.F.",
+    "country": "ESP",
+    "aliases": [
+      "Real Madrid C.F."
+    ]
+  },
+  "real oviedo": {
+    "display": "Real Oviedo",
+    "country": "ESP",
+    "aliases": [
+      "Real Oviedo"
+    ]
+  },
+  "real racing santander": {
+    "display": "Real Racing Club de Santander",
+    "country": "ESP",
+    "aliases": [
+      "Real Racing Club de Santander"
+    ]
+  },
+  "real sociedad": {
+    "display": "Real Sociedad",
+    "country": "ESP",
+    "aliases": [
+      "Real Sociedad",
+      "Real Sociedad de Fútbol"
+    ]
+  },
+  "real valladolid": {
+    "display": "Real Valladolid",
+    "country": "ESP",
+    "aliases": [
+      "Real Valladolid",
+      "Real Valladolid CF"
+    ]
+  },
+  "real zaragoza": {
+    "display": "Real Zaragoza",
+    "country": "ESP",
+    "aliases": [
+      "Real Zaragoza"
+    ]
+  },
+  "reims": {
+    "display": "Stade de Reims",
+    "country": "FRA",
+    "aliases": [
+      "Stade de Reims"
+    ]
+  },
+  "rennais": {
+    "display": "Stade Rennais",
+    "country": "FRA",
+    "aliases": [
+      "Stade Rennais",
+      "Stade Rennais FC 1901"
+    ]
+  },
+  "rennes": {
+    "display": "Rennes",
+    "country": "FRA",
+    "aliases": [
+      "Rennes"
+    ]
+  },
+  "rfcu luxemburg": {
+    "display": "RFCU Luxemburg",
+    "country": "LUX",
+    "aliases": [
+      "RFCU Luxemburg"
+    ]
+  },
+  "rfs": {
+    "display": "FK RFS",
+    "country": "LVA",
+    "aliases": [
+      "FK RFS"
+    ]
+  },
+  "ried": {
+    "display": "SV Ried",
+    "country": "AUT",
+    "aliases": [
+      "SV Ried"
+    ]
+  },
+  "riga": {
+    "display": "Riga FC",
+    "country": "LVA",
+    "aliases": [
+      "Riga FC"
+    ]
+  },
+  "rio ave": {
+    "display": "Rio Ave FC",
+    "country": "POR",
+    "aliases": [
+      "Rio Ave FC"
+    ]
+  },
+  "rkc waalwijk": {
+    "display": "RKC Waalwijk",
+    "country": "NED",
+    "aliases": [
+      "RKC Waalwijk"
+    ]
+  },
+  "roma": {
+    "display": "AS Roma",
+    "country": "ITA",
+    "aliases": [
+      "AS Roma",
+      "Roma"
+    ]
+  },
+  "roma awarded": {
+    "display": "AS Roma                  [awarded]",
+    "country": "ITA",
+    "aliases": [
+      "AS Roma                  [awarded]"
+    ]
+  },
+  "rosenborg": {
+    "display": "Rosenborg BK",
+    "country": "NOR",
+    "aliases": [
+      "Rosenborg BK"
+    ]
+  },
+  "rostov": {
+    "display": "FK Rostov",
+    "country": "RUS",
+    "aliases": [
+      "FK Rostov"
+    ]
+  },
+  "royal excel mouscron": {
+    "display": "Royal Excel Mouscron",
+    "country": "BEL",
+    "aliases": [
+      "Royal Excel Mouscron"
+    ]
+  },
+  "ruch chorzow": {
+    "display": "Ruch Chorzów",
+    "country": "POL",
+    "aliases": [
+      "Ruch Chorzów"
+    ]
+  },
+  "rukh lviv": {
+    "display": "Rukh Lviv",
+    "country": "UKR",
+    "aliases": [
+      "Rukh Lviv"
+    ]
+  },
+  "rwd molenbeek": {
+    "display": "RWD Molenbeek",
+    "country": "BEL",
+    "aliases": [
+      "RWD Molenbeek"
+    ]
+  },
+  "sabah": {
+    "display": "Sabah FK",
+    "country": "AZE",
+    "aliases": [
+      "Sabah",
+      "Sabah FK"
+    ]
+  },
+  "saint etienne": {
+    "display": "AS Saint-Étienne",
+    "country": "FRA",
+    "aliases": [
+      "AS Saint-Étienne"
+    ]
+  },
+  "salzburg": {
+    "display": "FC Red Bull Salzburg",
+    "country": "AUT",
+    "aliases": [
+      "FC Red Bull Salzburg",
+      "FC Salzburg"
+    ]
+  },
+  "samaxi": {
+    "display": "Şamaxı FK",
+    "country": "AZE",
+    "aliases": [
+      "Şamaxı FK"
+    ]
+  },
+  "sampdoria": {
+    "display": "Sampdoria",
+    "country": "ITA",
+    "aliases": [
+      "Sampdoria"
+    ]
+  },
+  "samsunspor": {
+    "display": "Samsunspor",
+    "country": "TUR",
+    "aliases": [
+      "Samsunspor"
+    ]
+  },
+  "sandefjord fotball": {
+    "display": "Sandefjord Fotball",
+    "country": "NOR",
+    "aliases": [
+      "Sandefjord Fotball"
+    ]
+  },
+  "santa clara": {
+    "display": "CD Santa Clara",
+    "country": "POR",
+    "aliases": [
+      "CD Santa Clara"
+    ]
+  },
+  "santa coloma": {
+    "display": "FC Santa Coloma",
+    "country": "AND",
+    "aliases": [
+      "FC Santa Coloma"
+    ]
+  },
+  "sarajevo": {
+    "display": "FK Sarajevo",
+    "country": "BIH",
+    "aliases": [
+      "FK Sarajevo"
+    ]
+  },
+  "sarpsborg 08": {
+    "display": "Sarpsborg 08",
+    "country": "NOR",
+    "aliases": [
+      "Sarpsborg 08"
+    ]
+  },
+  "sassuolo": {
+    "display": "Sassuolo Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Sassuolo",
+      "Sassuolo Calcio"
+    ]
+  },
+  "sbv excelsior": {
+    "display": "SBV Excelsior",
+    "country": "NED",
+    "aliases": [
+      "SBV Excelsior"
+    ]
+  },
+  "sbv vitesse": {
+    "display": "SBV Vitesse",
+    "country": "NED",
+    "aliases": [
+      "SBV Vitesse"
+    ]
+  },
+  "schalke": {
+    "display": "FC Schalke 04",
+    "country": "GER",
+    "aliases": [
+      "FC Schalke 04"
+    ]
+  },
+  "scr altach": {
+    "display": "SCR Altach",
+    "country": "AUT",
+    "aliases": [
+      "SCR Altach"
+    ]
+  },
+  "sebail": {
+    "display": "Səbail FK",
+    "country": "AZE",
+    "aliases": [
+      "Səbail FK"
+    ]
+  },
+  "sepsi osk": {
+    "display": "Sepsi OSK",
+    "country": "ROU",
+    "aliases": [
+      "Sepsi OSK"
+    ]
+  },
+  "septemvri sofia": {
+    "display": "Septemvri Sofia",
+    "country": "BUL",
+    "aliases": [
+      "Septemvri Sofia"
+    ]
+  },
+  "servette": {
+    "display": "Servette FC",
+    "country": "SUI",
+    "aliases": [
+      "Servette FC"
+    ]
+  },
+  "sevilla": {
+    "display": "Sevilla FC",
+    "country": "ESP",
+    "aliases": [
+      "Sevilla",
+      "Sevilla FC"
+    ]
+  },
+  "sfc opava": {
+    "display": "SFC Opava",
+    "country": "CZE",
+    "aliases": [
+      "SFC Opava"
+    ]
+  },
+  "shakhtar donetsk": {
+    "display": "Shakhtar Donetsk",
+    "country": "UKR",
+    "aliases": [
+      "FK Shakhtar Donetsk",
+      "Shakhtar Donetsk"
+    ]
+  },
+  "shamrock rovers": {
+    "display": "Shamrock Rovers",
+    "country": "IRL",
+    "aliases": [
+      "Shamrock Rovers"
+    ]
+  },
+  "sheffield united": {
+    "display": "Sheffield United",
+    "country": "ENG",
+    "aliases": [
+      "Sheffield United",
+      "Sheffield United FC"
+    ]
+  },
+  "shelbourne": {
+    "display": "Shelbourne FC",
+    "country": "IRL",
+    "aliases": [
+      "Shelbourne FC"
+    ]
+  },
+  "sheriff": {
+    "display": "FC Sheriff",
+    "country": "MDA",
+    "aliases": [
+      "FC Sheriff"
+    ]
+  },
+  "sigma olomouc": {
+    "display": "Sigma Olomouc",
+    "country": "CZE",
+    "aliases": [
+      "Sigma Olomouc"
+    ]
+  },
+  "sileks kratovo": {
+    "display": "Sileks Kratovo",
+    "country": "MKD",
+    "aliases": [
+      "Sileks Kratovo"
+    ]
+  },
+  "silkeborg": {
+    "display": "Silkeborg IF",
+    "country": "DEN",
+    "aliases": [
+      "Silkeborg IF"
+    ]
+  },
+  "sint truidense vv": {
+    "display": "Sint-Truidense VV",
+    "country": "BEL",
+    "aliases": [
+      "Sint-Truidense VV"
+    ]
+  },
+  "sion": {
+    "display": "FC Sion",
+    "country": "SUI",
+    "aliases": [
+      "FC Sion"
+    ]
+  },
+  "sivasspor": {
+    "display": "Sivasspor",
+    "country": "TUR",
+    "aliases": [
+      "Sivasspor"
+    ]
+  },
+  "sjk seinajoki": {
+    "display": "SJK Seinäjoki",
+    "country": "FIN",
+    "aliases": [
+      "SJK Seinäjoki"
+    ]
+  },
+  "skn st polten": {
+    "display": "SKN St. Pölten",
+    "country": "AUT",
+    "aliases": [
+      "SKN St. Pölten"
+    ]
+  },
+  "slask wroclaw": {
+    "display": "Śląsk Wrocław",
+    "country": "POL",
+    "aliases": [
+      "Śląsk Wrocław"
+    ]
+  },
+  "slaven belupo": {
+    "display": "Slaven Belupo",
+    "country": "CRO",
+    "aliases": [
+      "Slaven Belupo"
+    ]
+  },
+  "slavia prague": {
+    "display": "Slavia Praha",
+    "country": "CZE",
+    "aliases": [
+      "SK Slavia Praha",
+      "Slavia Prague",
+      "Slavia Praha"
+    ]
+  },
+  "slavia sofia": {
+    "display": "Slavia Sofia",
+    "country": "BUL",
+    "aliases": [
+      "Slavia Sofia"
+    ]
+  },
+  "sliema wanderers": {
+    "display": "Sliema Wanderers",
+    "country": "MLT",
+    "aliases": [
+      "Sliema Wanderers"
+    ]
+  },
+  "slovan bratislava": {
+    "display": "ŠK Slovan Bratislava",
+    "country": "SVK",
+    "aliases": [
+      "Slovan Bratislava",
+      "ŠK Slovan Bratislava"
+    ]
+  },
+  "slovan liberec": {
+    "display": "Slovan Liberec",
+    "country": "CZE",
+    "aliases": [
+      "Slovan Liberec"
+    ]
+  },
+  "sm caen": {
+    "display": "SM Caen",
+    "country": "FRA",
+    "aliases": [
+      "SM Caen"
+    ]
+  },
+  "sonderjyske": {
+    "display": "SønderjyskE",
+    "country": "DEN",
+    "aliases": [
+      "SønderjyskE"
+    ]
+  },
+  "southampton": {
+    "display": "Southampton FC",
+    "country": "ENG",
+    "aliases": [
+      "Southampton FC"
+    ]
+  },
+  "sp la fiorita": {
+    "display": "SP La Fiorita",
+    "country": "SMR",
+    "aliases": [
+      "SP La Fiorita"
+    ]
+  },
+  "sp tre fiori": {
+    "display": "SP Tre Fiori",
+    "country": "SMR",
+    "aliases": [
+      "SP Tre Fiori"
+    ]
+  },
+  "sp tre penne": {
+    "display": "SP Tre Penne",
+    "country": "SMR",
+    "aliases": [
+      "SP Tre Penne"
+    ]
+  },
+  "spaeri": {
+    "display": "Spaeri FC",
+    "country": "GEO",
+    "aliases": [
+      "Spaeri FC"
+    ]
+  },
+  "spal 2013 ferrara": {
+    "display": "SPAL 2013 Ferrara",
+    "country": "ITA",
+    "aliases": [
+      "SPAL 2013 Ferrara"
+    ]
+  },
+  "sparta prague": {
+    "display": "AC Sparta Praha",
+    "country": "CZE",
+    "aliases": [
+      "AC Sparta Praha"
+    ]
+  },
+  "sparta rotterdam": {
+    "display": "Sparta Rotterdam",
+    "country": "NED",
+    "aliases": [
+      "Sparta Rotterdam"
+    ]
+  },
+  "spartak moskva": {
+    "display": "Spartak Moskva",
+    "country": "RUS",
+    "aliases": [
+      "Spartak Moskva"
+    ]
+  },
+  "spartak subotica": {
+    "display": "Spartak Subotica",
+    "country": "SRB",
+    "aliases": [
+      "Spartak Subotica"
+    ]
+  },
+  "spartak trnava": {
+    "display": "Spartak Trnava",
+    "country": "SVK",
+    "aliases": [
+      "Spartak Trnava"
+    ]
+  },
+  "spartak varna": {
+    "display": "Spartak Varna",
+    "country": "BUL",
+    "aliases": [
+      "Spartak Varna"
+    ]
+  },
+  "spezia": {
+    "display": "Spezia Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Spezia Calcio"
+    ]
+  },
+  "sporting": {
+    "display": "Sporting CP",
+    "country": "POR",
+    "aliases": [
+      "Sporting CP"
+    ]
+  },
+  "sporting braga": {
+    "display": "Sporting Braga",
+    "country": "POR",
+    "aliases": [
+      "Sporting Braga"
+    ]
+  },
+  "sporting charleroi": {
+    "display": "Sporting Charleroi",
+    "country": "BEL",
+    "aliases": [
+      "Sporting Charleroi"
+    ]
+  },
+  "sporting clube braga": {
+    "display": "Sporting Clube de Braga",
+    "country": "POR",
+    "aliases": [
+      "Sporting Clube de Braga"
+    ]
+  },
+  "sporting clube portugal": {
+    "display": "Sporting Clube de Portugal",
+    "country": "POR",
+    "aliases": [
+      "Sporting Clube de Portugal"
+    ]
+  },
+  "sporting gijon": {
+    "display": "Sporting Gijón",
+    "country": "ESP",
+    "aliases": [
+      "Sporting Gijón"
+    ]
+  },
+  "sporting lokeren": {
+    "display": "Sporting Lokeren",
+    "country": "BEL",
+    "aliases": [
+      "Sporting Lokeren"
+    ]
+  },
+  "spvgg greuther furth": {
+    "display": "SpVgg Greuther Fürth",
+    "country": "GER",
+    "aliases": [
+      "SpVgg Greuther Fürth",
+      "SpVgg Greuther Fürth 1903"
+    ]
+  },
+  "ss lazio": {
+    "display": "SS Lazio",
+    "country": "ITA",
+    "aliases": [
+      "SS Lazio"
+    ]
+  },
+  "ss virtus": {
+    "display": "SS Virtus",
+    "country": "SMR",
+    "aliases": [
+      "SS Virtus"
+    ]
+  },
+  "st gallen": {
+    "display": "FC St. Gallen",
+    "country": "SUI",
+    "aliases": [
+      "FC St. Gallen"
+    ]
+  },
+  "st joseph s": {
+    "display": "St. Joseph's FC",
+    "country": "GIB",
+    "aliases": [
+      "St. Joseph's FC"
+    ]
+  },
+  "st mirren": {
+    "display": "St. Mirren FC",
+    "country": "SCO",
+    "aliases": [
+      "St. Mirren FC"
+    ]
+  },
+  "st patrick s athletic": {
+    "display": "St Patrick's Athletic",
+    "country": "IRL",
+    "aliases": [
+      "St Patrick's Athletic"
+    ]
+  },
+  "st pauli": {
+    "display": "FC St. Pauli 1910",
+    "country": "GER",
+    "aliases": [
+      "FC St. Pauli 1910",
+      "St. Pauli"
+    ]
+  },
+  "stabaek": {
+    "display": "Stabæk IF",
+    "country": "NOR",
+    "aliases": [
+      "Stabæk IF"
+    ]
+  },
+  "standard liege": {
+    "display": "Standard Liège",
+    "country": "BEL",
+    "aliases": [
+      "Standard Liège",
+      "Standard de Liège"
+    ]
+  },
+  "steaua bucuresti": {
+    "display": "FC Steaua Bucureşti",
+    "country": "ROU",
+    "aliases": [
+      "FC Steaua Bucureşti"
+    ]
+  },
+  "stoke city": {
+    "display": "Stoke City",
+    "country": "ENG",
+    "aliases": [
+      "Stoke City"
+    ]
+  },
+  "strasbourg": {
+    "display": "RC Strasbourg",
+    "country": "FRA",
+    "aliases": [
+      "RC Strasbourg"
+    ]
+  },
+  "strasbourg alsace": {
+    "display": "RC Strasbourg Alsace",
+    "country": "FRA",
+    "aliases": [
+      "RC Strasbourg Alsace"
+    ]
+  },
+  "stromsgodset": {
+    "display": "Strømsgodset IF",
+    "country": "NOR",
+    "aliases": [
+      "Strømsgodset IF"
+    ]
+  },
+  "struga": {
+    "display": "FC Struga",
+    "country": "MKD",
+    "aliases": [
+      "FC Struga"
+    ]
+  },
+  "sturm graz": {
+    "display": "SK Sturm Graz",
+    "country": "AUT",
+    "aliases": [
+      "SK Sturm Graz",
+      "Sturm Graz"
+    ]
+  },
+  "sturm graz awarded": {
+    "display": "Sturm Graz               [awarded]",
+    "country": "AUT",
+    "aliases": [
+      "Sturm Graz               [awarded]"
+    ]
+  },
+  "stuttgart": {
+    "display": "VfB Stuttgart",
+    "country": "GER",
+    "aliases": [
+      "VfB Stuttgart"
+    ]
+  },
+  "stvv": {
+    "display": "STVV",
+    "country": "BEL",
+    "aliases": [
+      "--:--  STVV",
+      "STVV"
+    ]
+  },
+  "sumgayit": {
+    "display": "Sumgayıt FK",
+    "country": "AZE",
+    "aliases": [
+      "Sumgayit FK",
+      "Sumgayıt FK"
+    ]
+  },
+  "sunderland": {
+    "display": "Sunderland AFC",
+    "country": "ENG",
+    "aliases": [
+      "Sunderland",
+      "Sunderland AFC"
+    ]
+  },
+  "sutjeska": {
+    "display": "FK Sutjeska",
+    "country": "MNE",
+    "aliases": [
+      "FK Sutjeska"
+    ]
+  },
+  "swansea city": {
+    "display": "Swansea City",
+    "country": "ENG",
+    "aliases": [
+      "Swansea City"
+    ]
+  },
+  "szombathelyi haladas": {
+    "display": "Szombathelyi Haladás",
+    "country": "HUN",
+    "aliases": [
+      "Szombathelyi Haladás"
+    ]
+  },
+  "tekstilac odzaci": {
+    "display": "Tekstilac Odžaci",
+    "country": "SRB",
+    "aliases": [
+      "Tekstilac Odžaci"
+    ]
+  },
+  "telstar 1963": {
+    "display": "Telstar 1963",
+    "country": "NED",
+    "aliases": [
+      "Telstar 1963"
+    ]
+  },
+  "teplice": {
+    "display": "FK Teplice",
+    "country": "CZE",
+    "aliases": [
+      "FK Teplice"
+    ]
+  },
+  "thun": {
+    "display": "FC Thun",
+    "country": "SUI",
+    "aliases": [
+      "FC Thun"
+    ]
+  },
+  "tobyl kostanay": {
+    "display": "Tobyl Kostanay",
+    "country": "KAZ",
+    "aliases": [
+      "Tobyl Kostanay"
+    ]
+  },
+  "tondela": {
+    "display": "CD Tondela",
+    "country": "POR",
+    "aliases": [
+      "CD Tondela"
+    ]
+  },
+  "torino": {
+    "display": "Torino FC",
+    "country": "ITA",
+    "aliases": [
+      "Torino",
+      "Torino FC"
+    ]
+  },
+  "torpedo belaz zhodino": {
+    "display": "Torpedo-BelAZ Zhodino",
+    "country": "BLR",
+    "aliases": [
+      "Torpedo-BelAZ Zhodino"
+    ]
+  },
+  "torpedo kutaisi": {
+    "display": "Torpedo Kutaisi",
+    "country": "GEO",
+    "aliases": [
+      "Torpedo Kutaisi"
+    ]
+  },
+  "tottenham": {
+    "display": "Tottenham Hotspur",
+    "country": "ENG",
+    "aliases": [
+      "Tottenham Hotspur",
+      "Tottenham Hotspur FC"
+    ]
+  },
+  "toulouse": {
+    "display": "Toulouse FC",
+    "country": "FRA",
+    "aliases": [
+      "Toulouse FC"
+    ]
+  },
+  "trabzonspor": {
+    "display": "Trabzonspor",
+    "country": "TUR",
+    "aliases": [
+      "Trabzonspor"
+    ]
+  },
+  "transinvest": {
+    "display": "FK TransINVEST",
+    "country": "LTU",
+    "aliases": [
+      "FK TransINVEST"
+    ]
+  },
+  "trencin": {
+    "display": "AS Trenčín",
+    "country": "SVK",
+    "aliases": [
+      "AS Trenčín"
+    ]
+  },
+  "trenkwalder admira": {
+    "display": "FC Trenkwalder Admira",
+    "country": "AUT",
+    "aliases": [
+      "FC Trenkwalder Admira"
+    ]
+  },
+  "tromso il": {
+    "display": "Tromsø IL",
+    "country": "NOR",
+    "aliases": [
+      "Tromsø IL"
+    ]
+  },
+  "tsc backa topola": {
+    "display": "TSC Bačka Topola",
+    "country": "SRB",
+    "aliases": [
+      "TSC Bačka Topola"
+    ]
+  },
+  "tsv hartberg": {
+    "display": "TSV Hartberg",
+    "country": "AUT",
+    "aliases": [
+      "TSV Hartberg"
+    ]
+  },
+  "turan tovuz": {
+    "display": "Turan Tovuz",
+    "country": "AZE",
+    "aliases": [
+      "Turan Tovuz"
+    ]
+  },
+  "twente": {
+    "display": "FC Twente",
+    "country": "NED",
+    "aliases": [
+      "FC Twente"
+    ]
+  },
+  "twente 65": {
+    "display": "FC Twente '65",
+    "country": "NED",
+    "aliases": [
+      "FC Twente '65"
+    ]
+  },
+  "uc sampdoria": {
+    "display": "UC Sampdoria",
+    "country": "ITA",
+    "aliases": [
+      "UC Sampdoria"
+    ]
+  },
+  "udinese": {
+    "display": "Udinese Calcio",
+    "country": "ITA",
+    "aliases": [
+      "Udinese",
+      "Udinese Calcio"
+    ]
+  },
+  "ue santa coloma": {
+    "display": "UE Santa Coloma",
+    "country": "AND",
+    "aliases": [
+      "UE Santa Coloma"
+    ]
+  },
+  "ujpest": {
+    "display": "Újpest FC",
+    "country": "HUN",
+    "aliases": [
+      "Újpest FC"
+    ]
+  },
+  "umf stjarnan": {
+    "display": "UMF Stjarnan",
+    "country": "ISL",
+    "aliases": [
+      "UMF Stjarnan"
+    ]
+  },
+  "una strassen": {
+    "display": "UNA Strassen",
+    "country": "LUX",
+    "aliases": [
+      "UNA Strassen"
+    ]
+  },
+  "union berlin": {
+    "display": "1. FC Union Berlin",
+    "country": "GER",
+    "aliases": [
+      "1. FC Union Berlin",
+      "Union Berlin"
+    ]
+  },
+  "union saint-gilloise": {
+    "display": "Union Saint-Gilloise",
+    "country": "BEL",
+    "aliases": [
+      "Royale Union Saint-Gilloise",
+      "Union Saint-Gilloise"
+    ]
+  },
+  "unirea slobozia": {
+    "display": "Unirea Slobozia",
+    "country": "ROU",
+    "aliases": [
+      "Unirea Slobozia"
+    ]
+  },
+  "universitatea cluj": {
+    "display": "Universitatea Cluj",
+    "country": "ROU",
+    "aliases": [
+      "Universitatea Cluj"
+    ]
+  },
+  "universitatea craiova": {
+    "display": "FC Universitatea Craiova",
+    "country": "ROU",
+    "aliases": [
+      "FC Universitatea Craiova"
+    ]
+  },
+  "urartu": {
+    "display": "FC Urartu",
+    "country": "ARM",
+    "aliases": [
+      "FC Urartu"
+    ]
+  },
+  "us cremonese": {
+    "display": "US Cremonese",
+    "country": "ITA",
+    "aliases": [
+      "US Cremonese"
+    ]
+  },
+  "us lecce": {
+    "display": "US Lecce",
+    "country": "ITA",
+    "aliases": [
+      "US Lecce"
+    ]
+  },
+  "us palermo": {
+    "display": "US Palermo",
+    "country": "ITA",
+    "aliases": [
+      "US Palermo"
+    ]
+  },
+  "us salernitana 1919": {
+    "display": "US Salernitana 1919",
+    "country": "ITA",
+    "aliases": [
+      "US Salernitana 1919"
+    ]
+  },
+  "us sassuolo": {
+    "display": "US Sassuolo Calcio",
+    "country": "ITA",
+    "aliases": [
+      "US Sassuolo Calcio"
+    ]
+  },
+  "uta arad": {
+    "display": "UTA Arad",
+    "country": "ROU",
+    "aliases": [
+      "UTA Arad"
+    ]
+  },
+  "utrecht": {
+    "display": "FC Utrecht",
+    "country": "NED",
+    "aliases": [
+      "FC Utrecht"
+    ]
+  },
+  "vaasan ps": {
+    "display": "Vaasan PS",
+    "country": "FIN",
+    "aliases": [
+      "Vaasan PS"
+    ]
+  },
+  "vaduz": {
+    "display": "FC Vaduz",
+    "country": "LIE",
+    "aliases": [
+      "FC Vaduz"
+    ]
+  },
+  "valencia": {
+    "display": "Valencia CF",
+    "country": "ESP",
+    "aliases": [
+      "Valencia CF"
+    ]
+  },
+  "valerenga": {
+    "display": "Vålerenga IF",
+    "country": "NOR",
+    "aliases": [
+      "Vålerenga IF"
+    ]
+  },
+  "valur reykjavik": {
+    "display": "Valur Reykjavík",
+    "country": "ISL",
+    "aliases": [
+      "Valur Reykjavík"
+    ]
+  },
+  "varbergs bois": {
+    "display": "Varbergs BoIS",
+    "country": "SWE",
+    "aliases": [
+      "Varbergs BoIS"
+    ]
+  },
+  "vardar skopje": {
+    "display": "Vardar Skopje",
+    "country": "MKD",
+    "aliases": [
+      "Vardar Skopje"
+    ]
+  },
+  "vasteras": {
+    "display": "Västerås SK",
+    "country": "SWE",
+    "aliases": [
+      "Västerås SK"
+    ]
+  },
+  "vejle": {
+    "display": "Vejle BK",
+    "country": "DEN",
+    "aliases": [
+      "Vejle BK"
+    ]
+  },
+  "velez mostar": {
+    "display": "Velež Mostar",
+    "country": "BIH",
+    "aliases": [
+      "Velež Mostar"
+    ]
+  },
+  "venezia": {
+    "display": "Venezia FC",
+    "country": "ITA",
+    "aliases": [
+      "Venezia FC"
+    ]
+  },
+  "viborg": {
+    "display": "Viborg FF",
+    "country": "DEN",
+    "aliases": [
+      "Viborg FF"
+    ]
+  },
+  "viking": {
+    "display": "Viking FK",
+    "country": "NOR",
+    "aliases": [
+      "Viking",
+      "Viking FK"
+    ]
+  },
+  "vikingur": {
+    "display": "Víkingur",
+    "country": "FRO",
+    "aliases": [
+      "Víkingur"
+    ]
+  },
+  "vikingur reykjavik": {
+    "display": "Víkingur Reykjavík",
+    "country": "ISL",
+    "aliases": [
+      "Víkingur Reykjavík"
+    ]
+  },
+  "viktoria plzen": {
+    "display": "Viktoria Plzeň",
+    "country": "CZE",
+    "aliases": [
+      "Viktoria Plzeň"
+    ]
+  },
+  "villarreal": {
+    "display": "Villarreal CF",
+    "country": "ESP",
+    "aliases": [
+      "Villarreal",
+      "Villarreal CF"
+    ]
+  },
+  "vitesse": {
+    "display": "Vitesse",
+    "country": "NED",
+    "aliases": [
+      "Vitesse"
+    ]
+  },
+  "vitoria guimaraes": {
+    "display": "Vitória Guimarães",
+    "country": "POR",
+    "aliases": [
+      "Vitória Guimarães"
+    ]
+  },
+  "vitoria setubal": {
+    "display": "Vitória Setúbal",
+    "country": "POR",
+    "aliases": [
+      "Vitória Setúbal"
+    ]
+  },
+  "vizela": {
+    "display": "FC Vizela",
+    "country": "POR",
+    "aliases": [
+      "FC Vizela"
+    ]
+  },
+  "vllaznia": {
+    "display": "FK Vllaznia",
+    "country": "ALB",
+    "aliases": [
+      "FK Vllaznia"
+    ]
+  },
+  "vojvodina": {
+    "display": "Vojvodina",
+    "country": "SRB",
+    "aliases": [
+      "Vojvodina"
+    ]
+  },
+  "volendam": {
+    "display": "FC Volendam",
+    "country": "NED",
+    "aliases": [
+      "FC Volendam"
+    ]
+  },
+  "volos nfc": {
+    "display": "Volos NFC",
+    "country": "GRE",
+    "aliases": [
+      "Volos NFC"
+    ]
+  },
+  "voluntari": {
+    "display": "FC Voluntari",
+    "country": "ROU",
+    "aliases": [
+      "FC Voluntari"
+    ]
+  },
+  "vorskla poltava": {
+    "display": "Vorskla Poltava",
+    "country": "UKR",
+    "aliases": [
+      "Vorskla Poltava"
+    ]
+  },
+  "vozdovac": {
+    "display": "FK Voždovac",
+    "country": "SRB",
+    "aliases": [
+      "FK Voždovac"
+    ]
+  },
+  "vvv venlo": {
+    "display": "VVV-Venlo",
+    "country": "NED",
+    "aliases": [
+      "VVV-Venlo"
+    ]
+  },
+  "waasland beveren": {
+    "display": "Waasland-Beveren",
+    "country": "BEL",
+    "aliases": [
+      "Waasland-Beveren"
+    ]
+  },
+  "wacker innsbruck": {
+    "display": "FC Wacker Innsbruck",
+    "country": "AUT",
+    "aliases": [
+      "FC Wacker Innsbruck"
+    ]
+  },
+  "warta poznan": {
+    "display": "Warta Poznań",
+    "country": "POL",
+    "aliases": [
+      "Warta Poznań"
+    ]
+  },
+  "watford": {
+    "display": "Watford FC",
+    "country": "ENG",
+    "aliases": [
+      "Watford FC"
+    ]
+  },
+  "werder bremen": {
+    "display": "Werder Bremen",
+    "country": "GER",
+    "aliases": [
+      "SV Werder Bremen",
+      "Werder Bremen"
+    ]
+  },
+  "west bromwich albion": {
+    "display": "West Bromwich Albion",
+    "country": "ENG",
+    "aliases": [
+      "West Bromwich Albion",
+      "West Bromwich Albion FC"
+    ]
+  },
+  "west ham united": {
+    "display": "West Ham United",
+    "country": "ENG",
+    "aliases": [
+      "West Ham United",
+      "West Ham United FC"
+    ]
+  },
+  "widzew lodz": {
+    "display": "Widzew Łódź",
+    "country": "POL",
+    "aliases": [
+      "Widzew Łódź"
+    ]
+  },
+  "wigan athletic": {
+    "display": "Wigan Athletic",
+    "country": "ENG",
+    "aliases": [
+      "Wigan Athletic"
+    ]
+  },
+  "willem": {
+    "display": "Willem II",
+    "country": "NED",
+    "aliases": [
+      "Willem II"
+    ]
+  },
+  "willem tilburg": {
+    "display": "Willem II Tilburg",
+    "country": "NED",
+    "aliases": [
+      "Willem II Tilburg"
+    ]
+  },
+  "winterthur": {
+    "display": "FC Winterthur",
+    "country": "SUI",
+    "aliases": [
+      "FC Winterthur"
+    ]
+  },
+  "wisla krakow": {
+    "display": "Wisła Kraków",
+    "country": "POL",
+    "aliases": [
+      "Wisła Kraków"
+    ]
+  },
+  "wolfsberger": {
+    "display": "Wolfsberger AC",
+    "country": "AUT",
+    "aliases": [
+      "Wolfsberger AC"
+    ]
+  },
+  "wolfsburg": {
+    "display": "VfL Wolfsburg",
+    "country": "GER",
+    "aliases": [
+      "VfL Wolfsburg",
+      "Wolfsburg"
+    ]
+  },
+  "wolverhampton wanderers": {
+    "display": "Wolverhampton Wanderers",
+    "country": "ENG",
+    "aliases": [
+      "Wolverhampton Wanderers",
+      "Wolverhampton Wanderers FC"
+    ]
+  },
+  "wsg tirol": {
+    "display": "WSG Tirol",
+    "country": "AUT",
+    "aliases": [
+      "WSG Tirol"
+    ]
+  },
+  "xanthi": {
+    "display": "Xanthi FC",
+    "country": "GRE",
+    "aliases": [
+      "Xanthi FC"
+    ]
+  },
+  "yeni malatyaspor": {
+    "display": "Yeni Malatyaspor",
+    "country": "TUR",
+    "aliases": [
+      "Yeni Malatyaspor"
+    ]
+  },
+  "yverdon": {
+    "display": "Yverdon Sport FC",
+    "country": "SUI",
+    "aliases": [
+      "Yverdon Sport FC"
+    ]
+  },
+  "zaglebie lubin": {
+    "display": "Zagłębie Lubin",
+    "country": "POL",
+    "aliases": [
+      "Zagłębie Lubin"
+    ]
+  },
+  "zalaegerszegi te": {
+    "display": "Zalaegerszegi TE",
+    "country": "HUN",
+    "aliases": [
+      "Zalaegerszegi TE"
+    ]
+  },
+  "zalgiris": {
+    "display": "FK Žalgiris",
+    "country": "LTU",
+    "aliases": [
+      "FK Žalgiris"
+    ]
+  },
+  "zbrojovka brno": {
+    "display": "Zbrojovka Brno",
+    "country": "CZE",
+    "aliases": [
+      "Zbrojovka Brno"
+    ]
+  },
+  "zeleziarne podbrezova": {
+    "display": "FK Železiarne Podbrezová",
+    "country": "SVK",
+    "aliases": [
+      "FK Železiarne Podbrezová"
+    ]
+  },
+  "zeleznicar pancevo": {
+    "display": "Železničar Pančevo",
+    "country": "SRB",
+    "aliases": [
+      "Železničar Pančevo"
+    ]
+  },
+  "zeljeznicar sarajevo": {
+    "display": "Željezničar Sarajevo",
+    "country": "BIH",
+    "aliases": [
+      "Željezničar Sarajevo"
+    ]
+  },
+  "zenit st petersburg": {
+    "display": "Zenit St. Petersburg",
+    "country": "RUS",
+    "aliases": [
+      "Zenit St. Petersburg"
+    ]
+  },
+  "zimbru": {
+    "display": "FC Zimbru",
+    "country": "MDA",
+    "aliases": [
+      "FC Zimbru"
+    ]
+  },
+  "zira": {
+    "display": "Zira FK",
+    "country": "AZE",
+    "aliases": [
+      "Zira FK"
+    ]
+  },
+  "zlate moravce": {
+    "display": "Zlaté Moravce",
+    "country": "SVK",
+    "aliases": [
+      "Zlaté Moravce"
+    ]
+  },
+  "zlin": {
+    "display": "FC Zlín",
+    "country": "CZE",
+    "aliases": [
+      "FC Zlín"
+    ]
+  },
+  "zorya lugansk": {
+    "display": "Zorya Lugansk",
+    "country": "UKR",
+    "aliases": [
+      "Zorya Lugansk"
+    ]
+  },
+  "zrinjski mostar": {
+    "display": "Zrinjski Mostar",
+    "country": "BIH",
+    "aliases": [
+      "Zrinjski Mostar"
+    ]
+  },
+  "zulte waregem": {
+    "display": "SV Zulte Waregem",
+    "country": "BEL",
+    "aliases": [
+      "SV Zulte Waregem"
+    ]
+  },
+  "zurich": {
+    "display": "FC Zürich",
+    "country": "SUI",
+    "aliases": [
+      "FC Zürich"
+    ]
+  }
+}
