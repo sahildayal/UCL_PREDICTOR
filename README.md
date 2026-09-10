@@ -7,7 +7,7 @@ keeps an honest scoreboard by placing **fake** bets, and leaves every real
 decision to a human. There is no order placement anywhere in this repository and
 no path to add one by configuration.
 
-**Live dashboard: [sahildayal.github.io/UCL_PREDICTOR](https://sahildayal.github.io/UCL_PREDICTOR/)**
+**Live dashboard: [sahildayal.me/UCL_PREDICTOR](https://sahildayal.me/UCL_PREDICTOR/)**
 — season scoreboard, the current matchday, and a permanent archive of every
 matchday as it was forecast before kickoff.
 
