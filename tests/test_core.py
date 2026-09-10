@@ -256,3 +256,65 @@ def test_markdownv2_reserved_characters_are_escaped():
     for index, char in enumerate(text):
         if char in "-+" and not text.startswith("`", max(0, index - 1)):
             assert text[index - 1] == "\\", f"unescaped {char!r} at {index}: {text[max(0,index-25):index+10]!r}"
+
+
+# --- in-play market contamination ------------------------------------------
+
+def test_in_play_price_is_withheld_from_the_brief(monkeypatch, tmp_path):
+    """A price seen at/after kickoff must never reach staking or scoring.
+
+    The EPL lab booked a phantom 14.88% "edge" by diffing a fair value against
+    an in-play price. Here the whole season scoreboard would be corrupted, since
+    every arm is scored against entry["market"].
+    """
+    from datetime import datetime, timedelta, timezone
+
+    import pandas as pd
+
+    from ucl import pipeline
+    from ucl.data import corpus as corpus_module
+    from ucl.data import odds as odds_module
+
+    # run_matchday writes brief_<date>.json into PROCESSED; redirect it at a
+    # tmp dir so the test never clobbers the committed archive.
+    monkeypatch.setattr(pipeline, "PROCESSED", tmp_path)
+
+    frame, registry = corpus_module.load()
+    started = frame[(frame["competition"] == "UCL") & (~frame["played"])].head(2).copy()
+    if len(started) < 2:
+        import pytest
+        pytest.skip("no upcoming UCL fixtures in the cached corpus")
+
+    now = datetime.now(timezone.utc)
+
+    class FakePrice:
+        def __init__(self, home, away, minutes):
+            self.home, self.away = home, away
+            self.commence_time = now + timedelta(minutes=minutes)
+            self.bookmaker_count = 30
+            self.overround = 0.05
+
+        def devigged(self):
+            return {"Home": 0.5, "Draw": 0.3, "Away": 0.2}
+
+    rows = list(started.itertuples(index=False))
+    pre = FakePrice(rows[0].home, rows[0].away, minutes=120)     # not yet kicked off
+    live = FakePrice(rows[1].home, rows[1].away, minutes=-30)    # in progress
+
+    monkeypatch.setattr(odds_module, "fetch_odds",
+                        lambda *a, **k: ([pre, live], 999))
+    monkeypatch.setattr(pipeline, "match_market",
+                        lambda prices, reg: {(p.home, p.away): p for p in prices})
+    monkeypatch.setattr(pipeline, "_map_market_outcomes",
+                        lambda dv, price, reg, h, a: {"home": 0.5, "draw": 0.3, "away": 0.2})
+
+    brief = pipeline.run_matchday(as_of=now.date(), horizon_days=30,
+                                  simulations=200, fast=True, place_bets=False)
+
+    by_pair = {(f["home"], f["away"]): f for f in brief.fixtures}
+    pre_entry = by_pair.get((rows[0].home, rows[0].away))
+    live_entry = by_pair.get((rows[1].home, rows[1].away))
+    assert pre_entry is not None and pre_entry["market"] is not None
+    assert live_entry is not None
+    assert live_entry["market"] is None
+    assert live_entry["market_in_play_withheld"] is True

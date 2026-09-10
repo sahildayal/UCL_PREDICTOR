@@ -16,11 +16,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import numpy as np  # noqa: E402
-
 from ucl.config import PROCESSED, force_utf8  # noqa: E402
 from ucl.data.results import results_map  # noqa: E402
-from ucl.eval import metrics  # noqa: E402
+from ucl.eval import season  # noqa: E402
 from ucl.ledger.ledger import Ledger  # noqa: E402
 from ucl.report import telegram  # noqa: E402
 from ucl.report.site import build_site  # noqa: E402
@@ -48,54 +46,33 @@ def main() -> int:
         print(f"  {row['arm']:<14} {row['regime']:<11} bankroll={row['bankroll']:>9,.2f} "
               f"P&L={row['profit']:>+9,.2f} {row['won']}W-{row['lost']}L open={row['open']}")
 
-    # --- score arms against outcomes and the closing line -------------------
+    # --- score every arm against the closing line -------------------------
+    # season.build() is the authoritative scoreboard the public site uses. It
+    # reads the archived briefs (immutable, committed pre-kickoff), joins them to
+    # results, de-duplicates any re-forecast fixture, and compares each arm to the
+    # market only on fixtures where BOTH priced - so an in-play-withheld market on
+    # one fixture never poisons the comparison on the rest.
+    board, scored = season.build(played)
+    if not scored:
+        print("\nno archived forecast lines up with a finished match yet")
+    else:
+        print(f"\nseason scoreboard ({len(scored)} scored fixtures):")
+        for entry in board:
+            edge = entry.get("edge_vs_market")
+            edge_text = ("" if entry.get("is_market")
+                         else f"  vs market {edge:+.4f}" if edge is not None
+                         else "  vs market n/a")
+            print(f"  {entry['arm']:<14} log_loss={entry['log_loss']:.4f} "
+                  f"rps={entry['rps']:.4f}{edge_text}")
+
     brief_path = Path(args.brief) if args.brief else PROCESSED / "brief_latest.json"
-    if not brief_path.exists():
-        print("no brief to score")
-        return 0
-    brief = json.loads(brief_path.read_text(encoding="utf-8"))
-
-    rows = []
-    for entry in brief["fixtures"]:
-        key = (entry["home"], entry["away"], entry["date"])
-        if key not in played:
-            continue
-        hg, ag = played[key]
-        rows.append((entry, metrics.outcome_index([hg], [ag])[0]))
-
-    if not rows:
-        print("\nno finished fixtures in the brief yet")
-        return 0
-
-    outcomes = np.array([o for _, o in rows])
-    print(f"\nscoring {len(rows)} finished fixtures")
-    market_probs = None
-    if all(e.get("market") and e["market"].get("home") for e, _ in rows):
-        market_probs = np.array([[e["market"]["home"], e["market"]["draw"],
-                                  e["market"]["away"]] for e, _ in rows])
-        summary = metrics.summarise(market_probs, outcomes)
-        print(f"  {'market':<14} log_loss={summary['log_loss']:.4f} rps={summary['rps']:.4f}")
-
-    arm_names = [n for n, v in rows[0][0]["arms"].items() if v]
-    for name in arm_names:
-        probs = np.array([[e["arms"][name]["home"], e["arms"][name]["draw"],
-                           e["arms"][name]["away"]] for e, _ in rows
-                          if e["arms"].get(name)])
-        if len(probs) != len(outcomes):
-            continue
-        summary = metrics.summarise(probs, outcomes)
-        line = f"  {name:<14} log_loss={summary['log_loss']:.4f} rps={summary['rps']:.4f}"
-        if market_probs is not None:
-            comparison = metrics.compare_to_market(probs, market_probs, outcomes)
-            edge = comparison["edge_vs_market"]
-            line += f"  vs market: {edge:+.4f} ({'better' if edge > 0 else 'worse'})"
-        print(line)
+    brief = (json.loads(brief_path.read_text(encoding="utf-8"))
+             if brief_path.exists() else None)
 
     site = build_site(played)
-    print(f"
-site rebuilt: {site}")
+    print(f"\nsite rebuilt: {site}")
 
-    if telegram.send_results(brief, played, ledger):
+    if brief is not None and telegram.send_results(brief, played, ledger):
         print("results pushed to Telegram")
     return 0
 

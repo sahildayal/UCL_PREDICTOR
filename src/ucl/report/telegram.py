@@ -50,6 +50,8 @@ def format_brief(brief) -> str:
             lines.append(
                 f"  model {consensus * 100:.0f}% \\| market {market_home * 100:.0f}% "
                 f"\\| gap {gap_text}{flag}")
+        elif entry.get("market_in_play_withheld"):
+            lines.append(f"  model {consensus * 100:.0f}% \\| in\\-play, market withheld")
         else:
             lines.append(f"  model {consensus * 100:.0f}% \\| no market price")
 

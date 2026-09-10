@@ -189,9 +189,23 @@ def run_matchday(
         notes.append(f"market unavailable ({type(exc).__name__}): {exc}")
 
     for entry in fixture_rows:
+        entry.setdefault("market", None)
+        entry.setdefault("market_in_play_withheld", False)
         price = market_by_pair.get((entry["home"], entry["away"]))
         if price is None:
-            entry["market"] = None
+            continue
+        # A price seen at or after kickoff reflects the score, not the market's
+        # pre-match opinion. Using it would manufacture a phantom edge and, worse,
+        # corrupt the season scoreboard when every arm gets scored against it.
+        # The EPL lab logged a 14.88% "edge" from exactly this mistake. Withhold
+        # the price entirely - downstream already treats "no market" correctly.
+        if not odds_module.is_pre_kickoff(price):
+            entry["market_in_play_withheld"] = True
+            notes.append(
+                f"{entry['home_display']} v {entry['away_display']}: market "
+                f"withheld (kicked off {price.commence_time.isoformat()}); "
+                f"model shown without a benchmark"
+            )
             continue
         devigged = price.devigged()
         mapped = _map_market_outcomes(devigged, price, team_registry,
@@ -201,7 +215,7 @@ def run_matchday(
             "overround": price.overround,
             "bookmakers": price.bookmaker_count,
             "commence_time": price.commence_time.isoformat(),
-            "pre_kickoff": odds_module.is_pre_kickoff(price),
+            "pre_kickoff": True,
         }
 
     # 5. paper ledger -------------------------------------------------------
