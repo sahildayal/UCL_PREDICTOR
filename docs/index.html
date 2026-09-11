@@ -184,13 +184,13 @@ section{margin-top:40px}
         <div class="stat__v">1</div>
         <div class="stat__n">6 fixtures forecast</div></div>
       <div class="stat"><div class="stat__k">Fixtures settled</div>
-        <div class="stat__v">0</div>
+        <div class="stat__v">6</div>
         <div class="stat__n">scored against the closing line</div></div>
       <div class="stat"><div class="stat__k">Leading arm</div>
-        <div class="stat__v">—</div>
-        <div class="stat__n">awaiting results</div></div>
+        <div class="stat__v">Graph net</div>
+        <div class="stat__n">log loss 0.8419</div></div>
       <div class="stat"><div class="stat__k">Beating the market?</div>
-        <div class="stat__v">—</div>
+        <div class="stat__v">no</div>
         <div class="stat__n">the only question that matters</div></div>
     </div></section>
 
@@ -201,7 +201,80 @@ section{margin-top:40px}
       <em>vs market</em> column is the market's log loss minus the arm's:
       positive means the arm beat the closing line.</span>
     </div>
-    <p class="pending">No settled fixtures yet. The scoreboard fills in from the first settlement run.</p>
+    
+    <div class="scroller">
+      <table class="qtable">
+        <thead><tr>
+          <th>Arm</th><th class="num">N</th><th class="num">Log loss</th>
+          <th class="num">RPS</th><th class="num">Acc</th>
+          <th class="num">Draw rec.</th><th class="num">vs market</th>
+        </tr></thead>
+        <tbody>
+        <tr class="market-row">
+          <td>Market (de-vigged)</td>
+          <td class="num">6</td>
+          <td class="num">0.7966</td>
+          <td class="num">0.1274</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num">—</td>
+        </tr>
+        <tr class="">
+          <td>Graph net</td>
+          <td class="num">6</td>
+          <td class="num">0.8419</td>
+          <td class="num">0.1354</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.0453</td>
+        </tr>
+        <tr class="">
+          <td>Dixon-Coles</td>
+          <td class="num">6</td>
+          <td class="num">0.8466</td>
+          <td class="num">0.1361</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.0500</td>
+        </tr>
+        <tr class="">
+          <td>Bayesian</td>
+          <td class="num">6</td>
+          <td class="num">0.8700</td>
+          <td class="num">0.1404</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.0734</td>
+        </tr>
+        <tr class="">
+          <td>LightGBM</td>
+          <td class="num">6</td>
+          <td class="num">0.8955</td>
+          <td class="num">0.1460</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.0989</td>
+        </tr>
+        <tr class="">
+          <td>Elo</td>
+          <td class="num">6</td>
+          <td class="num">0.9502</td>
+          <td class="num">0.1704</td>
+          <td class="num">50%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.1536</td>
+        </tr>
+        <tr class="">
+          <td>Sequence</td>
+          <td class="num">6</td>
+          <td class="num">0.9704</td>
+          <td class="num">0.1661</td>
+          <td class="num">67%</td>
+          <td class="num">0%</td>
+          <td class="num delta--down">-0.1738</td>
+        </tr></tbody>
+      </table>
+    </div>
   </section>
 
   <section>
@@ -214,7 +287,7 @@ section{margin-top:40px}
         <a href="matchday-2026-09-10.html">
           <span class="archive__md">MD1</span>
           <span class="archive__date">2026-09-10</span>
-          <span class="archive__n">6 fixtures · pending</span>
+          <span class="archive__n">6/6 settled</span>
         </a></div>
   </section>
 
