@@ -1,7 +1,15 @@
 # Majors are capped on purpose: an upstream breaking change should arrive as a
 # failed run with a clear error, not as a matchday that silently produces
 # different numbers.
-numpy>=2.0,<3
+#
+# numpy is additionally capped below 2.5: numpy 2.5 removed the deprecated
+# np.row_stack alias, and numba (arviz's transitive dependency, needed for
+# PyMC's ADVI fit) has no stable release that runs against it yet - only a
+# beta (0.63.0b1) that itself crashes on import for the same reason. A plain
+# `pip install -r requirements.txt` on 2026-09-14 pulled numpy 2.5.3 + that
+# beta and broke `import pymc` outright. Revisit this cap once a stable numba
+# targets numpy 2.5+.
+numpy>=2.0,<2.5
 pandas>=2.2,<4
 scipy>=1.13,<2
 scikit-learn>=1.5,<2
