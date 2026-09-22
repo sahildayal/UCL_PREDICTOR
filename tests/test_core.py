@@ -308,24 +308,60 @@ def test_empty_matchday_never_calls_the_odds_api(monkeypatch, tmp_path):
     for a brief with zero fixtures, dropping the pool shared with the EPL/La
     Liga lab from ~180 toward its 150-credit floor - for a week with no
     matchday. fetch_odds must never be called when there is nothing to price.
+
+    Fully synthetic and corpus-free (no data/processed/corpus.parquet, which
+    is gitignored and absent in CI - an earlier version of this test read the
+    real corpus and passed locally while failing every CI run). A single stub
+    arm stands in for the real six: since the corpus has zero UCL fixtures,
+    fixture_rows ends up empty before any arm.predict() would be called, so
+    the stub's behaviour never enters into what this test checks.
     """
     from datetime import date
 
+    import pandas as pd
+
     from ucl import pipeline
     from ucl.data import odds as odds_module
+    from ucl.models.base import ModelArm
+    from ucl.teams import TeamRegistry
 
     monkeypatch.setattr(pipeline, "PROCESSED", tmp_path)
+
+    empty_corpus = pd.DataFrame(columns=[
+        "date", "season", "competition", "stage", "home", "away",
+        "home_country", "away_country", "home_goals", "away_goals",
+        "played", "cross_border", "is_ucl", "weight", "days_ago",
+    ])
+    monkeypatch.setattr(pipeline.corpus_module, "load",
+                        lambda: (empty_corpus, TeamRegistry()))
+
+    class StubArm(ModelArm):
+        name = "stub"
+        def fit(self, corpus, *, as_of=None):
+            self.fitted = True
+            return self
+        def predict(self, home, away, *, when=None):
+            return None
+
+    monkeypatch.setattr(pipeline, "build_arms",
+                        lambda **k: (_stub_registry(StubArm), None))
 
     def boom(*a, **k):
         raise AssertionError("fetch_odds called with nothing to price")
     monkeypatch.setattr(odds_module, "fetch_odds", boom)
 
-    # A date nowhere near any fixture in the corpus's UCL calendar.
     brief = pipeline.run_matchday(as_of=date(2026, 9, 22), horizon_days=1,
                                   simulations=200, fast=True, place_bets=False)
     assert brief.fixtures == []
     assert brief.market_available is False
     assert any("No UCL fixtures" in n for n in brief.notes)
+
+
+def _stub_registry(arm_cls):
+    from ucl.models.base import ArmRegistry
+    registry = ArmRegistry()
+    registry.register(arm_cls())
+    return registry
 
 
 def test_empty_brief_is_not_pushed_to_telegram(monkeypatch):
