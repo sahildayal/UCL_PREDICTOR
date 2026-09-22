@@ -76,11 +76,18 @@ def main() -> int:
         else:
             print(f"site: {site}")
 
-    if not args.no_telegram and telegram.send(brief):
-        print("brief pushed to Telegram")
+    # Between matchdays brief.fixtures is legitimately empty - the league
+    # phase has gaps of several weeks. Sending a Telegram push with nothing in
+    # it, or flagging "no market" as a problem when there was nothing to
+    # price, are both false alarms for a state that isn't wrong at all.
+    if brief.fixtures:
+        if not args.no_telegram and telegram.send(brief):
+            print("brief pushed to Telegram")
+    else:
+        print("  (no fixtures in the horizon - skipping the Telegram push)")
 
     problems = [n for n in brief.notes if "failed" in n or "unavailable" in n]
-    if problems or not brief.market_available:
+    if problems or (brief.fixtures and not brief.market_available):
         return 2
     return 0
 

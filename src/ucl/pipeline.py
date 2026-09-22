@@ -175,34 +175,42 @@ def run_matchday(
         fixture_rows.append(entry)
 
     # 4. market, for settlement and scoring only ---------------------------
+    # Skipped entirely when there is nothing to price. fetch_odds() spends a
+    # shared quota (the EPL/La Liga lab draws on the same key), and between
+    # matchdays this branch used to run anyway - three empty predict.yml
+    # firings on 2026-09-15/16/17 burned 4-8 credits each for a brief with
+    # zero fixtures, dropping the shared pool from ~180 to 156 against a
+    # 150-credit floor meant to protect that lab. A five-week gap to the next
+    # matchday would have kept bleeding credits for nothing.
     market_by_pair: dict = {}
     market_available = False
-    try:
-        prices, remaining = odds_module.fetch_odds()
-        market_by_pair = match_market(prices, team_registry)
-        market_available = True
-        notes.append(f"Odds API credits remaining: {remaining}")
-        unmatched = len(prices) - len(market_by_pair)
-        if unmatched:
-            notes.append(f"{unmatched} market events could not be matched to fixtures")
-    except odds_module.OddsUnavailable as exc:
-        notes.append(f"market unavailable ({type(exc).__name__}): {exc}")
+    if fixture_rows:
+        try:
+            prices, remaining = odds_module.fetch_odds()
+            market_by_pair = match_market(prices, team_registry)
+            market_available = True
+            notes.append(f"Odds API credits remaining: {remaining}")
+            unmatched = len(prices) - len(market_by_pair)
+            if unmatched:
+                notes.append(f"{unmatched} market events could not be matched to fixtures")
+        except odds_module.OddsUnavailable as exc:
+            notes.append(f"market unavailable ({type(exc).__name__}): {exc}")
 
-    for entry in fixture_rows:
-        entry.setdefault("market", None)
-        entry.setdefault("market_in_play_withheld", False)
-        price = market_by_pair.get((entry["home"], entry["away"]))
-        status, resolved = resolve_market(price, team_registry,
-                                          entry["home"], entry["away"])
-        if status == "in_play":
-            entry["market_in_play_withheld"] = True
-            notes.append(
-                f"{entry['home_display']} v {entry['away_display']}: market "
-                f"withheld (kicked off {price.commence_time.isoformat()}); "
-                f"model shown without a benchmark"
-            )
-        elif status == "ok":
-            entry["market"] = resolved
+        for entry in fixture_rows:
+            entry.setdefault("market", None)
+            entry.setdefault("market_in_play_withheld", False)
+            price = market_by_pair.get((entry["home"], entry["away"]))
+            status, resolved = resolve_market(price, team_registry,
+                                              entry["home"], entry["away"])
+            if status == "in_play":
+                entry["market_in_play_withheld"] = True
+                notes.append(
+                    f"{entry['home_display']} v {entry['away_display']}: market "
+                    f"withheld (kicked off {price.commence_time.isoformat()}); "
+                    f"model shown without a benchmark"
+                )
+            elif status == "ok":
+                entry["market"] = resolved
 
     # 5. paper ledger -------------------------------------------------------
     ledger = Ledger.load()

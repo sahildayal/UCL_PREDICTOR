@@ -9,9 +9,25 @@ no path to add one by configuration.
 
 **Live dashboard: [sahildayal.me/UCL_PREDICTOR](https://sahildayal.me/UCL_PREDICTOR/)**
 — season scoreboard, the current matchday, and a permanent archive of every
-matchday as it was forecast before kickoff.
+matchday as it was forecast before kickoff. Rebuilt automatically by
+`predict.yml` and `settle.yml`; nothing on it is hand-edited.
 
 See [DESIGN.md](DESIGN.md) for why it is built the way it is.
+
+## Season so far
+
+Matchday 1 (2026-09-08 to 2026-09-10) is complete: 6 fixtures forecast, 53 paper
+bets settled, 0 left open. The market beat every arm on log-loss (0.7966), which
+replicates the EPL/La Liga lab's finding rather than embarrassing this one; among
+the arms, `gnn` led (0.8419) and `sequence` trailed (0.9704) - six matches is not
+enough to read much into the ordering yet, but it is the season's first honest
+data point, on the record on the dashboard's scoreboard.
+
+**Matchday 2 is 2026-10-13/14** - the league phase has real gaps between
+matchdays, not a weekly rhythm. `predict.yml` and `settle.yml` keep firing on
+their Tue/Wed/Thu and Wed/Thu/Fri schedules regardless; between matchdays they
+now exit as a fast no-op (see [Known limitations](#known-limitations) for the
+bug this replaced).
 
 ## What makes this different from a league predictor
 
@@ -43,7 +59,7 @@ record earns it.
 | `gnn` | Message passing over the club-versus-club graph | Does propagating strength along the fixture graph help? |
 | `sequence` | GRU over each club's recent match history | Does form *trajectory* carry signal? |
 
-Two results were already visible on matchday 1 and are worth stating up front,
+Two results were visible from matchday 1 alone and are worth stating up front,
 because both are informative rather than embarrassing:
 
 - **Elo collapses on cross-league mismatches.** It rated Manchester United at 64%
@@ -160,6 +176,20 @@ unconfigured, the push is silently skipped and the matchday run still succeeds.
 - **No player-level modelling.** Injuries, suspensions and rotation are invisible
   to every arm. In a competition where a qualified club rests six starters on
   matchday 8, this is the largest single gap.
+
+Fixed since launch, worth recording because it was silent and spent a shared,
+limited resource for nothing: for the first week after matchday 1, `predict.yml`
+kept doing full work - fitting all six arms, running the 20k-simulation
+qualification model, and (the actual damage) **calling the Odds API** - on every
+scheduled firing even when the horizon held no fixtures. Three empty runs
+(2026-09-15/16/17) burned the pool shared with `EPL_LALIGA_PREDICTOR` from ~180
+credits toward its 150-credit floor for briefs with zero fixtures, and would
+have kept bleeding it for the five weeks until matchday 2. It also pushed an
+empty "brief" to Telegram each time and flagged its own exit code 2 ("a human
+should look") purely for having nothing to price. Fixed 2026-09-22: the odds
+fetch, the Telegram push and the exit-code check are now all gated on
+`fixtures` being non-empty; the qualification simulation still runs between
+matchdays, since keeping the season odds current has no API cost.
 
 ## Safety
 

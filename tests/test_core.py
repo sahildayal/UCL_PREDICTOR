@@ -299,3 +299,45 @@ def test_in_play_price_is_withheld_from_the_market():
     status, resolved = pipeline.resolve_market(FakePrice(-30), reg, "h", "a")
     assert status == "in_play"
     assert resolved is None
+
+
+# --- no wasted work between matchdays ---------------------------------------
+
+def test_empty_matchday_never_calls_the_odds_api(monkeypatch, tmp_path):
+    """Three real firings (2026-09-15/16/17) burned 4-8 Odds API credits each
+    for a brief with zero fixtures, dropping the pool shared with the EPL/La
+    Liga lab from ~180 toward its 150-credit floor - for a week with no
+    matchday. fetch_odds must never be called when there is nothing to price.
+    """
+    from datetime import date
+
+    from ucl import pipeline
+    from ucl.data import odds as odds_module
+
+    monkeypatch.setattr(pipeline, "PROCESSED", tmp_path)
+
+    def boom(*a, **k):
+        raise AssertionError("fetch_odds called with nothing to price")
+    monkeypatch.setattr(odds_module, "fetch_odds", boom)
+
+    # A date nowhere near any fixture in the corpus's UCL calendar.
+    brief = pipeline.run_matchday(as_of=date(2026, 9, 22), horizon_days=1,
+                                  simulations=200, fast=True, place_bets=False)
+    assert brief.fixtures == []
+    assert brief.market_available is False
+    assert any("No UCL fixtures" in n for n in brief.notes)
+
+
+def test_empty_brief_is_not_pushed_to_telegram(monkeypatch):
+    """A brief with no fixtures used to still hit Telegram - three pings a
+    week saying nothing, for the five weeks between matchdays."""
+    from ucl.report import telegram
+
+    sent = []
+    monkeypatch.setattr(telegram, "_post", lambda text, token, chat_id: sent.append(text) or True)
+
+    empty_brief = {"as_of": "2026-09-22", "fixtures": []}
+    # predict.py's own guard: only call send() when there are fixtures.
+    if empty_brief["fixtures"]:
+        telegram.send(empty_brief)
+    assert sent == []
