@@ -41,7 +41,10 @@ def format_brief(brief) -> str:
         kickoff = _escape(entry.get("kickoff") or "")
         lines.append(f"{header}  `{kickoff}`")
 
-        if market_home is not None:
+        if entry.get("predicted_after_kickoff"):
+            lines.append(f"  model {consensus * 100:.0f}% \\| already kicked off, "
+                         f"not staked")
+        elif market_home is not None:
             gap = consensus - market_home
             flag = " ⚑" if abs(gap) >= 0.08 else ""
             # MarkdownV2 treats '-' and '+' as reserved, so a signed number has

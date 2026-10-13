@@ -27,6 +27,7 @@ from .config import PROCESSED, REPORTS
 from .data import corpus as corpus_module
 from .data import odds as odds_module
 from .eval import metrics
+from .kickoff import kickoff_utc
 from .ledger.ledger import EDGE_GATED, SCIENCE, Ledger
 from .models.base import ArmRegistry
 from .models.dixon_coles import DixonColesXLeague
@@ -142,10 +143,19 @@ def run_matchday(
     fixture_rows: list[dict] = []
     per_arm_matrices: dict[str, dict[tuple[str, str], np.ndarray]] = {a.name: {} for a in arms}
 
+    run_started = datetime.now(timezone.utc)
     for row in upcoming.itertuples(index=False):
+        local_kickoff = getattr(row, "kickoff", "") or ""
+        kickoff = kickoff_utc(row.date.date(), local_kickoff)
         entry = {
             "date": str(row.date.date()),
-            "kickoff": getattr(row, "kickoff", ""),
+            "kickoff": local_kickoff,
+            "kickoff_utc": kickoff.isoformat() if kickoff else None,
+            # A forecast made after kickoff is shown but never staked or
+            # scored (DESIGN.md section 9). The model has no live data, so
+            # its numbers are still blind, but the record can only count
+            # predictions that provably came first.
+            "predicted_after_kickoff": bool(kickoff and run_started >= kickoff),
             "matchday": int(getattr(row, "matchday", 0) or 0),
             "home": row.home,
             "away": row.away,
@@ -153,6 +163,12 @@ def run_matchday(
             "away_display": team_registry.display_of(row.away),
             "arms": {},
         }
+        if entry["predicted_after_kickoff"]:
+            notes.append(
+                f"{entry['home_display']} v {entry['away_display']}: forecast "
+                f"made after kickoff ({entry['kickoff_utc']}); shown, not staked "
+                f"or scored"
+            )
         for arm in arms:
             try:
                 prediction = arm.predict(row.home, row.away, when=row.date.date())
@@ -204,6 +220,8 @@ def run_matchday(
                                               entry["home"], entry["away"])
             if status == "in_play":
                 entry["market_in_play_withheld"] = True
+                if entry.get("predicted_after_kickoff"):
+                    continue          # already noted above, more completely
                 notes.append(
                     f"{entry['home_display']} v {entry['away_display']}: market "
                     f"withheld (kicked off {price.commence_time.isoformat()}); "
@@ -315,8 +333,15 @@ def _map_market_outcomes(devigged: dict, price, registry: TeamRegistry,
 
 
 def _stake(ledger: Ledger, fixture_rows: list[dict], arms: list, notes: list[str]) -> None:
-    """Place fake bets: flat on every fixture for science, gated for realism."""
+    """Place fake bets: flat on every fixture for science, gated for realism.
+
+    Fixtures already under way are skipped outright. Before this guard, a run
+    that started late still staked them - the market was withheld as in-play,
+    so only the science arms bet, eleven minutes after kickoff.
+    """
     for entry in fixture_rows:
+        if entry.get("predicted_after_kickoff"):
+            continue
         market = entry.get("market")
         for arm in arms:
             view = entry["arms"].get(arm.name)

@@ -73,7 +73,9 @@ def _fixture_card(entry: dict) -> str:
                  f'<span class="chip">BTTS {_pct(consensus["btts"])}</span>')
 
     books = market.get("bookmakers")
-    if books:
+    if entry.get("predicted_after_kickoff"):
+        market_note = "forecast after kickoff · not staked or scored"
+    elif books:
         market_note = f'{books} books · {market.get("overround", 0) * 100:.1f}% vig'
     elif entry.get("market_in_play_withheld"):
         market_note = "in-play · market withheld"

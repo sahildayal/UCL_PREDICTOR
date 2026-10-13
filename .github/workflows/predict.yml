@@ -1,12 +1,21 @@
 name: predict
 
-# Champions League matchdays are Tuesday to Thursday. Predictions run in the
-# morning and are committed BEFORE kickoff (earliest is 16:45 UTC), so every
-# forecast in the repository is provably pre-match. A prediction that cannot be
-# shown to predate kickoff is not scored.
+# Champions League matchdays are Tuesday to Thursday. Predictions must be
+# committed BEFORE kickoff (earliest is 16:45 UTC under CEST, 17:45 UTC under
+# CET), so every forecast in the repository is provably pre-match. A prediction
+# that cannot be shown to predate kickoff is not scored.
+#
+# GitHub delays scheduled runs heavily on this repo. The old "0 9" cron
+# actually started between 14:09 and 16:52 UTC on every run from 2026-09-24
+# to 2026-10-13, about seven hours late. On 2026-10-13 it landed seven minutes
+# after the two 18:45 CEST kickoffs. So there are now two early attempts at
+# off-the-hour minutes (top-of-hour slots are the most congested). Whichever
+# lands first does the work; the second sees today's brief already committed
+# and exits without spending Odds API credits or touching the ledger.
 on:
   schedule:
-    - cron: "0 9 * * 2,3,4"
+    - cron: "37 2 * * 2,3,4"
+    - cron: "13 6 * * 2,3,4"
   workflow_dispatch:
     inputs:
       as_of:
@@ -25,15 +34,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Only the scheduled backup is skipped. A manual dispatch always runs.
+      - name: Skip if today's brief already exists
+        id: guard
+        run: |
+          brief="data/processed/brief_$(date -u +%Y-%m-%d).json"
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "$brief" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::$brief already committed by an earlier run today - skipping."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == 'true'
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+      - if: steps.guard.outputs.run == 'true'
+        run: pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 
       # The corpus is ~53k matches assembled from many small files. Caching it
       # keeps GitHub's unauthenticated API budget intact across runs.
       - uses: actions/cache@v4
+        if: steps.guard.outputs.run == 'true'
         with:
           path: data/cache
           key: ucl-cache-${{ github.run_id }}
@@ -41,6 +66,7 @@ jobs:
 
       - name: Generate matchday brief
         id: brief
+        if: steps.guard.outputs.run == 'true'
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           ODDS_CREDIT_FLOOR: ${{ vars.ODDS_CREDIT_FLOOR || '150' }}
@@ -56,10 +82,12 @@ jobs:
           if [ $code -ne 0 ] && [ $code -ne 2 ]; then exit $code; fi
 
       - name: Check registry for duplicate clubs
+        if: steps.guard.outputs.run == 'true'
         continue-on-error: true
         run: python scripts/audit_teams.py
 
       - name: Commit predictions
+        if: steps.guard.outputs.run == 'true'
         run: |
           git config user.name "ucl-predictor"
           git config user.email "noreply@github.com"

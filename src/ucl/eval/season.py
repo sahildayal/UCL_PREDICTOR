@@ -41,6 +41,11 @@ def collect_scored_fixtures(briefs: list[dict], results: dict) -> list[dict]:
     `results` maps (home, away, date) -> (home_goals, away_goals).
     A fixture predicted twice (a re-run) contributes once: the earliest brief
     wins, because that is the prediction that was genuinely made first.
+
+    An entry flagged `predicted_after_kickoff` is skipped. A forecast can only
+    be scored if it was provably made before the match started (DESIGN.md
+    section 9). An earlier brief that did predict the fixture in time still
+    counts.
     """
     seen: set[tuple] = set()
     scored = []
@@ -48,6 +53,8 @@ def collect_scored_fixtures(briefs: list[dict], results: dict) -> list[dict]:
         for entry in brief.get("fixtures", []):
             key = (entry["home"], entry["away"], entry["date"])
             if key in seen or key not in results:
+                continue
+            if entry.get("predicted_after_kickoff"):
                 continue
             seen.add(key)
             home_goals, away_goals = results[key]

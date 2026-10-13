@@ -377,3 +377,74 @@ def test_empty_brief_is_not_pushed_to_telegram(monkeypatch):
     if empty_brief["fixtures"]:
         telegram.send(empty_brief)
     assert sent == []
+
+
+# --- forecasts made after kickoff ---------------------------------------------
+
+def test_kickoff_converts_cest_and_cet_to_utc():
+    """UEFA lists kickoffs in CET/CEST; the clock change is late October."""
+    from datetime import datetime, timezone
+
+    from ucl.kickoff import has_kicked_off, kickoff_utc
+
+    assert kickoff_utc("2026-10-13", "18:45") == datetime(2026, 10, 13, 16, 45, tzinfo=timezone.utc)
+    assert kickoff_utc("2026-11-04", "21:00") == datetime(2026, 11, 4, 20, 0, tzinfo=timezone.utc)
+    assert kickoff_utc("2026-10-13", "") is None
+    assert kickoff_utc("2026-10-13", "TBD") is None
+    # The real 2026-10-13 incident: run started 16:52 UTC, kickoff 16:45 UTC.
+    run = datetime(2026, 10, 13, 16, 52, tzinfo=timezone.utc)
+    assert has_kicked_off("2026-10-13", "18:45", now=run)
+    assert not has_kicked_off("2026-10-13", "21:00", now=run)
+
+
+def test_fixture_forecast_after_kickoff_is_never_staked(tmp_path):
+    """The late run staked 12 science bets eleven minutes after kickoff."""
+    from ucl.pipeline import _stake
+
+    class Arm:
+        name = "dixon_coles"
+        hypothesis = ""
+
+    view = {"home": 0.6, "draw": 0.25, "away": 0.15}
+    late = {"date": "2026-10-13", "home": "lens", "away": "sporting",
+            "predicted_after_kickoff": True, "arms": {"dixon_coles": view}, "market": None}
+    on_time = {"date": "2026-10-13", "home": "arsenal", "away": "lille",
+               "predicted_after_kickoff": False, "arms": {"dixon_coles": view},
+               "market": {"home": 0.5, "draw": 0.3, "away": 0.2}}
+    ledger = Ledger(tmp_path / "l.json")
+    _stake(ledger, [late, on_time], [Arm()], [])
+    staked = {(b.home, b.away) for a in ledger.arms.values() for b in a.bets}
+    assert ("lens", "sporting") not in staked
+    assert ("arsenal", "lille") in staked
+
+
+def test_forecast_after_kickoff_is_not_scored():
+    """DESIGN.md s9: a prediction that cannot be proven pre-kickoff is not scored."""
+    from ucl.eval.season import collect_scored_fixtures
+
+    arms = {"dixon_coles": {"home": 0.6, "draw": 0.25, "away": 0.15}}
+    brief = {"fixtures": [
+        {"home": "lens", "away": "sporting", "date": "2026-10-13",
+         "predicted_after_kickoff": True, "arms": arms},
+        {"home": "arsenal", "away": "lille", "date": "2026-10-13",
+         "predicted_after_kickoff": False, "arms": arms},
+    ]}
+    results = {("lens", "sporting", "2026-10-13"): (1, 1),
+               ("arsenal", "lille", "2026-10-13"): (2, 0)}
+    scored = collect_scored_fixtures([brief], results)
+    assert [s["key"] for s in scored] == [("arsenal", "lille", "2026-10-13")]
+
+
+def test_earlier_on_time_forecast_still_counts_when_a_later_one_is_late():
+    """Tuesday's brief predicts Wednesday's games in time; a late Wednesday
+    re-forecast must not erase that."""
+    from ucl.eval.season import collect_scored_fixtures
+
+    arms = {"dixon_coles": {"home": 0.6, "draw": 0.25, "away": 0.15}}
+    tuesday = {"fixtures": [{"home": "lask", "away": "liverpool", "date": "2026-10-14",
+                             "predicted_after_kickoff": False, "arms": arms}]}
+    wednesday = {"fixtures": [{"home": "lask", "away": "liverpool", "date": "2026-10-14",
+                               "predicted_after_kickoff": True, "arms": arms}]}
+    results = {("lask", "liverpool", "2026-10-14"): (0, 3)}
+    scored = collect_scored_fixtures([tuesday, wednesday], results)
+    assert len(scored) == 1 and scored[0]["entry"] is tuesday["fixtures"][0]

@@ -243,7 +243,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -486,7 +488,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -729,7 +733,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -972,7 +978,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -1207,7 +1215,9 @@
         }
       },
       "market": null,
-      "market_in_play_withheld": true
+      "market_in_play_withheld": true,
+      "kickoff_utc": "2026-10-13T16:45:00+00:00",
+      "predicted_after_kickoff": true
     },
     {
       "date": "2026-10-13",
@@ -1450,7 +1460,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -1685,7 +1697,9 @@
         }
       },
       "market": null,
-      "market_in_play_withheld": true
+      "market_in_play_withheld": true,
+      "kickoff_utc": "2026-10-13T16:45:00+00:00",
+      "predicted_after_kickoff": true
     },
     {
       "date": "2026-10-13",
@@ -1928,7 +1942,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-13",
@@ -2171,7 +2187,9 @@
         "commence_time": "2026-10-13T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-13T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -2414,7 +2432,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -2657,7 +2677,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -2900,7 +2922,9 @@
         "commence_time": "2026-10-14T16:45:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T16:45:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -3143,7 +3167,9 @@
         "commence_time": "2026-10-14T16:45:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T16:45:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -3386,7 +3412,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -3629,7 +3657,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -3872,7 +3902,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -4115,7 +4147,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     },
     {
       "date": "2026-10-14",
@@ -4358,7 +4392,9 @@
         "commence_time": "2026-10-14T19:00:00+00:00",
         "pre_kickoff": true
       },
-      "market_in_play_withheld": false
+      "market_in_play_withheld": false,
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "predicted_after_kickoff": false
     }
   ],
   "arm_summary": [
@@ -4935,6 +4971,8 @@
   "notes": [
     "Odds API credits remaining: 160",
     "RC Lens v Sporting CP: market withheld (kicked off 2026-10-13T16:45:00+00:00); model shown without a benchmark",
-    "Sabah FK v Slavia Praha: market withheld (kicked off 2026-10-13T16:45:00+00:00); model shown without a benchmark"
+    "Sabah FK v Slavia Praha: market withheld (kicked off 2026-10-13T16:45:00+00:00); model shown without a benchmark",
+    "RC Lens v Sporting CP: forecast made after kickoff (2026-10-13T16:45:00+00:00); shown, not staked or scored [flagged retroactively 2026-10-13]",
+    "Sabah FK v Slavia Praha: forecast made after kickoff (2026-10-13T16:45:00+00:00); shown, not staked or scored [flagged retroactively 2026-10-13]"
   ]
 }
