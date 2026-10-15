@@ -1,0 +1,579 @@
+{
+  "generated_at": "2026-10-15T07:45:30+00:00",
+  "as_of": "2026-10-15",
+  "fixtures": [],
+  "arm_summary": [
+    {
+      "name": "dixon_coles",
+      "hypothesis": "Club strength is league strength plus a shrunk club deviation; goals are Poisson with a low-score correction.",
+      "priced": 0,
+      "fixtures": 0
+    },
+    {
+      "name": "elo_xleague",
+      "hypothesis": "A single rating per club, updated match by match, is enough.",
+      "priced": 0,
+      "fixtures": 0
+    },
+    {
+      "name": "hier_bayes",
+      "hypothesis": "Club ratings are drawn from league-level distributions; integrating over rating uncertainty beats conditioning on its mode, especially for clubs with few observed matches.",
+      "priced": 0,
+      "fixtures": 0
+    },
+    {
+      "name": "gbm",
+      "hypothesis": "Tree ensembles on form, rest and fatigue features improve on a ratings-only backbone.",
+      "priced": 0,
+      "fixtures": 0
+    },
+    {
+      "name": "gnn",
+      "hypothesis": "Propagating club representations along the fixture graph captures cross-league strength better than a scalar rating.",
+      "priced": 0,
+      "fixtures": 0
+    },
+    {
+      "name": "sequence",
+      "hypothesis": "Recent-form trajectory carries signal beyond a static rating.",
+      "priced": 0,
+      "fixtures": 0
+    }
+  ],
+  "qualification": [
+    {
+      "club": "real madrid",
+      "top8": 0.88235,
+      "playoff": 0.11735,
+      "eliminated": 0.0003,
+      "mean_points": 18.83355,
+      "mean_position": 4.3788,
+      "p10_points": 15.0,
+      "p90_points": 22.0,
+      "advance": 0.9996999999999999
+    },
+    {
+      "club": "liverpool",
+      "top8": 0.8213,
+      "playoff": 0.17755,
+      "eliminated": 0.00115,
+      "mean_points": 18.26345,
+      "mean_position": 5.18985,
+      "p10_points": 14.0,
+      "p90_points": 22.0,
+      "advance": 0.99885
+    },
+    {
+      "club": "arsenal",
+      "top8": 0.79195,
+      "playoff": 0.20605,
+      "eliminated": 0.002,
+      "mean_points": 17.87375,
+      "mean_position": 5.5568,
+      "p10_points": 14.0,
+      "p90_points": 22.0,
+      "advance": 0.998
+    },
+    {
+      "club": "psg",
+      "top8": 0.7874,
+      "playoff": 0.2102,
+      "eliminated": 0.0024,
+      "mean_points": 17.7247,
+      "mean_position": 5.603,
+      "p10_points": 14.0,
+      "p90_points": 22.0,
+      "advance": 0.9976
+    },
+    {
+      "club": "bayern munich",
+      "top8": 0.71665,
+      "playoff": 0.2781,
+      "eliminated": 0.00525,
+      "mean_points": 17.0287,
+      "mean_position": 6.5633,
+      "p10_points": 13.0,
+      "p90_points": 21.0,
+      "advance": 0.99475
+    },
+    {
+      "club": "barcelona",
+      "top8": 0.66885,
+      "playoff": 0.325,
+      "eliminated": 0.00615,
+      "mean_points": 16.6089,
+      "mean_position": 7.22465,
+      "p10_points": 13.0,
+      "p90_points": 21.0,
+      "advance": 0.9938499999999999
+    },
+    {
+      "club": "manchester city",
+      "top8": 0.52845,
+      "playoff": 0.46125,
+      "eliminated": 0.0103,
+      "mean_points": 15.61355,
+      "mean_position": 9.07775,
+      "p10_points": 12.0,
+      "p90_points": 19.0,
+      "advance": 0.9897
+    },
+    {
+      "club": "aston villa",
+      "top8": 0.52675,
+      "playoff": 0.46265,
+      "eliminated": 0.0106,
+      "mean_points": 15.55405,
+      "mean_position": 9.0652,
+      "p10_points": 12.0,
+      "p90_points": 19.0,
+      "advance": 0.9894000000000001
+    },
+    {
+      "club": "inter",
+      "top8": 0.3305,
+      "playoff": 0.6222,
+      "eliminated": 0.0473,
+      "mean_points": 13.9994,
+      "mean_position": 12.18395,
+      "p10_points": 10.0,
+      "p90_points": 18.0,
+      "advance": 0.9527
+    },
+    {
+      "club": "manchester united",
+      "top8": 0.25715,
+      "playoff": 0.64685,
+      "eliminated": 0.096,
+      "mean_points": 13.26365,
+      "mean_position": 13.99805,
+      "p10_points": 9.0,
+      "p90_points": 18.0,
+      "advance": 0.904
+    },
+    {
+      "club": "real betis",
+      "top8": 0.22955,
+      "playoff": 0.7225,
+      "eliminated": 0.04795,
+      "mean_points": 13.7734,
+      "mean_position": 13.4991,
+      "p10_points": 10.0,
+      "p90_points": 18.0,
+      "advance": 0.9520500000000001
+    },
+    {
+      "club": "stuttgart",
+      "top8": 0.22765,
+      "playoff": 0.70095,
+      "eliminated": 0.0714,
+      "mean_points": 13.38325,
+      "mean_position": 13.99295,
+      "p10_points": 9.0,
+      "p90_points": 17.0,
+      "advance": 0.9286
+    },
+    {
+      "club": "lens",
+      "top8": 0.2227,
+      "playoff": 0.67515,
+      "eliminated": 0.10215,
+      "mean_points": 13.2384,
+      "mean_position": 14.5525,
+      "p10_points": 9.0,
+      "p90_points": 18.0,
+      "advance": 0.89785
+    },
+    {
+      "club": "borussia dortmund",
+      "top8": 0.2199,
+      "playoff": 0.73345,
+      "eliminated": 0.04665,
+      "mean_points": 13.386,
+      "mean_position": 13.5793,
+      "p10_points": 10.0,
+      "p90_points": 17.0,
+      "advance": 0.95335
+    },
+    {
+      "club": "atletico madrid",
+      "top8": 0.19055,
+      "playoff": 0.6883,
+      "eliminated": 0.12115,
+      "mean_points": 12.5683,
+      "mean_position": 15.2922,
+      "p10_points": 8.0,
+      "p90_points": 17.0,
+      "advance": 0.87885
+    },
+    {
+      "club": "napoli",
+      "top8": 0.09065,
+      "playoff": 0.7256,
+      "eliminated": 0.18375,
+      "mean_points": 11.51485,
+      "mean_position": 17.7693,
+      "p10_points": 8.0,
+      "p90_points": 16.0,
+      "advance": 0.81625
+    },
+    {
+      "club": "sporting",
+      "top8": 0.0848,
+      "playoff": 0.69275,
+      "eliminated": 0.22245,
+      "mean_points": 11.35225,
+      "mean_position": 18.5949,
+      "p10_points": 7.0,
+      "p90_points": 15.0,
+      "advance": 0.77755
+    },
+    {
+      "club": "bodo/glimt",
+      "top8": 0.0643,
+      "playoff": 0.69285,
+      "eliminated": 0.24285,
+      "mean_points": 11.3407,
+      "mean_position": 19.2036,
+      "p10_points": 7.0,
+      "p90_points": 15.0,
+      "advance": 0.75715
+    },
+    {
+      "club": "villarreal",
+      "top8": 0.06385,
+      "playoff": 0.6483,
+      "eliminated": 0.28785,
+      "mean_points": 10.50415,
+      "mean_position": 19.8635,
+      "p10_points": 7.0,
+      "p90_points": 15.0,
+      "advance": 0.71215
+    },
+    {
+      "club": "psv",
+      "top8": 0.0576,
+      "playoff": 0.60465,
+      "eliminated": 0.33775,
+      "mean_points": 10.33715,
+      "mean_position": 20.63005,
+      "p10_points": 6.0,
+      "p90_points": 14.0,
+      "advance": 0.66225
+    },
+    {
+      "club": "como",
+      "top8": 0.04125,
+      "playoff": 0.63835,
+      "eliminated": 0.3204,
+      "mean_points": 10.175,
+      "mean_position": 20.7553,
+      "p10_points": 7.0,
+      "p90_points": 14.0,
+      "advance": 0.6796
+    },
+    {
+      "club": "roma",
+      "top8": 0.03565,
+      "playoff": 0.66905,
+      "eliminated": 0.2953,
+      "mean_points": 10.29385,
+      "mean_position": 20.4009,
+      "p10_points": 7.0,
+      "p90_points": 14.0,
+      "advance": 0.7047
+    },
+    {
+      "club": "lille",
+      "top8": 0.03105,
+      "playoff": 0.56765,
+      "eliminated": 0.4013,
+      "mean_points": 9.5933,
+      "mean_position": 22.0477,
+      "p10_points": 6.0,
+      "p90_points": 14.0,
+      "advance": 0.5987
+    },
+    {
+      "club": "rb leipzig",
+      "top8": 0.0303,
+      "playoff": 0.51495,
+      "eliminated": 0.45475,
+      "mean_points": 9.40285,
+      "mean_position": 22.844,
+      "p10_points": 5.0,
+      "p90_points": 13.0,
+      "advance": 0.54525
+    },
+    {
+      "club": "feyenoord",
+      "top8": 0.02665,
+      "playoff": 0.50965,
+      "eliminated": 0.4637,
+      "mean_points": 9.6009,
+      "mean_position": 22.9843,
+      "p10_points": 6.0,
+      "p90_points": 14.0,
+      "advance": 0.5363
+    },
+    {
+      "club": "shakhtar donetsk",
+      "top8": 0.02465,
+      "playoff": 0.59695,
+      "eliminated": 0.3784,
+      "mean_points": 9.9615,
+      "mean_position": 21.7712,
+      "p10_points": 6.0,
+      "p90_points": 14.0,
+      "advance": 0.6215999999999999
+    },
+    {
+      "club": "porto",
+      "top8": 0.0242,
+      "playoff": 0.61075,
+      "eliminated": 0.36505,
+      "mean_points": 9.8322,
+      "mean_position": 21.62565,
+      "p10_points": 6.0,
+      "p90_points": 14.0,
+      "advance": 0.63495
+    },
+    {
+      "club": "galatasaray",
+      "top8": 0.0094,
+      "playoff": 0.3316,
+      "eliminated": 0.659,
+      "mean_points": 7.74315,
+      "mean_position": 26.26205,
+      "p10_points": 4.0,
+      "p90_points": 12.0,
+      "advance": 0.341
+    },
+    {
+      "club": "slavia prague",
+      "top8": 0.0048,
+      "playoff": 0.30305,
+      "eliminated": 0.69215,
+      "mean_points": 7.45865,
+      "mean_position": 26.77015,
+      "p10_points": 4.0,
+      "p90_points": 11.0,
+      "advance": 0.30785
+    },
+    {
+      "club": "club brugge",
+      "top8": 0.0038,
+      "playoff": 0.21515,
+      "eliminated": 0.78105,
+      "mean_points": 6.50945,
+      "mean_position": 28.3252,
+      "p10_points": 3.0,
+      "p90_points": 11.0,
+      "advance": 0.21895
+    },
+    {
+      "club": "fenerbahce",
+      "top8": 0.00265,
+      "playoff": 0.23405,
+      "eliminated": 0.7633,
+      "mean_points": 7.15545,
+      "mean_position": 27.9918,
+      "p10_points": 4.0,
+      "p90_points": 11.0,
+      "advance": 0.23670000000000002
+    },
+    {
+      "club": "viking",
+      "top8": 0.00185,
+      "playoff": 0.1858,
+      "eliminated": 0.81235,
+      "mean_points": 6.61255,
+      "mean_position": 28.73295,
+      "p10_points": 3.0,
+      "p90_points": 10.0,
+      "advance": 0.18764999999999998
+    },
+    {
+      "club": "aek athens",
+      "top8": 0.00075,
+      "playoff": 0.1578,
+      "eliminated": 0.84145,
+      "mean_points": 6.71555,
+      "mean_position": 28.948,
+      "p10_points": 4.0,
+      "p90_points": 10.0,
+      "advance": 0.15855
+    },
+    {
+      "club": "lask",
+      "top8": 5e-05,
+      "playoff": 0.0544,
+      "eliminated": 0.94555,
+      "mean_points": 4.7152,
+      "mean_position": 31.7331,
+      "p10_points": 1.0,
+      "p90_points": 8.0,
+      "advance": 0.05445
+    },
+    {
+      "club": "slovan bratislava",
+      "top8": 5e-05,
+      "playoff": 0.0181,
+      "eliminated": 0.98185,
+      "mean_points": 3.41315,
+      "mean_position": 33.52445,
+      "p10_points": 0.0,
+      "p90_points": 7.0,
+      "advance": 0.018150000000000003
+    },
+    {
+      "club": "sabah",
+      "top8": 0.0,
+      "playoff": 0.001,
+      "eliminated": 0.999,
+      "mean_points": 1.345,
+      "mean_position": 35.4645,
+      "p10_points": 0.0,
+      "p90_points": 4.0,
+      "advance": 0.001
+    }
+  ],
+  "ledger_summary": [
+    {
+      "arm": "hier_bayes",
+      "regime": "edge_gated",
+      "bankroll": 8819.44,
+      "profit": -1180.56,
+      "roi": -0.5929,
+      "open": 4,
+      "won": 2,
+      "lost": 1,
+      "push": 0
+    },
+    {
+      "arm": "dixon_coles",
+      "regime": "science",
+      "bankroll": 8497.9,
+      "profit": -1502.1,
+      "roi": -2.5035,
+      "open": 16,
+      "won": 4,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "gbm",
+      "regime": "science",
+      "bankroll": 8497.9,
+      "profit": -1502.1,
+      "roi": -2.5035,
+      "open": 16,
+      "won": 4,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "gnn",
+      "regime": "science",
+      "bankroll": 8497.9,
+      "profit": -1502.1,
+      "roi": -2.5035,
+      "open": 16,
+      "won": 4,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "hier_bayes",
+      "regime": "science",
+      "bankroll": 8497.9,
+      "profit": -1502.1,
+      "roi": -2.5035,
+      "open": 16,
+      "won": 4,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "sequence",
+      "regime": "science",
+      "bankroll": 8497.9,
+      "profit": -1502.1,
+      "roi": -2.5035,
+      "open": 16,
+      "won": 4,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "dixon_coles",
+      "regime": "edge_gated",
+      "bankroll": 8479.25,
+      "profit": -1520.75,
+      "roi": -0.6033,
+      "open": 4,
+      "won": 2,
+      "lost": 1,
+      "push": 0
+    },
+    {
+      "arm": "gnn",
+      "regime": "edge_gated",
+      "bankroll": 8266.71,
+      "profit": -1733.29,
+      "roi": -0.662,
+      "open": 5,
+      "won": 2,
+      "lost": 1,
+      "push": 0
+    },
+    {
+      "arm": "elo_xleague",
+      "regime": "science",
+      "bankroll": 8219.39,
+      "profit": -1780.61,
+      "roi": -2.9677,
+      "open": 16,
+      "won": 3,
+      "lost": 3,
+      "push": 0
+    },
+    {
+      "arm": "gbm",
+      "regime": "edge_gated",
+      "bankroll": 7071.38,
+      "profit": -2928.62,
+      "roi": -1.1077,
+      "open": 6,
+      "won": 2,
+      "lost": 2,
+      "push": 0
+    },
+    {
+      "arm": "sequence",
+      "regime": "edge_gated",
+      "bankroll": 5617.86,
+      "profit": -4382.14,
+      "roi": -3.1095,
+      "open": 7,
+      "won": 1,
+      "lost": 1,
+      "push": 0
+    },
+    {
+      "arm": "elo_xleague",
+      "regime": "edge_gated",
+      "bankroll": 5412.42,
+      "profit": -4587.58,
+      "roi": -4.0704,
+      "open": 8,
+      "won": 0,
+      "lost": 2,
+      "push": 0
+    }
+  ],
+  "market_available": false,
+  "notes": [
+    "No UCL fixtures within 3 days of 2026-10-15"
+  ]
+}
