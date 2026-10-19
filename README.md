@@ -16,18 +16,19 @@ See [DESIGN.md](DESIGN.md) for why it is built the way it is.
 
 ## Season so far
 
-Matchday 1 (2026-09-08 to 2026-09-10) is complete: 6 fixtures forecast, 53 paper
-bets settled, 0 left open. The market beat every arm on log-loss (0.7966), which
-replicates the EPL/La Liga lab's finding rather than embarrassing this one; among
-the arms, `gnn` led (0.8419) and `sequence` trailed (0.9704) - six matches is not
-enough to read much into the ordering yet, but it is the season's first honest
-data point, on the record on the dashboard's scoreboard.
+Matchdays 1 and 2 are complete: 22 fixtures scored, every paper bet settled.
+On log-loss the market sits at 0.8836; `gbm` (0.8728) is the only arm ahead of
+it, by 0.011 on 22 matches, which is well inside noise. `dixon_coles` (0.8945),
+`hier_bayes` (0.8984) and `gnn` (0.9025) trail it narrowly, and `elo_xleague`
+(1.0083) and `sequence` (1.0861) trail by a lot. The two 18:45 games on 13
+October are shown but not scored: the scheduled run started seven minutes after
+they kicked off (see [Known limitations](#known-limitations)).
 
-**Matchday 2 is 2026-10-13/14** - the league phase has real gaps between
-matchdays, not a weekly rhythm. `predict.yml` and `settle.yml` keep firing on
-their Tue/Wed/Thu and Wed/Thu/Fri schedules regardless; between matchdays they
-now exit as a fast no-op (see [Known limitations](#known-limitations) for the
-bug this replaced).
+**Matchday 3 is 2026-10-20/21**, matchday 4 is 2026-11-03/04 (after the clock
+change; kickoffs move to 17:45 and 20:00 UTC). The league phase has real gaps
+between matchdays. `predict.yml` and `settle.yml` keep firing on their
+Tue/Wed/Thu and Wed/Thu/Fri schedules regardless; between matchdays they exit as
+a fast no-op.
 
 ## What makes this different from a league predictor
 
@@ -190,6 +191,23 @@ should look") purely for having nothing to price. Fixed 2026-09-22: the odds
 fetch, the Telegram push and the exit-code check are now all gated on
 `fixtures` being non-empty; the qualification simulation still runs between
 matchdays, since keeping the season odds current has no API cost.
+
+Two more from matchday 2, both silent:
+
+- **Forecasts made after kickoff.** GitHub ran the 09:00 UTC cron seven hours
+  late on 2026-10-13, after the two 18:45 kickoffs, and the science arms staked
+  12 bets on matches already under way. Those bets are void, and the two
+  fixtures are shown but never staked or scored. The pipeline now checks each
+  fixture's kickoff (CET/CEST-aware), and `predict.yml` fires at 02:37 and 06:13
+  UTC so cron drift still lands before kickoff.
+- **Scores written with a different dash.** Wikipedia's editor wrote matchday 2
+  scores as `0−2` (U+2212) rather than an en dash, so the nine 13 October
+  matches read as unplayed and 47 bets sat open for six days. The parser now
+  accepts every dash variant, and `settle.py` alerts on Telegram (exit code 2)
+  when any match is more than three hours past kickoff with no score. The same
+  fix made the post-matchday results message actually send: it used to read
+  `brief_latest`, which an empty between-matchday brief had always overwritten
+  by settle time.
 
 ## Safety
 
