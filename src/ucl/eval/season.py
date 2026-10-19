@@ -134,6 +134,34 @@ def scoreboard(scored: list[dict]) -> list[dict]:
     return market_rows + arm_rows
 
 
+def announce_key(entry: dict) -> str:
+    """Stable id for a fixture in the announced-results record."""
+    return f"{entry['home']}|{entry['away']}|{entry['date']}"
+
+
+def unannounced(briefs: list[dict], played: dict, announced: set[str]) -> list[dict]:
+    """Finished fixtures not yet sent to Telegram, each with its forecast.
+
+    The forecast shown is the earliest on-time one across every archived brief,
+    falling back to a late one (which the message marks as not scored). Reading
+    brief_latest instead silently sent nothing: by settle time a later, empty
+    between-matchday brief had usually replaced it, so no results message went
+    out for matchday 1 or 2.
+    """
+    chosen: dict[tuple, dict] = {}
+    for brief in briefs:
+        for entry in brief.get("fixtures", []):
+            key = (entry["home"], entry["away"], entry["date"])
+            if key not in played or announce_key(entry) in announced:
+                continue
+            held = chosen.get(key)
+            if held is None or (held.get("predicted_after_kickoff")
+                                and not entry.get("predicted_after_kickoff")):
+                chosen[key] = entry
+    return sorted(chosen.values(),
+                  key=lambda e: (e["date"], e.get("kickoff_utc") or "", e["home"]))
+
+
 def build(results: dict, directory: Path | None = None) -> tuple[list[dict], list[dict]]:
     """Return (scoreboard rows, scored fixtures)."""
     briefs = load_briefs(directory)

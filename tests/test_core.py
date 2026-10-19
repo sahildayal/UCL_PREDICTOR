@@ -448,3 +448,81 @@ def test_earlier_on_time_forecast_still_counts_when_a_later_one_is_late():
     results = {("lask", "liverpool", "2026-10-14"): (0, 3)}
     scored = collect_scored_fixtures([tuesday, wednesday], results)
     assert len(scored) == 1 and scored[0]["entry"] is tuesday["fixtures"][0]
+
+
+# --- results that never arrived -------------------------------------------------
+
+_BOX = """{{{{#invoke:Football box|main
+|date       = {{{{Start date|2026|10|13|df=y}}}}
+|time       = 18:45
+|team1      = [[RC Lens|Lens]] {{{{fbaicon|FRA}}}}
+|score      = {score}
+|team2      = {{{{fbaicon|POR}}}} [[Sporting CP]]
+|stadium    = [[Stade Bollaert-Delelis]], [[Lens, Pas-de-Calais|Lens]]
+}}}}
+"""
+
+
+@pytest.mark.parametrize("separator", ["-", "–", "—", "−"])
+def test_wikipedia_score_parses_with_any_dash(separator):
+    """Matchday 2's editor typed U+2212 instead of an en dash, and nine finished
+    matches read as unplayed for six days - 47 bets sat open."""
+    from ucl.data.wikipedia import parse_league_phase
+
+    wikitext = "===Matchday 2===\n" + _BOX.format(score=f"0{separator}2")
+    [fixture] = parse_league_phase(wikitext)
+    assert fixture.played and (fixture.home_goals, fixture.away_goals) == (0, 2)
+
+
+def test_unplayed_match_past_kickoff_is_reported_overdue(monkeypatch):
+    from datetime import datetime, timezone
+
+    from ucl.data import results, wikipedia
+
+    wikitext = "===Matchday 2===\n" + _BOX.format(score="")
+    monkeypatch.setattr(wikipedia, "fetch_wikitext", lambda **_: wikitext)
+    before = datetime(2026, 10, 13, 18, 0, tzinfo=timezone.utc)   # 75 min after kickoff
+    after = datetime(2026, 10, 14, 7, 0, tzinfo=timezone.utc)     # next morning
+    assert results.overdue_fixtures(now=before) == []
+    assert [f.home for f in results.overdue_fixtures(now=after)] == ["Lens"]
+
+
+def test_results_are_announced_from_the_archive_not_brief_latest():
+    """settle.py read brief_latest, which an empty between-matchday brief had
+    already replaced, so no results message ever went out."""
+    from ucl.eval.season import announce_key, unannounced
+
+    arms = {"dixon_coles": {"home": 0.6, "draw": 0.25, "away": 0.15}}
+    tuesday = {"fixtures": [
+        {"home": "lens", "away": "sporting", "date": "2026-10-13",
+         "predicted_after_kickoff": True, "arms": arms},
+        {"home": "lask", "away": "liverpool", "date": "2026-10-14",
+         "predicted_after_kickoff": False, "arms": arms}]}
+    wednesday = {"fixtures": [
+        {"home": "lask", "away": "liverpool", "date": "2026-10-14",
+         "predicted_after_kickoff": True, "arms": arms}]}
+    thursday = {"fixtures": []}
+    played = {("lens", "sporting", "2026-10-13"): (0, 2),
+              ("lask", "liverpool", "2026-10-14"): (0, 3)}
+
+    fresh = unannounced([tuesday, wednesday, thursday], played, set())
+    assert [e["home"] for e in fresh] == ["lens", "lask"]
+    assert fresh[1] is tuesday["fixtures"][1]          # the on-time forecast wins
+
+    announced = {announce_key(e) for e in fresh}
+    assert unannounced([tuesday, wednesday, thursday], played, announced) == []
+
+
+def test_full_matchday_results_fit_one_telegram_message():
+    """Truncating MarkdownV2 mid-escape gets the whole message rejected."""
+    from ucl.report import telegram
+
+    arms = {name: {"home": 0.45, "draw": 0.27, "away": 0.28}
+            for name in ("hier_bayes", "dixon_coles", "elo_xleague", "gbm", "gnn", "sequence")}
+    fixtures = [{"home": f"h{i}", "away": f"a{i}", "date": "2027-01-27",
+                 "home_display": "Borussia Mönchengladbach", "away_display": "Paris Saint-Germain",
+                 "arms": arms, "market": {"home": 0.4, "draw": 0.3, "away": 0.3}}
+                for i in range(18)]
+    played = {(f["home"], f["away"], f["date"]): (2, 1) for f in fixtures}
+    text = telegram.format_results({"fixtures": fixtures}, played)
+    assert text.count("Mönchengladbach") == 18 and len(text) < telegram.MAX_LENGTH

@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from ucl.config import PROCESSED, force_utf8  # noqa: E402
-from ucl.data.results import results_map  # noqa: E402
+from ucl.data.results import overdue_fixtures, results_map  # noqa: E402
 from ucl.eval import season  # noqa: E402
 from ucl.ledger.ledger import Ledger  # noqa: E402
 from ucl.report import telegram  # noqa: E402
@@ -27,10 +27,12 @@ from ucl.teams import TeamRegistry  # noqa: E402
 force_utf8()
 
 
+ANNOUNCED = PROCESSED / "announced.json"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Settle bets and score arms")
-    parser.add_argument("--brief", default=None, help="brief JSON to score against")
-    args = parser.parse_args()
+    parser.parse_args()
 
     registry = TeamRegistry.load()
     played = results_map(registry)
@@ -65,15 +67,31 @@ def main() -> int:
             print(f"  {entry['arm']:<14} log_loss={entry['log_loss']:.4f} "
                   f"rps={entry['rps']:.4f}{edge_text}")
 
-    brief_path = Path(args.brief) if args.brief else PROCESSED / "brief_latest.json"
-    brief = (json.loads(brief_path.read_text(encoding="utf-8"))
-             if brief_path.exists() else None)
-
     site = build_site(played)
     print(f"\nsite rebuilt: {site}")
 
-    if brief is not None and telegram.send_results(brief, played, ledger):
-        print("results pushed to Telegram")
+    announced = (set(json.loads(ANNOUNCED.read_text(encoding="utf-8")))
+                 if ANNOUNCED.exists() else set())
+    fresh = season.unannounced(season.load_briefs(), played, announced)
+    if fresh:
+        if telegram.send_results({"fixtures": fresh}, played, ledger):
+            print(f"results for {len(fresh)} fixtures pushed to Telegram")
+            announced |= {season.announce_key(e) for e in fresh}
+            ANNOUNCED.write_text(json.dumps(sorted(announced), indent=1) + "\n",
+                                 encoding="utf-8")
+        else:
+            print(f"results for {len(fresh)} fixtures NOT pushed (Telegram "
+                  f"unconfigured or refused); will retry next settle")
+
+    # A finished match with no score is the failure that looks like nothing.
+    overdue = overdue_fixtures()
+    if overdue:
+        problems = [f"{f.home} v {f.away} ({f.date}) kicked off over 3h ago and "
+                    f"still has no score on Wikipedia - its bets stay open"
+                    for f in overdue]
+        print("\nOVERDUE:\n  " + "\n  ".join(problems))
+        telegram.send_alert(problems)
+        return 2
     return 0
 
 

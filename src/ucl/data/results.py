@@ -5,6 +5,9 @@ settlement needs no extra source and spends no Odds API credits.
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
+
+from ..kickoff import kickoff_utc
 from ..teams import TeamRegistry
 from . import wikipedia
 
@@ -28,3 +31,23 @@ def results_map(registry: TeamRegistry | None = None,
             continue
         out[(home, away, str(fixture.date))] = (fixture.home_goals, fixture.away_goals)
     return out
+
+
+def overdue_fixtures(*, now: datetime | None = None, grace_hours: float = 3.0,
+                     max_age_hours: float = 0.25) -> list[wikipedia.Fixture]:
+    """Matches that kicked off more than `grace_hours` ago but have no score.
+
+    A parser that stops reading scores does not fail - it just reports every
+    match as unplayed, and the bets sit open forever. Matchday 2 lost six days
+    that way. This is the tripwire: settlement surfaces anything overdue instead
+    of quietly settling nothing.
+    """
+    now = now or datetime.now(timezone.utc)
+    overdue = []
+    for fixture in wikipedia.load_current_season(max_age_hours=max_age_hours):
+        if fixture.played:
+            continue
+        kickoff = kickoff_utc(fixture.date, fixture.time)
+        if kickoff and now - kickoff > timedelta(hours=grace_hours):
+            overdue.append(fixture)
+    return overdue

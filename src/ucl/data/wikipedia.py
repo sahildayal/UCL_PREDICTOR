@@ -27,7 +27,11 @@ _FIELD_RE = {
     for key in ("date", "time", "team1", "team2", "score", "stadium")
 }
 _START_DATE_RE = re.compile(r"Start date\|(\d{4})\|(\d{1,2})\|(\d{1,2})")
-_SCORE_RE = re.compile(r"^\s*(\d{1,2})\s*[–\-]\s*(\d{1,2})")
+# Editors type the score separator inconsistently: matchday 2 used U+2212
+# (minus sign) where matchday 1 used an en dash, which silently left nine
+# finished matches "unplayed". Accept every dash-like character.
+DASHES = "-\u2010\u2011\u2012\u2013\u2014\u2212"
+_SCORE_RE = re.compile(r"^\s*(\d{1,2})\s*[" + DASHES + r"]\s*(\d{1,2})")
 _MATCHDAY_RE = re.compile(r"^=+\s*Matchday\s+(\d+)\s*=+\s*$", re.M)
 _FBAICON_RE = re.compile(r"\{\{fbaicon\|([A-Za-z]{3})\}\}")
 _PIPED_LINK_RE = re.compile(r"\[\[[^\]|]*\|([^\]]*)\]\]")

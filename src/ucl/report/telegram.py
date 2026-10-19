@@ -103,6 +103,10 @@ def format_results(brief, results: dict, ledger=None) -> str:
                 f"*{_escape(entry['away_display'])}*")
         lines.append(line)
         detail = []
+        if entry.get("predicted_after_kickoff"):
+            lines.append("  forecast came after kickoff, not scored")
+            lines.append("")
+            continue
         if consensus is not None:
             detail.append(f"models {consensus * 100:.0f}%")
         if market is not None:
@@ -118,6 +122,15 @@ def format_results(brief, results: dict, ledger=None) -> str:
             profit = format(best["profit"], "+,.0f")
             lines.append(f"_Best paper arm: {_escape(best['arm'])} "
                          f"{_escape(profit)}_")
+    return "\n".join(lines)[:MAX_LENGTH]
+
+
+def format_alert(problems: list[str]) -> str:
+    """A short warning for something a human has to check by hand."""
+    if not problems:
+        return ""
+    lines = ["*UCL predictor needs a look*", ""]
+    lines += [f"• {_escape(problem)}" for problem in problems]
     return "\n".join(lines)[:MAX_LENGTH]
 
 
@@ -147,3 +160,9 @@ def send_results(brief, results: dict, ledger=None, *,
                  token: str | None = None, chat_id: str | None = None) -> bool:
     """Send the post-matchday results message."""
     return _post(format_results(brief, results, ledger), token, chat_id)
+
+
+def send_alert(problems: list[str], *, token: str | None = None,
+               chat_id: str | None = None) -> bool:
+    """Send an operational warning. False when unconfigured or nothing to say."""
+    return _post(format_alert(problems), token, chat_id)

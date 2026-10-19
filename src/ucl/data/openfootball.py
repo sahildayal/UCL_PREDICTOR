@@ -54,7 +54,7 @@ _MATCH_RE = re.compile(
     r"(?:\s{2,}(\S.*?))?"                     # optional score tail
     r"\s*$"
 )
-_SCORE_PAIR = re.compile(r"(\d{1,2})\s*[-–]\s*(\d{1,2})")
+_SCORE_PAIR = re.compile(r"(\d{1,2})\s*[-‐‑‒–—−]\s*(\d{1,2})")
 
 # Older openfootball files put the score BETWEEN the teams and omit the " v ":
 #     "  20:00  Liverpool FC             4-1 (4-0)  Norwich City"
@@ -63,8 +63,8 @@ _SCORE_PAIR = re.compile(r"(\d{1,2})\s*[-–]\s*(\d{1,2})")
 _MATCH_RE_V1 = re.compile(
     r"^\s*(?:(\d{1,2}:\d{2})\s+)?"                    # optional kickoff time
     r"(\S.*?)\s{2,}"                                   # home team
-    r"(\d{1,2})\s*[-–]\s*(\d{1,2})"                    # full-time score
-    r"(?:\s*\(\s*\d{1,2}\s*[-–]\s*\d{1,2}\s*\))?"      # optional half-time score
+    r"(\d{1,2})\s*[-‐‑‒–—−]\s*(\d{1,2})"               # full-time score
+    r"(?:\s*\(\s*\d{1,2}\s*[-‐‑‒–—−]\s*\d{1,2}\s*\))?" # optional half-time score
     r"(?:\s*(?:a\.e\.t\.|pen\.)[^ ]*)?"                # optional ET/pen marker
     r"\s{2,}(\S.*?)\s*$"                               # away team
 )
