@@ -333,7 +333,7 @@ def _map_market_outcomes(devigged: dict, price, registry: TeamRegistry,
 
 
 def _stake(ledger: Ledger, fixture_rows: list[dict], arms: list, notes: list[str]) -> None:
-    """Place fake bets: flat on every fixture for science, gated for realism.
+    """Place fake bets: flat on every priced fixture for science, gated for realism.
 
     Fixtures already under way are skipped outright. Before this guard, a run
     that started late still staked them - the market was withheld as in-play,
@@ -343,6 +343,12 @@ def _stake(ledger: Ledger, fixture_rows: list[dict], arms: list, notes: list[str
         if entry.get("predicted_after_kickoff"):
             continue
         market = entry.get("market")
+        # No price, no bet. Without a market a science bet settles at the arm's
+        # own fair odds, so its expected profit is zero by construction - it
+        # only adds noise to P&L. Skipping also leaves the fixture free for a
+        # later run that does get a price; the forecast is still scored.
+        if not market:
+            continue
         for arm in arms:
             view = entry["arms"].get(arm.name)
             if not view:

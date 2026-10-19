@@ -112,9 +112,11 @@ like a real finding and would not be one.
 
 One bankroll per arm, in two regimes that answer different questions:
 
-- **science** stakes a flat amount on every fixture, so all 144 league-phase
-  matches produce a scored decision per arm. With a season this short,
-  statistical power beats realism.
+- **science** stakes a flat amount on every priced fixture, so all 144
+  league-phase matches produce a scored decision per arm. With a season this
+  short, statistical power beats realism. A fixture with no market price is
+  forecast and scored but not staked: a bet settled at the arm's own fair odds
+  has zero expected profit by construction.
 - **edge_gated** stakes only on material disagreement with the line, at quarter
   Kelly, for realistic P&L.
 

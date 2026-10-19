@@ -526,3 +526,24 @@ def test_full_matchday_results_fit_one_telegram_message():
     played = {(f["home"], f["away"], f["date"]): (2, 1) for f in fixtures}
     text = telegram.format_results({"fixtures": fixtures}, played)
     assert text.count("Mönchengladbach") == 18 and len(text) < telegram.MAX_LENGTH
+
+
+def test_fixture_without_a_market_price_is_not_staked(tmp_path):
+    """A science bet with no market settles at the arm's own fair odds: zero
+    expected profit by construction, pure noise in the P&L."""
+    from ucl.pipeline import _stake
+
+    class Arm:
+        name = "dixon_coles"
+        hypothesis = ""
+
+    view = {"home": 0.6, "draw": 0.25, "away": 0.15}
+    unpriced = {"date": "2026-10-20", "home": "roma", "away": "slovan bratislava",
+                "arms": {"dixon_coles": view}, "market": None}
+    priced = {"date": "2026-10-20", "home": "porto", "away": "psv",
+              "arms": {"dixon_coles": view},
+              "market": {"home": 0.5, "draw": 0.3, "away": 0.2}}
+    ledger = Ledger(tmp_path / "l.json")
+    _stake(ledger, [unpriced, priced], [Arm()], [])
+    staked = {(b.home, b.away) for a in ledger.arms.values() for b in a.bets}
+    assert staked == {("porto", "psv")}

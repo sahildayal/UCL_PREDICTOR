@@ -7,7 +7,7 @@ an oversight, and it should stay that way.
 Two staking regimes run side by side, which is the direct answer to what went
 wrong in the EPL lab:
 
-  **science arms** stake a flat amount on every fixture. Over a league phase of
+  **science arms** stake a flat amount on every priced fixture. Over a league phase of
   144 matches, disciplined thresholds would produce a handful of bets and no
   statistical power to separate six model families. Betting everything produces
   144 scored decisions per arm.
