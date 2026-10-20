@@ -31,11 +31,11 @@ from .kickoff import kickoff_utc
 from .ledger.ledger import EDGE_GATED, SCIENCE, Ledger
 from .models.base import ArmRegistry
 from .models.dixon_coles import DixonColesXLeague
-from .models.elo_xleague import CrossLeagueElo
+from .models.elo_xleague import CrossLeagueElo, LeagueOffsetElo
 from .models.gbm import GradientBoostedGoals
 from .models.gnn import ClubGraphNet
 from .models.hier_bayes import HierarchicalBayes
-from .models.sequence import SequenceForm
+from .models.sequence import SequenceForm, SequenceResidual
 from .sim import qualification
 from .teams import TeamRegistry
 
@@ -66,12 +66,17 @@ def build_arms(*, fast: bool = False) -> tuple[ArmRegistry, DixonColesXLeague]:
     backbone = DixonColesXLeague()
     registry.register(backbone)
     registry.register(CrossLeagueElo())
+    # v2 arms run beside v1 rather than replacing it, so v1's season record
+    # stays intact. Each cleared scripts/backtest.py on the 2025-26 league
+    # phase before joining (log-loss: elo 0.986 -> 0.941, sequence 1.016 -> 0.912).
+    registry.register(LeagueOffsetElo())
     if not fast:
         registry.register(HierarchicalBayes(advi_iterations=40_000, draws=500))
     registry.register(GradientBoostedGoals(backbone=backbone))
     if not fast:
         registry.register(ClubGraphNet(epochs=250))
         registry.register(SequenceForm(epochs=25))
+        registry.register(SequenceResidual(backbone=backbone, epochs=25))
     return registry, backbone
 
 

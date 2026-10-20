@@ -59,6 +59,19 @@ record earns it.
 | `gbm` | LightGBM with Poisson objective on backbone residuals | Do form, rest and fatigue add anything to ratings? |
 | `gnn` | Message passing over the club-versus-club graph | Does propagating strength along the fixture graph help? |
 | `sequence` | GRU over each club's recent match history | Does form *trajectory* carry signal? |
+| `elo_xleague_v2` | Elo with a per-league offset moved only by cross-border matches, plus off-season regression | Is one rating per club enough once leagues are on one scale? |
+| `sequence_v2` | GRU that corrects the Dixon-Coles backbone, from steps carrying opponent strength and goals vs expectation | Does recent performance *against expectation* correct a rating? |
+
+The two v2 arms joined on matchday 3 (2026-10-20). They run beside v1 instead of
+replacing it, so v1's record stays intact and comparable. Each had to beat its v1
+on a walk-forward backtest of the 2025-26 league phase first (143 matches, every
+arm refit before each matchday on the corpus as it stood that morning):
+
+| Arm | log-loss | RPS |
+|---|---|---|
+| `dixon_coles` (reference) | 0.9108 | 0.1975 |
+| `elo_xleague` → `elo_xleague_v2` | 0.9861 → 0.9406 | 0.2216 → 0.2068 |
+| `sequence` → `sequence_v2` | 1.0156 → 0.9119 | 0.2281 → 0.2007 |
 
 Two results were visible from matchday 1 alone and are worth stating up front,
 because both are informative rather than embarrassing:
@@ -140,6 +153,9 @@ python scripts/predict.py --fast --no-bets
 
 # settle finished matches and score every arm against the closing line
 python scripts/settle.py
+
+# walk-forward backtest on past league phases (the bar for a new arm version)
+python scripts/backtest.py --seasons 2025-26
 
 # check the club registry for silently duplicated clubs
 python scripts/audit_teams.py

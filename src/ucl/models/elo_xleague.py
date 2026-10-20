@@ -156,3 +156,121 @@ class CrossLeagueElo(ModelArm):
             [{"club": c, "rating": r, "matches": self.match_counts.get(c, 0)}
              for c, r in self.ratings.items()]
         ).sort_values("rating", ascending=False).reset_index(drop=True)
+
+
+class LeagueOffsetElo(CrossLeagueElo):
+    """Version 2 of the control arm: Elo with a rating per league as well.
+
+    Version 1 pools every club into one rating scale, but domestic leagues are
+    closed systems: a club that wins most of its league games climbs whether the
+    league is the Bundesliga or the Azerbaijan Premier League, because almost
+    every rating point it gains comes from domestic opponents. Only the handful
+    of European matches carry information across leagues, and they are drowned
+    out. After two matchdays v1 scored worse than the market by 0.12 log-loss
+    per match.
+
+    Here a club's strength is `club rating + league offset`. Domestic matches
+    move club ratings only (the offset cancels between two clubs of the same
+    league). Cross-border matches move both, and they are the only thing that
+    moves the offsets. Ratings also regress part of the way to the mean at
+    each new season, which v1 never did.
+    """
+
+    name = "elo_xleague_v2"
+    hypothesis = ("A single club rating is enough once each league carries its own "
+                  "offset, learned only from cross-border matches.")
+
+    def __init__(
+        self,
+        *,
+        k_factor: float = 20.0,
+        european_k_factor: float = 30.0,
+        league_k_factor: float = 6.0,
+        season_regression: float = 0.2,
+        burn_in_matches: int = 20,
+        off_season_days: int = 50,
+        **kwargs,
+    ) -> None:
+        super().__init__(k_factor=k_factor, **kwargs)
+        self.european_k_factor = european_k_factor
+        self.league_k_factor = league_k_factor
+        self.season_regression = season_regression
+        self.burn_in_matches = burn_in_matches
+        self.off_season_days = off_season_days
+        self.league_offsets: dict[str, float] = {}
+        self.club_league: dict[str, str] = {}
+
+    @staticmethod
+    def _club_leagues(data: pd.DataFrame) -> dict[str, str]:
+        """A club's league is the country it appears with most often."""
+        pairs = pd.concat([
+            data[["home", "home_country"]].set_axis(["club", "country"], axis=1),
+            data[["away", "away_country"]].set_axis(["club", "country"], axis=1),
+        ])
+        pairs = pairs[pairs["country"].astype(bool)]
+        return {club: group["country"].mode().iloc[0]
+                for club, group in pairs.groupby("club")}
+
+    def fit(self, corpus: pd.DataFrame, *, as_of: date | None = None) -> "LeagueOffsetElo":
+        data = self._training_slice(corpus, as_of).sort_values("date")
+        if data.empty:
+            raise ValueError("No training data for LeagueOffsetElo")
+
+        club_league = self._club_leagues(data)
+        ratings: dict[str, float] = {}
+        offsets: dict[str, float] = {}
+        counts: dict[str, int] = {}
+        last_played: dict[str, pd.Timestamp] = {}
+        records: list[tuple[float, float, float]] = []
+
+        for row in data.itertuples(index=False):
+            home_league = club_league.get(row.home, "")
+            away_league = club_league.get(row.away, "")
+            # A long gap is an off-season. The corpus's season labels cannot be
+            # used: a Norwegian club alternates "2025" domestic and "2025-26"
+            # European rows, which would regress it every few weeks.
+            for club in (row.home, row.away):
+                last = last_played.get(club)
+                if last is not None and (row.date - last).days > self.off_season_days:
+                    rating = ratings[club]
+                    ratings[club] = rating - self.season_regression * (rating - self.initial_rating)
+                last_played[club] = row.date
+
+            home_club = ratings.get(row.home, self.initial_rating)
+            away_club = ratings.get(row.away, self.initial_rating)
+            home_offset = offsets.get(home_league, 0.0)
+            away_offset = offsets.get(away_league, 0.0)
+            cross = home_league != away_league
+
+            diff = (home_club + home_offset) + self.home_advantage - (away_club + away_offset)
+            expected = 1.0 / (1.0 + 10.0 ** (-diff / 400.0))
+
+            home_goals, away_goals = float(row.home_goals), float(row.away_goals)
+            actual = 1.0 if home_goals > away_goals else (0.0 if home_goals < away_goals else 0.5)
+
+            settled_in = (counts.get(row.home, 0) >= self.burn_in_matches
+                          and counts.get(row.away, 0) >= self.burn_in_matches)
+            if cross and settled_in:
+                records.append((diff, home_goals, away_goals))
+
+            margin = float(np.sqrt(max(abs(home_goals - away_goals), 1.0)))
+            surprise = actual - expected
+            k = (self.european_k_factor if cross else self.k_factor) * margin
+            ratings[row.home] = home_club + k * surprise
+            ratings[row.away] = away_club - k * surprise
+            if cross:
+                step = self.league_k_factor * margin * surprise
+                offsets[home_league] = home_offset + step
+                offsets[away_league] = away_offset - step
+            counts[row.home] = counts.get(row.home, 0) + 1
+            counts[row.away] = counts.get(row.away, 0) + 1
+
+        # predict() reads self.ratings, so fold each league's offset in.
+        self.ratings = {club: rating + offsets.get(club_league.get(club, ""), 0.0)
+                        for club, rating in ratings.items()}
+        self.league_offsets = offsets
+        self.club_league = club_league
+        self.match_counts = counts
+        self._fit_goal_mapping(records)
+        self.fitted = True
+        return self

@@ -547,3 +547,63 @@ def test_fixture_without_a_market_price_is_not_staked(tmp_path):
     _stake(ledger, [unpriced, priced], [Arm()], [])
     staked = {(b.home, b.away) for a in ledger.arms.values() for b in a.bets}
     assert staked == {("porto", "psv")}
+
+
+# --- arm versions ----------------------------------------------------------------
+
+def _two_league_corpus():
+    """League AAA beats league BBB in every European meeting; each league is
+    balanced at home. A pooled Elo cannot tell the two apart."""
+    import pandas as pd
+
+    rows = []
+    day = pd.Timestamp("2024-08-01")
+    clubs = {"AAA": ["a1", "a2", "a3"], "BBB": ["b1", "b2", "b3"]}
+    for week in range(30):
+        for country, members in clubs.items():
+            home, away = members[week % 3], members[(week + 1) % 3]
+            rows.append((day, home, away, country, country, 1.0, 1.0))
+        if week % 3 == 0:
+            strong, weak = clubs["AAA"][week % 2], clubs["BBB"][week % 2]
+            if week % 2:
+                rows.append((day + pd.Timedelta(days=3), strong, weak, "AAA", "BBB", 3.0, 0.0))
+            else:
+                rows.append((day + pd.Timedelta(days=3), weak, strong, "BBB", "AAA", 0.0, 2.0))
+        day += pd.Timedelta(days=7)
+    frame = pd.DataFrame(rows, columns=["date", "home", "away", "home_country",
+                                        "away_country", "home_goals", "away_goals"])
+    frame["played"] = True
+    frame["cross_border"] = frame["home_country"] != frame["away_country"]
+    frame["season"] = "2024-25"
+    frame["days_ago"] = (frame["date"].max() - frame["date"]).dt.days
+    frame["weight"] = 1.0
+    return frame
+
+
+def test_league_offset_elo_moves_offsets_only_on_cross_border_matches():
+    from ucl.models.elo_xleague import LeagueOffsetElo
+
+    frame = _two_league_corpus()
+    domestic = LeagueOffsetElo().fit(frame[~frame["cross_border"]])
+    assert domestic.league_offsets.get("AAA", 0.0) == 0.0
+
+    arm = LeagueOffsetElo(burn_in_matches=0).fit(frame)
+    assert arm.league_offsets["AAA"] > 0 > arm.league_offsets["BBB"]
+    # The offset reaches clubs that never played abroad themselves.
+    assert arm.ratings["a3"] > arm.ratings["b3"]
+    assert arm.predict("a3", "b3").markets()["home"] > arm.predict("b3", "a3").markets()["home"]
+
+
+def test_sequence_v2_starts_exactly_at_its_backbone():
+    """With zero training the residual arm must reproduce the backbone, so an
+    arm with nothing to add converges to it rather than to noise."""
+    from ucl.models.dixon_coles import DixonColesXLeague
+    from ucl.models.sequence import SequenceResidual
+
+    frame = _two_league_corpus()
+    backbone = DixonColesXLeague().fit(frame)
+    arm = SequenceResidual(backbone=backbone, epochs=0).fit(frame)
+    prediction = arm.predict("a1", "b2")
+    lam_h, lam_a = backbone.lambdas("a1", "b2", euro=True)
+    assert abs(prediction.home_lambda - lam_h) < 1e-4
+    assert abs(prediction.away_lambda - lam_a) < 1e-4

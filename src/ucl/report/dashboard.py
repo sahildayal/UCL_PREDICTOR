@@ -20,6 +20,8 @@ ARM_LABELS = {
     "gbm": "LightGBM",
     "gnn": "Graph net",
     "sequence": "Sequence",
+    "elo_xleague_v2": "Elo v2",
+    "sequence_v2": "Sequence v2",
 }
 
 

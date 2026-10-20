@@ -193,3 +193,173 @@ class SequenceForm(ModelArm):
             matrix = apply_dixon_coles(matrix, lam_h, lam_a, self.rho)
         return Prediction(arm=self.name, home=home, away=away, matrix=matrix,
                           home_lambda=lam_h, away_lambda=lam_a)
+
+
+STEP_FEATURES_V2 = 9       # v1's six, plus opponent strength and goals vs expectation
+
+
+class SequenceResidual(SequenceForm):
+    """Version 2: the GRU learns a correction to the Dixon-Coles backbone.
+
+    Version 1 saw only raw goals and points, so three wins in Azerbaijan looked
+    the same as three wins in the Bundesliga. In a competition that is entirely
+    cross-league that is fatal, and it could not test its own hypothesis -
+    "trajectory beyond a static rating" - because it had no static rating to go
+    beyond. After two matchdays it scored 0.20 log-loss per match worse than the
+    market, no better than guessing a third each way.
+
+    Here each step also carries the opponent's backbone strength and how far
+    the club's goals for and against landed from the backbone's expectation.
+    The network outputs a bounded adjustment (at most 0.5 either way in log
+    rate) to the backbone's rates, from a zero start, so with no signal it
+    reduces to the backbone rather than to noise.
+    """
+
+    name = "sequence_v2"
+    hypothesis = ("Recent performance against expectation corrects a cross-league "
+                  "rating backbone.")
+
+    def __init__(self, *, backbone=None, max_adjustment: float = 0.5,
+                 weight_decay: float = 1e-4, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.backbone = backbone
+        self.max_adjustment = max_adjustment
+        self.weight_decay = weight_decay
+
+    def _strengths(self) -> dict[str, float]:
+        table = self.backbone.club_table()
+        return dict(zip(table["club"], table["strength"]))
+
+    def _build_sequences_v2(self, corpus: pd.DataFrame, upto: pd.Timestamp | None):
+        backbone = self.backbone
+        strength = self._strengths()
+        history: dict[str, deque] = defaultdict(lambda: deque(maxlen=SEQUENCE_LENGTH))
+        last_date: dict[str, pd.Timestamp] = {}
+        records: dict[tuple, tuple[np.ndarray, np.ndarray]] = {}
+
+        def snapshot(club: str) -> np.ndarray:
+            arr = np.zeros((SEQUENCE_LENGTH, STEP_FEATURES_V2), dtype=np.float32)
+            entries = list(history[club])
+            if entries:
+                arr[-len(entries):] = np.array(entries, dtype=np.float32)
+            return arr
+
+        for row in corpus.sort_values("date").itertuples(index=False):
+            if upto is not None and row.date > upto:
+                break
+            records[(row.date, row.home, row.away)] = (snapshot(row.home), snapshot(row.away))
+            if not row.played:
+                continue
+
+            hg, ag = float(row.home_goals), float(row.away_goals)
+            cross = float(bool(row.cross_border))
+            rates = backbone.lambdas(row.home, row.away, euro=bool(cross))
+            exp_h, exp_a = rates if rates is not None else (hg, ag)
+            for club, opponent, gf, ga, xf, xa, is_home in (
+                    (row.home, row.away, hg, ag, exp_h, exp_a, 1.0),
+                    (row.away, row.home, ag, hg, exp_a, exp_h, 0.0)):
+                rest = 7.0
+                if club in last_date:
+                    rest = float(min((row.date - last_date[club]).days, 30))
+                points = 3.0 if gf > ga else (1.0 if gf == ga else 0.0)
+                history[club].append([gf, ga, is_home, rest / 30.0, cross, points / 3.0,
+                                      strength.get(opponent, 0.0), gf - xf, ga - xa])
+                last_date[club] = row.date
+
+        final_state = {club: snapshot(club) for club in history}
+        return records, final_state
+
+    def fit(self, corpus: pd.DataFrame, *, as_of: date | None = None) -> "SequenceResidual":
+        import torch
+        import torch.nn as nn
+
+        if self.backbone is None or not self.backbone.fitted:
+            raise ValueError("SequenceResidual needs a fitted backbone")
+        torch.manual_seed(self.seed)
+        data = self._training_slice(corpus, as_of)
+        data = data[data["days_ago"] <= self.recent_years * 365.25]
+        if data.empty:
+            raise ValueError("No training data for SequenceResidual")
+
+        cutoff = pd.Timestamp(as_of) if as_of is not None else None
+        records, final_state = self._build_sequences_v2(corpus, cutoff)
+        self._sequences = final_state
+
+        usable, base = [], []
+        for row in data.itertuples(index=False):
+            key = (row.date, row.home, row.away)
+            rates = self.backbone.lambdas(row.home, row.away, euro=bool(row.cross_border))
+            if key in records and rates is not None:
+                usable.append((key, row.home_goals, row.away_goals, row.weight))
+                base.append(np.log(rates))
+        if not usable:
+            raise ValueError("No sequence records aligned to training rows")
+
+        home_t = torch.tensor(np.stack([records[u[0]][0] for u in usable]))
+        away_t = torch.tensor(np.stack([records[u[0]][1] for u in usable]))
+        base_t = torch.tensor(np.array(base, dtype=np.float32))
+        hg_t = torch.tensor(np.array([u[1] for u in usable], dtype=np.float32))
+        ag_t = torch.tensor(np.array([u[2] for u in usable], dtype=np.float32))
+        weights = np.array([u[3] for u in usable], dtype=np.float32)
+        w_t = torch.tensor(weights / weights.mean())
+
+        hidden, bound = self.hidden_dim, self.max_adjustment
+
+        class Net(nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.gru = nn.GRU(STEP_FEATURES_V2, hidden, batch_first=True)
+                self.head = nn.Sequential(
+                    nn.Linear(hidden * 2, hidden), nn.ReLU(), nn.Linear(hidden, 2))
+                # Start exactly at the backbone.
+                nn.init.zeros_(self.head[-1].weight)
+                nn.init.zeros_(self.head[-1].bias)
+
+            def forward(self, home_x, away_x, base_log):
+                _, h_home = self.gru(home_x)
+                _, h_away = self.gru(away_x)
+                joined = torch.cat([h_home[-1], h_away[-1]], dim=-1)
+                delta = bound * torch.tanh(self.head(joined))
+                log_rates = (base_log + delta).clamp(-8, 3)
+                return log_rates[:, 0], log_rates[:, 1]
+
+        net = Net()
+        optimiser = torch.optim.AdamW(net.parameters(), lr=self.learning_rate,
+                                      weight_decay=self.weight_decay)
+        n = len(usable)
+        for _ in range(self.epochs):
+            permutation = torch.randperm(n)
+            for start in range(0, n, self.batch_size):
+                batch = permutation[start:start + self.batch_size]
+                optimiser.zero_grad()
+                log_lh, log_la = net(home_t[batch], away_t[batch], base_t[batch])
+                loss = torch.mean(w_t[batch] * (torch.exp(log_lh) - hg_t[batch] * log_lh
+                                                + torch.exp(log_la) - ag_t[batch] * log_la))
+                loss.backward()
+                optimiser.step()
+
+        net.eval()
+        self._net = net
+        self.fitted = True
+        return self
+
+    def predict(self, home: str, away: str, *, when: date | None = None) -> Prediction | None:
+        import torch
+
+        if not self.fitted:
+            raise RuntimeError("SequenceResidual.predict called before fit")
+        rates = self.backbone.lambdas(home, away, euro=True)
+        if rates is None or home not in self._sequences or away not in self._sequences:
+            return None
+        with torch.no_grad():
+            log_lh, log_la = self._net(
+                torch.tensor(self._sequences[home][None, ...]),
+                torch.tensor(self._sequences[away][None, ...]),
+                torch.tensor(np.log(np.array([rates], dtype=np.float32))),
+            )
+        lam_h, lam_a = float(torch.exp(log_lh)[0]), float(torch.exp(log_la)[0])
+        matrix = poisson_matrix(lam_h, lam_a, self.max_goals)
+        if self.rho:
+            matrix = apply_dixon_coles(matrix, lam_h, lam_a, self.rho)
+        return Prediction(arm=self.name, home=home, away=away, matrix=matrix,
+                          home_lambda=lam_h, away_lambda=lam_a)
