@@ -1,0 +1,2860 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Matchday 4 — 2026-11-03</title>
+<meta name="description" content="Champions League matchday 4 forecasts, 2026-11-03.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4f5f9; --panel:#ffffff; --panel-2:#eceef6;
+  --ink:#141830; --ink-soft:#4a5070; --ink-faint:#767ea0;
+  --line:#dcdfeb;
+  --accent:#3a5fd9; --accent-soft:#dbe2fb;
+  --home:#3a5fd9; --draw:#9aa2c4; --away:#c2683f;
+  --up:#1f8a5c; --down:#c0405c; --flat:#767ea0;
+  --shadow:0 1px 2px rgba(20,24,48,.06),0 8px 24px rgba(20,24,48,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0c0f1e; --panel:#141930; --panel-2:#1b2140;
+    --ink:#e8eaf4; --ink-soft:#a8b0cf; --ink-faint:#767ea0;
+    --line:#252c4c;
+    --accent:#7d9bff; --accent-soft:#232b52;
+    --home:#7d9bff; --draw:#6a7299; --away:#e08b5e;
+    --up:#3fc98a; --down:#f0708a; --flat:#767ea0;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0c0f1e; --panel:#141930; --panel-2:#1b2140;
+  --ink:#e8eaf4; --ink-soft:#a8b0cf; --ink-faint:#767ea0;
+  --line:#252c4c;
+  --accent:#7d9bff; --accent-soft:#232b52;
+  --home:#7d9bff; --draw:#6a7299; --away:#e08b5e;
+  --up:#3fc98a; --down:#f0708a; --flat:#767ea0;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:15px; line-height:1.5;
+}
+.wrap{max-width:1080px; margin:0 auto; padding-inline:20px; padding-block:36px 64px}
+.masthead{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline;
+  justify-content:space-between; border-bottom:2px solid var(--ink);
+  padding-bottom:14px; margin-bottom:8px}
+h1{font-family:"Bricolage Grotesque",Georgia,serif; font-weight:700;
+  font-size:clamp(26px,4.4vw,40px); letter-spacing:-.02em; margin:0; text-wrap:balance}
+.masthead__sub{color:var(--ink-soft); font-size:14px;
+  font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink-faint); font-weight:600}
+h2{font-family:"Bricolage Grotesque",Georgia,serif; font-size:21px; margin:0;
+  letter-spacing:-.01em}
+section{margin-top:40px}
+.section__head{display:flex; align-items:baseline; gap:12px; margin-bottom:16px}
+.section__note{color:var(--ink-faint); font-size:13px}
+
+.fixtures{display:flex; flex-direction:column; gap:14px}
+.fixture{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; box-shadow:var(--shadow)}
+.fixture__head{display:flex; flex-wrap:wrap; gap:8px 16px;
+  justify-content:space-between; align-items:baseline}
+.fixture__teams{display:flex; flex-wrap:wrap; align-items:baseline; gap:9px;
+  font-family:"Bricolage Grotesque",Georgia,serif; font-size:19px; font-weight:600}
+.fixture__v{color:var(--ink-faint); font-size:13px; font-weight:400;
+  font-family:"Source Sans 3",sans-serif}
+.fixture__meta{display:flex; gap:12px; flex-wrap:wrap;
+  font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  color:var(--ink-faint)}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 14px}
+.chip{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11px;
+  padding:3px 8px; border-radius:5px; background:var(--panel-2);
+  color:var(--ink-soft); white-space:nowrap}
+.chip--wide{background:var(--down); color:#fff}
+.chip--some{background:var(--accent-soft); color:var(--accent)}
+
+.prows{display:flex; flex-direction:column; gap:7px}
+.prow{display:grid; grid-template-columns:112px 1fr 74px 34px; gap:10px;
+  align-items:center}
+.prow--market .prow__name{font-weight:700; color:var(--ink)}
+.prow__name{font-size:12.5px; color:var(--ink-soft); white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis}
+.prow--absent{grid-template-columns:112px 1fr}
+.prow__absent{font-size:12px; color:var(--ink-faint); font-style:italic}
+.bar{display:flex; height:15px; border-radius:3px; overflow:hidden;
+  background:var(--panel-2)}
+.prow--market .bar{height:19px}
+.bar__seg--home{background:var(--home)}
+.bar__seg--draw{background:var(--draw)}
+.bar__seg--away{background:var(--away)}
+.prow__nums{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  font-variant-numeric:tabular-nums; display:flex; gap:7px}
+.prow__nums b{color:var(--home)} .prow__nums i{color:var(--draw); font-style:normal}
+.prow__nums s{color:var(--away); text-decoration:none}
+.delta{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px;
+  text-align:right; font-variant-numeric:tabular-nums}
+.delta--up{color:var(--up)} .delta--down{color:var(--down)} .delta--flat{color:var(--flat)}
+
+.scroller{overflow-x:auto; border:1px solid var(--line); border-radius:10px;
+  background:var(--panel)}
+.qtable{border-collapse:collapse; width:100%; font-size:13.5px}
+.qtable th{text-align:left; font-size:11px; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--ink-faint); font-weight:600;
+  padding:11px 12px; border-bottom:1px solid var(--line); white-space:nowrap}
+.qtable td{padding:8px 12px; border-bottom:1px solid var(--line); white-space:nowrap}
+.qtable tbody tr:last-child td{border-bottom:none}
+.num{text-align:right; font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.q__pos{color:var(--ink-faint); font-family:"JetBrains Mono",monospace; width:34px}
+.q--top8 .q__pos{color:var(--up); font-weight:700}
+.q--out .q__club{color:var(--ink-faint)}
+.q__out{color:var(--ink-faint)}
+.q--top8{background:linear-gradient(90deg,color-mix(in srgb,var(--up) 9%,transparent),transparent 40%)}
+.regime{font-size:10.5px; text-transform:uppercase; letter-spacing:.07em;
+  padding:2px 7px; border-radius:4px; background:var(--panel-2); color:var(--ink-soft)}
+.regime--science{background:var(--accent-soft); color:var(--accent)}
+
+.notes{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:8px; padding:14px 16px; font-size:13px; color:var(--ink-soft)}
+.notes ul{margin:8px 0 0; padding-left:18px} .notes li{margin:3px 0}
+.disclaimer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:12.5px; color:var(--ink-faint)}
+.empty{color:var(--ink-faint); font-style:italic}
+@media (max-width:560px){
+  .prow{grid-template-columns:88px 1fr 62px 30px; gap:7px}
+  .prow__name{font-size:11.5px}
+}
+
+.hero{display:grid; gap:6px; margin-bottom:8px}
+.lede{color:var(--ink-soft); max-width:62ch; font-size:15.5px; margin:10px 0 0}
+.grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px}
+.stat__k{font-size:11px; text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink-faint); font-weight:600}
+.stat__v{font-family:"Bricolage Grotesque",Georgia,serif; font-size:27px;
+  font-weight:700; font-variant-numeric:tabular-nums; margin-top:3px}
+.stat__n{font-size:12px; color:var(--ink-faint); margin-top:2px}
+.archive{display:flex; flex-direction:column; gap:0;
+  border:1px solid var(--line); border-radius:10px; background:var(--panel);
+  overflow:hidden}
+.archive a{display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline;
+  padding:12px 16px; text-decoration:none; color:inherit;
+  border-bottom:1px solid var(--line)}
+.archive a:last-child{border-bottom:none}
+.archive a:hover{background:var(--panel-2)}
+.archive a:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.archive__md{font-family:"Bricolage Grotesque",Georgia,serif; font-weight:700;
+  font-size:15px; min-width:44px}
+.archive__date{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12px;
+  color:var(--ink-faint)}
+.archive__n{font-size:12.5px; color:var(--ink-soft); margin-left:auto}
+.market-row td{font-weight:700; background:var(--panel-2)}
+.backlink{display:inline-block; margin-bottom:20px; font-size:13.5px;
+  color:var(--accent); text-decoration:none}
+.backlink:hover{text-decoration:underline}
+.pending{color:var(--ink-faint); font-style:italic; font-size:13px}
+.res{font-family:"JetBrains Mono",ui-monospace,monospace; font-weight:500}
+</style>
+</head><body><div class="wrap"><a class="backlink" href="index.html">← Season scoreboard</a></div>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">2026/27 League Phase · Matchday brief</div>
+      <h1>Champions League Forecast Lab</h1>
+    </div>
+    <div class="masthead__sub">
+      as of 2026-11-03<br>
+      market live · 8 arms
+    </div>
+  </header>
+
+  <section>
+    <div class="section__head">
+      <h2>Fixtures</h2>
+      <span class="section__note">Each arm's home/draw/away, against the de-vigged
+      line. The right-hand number is the arm's gap to the market in points.</span>
+    </div>
+    <div class="fixtures">
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Atlético Madrid</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Bayern München</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 5.9% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (9%)</span><span class="chip">xG 1.74 – 1.82</span><span class="chip">O2.5 69%</span><span class="chip">BTTS 69%</span><span class="chip chip--wide">arm spread 29 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 35%, draw 25%, away 40%">
+          <span class="bar__seg bar__seg--home" style="width:34.97%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.85%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.18%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>35</b><i>25</i><s>40</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 36%, draw 23%, away 41%">
+          <span class="bar__seg bar__seg--home" style="width:35.96%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.41%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.63%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>36</b><i>23</i><s>41</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 19%, draw 23%, away 58%">
+          <span class="bar__seg bar__seg--home" style="width:18.53%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.25%"></span>
+          <span class="bar__seg bar__seg--away" style="width:58.22%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>19</b><i>23</i><s>58</s>
+        </span>
+        <span class="delta delta--down">−16</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 25%, away 49%">
+          <span class="bar__seg bar__seg--home" style="width:26.27%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.53%"></span>
+          <span class="bar__seg bar__seg--away" style="width:49.19%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>25</i><s>49</s>
+        </span>
+        <span class="delta delta--down">−9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 37%, draw 23%, away 40%">
+          <span class="bar__seg bar__seg--home" style="width:37.03%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.70%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.27%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>37</b><i>23</i><s>40</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 34%, draw 22%, away 44%">
+          <span class="bar__seg bar__seg--home" style="width:34.22%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.69%"></span>
+          <span class="bar__seg bar__seg--away" style="width:44.09%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>34</b><i>22</i><s>44</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 33%, draw 23%, away 43%">
+          <span class="bar__seg bar__seg--home" style="width:33.49%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.04%"></span>
+          <span class="bar__seg bar__seg--away" style="width:43.47%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>33</b><i>23</i><s>43</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 48%, draw 24%, away 28%">
+          <span class="bar__seg bar__seg--home" style="width:47.91%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.10%"></span>
+          <span class="bar__seg bar__seg--away" style="width:27.99%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>48</b><i>24</i><s>28</s>
+        </span>
+        <span class="delta delta--up">+13</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 44%, draw 23%, away 34%">
+          <span class="bar__seg bar__seg--home" style="width:43.58%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.80%"></span>
+          <span class="bar__seg bar__seg--away" style="width:33.62%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>44</b><i>23</i><s>34</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">FC Barcelona</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Aston Villa FC</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 5.0% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 2–1 (9%)</span><span class="chip">xG 2.37 – 1.33</span><span class="chip">O2.5 71%</span><span class="chip">BTTS 67%</span><span class="chip chip--wide">arm spread 17 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 75%, draw 14%, away 11%">
+          <span class="bar__seg bar__seg--home" style="width:74.99%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:13.80%"></span>
+          <span class="bar__seg bar__seg--away" style="width:11.20%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>75</b><i>14</i><s>11</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 63%, draw 19%, away 18%">
+          <span class="bar__seg bar__seg--home" style="width:63.16%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.86%"></span>
+          <span class="bar__seg bar__seg--away" style="width:17.98%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>63</b><i>19</i><s>18</s>
+        </span>
+        <span class="delta delta--down">−12</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 65%, draw 21%, away 14%">
+          <span class="bar__seg bar__seg--home" style="width:65.44%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.62%"></span>
+          <span class="bar__seg bar__seg--away" style="width:13.94%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>65</b><i>21</i><s>14</s>
+        </span>
+        <span class="delta delta--down">−10</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 62%, draw 21%, away 17%">
+          <span class="bar__seg bar__seg--home" style="width:62.36%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.98%"></span>
+          <span class="bar__seg bar__seg--away" style="width:16.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>62</b><i>21</i><s>17</s>
+        </span>
+        <span class="delta delta--down">−13</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 60%, draw 20%, away 20%">
+          <span class="bar__seg bar__seg--home" style="width:60.18%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.64%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.18%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>60</b><i>20</i><s>20</s>
+        </span>
+        <span class="delta delta--down">−15</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 50%, draw 20%, away 30%">
+          <span class="bar__seg bar__seg--home" style="width:50.22%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.83%"></span>
+          <span class="bar__seg bar__seg--away" style="width:29.95%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>50</b><i>20</i><s>30</s>
+        </span>
+        <span class="delta delta--down">−25</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 58%, draw 20%, away 21%">
+          <span class="bar__seg bar__seg--home" style="width:58.41%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.36%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.23%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>58</b><i>20</i><s>21</s>
+        </span>
+        <span class="delta delta--down">−17</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 67%, draw 18%, away 16%">
+          <span class="bar__seg bar__seg--home" style="width:66.78%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:17.53%"></span>
+          <span class="bar__seg bar__seg--away" style="width:15.69%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>67</b><i>18</i><s>16</s>
+        </span>
+        <span class="delta delta--down">−8</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 60%, draw 21%, away 19%">
+          <span class="bar__seg bar__seg--home" style="width:60.31%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.82%"></span>
+          <span class="bar__seg bar__seg--away" style="width:18.87%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>60</b><i>21</i><s>19</s>
+        </span>
+        <span class="delta delta--down">−15</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">FK Bodø/Glimt</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Lille</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 5.4% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (10%)</span><span class="chip">xG 2.03 – 1.31</span><span class="chip">O2.5 64%</span><span class="chip">BTTS 63%</span><span class="chip chip--wide">arm spread 27 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 23%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:55.49%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.59%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.91%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>23</i><s>22</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 52%, draw 23%, away 26%">
+          <span class="bar__seg bar__seg--home" style="width:51.51%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.89%"></span>
+          <span class="bar__seg bar__seg--away" style="width:25.60%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>52</b><i>23</i><s>26</s>
+        </span>
+        <span class="delta delta--down">−4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 65%, draw 21%, away 14%">
+          <span class="bar__seg bar__seg--home" style="width:64.74%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.90%"></span>
+          <span class="bar__seg bar__seg--away" style="width:14.36%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>65</b><i>21</i><s>14</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 60%, draw 22%, away 18%">
+          <span class="bar__seg bar__seg--home" style="width:60.29%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.68%"></span>
+          <span class="bar__seg bar__seg--away" style="width:18.04%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>60</b><i>22</i><s>18</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 22%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:53.44%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.16%"></span>
+          <span class="bar__seg bar__seg--away" style="width:24.41%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>22</i><s>24</s>
+        </span>
+        <span class="delta delta--flat">−2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 45%, draw 23%, away 32%">
+          <span class="bar__seg bar__seg--home" style="width:45.35%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.55%"></span>
+          <span class="bar__seg bar__seg--away" style="width:32.09%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>45</b><i>23</i><s>32</s>
+        </span>
+        <span class="delta delta--down">−10</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 47%, draw 24%, away 29%">
+          <span class="bar__seg bar__seg--home" style="width:47.46%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.72%"></span>
+          <span class="bar__seg bar__seg--away" style="width:28.82%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>47</b><i>24</i><s>29</s>
+        </span>
+        <span class="delta delta--down">−8</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 38%, draw 26%, away 37%">
+          <span class="bar__seg bar__seg--home" style="width:37.76%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.58%"></span>
+          <span class="bar__seg bar__seg--away" style="width:36.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>38</b><i>26</i><s>37</s>
+        </span>
+        <span class="delta delta--down">−18</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 59%, draw 20%, away 21%">
+          <span class="bar__seg bar__seg--home" style="width:59.02%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.36%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.61%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>59</b><i>20</i><s>21</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Feyenoord</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Inter</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 6.5% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (10%)</span><span class="chip">xG 1.28 – 2.04</span><span class="chip">O2.5 64%</span><span class="chip">BTTS 63%</span><span class="chip chip--some">arm spread 13 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 23%, away 50%">
+          <span class="bar__seg bar__seg--home" style="width:26.07%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.47%"></span>
+          <span class="bar__seg bar__seg--away" style="width:50.46%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>23</i><s>50</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 24%, draw 23%, away 53%">
+          <span class="bar__seg bar__seg--home" style="width:24.00%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.61%"></span>
+          <span class="bar__seg bar__seg--away" style="width:53.39%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>24</b><i>23</i><s>53</s>
+        </span>
+        <span class="delta delta--flat">−2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 35%, draw 27%, away 38%">
+          <span class="bar__seg bar__seg--home" style="width:34.79%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.99%"></span>
+          <span class="bar__seg bar__seg--away" style="width:38.22%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>35</b><i>27</i><s>38</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 28%, draw 25%, away 47%">
+          <span class="bar__seg bar__seg--home" style="width:28.20%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:46.87%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>28</b><i>25</i><s>47</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 23%, draw 22%, away 55%">
+          <span class="bar__seg bar__seg--home" style="width:23.37%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.02%"></span>
+          <span class="bar__seg bar__seg--away" style="width:54.61%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>23</b><i>22</i><s>55</s>
+        </span>
+        <span class="delta delta--flat">−3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 22%, draw 21%, away 57%">
+          <span class="bar__seg bar__seg--home" style="width:21.75%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.92%"></span>
+          <span class="bar__seg bar__seg--away" style="width:57.34%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>22</b><i>21</i><s>57</s>
+        </span>
+        <span class="delta delta--down">−4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 22%, draw 22%, away 56%">
+          <span class="bar__seg bar__seg--home" style="width:22.20%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.13%"></span>
+          <span class="bar__seg bar__seg--away" style="width:55.68%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>22</b><i>22</i><s>56</s>
+        </span>
+        <span class="delta delta--down">−4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 31%, draw 26%, away 43%">
+          <span class="bar__seg bar__seg--home" style="width:30.82%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.89%"></span>
+          <span class="bar__seg bar__seg--away" style="width:43.29%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>31</b><i>26</i><s>43</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 23%, away 51%">
+          <span class="bar__seg bar__seg--home" style="width:26.02%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.43%"></span>
+          <span class="bar__seg bar__seg--away" style="width:50.55%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>23</i><s>51</s>
+        </span>
+        <span class="delta delta--flat">−0</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Galatasaray</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">VfB Stuttgart</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">18:45 · MD4</span>
+          <span class="books">39 books · 5.4% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (10%)</span><span class="chip">xG 1.86 – 1.58</span><span class="chip">O2.5 67%</span><span class="chip">BTTS 67%</span><span class="chip chip--some">arm spread 14 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 46%, draw 23%, away 31%">
+          <span class="bar__seg bar__seg--home" style="width:46.27%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.13%"></span>
+          <span class="bar__seg bar__seg--away" style="width:30.60%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>46</b><i>23</i><s>31</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 43%, draw 24%, away 33%">
+          <span class="bar__seg bar__seg--home" style="width:43.05%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.62%"></span>
+          <span class="bar__seg bar__seg--away" style="width:33.33%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>43</b><i>24</i><s>33</s>
+        </span>
+        <span class="delta delta--down">−3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 25%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:53.40%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.66%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.94%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>25</i><s>22</s>
+        </span>
+        <span class="delta delta--up">+7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 40%, draw 26%, away 34%">
+          <span class="bar__seg bar__seg--home" style="width:40.44%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.61%"></span>
+          <span class="bar__seg bar__seg--away" style="width:33.94%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>40</b><i>26</i><s>34</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 44%, draw 23%, away 33%">
+          <span class="bar__seg bar__seg--home" style="width:44.30%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.96%"></span>
+          <span class="bar__seg bar__seg--away" style="width:32.75%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>44</b><i>23</i><s>33</s>
+        </span>
+        <span class="delta delta--flat">−2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 42%, draw 24%, away 34%">
+          <span class="bar__seg bar__seg--home" style="width:41.72%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.07%"></span>
+          <span class="bar__seg bar__seg--away" style="width:34.21%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>42</b><i>24</i><s>34</s>
+        </span>
+        <span class="delta delta--down">−5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 39%, draw 24%, away 37%">
+          <span class="bar__seg bar__seg--home" style="width:39.27%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.05%"></span>
+          <span class="bar__seg bar__seg--away" style="width:36.67%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>39</b><i>24</i><s>37</s>
+        </span>
+        <span class="delta delta--down">−7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 52%, draw 23%, away 25%">
+          <span class="bar__seg bar__seg--home" style="width:52.01%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.54%"></span>
+          <span class="bar__seg bar__seg--away" style="width:25.45%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>52</b><i>23</i><s>25</s>
+        </span>
+        <span class="delta delta--up">+6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 47%, draw 22%, away 31%">
+          <span class="bar__seg bar__seg--home" style="width:47.43%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.71%"></span>
+          <span class="bar__seg bar__seg--away" style="width:30.86%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>47</b><i>22</i><s>31</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">LASK</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">ŠK Slovan Bratislava</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.2% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (9%)</span><span class="chip">xG 2.11 – 1.30</span><span class="chip">O2.5 66%</span><span class="chip">BTTS 64%</span><span class="chip chip--wide">arm spread 18 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 71%, draw 17%, away 13%">
+          <span class="bar__seg bar__seg--home" style="width:70.66%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:16.67%"></span>
+          <span class="bar__seg bar__seg--away" style="width:12.67%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>71</b><i>17</i><s>13</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 58%, draw 21%, away 20%">
+          <span class="bar__seg bar__seg--home" style="width:58.46%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.14%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.40%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>58</b><i>21</i><s>20</s>
+        </span>
+        <span class="delta delta--down">−12</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 46%, draw 26%, away 28%">
+          <span class="bar__seg bar__seg--home" style="width:46.13%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.21%"></span>
+          <span class="bar__seg bar__seg--away" style="width:27.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>46</b><i>26</i><s>28</s>
+        </span>
+        <span class="delta delta--down">−25</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 23%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:55.08%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.21%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.71%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>23</i><s>22</s>
+        </span>
+        <span class="delta delta--down">−16</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 22%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:55.42%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.55%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.03%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>22</i><s>23</s>
+        </span>
+        <span class="delta delta--down">−15</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 58%, draw 22%, away 20%">
+          <span class="bar__seg bar__seg--home" style="width:58.19%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:19.87%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>58</b><i>22</i><s>20</s>
+        </span>
+        <span class="delta delta--down">−12</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 54%, draw 22%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:53.99%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.35%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>54</b><i>22</i><s>24</s>
+        </span>
+        <span class="delta delta--down">−17</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 64%, draw 19%, away 17%">
+          <span class="bar__seg bar__seg--home" style="width:63.69%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.38%"></span>
+          <span class="bar__seg bar__seg--away" style="width:16.93%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>64</b><i>19</i><s>17</s>
+        </span>
+        <span class="delta delta--down">−7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 63%, draw 17%, away 19%">
+          <span class="bar__seg bar__seg--home" style="width:63.32%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:17.26%"></span>
+          <span class="bar__seg bar__seg--away" style="width:19.42%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>63</b><i>17</i><s>19</s>
+        </span>
+        <span class="delta delta--down">−7</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Manchester United</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">AS Roma</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 5.7% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (11%)</span><span class="chip">xG 1.82 – 1.14</span><span class="chip">O2.5 57%</span><span class="chip">BTTS 57%</span><span class="chip chip--wide">arm spread 29 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 44%, draw 24%, away 32%">
+          <span class="bar__seg bar__seg--home" style="width:43.99%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.95%"></span>
+          <span class="bar__seg bar__seg--away" style="width:32.06%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>44</b><i>24</i><s>32</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 24%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:53.17%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.86%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.97%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>24</i><s>23</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 33%, draw 27%, away 40%">
+          <span class="bar__seg bar__seg--home" style="width:33.10%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.90%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.00%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>33</b><i>27</i><s>40</s>
+        </span>
+        <span class="delta delta--down">−11</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 45%, draw 25%, away 30%">
+          <span class="bar__seg bar__seg--home" style="width:45.19%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.17%"></span>
+          <span class="bar__seg bar__seg--away" style="width:29.64%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>45</b><i>25</i><s>30</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 24%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:52.92%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.79%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.29%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>24</i><s>23</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 24%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:53.37%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.08%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.56%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>24</i><s>23</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 51%, draw 25%, away 25%">
+          <span class="bar__seg bar__seg--home" style="width:50.86%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.60%"></span>
+          <span class="bar__seg bar__seg--away" style="width:24.54%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>51</b><i>25</i><s>25</s>
+        </span>
+        <span class="delta delta--up">+7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 24%, draw 24%, away 51%">
+          <span class="bar__seg bar__seg--home" style="width:24.48%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.07%"></span>
+          <span class="bar__seg bar__seg--away" style="width:51.45%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>24</b><i>24</i><s>51</s>
+        </span>
+        <span class="delta delta--down">−20</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 52%, draw 28%, away 20%">
+          <span class="bar__seg bar__seg--home" style="width:51.68%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:27.95%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.37%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>52</b><i>28</i><s>20</s>
+        </span>
+        <span class="delta delta--up">+8</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Shakhtar Donetsk</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Sporting CP</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">18:45 · MD4</span>
+          <span class="books">39 books · 5.4% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (12%)</span><span class="chip">xG 1.30 – 1.60</span><span class="chip">O2.5 55%</span><span class="chip">BTTS 58%</span><span class="chip chip--wide">arm spread 16 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 27%, draw 26%, away 47%">
+          <span class="bar__seg bar__seg--home" style="width:26.94%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.63%"></span>
+          <span class="bar__seg bar__seg--away" style="width:47.42%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>27</b><i>26</i><s>47</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 32%, draw 26%, away 42%">
+          <span class="bar__seg bar__seg--home" style="width:31.86%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.49%"></span>
+          <span class="bar__seg bar__seg--away" style="width:41.65%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>32</b><i>26</i><s>42</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 35%, draw 27%, away 39%">
+          <span class="bar__seg bar__seg--home" style="width:34.52%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.98%"></span>
+          <span class="bar__seg bar__seg--away" style="width:38.50%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>35</b><i>27</i><s>39</s>
+        </span>
+        <span class="delta delta--up">+8</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 32%, draw 25%, away 43%">
+          <span class="bar__seg bar__seg--home" style="width:31.85%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.45%"></span>
+          <span class="bar__seg bar__seg--away" style="width:42.70%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>32</b><i>25</i><s>43</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 31%, draw 25%, away 44%">
+          <span class="bar__seg bar__seg--home" style="width:30.93%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.28%"></span>
+          <span class="bar__seg bar__seg--away" style="width:43.80%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>31</b><i>25</i><s>44</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 30%, draw 26%, away 44%">
+          <span class="bar__seg bar__seg--home" style="width:30.22%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.55%"></span>
+          <span class="bar__seg bar__seg--away" style="width:44.23%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>30</b><i>26</i><s>44</s>
+        </span>
+        <span class="delta delta--up">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 29%, draw 26%, away 45%">
+          <span class="bar__seg bar__seg--home" style="width:29.19%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.28%"></span>
+          <span class="bar__seg bar__seg--away" style="width:44.53%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>29</b><i>26</i><s>45</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 27%, away 46%">
+          <span class="bar__seg bar__seg--home" style="width:26.11%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:27.41%"></span>
+          <span class="bar__seg bar__seg--away" style="width:46.49%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>27</i><s>46</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 19%, draw 20%, away 62%">
+          <span class="bar__seg bar__seg--home" style="width:18.56%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.91%"></span>
+          <span class="bar__seg bar__seg--away" style="width:61.53%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>19</b><i>20</i><s>62</s>
+        </span>
+        <span class="delta delta--down">−8</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Villarreal CF</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Paris Saint-Germain</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">39 books · 5.3% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (9%)</span><span class="chip">xG 1.55 – 2.04</span><span class="chip">O2.5 69%</span><span class="chip">BTTS 69%</span><span class="chip chip--wide">arm spread 27 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 23%, draw 22%, away 55%">
+          <span class="bar__seg bar__seg--home" style="width:23.17%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:54.90%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>23</b><i>22</i><s>55</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 28%, draw 22%, away 50%">
+          <span class="bar__seg bar__seg--home" style="width:27.77%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.07%"></span>
+          <span class="bar__seg bar__seg--away" style="width:50.16%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>28</b><i>22</i><s>50</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 16%, draw 22%, away 63%">
+          <span class="bar__seg bar__seg--home" style="width:15.69%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.73%"></span>
+          <span class="bar__seg bar__seg--away" style="width:62.58%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>16</b><i>22</i><s>63</s>
+        </span>
+        <span class="delta delta--down">−7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 17%, draw 21%, away 62%">
+          <span class="bar__seg bar__seg--home" style="width:16.71%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.00%"></span>
+          <span class="bar__seg bar__seg--away" style="width:62.29%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>17</b><i>21</i><s>62</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 29%, draw 22%, away 49%">
+          <span class="bar__seg bar__seg--home" style="width:29.20%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.02%"></span>
+          <span class="bar__seg bar__seg--away" style="width:48.78%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>29</b><i>22</i><s>49</s>
+        </span>
+        <span class="delta delta--up">+6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 20%, draw 19%, away 61%">
+          <span class="bar__seg bar__seg--home" style="width:20.13%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.88%"></span>
+          <span class="bar__seg bar__seg--away" style="width:60.99%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>20</b><i>19</i><s>61</s>
+        </span>
+        <span class="delta delta--down">−3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 22%, away 53%">
+          <span class="bar__seg bar__seg--home" style="width:25.62%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.62%"></span>
+          <span class="bar__seg bar__seg--away" style="width:52.75%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>22</i><s>53</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 43%, draw 23%, away 34%">
+          <span class="bar__seg bar__seg--home" style="width:42.55%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.41%"></span>
+          <span class="bar__seg bar__seg--away" style="width:34.04%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>43</b><i>23</i><s>34</s>
+        </span>
+        <span class="delta delta--up">+19</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 37%, draw 22%, away 41%">
+          <span class="bar__seg bar__seg--home" style="width:36.62%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.45%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.92%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>37</b><i>22</i><s>41</s>
+        </span>
+        <span class="delta delta--up">+13</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">AEK Athen</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Real Madrid</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">18:45 · MD4</span>
+          <span class="books">38 books · 5.6% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 0–2 (10%)</span><span class="chip">xG 0.93 – 2.31</span><span class="chip">O2.5 63%</span><span class="chip">BTTS 55%</span><span class="chip chip--wide">arm spread 17 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 9%, draw 14%, away 76%">
+          <span class="bar__seg bar__seg--home" style="width:9.47%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:14.46%"></span>
+          <span class="bar__seg bar__seg--away" style="width:76.07%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>9</b><i>14</i><s>76</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 10%, draw 17%, away 73%">
+          <span class="bar__seg bar__seg--home" style="width:10.09%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:16.60%"></span>
+          <span class="bar__seg bar__seg--away" style="width:73.31%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>10</b><i>17</i><s>73</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 22%, draw 25%, away 53%">
+          <span class="bar__seg bar__seg--home" style="width:22.48%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.85%"></span>
+          <span class="bar__seg bar__seg--away" style="width:52.67%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>22</b><i>25</i><s>53</s>
+        </span>
+        <span class="delta delta--up">+13</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 13%, draw 19%, away 68%">
+          <span class="bar__seg bar__seg--home" style="width:13.17%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.84%"></span>
+          <span class="bar__seg bar__seg--away" style="width:67.99%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>13</b><i>19</i><s>68</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 13%, draw 19%, away 68%">
+          <span class="bar__seg bar__seg--home" style="width:13.44%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.78%"></span>
+          <span class="bar__seg bar__seg--away" style="width:67.78%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>13</b><i>19</i><s>68</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 5%, draw 13%, away 82%">
+          <span class="bar__seg bar__seg--home" style="width:5.42%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:12.52%"></span>
+          <span class="bar__seg bar__seg--away" style="width:82.05%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>5</b><i>13</i><s>82</s>
+        </span>
+        <span class="delta delta--down">−4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 8%, draw 15%, away 77%">
+          <span class="bar__seg bar__seg--home" style="width:8.23%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:15.06%"></span>
+          <span class="bar__seg bar__seg--away" style="width:76.71%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>8</b><i>15</i><s>77</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 20%, draw 23%, away 57%">
+          <span class="bar__seg bar__seg--home" style="width:19.96%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.18%"></span>
+          <span class="bar__seg bar__seg--away" style="width:56.86%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>20</b><i>23</i><s>57</s>
+        </span>
+        <span class="delta delta--up">+10</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 10%, draw 18%, away 72%">
+          <span class="bar__seg bar__seg--home" style="width:9.78%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:17.84%"></span>
+          <span class="bar__seg bar__seg--away" style="width:72.38%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>10</b><i>18</i><s>72</s>
+        </span>
+        <span class="delta delta--flat">+0</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Borussia Dortmund</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Real Betis</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.7% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (10%)</span><span class="chip">xG 1.96 – 1.19</span><span class="chip">O2.5 61%</span><span class="chip">BTTS 60%</span><span class="chip chip--some">arm spread 8 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 23%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:54.71%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.46%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.83%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>23</i><s>22</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 57%, draw 22%, away 21%">
+          <span class="bar__seg bar__seg--home" style="width:57.46%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.90%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.64%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>57</b><i>22</i><s>21</s>
+        </span>
+        <span class="delta delta--flat">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 57%, draw 24%, away 19%">
+          <span class="bar__seg bar__seg--home" style="width:57.40%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.51%"></span>
+          <span class="bar__seg bar__seg--away" style="width:19.09%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>57</b><i>24</i><s>19</s>
+        </span>
+        <span class="delta delta--flat">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 49%, draw 25%, away 26%">
+          <span class="bar__seg bar__seg--home" style="width:49.01%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.57%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.42%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>49</b><i>25</i><s>26</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 23%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:54.83%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.61%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.56%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>23</i><s>23</s>
+        </span>
+        <span class="delta delta--flat">+0</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 54%, draw 23%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:53.67%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.72%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.61%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>54</b><i>23</i><s>24</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 23%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:53.13%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.25%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.62%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>23</i><s>24</s>
+        </span>
+        <span class="delta delta--flat">−2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 54%, draw 27%, away 19%">
+          <span class="bar__seg bar__seg--home" style="width:53.62%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:27.30%"></span>
+          <span class="bar__seg bar__seg--away" style="width:19.08%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>54</b><i>27</i><s>19</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 49%, draw 24%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:49.05%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.01%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.94%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>49</b><i>24</i><s>27</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Fenerbahçe</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Liverpool FC</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">18:45 · MD4</span>
+          <span class="books">38 books · 6.3% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–2 (9%)</span><span class="chip">xG 1.15 – 2.58</span><span class="chip">O2.5 72%</span><span class="chip">BTTS 63%</span><span class="chip chip--wide">arm spread 40 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 17%, draw 20%, away 63%">
+          <span class="bar__seg bar__seg--home" style="width:16.87%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.44%"></span>
+          <span class="bar__seg bar__seg--away" style="width:62.69%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>17</b><i>20</i><s>63</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 12%, draw 16%, away 71%">
+          <span class="bar__seg bar__seg--home" style="width:12.49%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:16.40%"></span>
+          <span class="bar__seg bar__seg--away" style="width:71.11%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>12</b><i>16</i><s>71</s>
+        </span>
+        <span class="delta delta--down">−4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 39%, draw 27%, away 34%">
+          <span class="bar__seg bar__seg--home" style="width:39.23%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.94%"></span>
+          <span class="bar__seg bar__seg--away" style="width:33.82%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>39</b><i>27</i><s>34</s>
+        </span>
+        <span class="delta delta--up">+22</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 19%, draw 22%, away 58%">
+          <span class="bar__seg bar__seg--home" style="width:19.35%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.28%"></span>
+          <span class="bar__seg bar__seg--away" style="width:58.38%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>19</b><i>22</i><s>58</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 15%, draw 18%, away 68%">
+          <span class="bar__seg bar__seg--home" style="width:14.89%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:17.54%"></span>
+          <span class="bar__seg bar__seg--away" style="width:67.57%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>15</b><i>18</i><s>68</s>
+        </span>
+        <span class="delta delta--flat">−2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 11%, draw 15%, away 73%">
+          <span class="bar__seg bar__seg--home" style="width:11.37%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:15.37%"></span>
+          <span class="bar__seg bar__seg--away" style="width:73.26%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>11</b><i>15</i><s>73</s>
+        </span>
+        <span class="delta delta--down">−5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 10%, draw 15%, away 75%">
+          <span class="bar__seg bar__seg--home" style="width:10.43%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:15.05%"></span>
+          <span class="bar__seg bar__seg--away" style="width:74.52%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>10</b><i>15</i><s>75</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 51%, draw 22%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:50.70%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.37%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.93%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>51</b><i>22</i><s>27</s>
+        </span>
+        <span class="delta delta--up">+34</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 18%, draw 25%, away 58%">
+          <span class="bar__seg bar__seg--home" style="width:17.67%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.64%"></span>
+          <span class="bar__seg bar__seg--away" style="width:57.70%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>18</b><i>25</i><s>58</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">RC Lens</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Como</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.9% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (11%)</span><span class="chip">xG 1.74 – 1.22</span><span class="chip">O2.5 57%</span><span class="chip">BTTS 58%</span><span class="chip chip--wide">arm spread 26 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 31%, draw 25%, away 44%">
+          <span class="bar__seg bar__seg--home" style="width:31.46%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.84%"></span>
+          <span class="bar__seg bar__seg--away" style="width:43.70%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>31</b><i>25</i><s>44</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 47%, draw 25%, away 28%">
+          <span class="bar__seg bar__seg--home" style="width:47.47%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.90%"></span>
+          <span class="bar__seg bar__seg--away" style="width:27.63%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>47</b><i>25</i><s>28</s>
+        </span>
+        <span class="delta delta--up">+16</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 42%, draw 27%, away 32%">
+          <span class="bar__seg bar__seg--home" style="width:41.60%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.78%"></span>
+          <span class="bar__seg bar__seg--away" style="width:31.62%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>42</b><i>27</i><s>32</s>
+        </span>
+        <span class="delta delta--up">+10</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 37%, draw 26%, away 37%">
+          <span class="bar__seg bar__seg--home" style="width:37.13%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.71%"></span>
+          <span class="bar__seg bar__seg--away" style="width:37.17%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>37</b><i>26</i><s>37</s>
+        </span>
+        <span class="delta delta--up">+6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 49%, draw 24%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:48.93%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.41%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>49</b><i>24</i><s>27</s>
+        </span>
+        <span class="delta delta--up">+17</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 43%, draw 25%, away 32%">
+          <span class="bar__seg bar__seg--home" style="width:42.65%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.31%"></span>
+          <span class="bar__seg bar__seg--away" style="width:32.04%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>43</b><i>25</i><s>32</s>
+        </span>
+        <span class="delta delta--up">+11</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 45%, draw 26%, away 29%">
+          <span class="bar__seg bar__seg--home" style="width:45.12%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.60%"></span>
+          <span class="bar__seg bar__seg--away" style="width:29.28%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>45</b><i>26</i><s>29</s>
+        </span>
+        <span class="delta delta--up">+14</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 23%, draw 22%, away 55%">
+          <span class="bar__seg bar__seg--home" style="width:22.64%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.31%"></span>
+          <span class="bar__seg bar__seg--away" style="width:55.06%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>23</b><i>22</i><s>55</s>
+        </span>
+        <span class="delta delta--down">−9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 40%, draw 33%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:40.23%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:32.83%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.94%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>40</b><i>33</i><s>27</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">FC Porto</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">SSC Napoli</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.3% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–1 (13%)</span><span class="chip">xG 1.51 – 1.02</span><span class="chip">O2.5 46%</span><span class="chip">BTTS 50%</span><span class="chip chip--some">arm spread 10 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 49%, draw 26%, away 26%">
+          <span class="bar__seg bar__seg--home" style="width:48.68%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.66%"></span>
+          <span class="bar__seg bar__seg--away" style="width:25.66%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>49</b><i>26</i><s>26</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 46%, draw 28%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:45.63%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:27.65%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.72%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>46</b><i>28</i><s>27</s>
+        </span>
+        <span class="delta delta--down">−3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 25%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:53.02%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.76%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.22%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>25</i><s>22</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 52%, draw 24%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:52.42%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.86%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.72%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>52</b><i>24</i><s>24</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 48%, draw 27%, away 25%">
+          <span class="bar__seg bar__seg--home" style="width:47.94%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.82%"></span>
+          <span class="bar__seg bar__seg--away" style="width:25.25%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>48</b><i>27</i><s>25</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 43%, draw 28%, away 29%">
+          <span class="bar__seg bar__seg--home" style="width:42.58%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:28.25%"></span>
+          <span class="bar__seg bar__seg--away" style="width:29.17%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>43</b><i>28</i><s>29</s>
+        </span>
+        <span class="delta delta--down">−6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 44%, draw 28%, away 28%">
+          <span class="bar__seg bar__seg--home" style="width:43.69%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:28.45%"></span>
+          <span class="bar__seg bar__seg--away" style="width:27.86%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>44</b><i>28</i><s>28</s>
+        </span>
+        <span class="delta delta--down">−5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 49%, draw 24%, away 27%">
+          <span class="bar__seg bar__seg--home" style="width:48.83%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.36%"></span>
+          <span class="bar__seg bar__seg--away" style="width:26.81%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>49</b><i>24</i><s>27</s>
+        </span>
+        <span class="delta delta--flat">+0</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 51%, draw 26%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:50.67%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:26.43%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.90%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>51</b><i>26</i><s>23</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">PSV Eindhoven</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Club Brugge KV</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.9% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 2–1 (8%)</span><span class="chip">xG 2.38 – 1.57</span><span class="chip">O2.5 75%</span><span class="chip">BTTS 72%</span><span class="chip chip--some">arm spread 11 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 46%, draw 22%, away 31%">
+          <span class="bar__seg bar__seg--home" style="width:46.05%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.48%"></span>
+          <span class="bar__seg bar__seg--away" style="width:31.47%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>46</b><i>22</i><s>31</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 57%, draw 20%, away 23%">
+          <span class="bar__seg bar__seg--home" style="width:56.75%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.15%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.10%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>57</b><i>20</i><s>23</s>
+        </span>
+        <span class="delta delta--up">+11</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 50%, draw 25%, away 25%">
+          <span class="bar__seg bar__seg--home" style="width:49.89%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.50%"></span>
+          <span class="bar__seg bar__seg--away" style="width:24.61%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>50</b><i>25</i><s>25</s>
+        </span>
+        <span class="delta delta--up">+4</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 52%, draw 24%, away 24%">
+          <span class="bar__seg bar__seg--home" style="width:52.13%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:23.95%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>52</b><i>24</i><s>24</s>
+        </span>
+        <span class="delta delta--up">+6</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 55%, draw 20%, away 25%">
+          <span class="bar__seg bar__seg--home" style="width:55.45%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.88%"></span>
+          <span class="bar__seg bar__seg--away" style="width:24.67%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>55</b><i>20</i><s>25</s>
+        </span>
+        <span class="delta delta--up">+9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 48%, draw 20%, away 32%">
+          <span class="bar__seg bar__seg--home" style="width:47.88%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.33%"></span>
+          <span class="bar__seg bar__seg--away" style="width:31.79%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>48</b><i>20</i><s>32</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 21%, away 26%">
+          <span class="bar__seg bar__seg--home" style="width:53.48%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.97%"></span>
+          <span class="bar__seg bar__seg--away" style="width:25.56%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>21</i><s>26</s>
+        </span>
+        <span class="delta delta--up">+7</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 54%, draw 23%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:54.35%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.48%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.17%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>54</b><i>23</i><s>22</s>
+        </span>
+        <span class="delta delta--up">+8</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 59%, draw 20%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:58.67%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.59%"></span>
+          <span class="bar__seg bar__seg--away" style="width:21.74%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>59</b><i>20</i><s>22</s>
+        </span>
+        <span class="delta delta--up">+13</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">RB Leipzig</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Manchester City</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 6.1% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 1–2 (10%)</span><span class="chip">xG 1.24 – 2.13</span><span class="chip">O2.5 65%</span><span class="chip">BTTS 63%</span><span class="chip chip--wide">arm spread 20 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 18%, draw 20%, away 62%">
+          <span class="bar__seg bar__seg--home" style="width:18.10%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.28%"></span>
+          <span class="bar__seg bar__seg--away" style="width:61.63%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>18</b><i>20</i><s>62</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 21%, draw 22%, away 57%">
+          <span class="bar__seg bar__seg--home" style="width:21.33%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.55%"></span>
+          <span class="bar__seg bar__seg--away" style="width:57.12%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>21</b><i>22</i><s>57</s>
+        </span>
+        <span class="delta delta--up">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 23%, draw 25%, away 52%">
+          <span class="bar__seg bar__seg--home" style="width:22.74%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:52.33%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>23</b><i>25</i><s>52</s>
+        </span>
+        <span class="delta delta--up">+5</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 19%, draw 22%, away 59%">
+          <span class="bar__seg bar__seg--home" style="width:18.75%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.01%"></span>
+          <span class="bar__seg bar__seg--away" style="width:59.25%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>19</b><i>22</i><s>59</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 21%, draw 21%, away 57%">
+          <span class="bar__seg bar__seg--home" style="width:21.38%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.34%"></span>
+          <span class="bar__seg bar__seg--away" style="width:57.29%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>21</b><i>21</i><s>57</s>
+        </span>
+        <span class="delta delta--up">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 21%, draw 23%, away 56%">
+          <span class="bar__seg bar__seg--home" style="width:21.22%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:23.24%"></span>
+          <span class="bar__seg bar__seg--away" style="width:55.54%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>21</b><i>23</i><s>56</s>
+        </span>
+        <span class="delta delta--up">+3</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 19%, draw 21%, away 60%">
+          <span class="bar__seg bar__seg--home" style="width:18.87%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.82%"></span>
+          <span class="bar__seg bar__seg--away" style="width:60.30%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>19</b><i>21</i><s>60</s>
+        </span>
+        <span class="delta delta--flat">+1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 34%, draw 25%, away 40%">
+          <span class="bar__seg bar__seg--home" style="width:34.30%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.48%"></span>
+          <span class="bar__seg bar__seg--away" style="width:40.22%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>34</b><i>25</i><s>40</s>
+        </span>
+        <span class="delta delta--up">+16</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 15%, draw 19%, away 66%">
+          <span class="bar__seg bar__seg--home" style="width:14.71%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.84%"></span>
+          <span class="bar__seg bar__seg--away" style="width:66.45%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>15</b><i>19</i><s>66</s>
+        </span>
+        <span class="delta delta--down">−3</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Slavia Praha</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Arsenal FC</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 5.8% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 0–2 (13%)</span><span class="chip">xG 0.75 – 2.16</span><span class="chip">O2.5 55%</span><span class="chip">BTTS 47%</span><span class="chip chip--wide">arm spread 28 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 9%, draw 15%, away 76%">
+          <span class="bar__seg bar__seg--home" style="width:9.11%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:15.25%"></span>
+          <span class="bar__seg bar__seg--away" style="width:75.64%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>9</b><i>15</i><s>76</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 11%, draw 20%, away 69%">
+          <span class="bar__seg bar__seg--home" style="width:11.37%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:20.11%"></span>
+          <span class="bar__seg bar__seg--away" style="width:68.52%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>11</b><i>20</i><s>69</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 26%, draw 26%, away 48%">
+          <span class="bar__seg bar__seg--home" style="width:25.72%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:25.78%"></span>
+          <span class="bar__seg bar__seg--away" style="width:48.50%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>26</b><i>26</i><s>48</s>
+        </span>
+        <span class="delta delta--up">+17</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 8%, draw 15%, away 77%">
+          <span class="bar__seg bar__seg--home" style="width:8.37%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:14.79%"></span>
+          <span class="bar__seg bar__seg--away" style="width:76.84%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>8</b><i>15</i><s>77</s>
+        </span>
+        <span class="delta delta--flat">−1</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 11%, draw 19%, away 69%">
+          <span class="bar__seg bar__seg--home" style="width:11.40%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:19.35%"></span>
+          <span class="bar__seg bar__seg--away" style="width:69.25%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>11</b><i>19</i><s>69</s>
+        </span>
+        <span class="delta delta--flat">+2</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 9%, draw 18%, away 73%">
+          <span class="bar__seg bar__seg--home" style="width:8.65%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.20%"></span>
+          <span class="bar__seg bar__seg--away" style="width:73.15%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>9</b><i>18</i><s>73</s>
+        </span>
+        <span class="delta delta--flat">−0</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 9%, draw 19%, away 72%">
+          <span class="bar__seg bar__seg--home" style="width:9.38%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.80%"></span>
+          <span class="bar__seg bar__seg--away" style="width:71.83%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>9</b><i>19</i><s>72</s>
+        </span>
+        <span class="delta delta--flat">+0</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 37%, draw 25%, away 39%">
+          <span class="bar__seg bar__seg--home" style="width:36.65%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.73%"></span>
+          <span class="bar__seg bar__seg--away" style="width:38.62%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>37</b><i>25</i><s>39</s>
+        </span>
+        <span class="delta delta--up">+28</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 13%, draw 22%, away 66%">
+          <span class="bar__seg bar__seg--home" style="width:12.59%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.58%"></span>
+          <span class="bar__seg bar__seg--away" style="width:65.83%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>13</b><i>22</i><s>66</s>
+        </span>
+        <span class="delta delta--up">+3</span>
+      </div></div>
+    </article>
+    <article class="fixture">
+      <header class="fixture__head">
+        <div class="fixture__teams">
+          <span class="team team--home">Viking FK</span>
+          <span class="fixture__v">v</span>
+          <span class="team team--away">Sabah FK</span>
+        </div>
+        <div class="fixture__meta">
+          <span class="kick">21:00 · MD4</span>
+          <span class="books">38 books · 6.0% vig</span>
+        </div>
+      </header>
+      <div class="chips"><span class="chip">most likely 3–0 (8%)</span><span class="chip">xG 3.31 – 0.97</span><span class="chip">O2.5 79%</span><span class="chip">BTTS 60%</span><span class="chip chip--wide">arm spread 41 pts</span></div>
+      <div class="prows">
+      <div class="prow prow--market">
+        <span class="prow__name">Market (de-vigged)</span>
+        <div class="bar" role="img" aria-label="home 67%, draw 19%, away 15%">
+          <span class="bar__seg bar__seg--home" style="width:66.89%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:18.60%"></span>
+          <span class="bar__seg bar__seg--away" style="width:14.51%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>67</b><i>19</i><s>15</s>
+        </span>
+        
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Dixon-Coles</span>
+        <div class="bar" role="img" aria-label="home 84%, draw 10%, away 6%">
+          <span class="bar__seg bar__seg--home" style="width:84.15%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:9.93%"></span>
+          <span class="bar__seg bar__seg--away" style="width:5.92%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>84</b><i>10</i><s>6</s>
+        </span>
+        <span class="delta delta--up">+17</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo</span>
+        <div class="bar" role="img" aria-label="home 53%, draw 25%, away 22%">
+          <span class="bar__seg bar__seg--home" style="width:53.31%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:24.68%"></span>
+          <span class="bar__seg bar__seg--away" style="width:22.01%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>53</b><i>25</i><s>22</s>
+        </span>
+        <span class="delta delta--down">−14</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Elo v2</span>
+        <div class="bar" role="img" aria-label="home 58%, draw 22%, away 19%">
+          <span class="bar__seg bar__seg--home" style="width:58.34%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:22.29%"></span>
+          <span class="bar__seg bar__seg--away" style="width:19.37%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>58</b><i>22</i><s>19</s>
+        </span>
+        <span class="delta delta--down">−9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Bayesian</span>
+        <div class="bar" role="img" aria-label="home 81%, draw 12%, away 7%">
+          <span class="bar__seg bar__seg--home" style="width:81.04%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:11.53%"></span>
+          <span class="bar__seg bar__seg--away" style="width:7.43%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>81</b><i>12</i><s>7</s>
+        </span>
+        <span class="delta delta--up">+14</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">LightGBM</span>
+        <div class="bar" role="img" aria-label="home 87%, draw 8%, away 5%">
+          <span class="bar__seg bar__seg--home" style="width:86.81%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:8.46%"></span>
+          <span class="bar__seg bar__seg--away" style="width:4.73%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>87</b><i>8</i><s>5</s>
+        </span>
+        <span class="delta delta--up">+20</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Graph net</span>
+        <div class="bar" role="img" aria-label="home 83%, draw 11%, away 7%">
+          <span class="bar__seg bar__seg--home" style="width:82.71%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:10.71%"></span>
+          <span class="bar__seg bar__seg--away" style="width:6.58%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>83</b><i>11</i><s>7</s>
+        </span>
+        <span class="delta delta--up">+16</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence</span>
+        <div class="bar" role="img" aria-label="home 58%, draw 22%, away 21%">
+          <span class="bar__seg bar__seg--home" style="width:57.61%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:21.55%"></span>
+          <span class="bar__seg bar__seg--away" style="width:20.84%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>58</b><i>22</i><s>21</s>
+        </span>
+        <span class="delta delta--down">−9</span>
+      </div>
+      <div class="prow prow--arm">
+        <span class="prow__name">Sequence v2</span>
+        <div class="bar" role="img" aria-label="home 94%, draw 3%, away 2%">
+          <span class="bar__seg bar__seg--home" style="width:94.45%"></span>
+          <span class="bar__seg bar__seg--draw" style="width:3.48%"></span>
+          <span class="bar__seg bar__seg--away" style="width:2.06%"></span>
+        </div>
+        <span class="prow__nums">
+          <b>94</b><i>3</i><s>2</s>
+        </span>
+        <span class="delta delta--up">+28</span>
+      </div></div>
+    </article></div>
+  </section>
+
+  <section>
+    <div class="section__head">
+      <h2>Qualification</h2>
+      <span class="section__note">Monte Carlo over the remaining league phase.
+      Top 8 go straight to the round of 16; 9–24 play a knockout playoff.</span>
+    </div>
+    
+    <div class="scroller">
+      <table class="qtable">
+        <thead><tr>
+          <th>#</th><th>Club</th><th class="num">Pts</th>
+          <th class="num">Top 8</th><th class="num">Playoff</th><th class="num">Out</th>
+        </tr></thead>
+        <tbody>
+        <tr class="q q--top8">
+          <td class="q__pos">1</td>
+          <td class="q__club">Real Madrid</td>
+          <td class="num">19.6</td>
+          <td class="num">95%</td>
+          <td class="num">5%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">2</td>
+          <td class="q__club">Liverpool FC</td>
+          <td class="num">19.0</td>
+          <td class="num">90%</td>
+          <td class="num">10%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">3</td>
+          <td class="q__club">Paris Saint-Germain</td>
+          <td class="num">18.6</td>
+          <td class="num">89%</td>
+          <td class="num">11%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">4</td>
+          <td class="q__club">Arsenal FC</td>
+          <td class="num">18.3</td>
+          <td class="num">89%</td>
+          <td class="num">11%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">5</td>
+          <td class="q__club">FC Barcelona</td>
+          <td class="num">16.6</td>
+          <td class="num">73%</td>
+          <td class="num">27%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">6</td>
+          <td class="q__club">Manchester City</td>
+          <td class="num">16.0</td>
+          <td class="num">63%</td>
+          <td class="num">37%</td>
+          <td class="num q__out">1%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">7</td>
+          <td class="q__club">Aston Villa FC</td>
+          <td class="num">16.1</td>
+          <td class="num">61%</td>
+          <td class="num">39%</td>
+          <td class="num q__out">0%</td>
+        </tr>
+        <tr class="q q--top8">
+          <td class="q__pos">8</td>
+          <td class="q__club">Bayern München</td>
+          <td class="num">15.1</td>
+          <td class="num">52%</td>
+          <td class="num">47%</td>
+          <td class="num q__out">1%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">9</td>
+          <td class="q__club">Real Betis</td>
+          <td class="num">14.9</td>
+          <td class="num">36%</td>
+          <td class="num">63%</td>
+          <td class="num q__out">1%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">10</td>
+          <td class="q__club">Atlético Madrid</td>
+          <td class="num">13.3</td>
+          <td class="num">25%</td>
+          <td class="num">70%</td>
+          <td class="num q__out">5%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">11</td>
+          <td class="q__club">Borussia Dortmund</td>
+          <td class="num">13.6</td>
+          <td class="num">22%</td>
+          <td class="num">74%</td>
+          <td class="num q__out">4%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">12</td>
+          <td class="q__club">VfB Stuttgart</td>
+          <td class="num">13.2</td>
+          <td class="num">21%</td>
+          <td class="num">73%</td>
+          <td class="num q__out">6%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">13</td>
+          <td class="q__club">Inter</td>
+          <td class="num">12.2</td>
+          <td class="num">13%</td>
+          <td class="num">76%</td>
+          <td class="num q__out">10%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">14</td>
+          <td class="q__club">Como</td>
+          <td class="num">12.2</td>
+          <td class="num">13%</td>
+          <td class="num">78%</td>
+          <td class="num q__out">9%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">15</td>
+          <td class="q__club">Villarreal CF</td>
+          <td class="num">11.6</td>
+          <td class="num">10%</td>
+          <td class="num">77%</td>
+          <td class="num q__out">13%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">16</td>
+          <td class="q__club">PSV Eindhoven</td>
+          <td class="num">11.3</td>
+          <td class="num">7%</td>
+          <td class="num">72%</td>
+          <td class="num q__out">20%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">17</td>
+          <td class="q__club">Club Brugge KV</td>
+          <td class="num">11.2</td>
+          <td class="num">7%</td>
+          <td class="num">72%</td>
+          <td class="num q__out">21%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">18</td>
+          <td class="q__club">AS Roma</td>
+          <td class="num">11.0</td>
+          <td class="num">6%</td>
+          <td class="num">74%</td>
+          <td class="num q__out">20%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">19</td>
+          <td class="q__club">Sporting CP</td>
+          <td class="num">11.0</td>
+          <td class="num">5%</td>
+          <td class="num">72%</td>
+          <td class="num q__out">22%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">20</td>
+          <td class="q__club">Manchester United</td>
+          <td class="num">10.7</td>
+          <td class="num">5%</td>
+          <td class="num">68%</td>
+          <td class="num q__out">27%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">21</td>
+          <td class="q__club">SSC Napoli</td>
+          <td class="num">11.3</td>
+          <td class="num">4%</td>
+          <td class="num">79%</td>
+          <td class="num q__out">17%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">22</td>
+          <td class="q__club">FK Bodø/Glimt</td>
+          <td class="num">10.7</td>
+          <td class="num">4%</td>
+          <td class="num">67%</td>
+          <td class="num q__out">30%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">23</td>
+          <td class="q__club">RB Leipzig</td>
+          <td class="num">10.0</td>
+          <td class="num">2%</td>
+          <td class="num">59%</td>
+          <td class="num q__out">39%</td>
+        </tr>
+        <tr class="q q--playoff">
+          <td class="q__pos">24</td>
+          <td class="q__club">Shakhtar Donetsk</td>
+          <td class="num">9.8</td>
+          <td class="num">2%</td>
+          <td class="num">60%</td>
+          <td class="num q__out">38%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">25</td>
+          <td class="q__club">Galatasaray</td>
+          <td class="num">9.3</td>
+          <td class="num">1%</td>
+          <td class="num">51%</td>
+          <td class="num q__out">48%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">26</td>
+          <td class="q__club">RC Lens</td>
+          <td class="num">9.1</td>
+          <td class="num">1%</td>
+          <td class="num">47%</td>
+          <td class="num q__out">52%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">27</td>
+          <td class="q__club">Feyenoord</td>
+          <td class="num">8.8</td>
+          <td class="num">1%</td>
+          <td class="num">43%</td>
+          <td class="num q__out">56%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">28</td>
+          <td class="q__club">FC Porto</td>
+          <td class="num">8.0</td>
+          <td class="num">0%</td>
+          <td class="num">39%</td>
+          <td class="num q__out">60%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">29</td>
+          <td class="q__club">Viking FK</td>
+          <td class="num">7.1</td>
+          <td class="num">0%</td>
+          <td class="num">24%</td>
+          <td class="num q__out">76%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">30</td>
+          <td class="q__club">LASK</td>
+          <td class="num">7.6</td>
+          <td class="num">0%</td>
+          <td class="num">25%</td>
+          <td class="num q__out">75%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">31</td>
+          <td class="q__club">Lille</td>
+          <td class="num">6.3</td>
+          <td class="num">0%</td>
+          <td class="num">17%</td>
+          <td class="num q__out">83%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">32</td>
+          <td class="q__club">Fenerbahçe</td>
+          <td class="num">6.6</td>
+          <td class="num">0%</td>
+          <td class="num">15%</td>
+          <td class="num q__out">85%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">33</td>
+          <td class="q__club">AEK Athen</td>
+          <td class="num">6.5</td>
+          <td class="num">0%</td>
+          <td class="num">12%</td>
+          <td class="num q__out">87%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">34</td>
+          <td class="q__club">Slavia Praha</td>
+          <td class="num">4.7</td>
+          <td class="num">0%</td>
+          <td class="num">5%</td>
+          <td class="num q__out">95%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">35</td>
+          <td class="q__club">ŠK Slovan Bratislava</td>
+          <td class="num">3.1</td>
+          <td class="num">0%</td>
+          <td class="num">1%</td>
+          <td class="num q__out">99%</td>
+        </tr>
+        <tr class="q q--out">
+          <td class="q__pos">36</td>
+          <td class="q__club">Sabah FK</td>
+          <td class="num">3.9</td>
+          <td class="num">0%</td>
+          <td class="num">0%</td>
+          <td class="num q__out">100%</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section__head">
+      <h2>Paper ledger</h2>
+      <span class="section__note">Fake money. Science arms stake every fixture;
+      edge-gated arms stake only on material disagreement.</span>
+    </div>
+    
+    <div class="scroller">
+      <table class="qtable">
+        <thead><tr><th>Arm</th><th>Regime</th><th class="num">Bankroll</th>
+        <th class="num">P&amp;L</th><th class="num">W–L</th><th class="num">Open</th></tr></thead>
+        <tbody>
+        <tr>
+          <td>LightGBM</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,998</td>
+          <td class="num delta--down">-1,002</td>
+          <td class="num">16–6</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Dixon-Coles</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,670</td>
+          <td class="num delta--down">-1,330</td>
+          <td class="num">15–7</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Bayesian</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,670</td>
+          <td class="num delta--down">-1,330</td>
+          <td class="num">15–7</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Elo v2</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">8,569</td>
+          <td class="num delta--down">-1,431</td>
+          <td class="num">0–0</td>
+          <td class="num">5</td>
+        </tr>
+        <tr>
+          <td>Graph net</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,455</td>
+          <td class="num delta--down">-1,545</td>
+          <td class="num">14–8</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Elo v2</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,200</td>
+          <td class="num delta--down">-1,800</td>
+          <td class="num">0–0</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Sequence v2</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,200</td>
+          <td class="num delta--down">-1,800</td>
+          <td class="num">0–0</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Elo</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">8,188</td>
+          <td class="num delta--down">-1,812</td>
+          <td class="num">11–11</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Dixon-Coles</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">8,020</td>
+          <td class="num delta--down">-1,980</td>
+          <td class="num">5–2</td>
+          <td class="num">5</td>
+        </tr>
+        <tr>
+          <td>Sequence</td>
+          <td><span class="regime regime--science">science</span></td>
+          <td class="num">7,999</td>
+          <td class="num delta--down">-2,001</td>
+          <td class="num">11–11</td>
+          <td class="num">18</td>
+        </tr>
+        <tr>
+          <td>Graph net</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">7,932</td>
+          <td class="num delta--down">-2,068</td>
+          <td class="num">5–3</td>
+          <td class="num">7</td>
+        </tr>
+        <tr>
+          <td>LightGBM</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">7,838</td>
+          <td class="num delta--down">-2,162</td>
+          <td class="num">7–3</td>
+          <td class="num">8</td>
+        </tr>
+        <tr>
+          <td>Bayesian</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">7,803</td>
+          <td class="num delta--down">-2,197</td>
+          <td class="num">5–2</td>
+          <td class="num">6</td>
+        </tr>
+        <tr>
+          <td>Elo</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">5,995</td>
+          <td class="num delta--down">-4,005</td>
+          <td class="num">3–7</td>
+          <td class="num">9</td>
+        </tr>
+        <tr>
+          <td>Sequence v2</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">5,969</td>
+          <td class="num delta--down">-4,031</td>
+          <td class="num">0–0</td>
+          <td class="num">8</td>
+        </tr>
+        <tr>
+          <td>Sequence</td>
+          <td><span class="regime regime--edge_gated">edge gated</span></td>
+          <td class="num">4,114</td>
+          <td class="num delta--down">-5,886</td>
+          <td class="num">2–7</td>
+          <td class="num">7</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section__head"><h2>Run notes</h2></div>
+    <div class="notes"><ul><li>Odds API credits remaining: 496</li></ul></div>
+  </section>
+
+  <p class="disclaimer">
+    No real money and no order placement exists in this system. Prices are read
+    only, used to settle fake bets and to score each arm against the closing line.
+    Forecasts are decision support for a human, not instructions.
+  </p>
+</div></body></html>
