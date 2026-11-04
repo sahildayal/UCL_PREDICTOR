@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-11-03T10:01:04+00:00",
+  "saved_at": "2026-11-04T09:48:46+00:00",
   "arms": {
     "dixon_coles:science": {
       "name": "dixon_coles",
@@ -4731,7 +4731,7 @@
     "gbm:edge_gated": {
       "name": "gbm",
       "regime": "edge_gated",
-      "bankroll": 7838.11,
+      "bankroll": 7635.45,
       "starting_bankroll": 10000.0,
       "hypothesis": "Tree ensembles on form, rest and fatigue features improve on a ratings-only backbone.",
       "bets": [
@@ -5125,6 +5125,28 @@
           "decimal_odds": 1.4950295857988163,
           "edge": 0.19921872331850488,
           "placed_at": "2026-11-03T10:01:04+00:00",
+          "status": "open",
+          "payout": 0.0,
+          "settled_at": null,
+          "result": null,
+          "note": ""
+        },
+        {
+          "bet_id": "a46226e75b47",
+          "arm": "gbm",
+          "regime": "edge_gated",
+          "match_date": "2026-11-04",
+          "home": "borussia dortmund",
+          "away": "real betis",
+          "market": "1x2",
+          "selection": "home",
+          "line": null,
+          "stake": 202.66,
+          "model_probability": 0.6036299150076814,
+          "market_probability": 0.5579074690051407,
+          "decimal_odds": 1.792411924119241,
+          "edge": 0.04572244600254072,
+          "placed_at": "2026-11-04T09:48:46+00:00",
           "status": "open",
           "payout": 0.0,
           "settled_at": null,
@@ -7702,7 +7724,7 @@
     "elo_xleague_v2:science": {
       "name": "elo_xleague_v2",
       "regime": "science",
-      "bankroll": 8200.0,
+      "bankroll": 8100.0,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single club rating is enough once each league carries its own offset, learned only from cross-border matches.",
       "bets": [
@@ -8101,13 +8123,35 @@
           "settled_at": null,
           "result": null,
           "note": ""
+        },
+        {
+          "bet_id": "c7230badae73",
+          "arm": "elo_xleague_v2",
+          "regime": "science",
+          "match_date": "2026-11-04",
+          "home": "lens",
+          "away": "como",
+          "market": "1x2",
+          "selection": "home",
+          "line": null,
+          "stake": 100.0,
+          "model_probability": 0.37516730011153165,
+          "market_probability": 0.26795731169518433,
+          "decimal_odds": 3.731937724235542,
+          "edge": 0.10720998841634732,
+          "placed_at": "2026-11-04T09:48:46+00:00",
+          "status": "open",
+          "payout": 0.0,
+          "settled_at": null,
+          "result": null,
+          "note": ""
         }
       ]
     },
     "elo_xleague_v2:edge_gated": {
       "name": "elo_xleague_v2",
       "regime": "edge_gated",
-      "bankroll": 8569.24,
+      "bankroll": 8255.49,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single club rating is enough once each league carries its own offset, learned only from cross-border matches.",
       "bets": [
@@ -8215,6 +8259,28 @@
           "decimal_odds": 2.1714285714285713,
           "edge": 0.06072475256973925,
           "placed_at": "2026-11-03T10:01:04+00:00",
+          "status": "open",
+          "payout": 0.0,
+          "settled_at": null,
+          "result": null,
+          "note": ""
+        },
+        {
+          "bet_id": "4504a481a3e9",
+          "arm": "elo_xleague_v2",
+          "regime": "edge_gated",
+          "match_date": "2026-11-04",
+          "home": "lens",
+          "away": "como",
+          "market": "1x2",
+          "selection": "home",
+          "line": null,
+          "stake": 313.75,
+          "model_probability": 0.37516730011153165,
+          "market_probability": 0.26795731169518433,
+          "decimal_odds": 3.731937724235542,
+          "edge": 0.10720998841634732,
+          "placed_at": "2026-11-04T09:48:46+00:00",
           "status": "open",
           "payout": 0.0,
           "settled_at": null,
