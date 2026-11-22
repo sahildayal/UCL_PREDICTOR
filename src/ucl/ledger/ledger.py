@@ -189,16 +189,23 @@ class Ledger:
     @staticmethod
     def _already_held(arm: Arm, match_date: str, home: str, away: str,
                       market: str, selection: str, line: float | None) -> bool:
-        """Has this arm already staked this exact selection on this fixture?
+        """Has this arm already staked this market on this fixture?
+
+        Any selection counts. Selections within one market and line are
+        mutually exclusive, so a second one is the arm betting against itself.
+        A Wednesday fixture appears in both Tuesday's and Wednesday's briefs;
+        on MD4 Elo v2 refit overnight, flipped Lens-Como from away to home, and
+        booked both sides because this used to match the selection too.
 
         Voided bets do not count as held - a bet voided for a data error should
         be replaceable once the error is fixed.
         """
+        del selection                       # kept in the signature for callers
         for bet in arm.bets:
             if bet.status == "void":
                 continue
-            if (bet.match_date, bet.home, bet.away, bet.market, bet.selection,
-                    bet.line) == (match_date, home, away, market, selection, line):
+            if (bet.match_date, bet.home, bet.away, bet.market,
+                    bet.line) == (match_date, home, away, market, line):
                 return True
         return False
 

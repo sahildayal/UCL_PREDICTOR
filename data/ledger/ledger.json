@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-11-20T15:49:18+00:00",
+  "saved_at": "2026-11-22T05:52:09+00:00",
   "arms": {
     "dixon_coles:science": {
       "name": "dixon_coles",
@@ -7724,7 +7724,7 @@
     "elo_xleague_v2:science": {
       "name": "elo_xleague_v2",
       "regime": "science",
-      "bankroll": 10850.86,
+      "bankroll": 10950.86,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single club rating is enough once each league carries its own offset, learned only from cross-border matches.",
       "bets": [
@@ -8140,11 +8140,11 @@
           "decimal_odds": 3.731937724235542,
           "edge": 0.10720998841634732,
           "placed_at": "2026-11-04T09:48:46+00:00",
-          "status": "lost",
+          "status": "void",
           "payout": 0.0,
           "settled_at": "2026-11-05T15:00:45+00:00",
           "result": "1-9",
-          "note": ""
+          "note": "VOID: second side of a held fixture (Tuesday's brief already backed away; refit flipped the pick). Original result: lost"
         }
       ]
     },

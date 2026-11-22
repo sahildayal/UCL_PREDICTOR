@@ -222,6 +222,21 @@ def test_rerunning_a_matchday_does_not_double_stake(tmp_path):
     assert len(ledger.arms["a:science"].bets) == 1
 
 
+def test_a_later_run_cannot_take_the_other_side_of_a_held_fixture(tmp_path):
+    """Wednesday fixtures are briefed twice; a refit flipping the pick must not
+    leave the arm holding both home and away (MD4, Elo v2 on Lens-Como)."""
+    ledger = Ledger(tmp_path / "l.json")
+    tuesday = ledger.place(arm="a", regime=SCIENCE, match_date="2026-11-04",
+                           home="h", away="a", market="1x2", selection="away",
+                           model_probability=0.4)
+    wednesday = ledger.place(arm="a", regime=SCIENCE, match_date="2026-11-04",
+                             home="h", away="a", market="1x2", selection="home",
+                             model_probability=0.42)
+    assert tuesday is not None
+    assert wednesday is None
+    assert len(ledger.arms["a:science"].bets) == 1
+
+
 def test_different_totals_lines_are_not_duplicates(tmp_path):
     """Over 2.5 and Over 5.5 are different bets, not a repeat of one."""
     ledger = Ledger(tmp_path / "l.json")
