@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Matchday 2 · Forecast Lab</title>
+<meta name="description" content="Champions League matchday 2: every model&#x27;s forecast and the results.">
+<meta name="theme-color" content="#0C1838">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matchday 2 · Forecast Lab">
+<meta property="og:description" content="Champions League matchday 2: every model&#x27;s forecast and the results.">
+<meta property="og:url" content="https://sahildayal.me/UCL_PREDICTOR/matchday-2.html">
+<meta property="og:image" content="https://sahildayal.me/UCL_PREDICTOR/assets/share-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230C1838'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23EEF2FF' stroke-width='2.2'/%3E%3Cpath d='M16 10.5l3.6 2.6-1.4 4.2h-4.4l-1.4-4.2z' fill='%23FFB03B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('ucl-theme');
+if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0C1838; --bg-2:#0F1E45; --panel:#13244F; --panel-2:#1A2F61;
+  --line:rgba(160,175,215,.16); --line-strong:rgba(160,175,215,.32);
+  --ink:#EEF2FF; --ink-2:#B9C2DD; --ink-3:#8E9BBD;
+  --amber:#FFB03B; --turf:#3CC48A; --turf-fill:#17694B; --down:#FF6B8A;
+  --home:#5B8DF6; --draw:#5A678F; --away:#D9683A;
+  --focus:#FFB03B;
+  --shadow:0 18px 40px -24px rgba(2,6,22,.7);
+  --radius-lg:14px; --radius:10px; --radius-sm:6px;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F2F4FA; --bg-2:#E7EBF5; --panel:#FFFFFF; --panel-2:#EEF1F8;
+  --line:rgba(12,24,56,.11); --line-strong:rgba(12,24,56,.24);
+  --ink:#0C1838; --ink-2:#38446C; --ink-3:#5E6A90;
+  --amber:#A65F00; --turf:#167A4F; --turf-fill:#1C8456; --down:#C23A5A;
+  --home:#2F5FD9; --draw:#8A94B2; --away:#C9572A;
+  --focus:#2F5FD9;
+  --shadow:0 18px 40px -26px rgba(12,24,56,.35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
+  font-size:16px; line-height:1.55; font-variant-numeric:tabular-nums}
+img{max-width:100%; display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:4px}
+.skip{position:absolute; left:-999px; top:8px; background:var(--amber); color:#0C1838;
+  padding:8px 12px; border-radius:6px; z-index:50; font-weight:700}
+.skip:focus{left:12px}
+
+.display{font-family:"Big Shoulders Display",Impact,sans-serif; letter-spacing:.01em}
+h1,h2,h3{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800;
+  line-height:1.02; margin:0; letter-spacing:.005em; text-wrap:balance}
+h2{font-size:clamp(28px,3.4vw,38px)}
+h3{font-size:22px; font-weight:700}
+p{margin:0}
+.muted{color:var(--ink-3)}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:clamp(16px,3vw,32px)}
+
+/* nav */
+.nav{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
+.nav__inner{display:flex; align-items:center; gap:18px; min-height:60px}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; white-space:nowrap}
+.brand__mark{width:28px; height:28px; flex:none}
+.brand__name{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900;
+  font-size:23px; letter-spacing:.02em}
+.brand__name span{color:var(--ink-3); font-weight:700}
+.nav__links{display:flex; gap:2px; margin:0; padding:0; list-style:none}
+.nav__links a{display:block; padding:8px 12px; border-radius:8px; text-decoration:none;
+  color:var(--ink-2); font-weight:600; font-size:15px; white-space:nowrap}
+.nav__links a:hover{color:var(--ink); background:var(--panel)}
+.nav__links a[aria-current="page"]{color:var(--ink); background:var(--panel-2)}
+.nav__end{margin-left:auto; display:flex; align-items:center; gap:8px}
+.pill{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px;
+  border:1px solid var(--line-strong); text-decoration:none; font-size:14px; font-weight:600;
+  white-space:nowrap; color:var(--ink)}
+.pill:hover{background:var(--panel)}
+.pill__dot{width:8px; height:8px; border-radius:50%; background:var(--amber)}
+.pill--live .pill__dot{background:var(--turf); box-shadow:0 0 0 4px color-mix(in srgb,var(--turf) 30%,transparent)}
+.theme-btn{width:36px; height:36px; border-radius:50%; border:1px solid var(--line-strong);
+  background:transparent; color:var(--ink-2); cursor:pointer; display:grid; place-items:center}
+.theme-btn:hover{color:var(--ink); background:var(--panel)}
+.theme-btn svg{width:18px; height:18px}
+.theme-btn .i-sun{display:none}
+:root[data-theme="light"] .theme-btn .i-sun{display:block}
+:root[data-theme="light"] .theme-btn .i-moon{display:none}
+@media (max-width:900px){
+  .nav__inner{flex-wrap:wrap; gap:0 12px; padding-top:8px}
+  .nav__links{order:3; width:100%; overflow-x:auto; scrollbar-width:none;
+    margin-inline:-6px; padding-bottom:6px}
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{padding:7px 10px; font-size:14.5px}
+}
+@media (max-width:520px){
+  .brand__name span{display:none}
+  .pill__long{display:none}
+  .nav__inner{flex-wrap:wrap}
+  .hero__inner{padding-top:110px}
+}
+
+/* page header band */
+.band{position:relative; isolation:isolate; overflow:hidden; color:#EEF2FF;
+  background:#0C1838; border-bottom:1px solid var(--line)}
+.band__img{position:absolute; inset:0; z-index:-2}
+.band__img img{width:100%; height:100%; object-fit:cover; object-position:right center}
+.band::before{content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(90deg,#0C1838 0%,rgba(12,24,56,.92) 34%,rgba(12,24,56,.35) 70%,rgba(12,24,56,.1) 100%)}
+.band__inner{padding-block:clamp(40px,7vw,84px) clamp(28px,4vw,44px)}
+.band h1{font-size:clamp(44px,7vw,84px); font-weight:900}
+.band__lede{margin-top:12px; max-width:56ch; color:#C7CFE6; font-size:17px}
+@media (max-width:700px){
+  .band::before{background:linear-gradient(180deg,rgba(12,24,56,.25) 0%,rgba(12,24,56,.85) 55%,#0C1838 100%)}
+  .band__inner{padding-top:120px}
+}
+
+/* sections */
+.section{padding-block:clamp(36px,5vw,56px) 0}
+.section:last-of-type{padding-bottom:clamp(48px,6vw,72px)}
+.section__head{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between;
+  gap:8px 20px; margin-bottom:18px}
+.section__head p{color:var(--ink-3); max-width:60ch; font-size:15px}
+.more{font-weight:600; color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line-strong);
+  padding-bottom:1px; white-space:nowrap}
+.more:hover{color:var(--ink); border-color:var(--ink)}
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg);
+  box-shadow:var(--shadow)}
+.split{display:grid; gap:24px; grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+@media (max-width:960px){ .split{grid-template-columns:1fr} }
+
+/* home hero */
+.hero{position:relative; isolation:isolate; overflow:hidden; color:#EEF2FF; background:#0C1838}
+.hero__img{position:absolute; inset:0; z-index:-2}
+.hero__img img{width:100%; height:100%; object-fit:cover; object-position:70% center}
+.hero::before{content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(90deg,#0C1838 0%,rgba(12,24,56,.9) 38%,rgba(12,24,56,.25) 80%),
+             linear-gradient(0deg,#0C1838 0%,rgba(12,24,56,0) 35%)}
+.hero__inner{padding-block:clamp(48px,8vw,104px) clamp(40px,6vw,72px)}
+.hero__kicker{color:#C7CFE6; font-weight:600; font-size:15px}
+.hero h1{font-size:clamp(52px,9vw,112px); font-weight:900; margin-top:6px; max-width:11ch}
+.hero__lede{margin-top:16px; max-width:52ch; color:#C7CFE6; font-size:17.5px}
+@media (max-width:700px){
+  .hero::before{background:linear-gradient(180deg,rgba(12,24,56,.3) 0%,rgba(12,24,56,.88) 45%,#0C1838 100%)}
+  .hero__inner{padding-top:150px}
+}
+
+/* broadcast scoreboard */
+.board{margin-top:34px; display:inline-grid; grid-template-columns:auto auto auto;
+  align-items:stretch; border-radius:12px; overflow:hidden; max-width:100%;
+  background:rgba(8,15,36,.82); border:1px solid rgba(160,175,215,.28);
+  box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
+.board__side{display:flex; align-items:center; gap:14px; padding:14px 20px}
+.board__side--away{flex-direction:row-reverse; text-align:right}
+.board__avatar{width:58px; height:58px; border-radius:50%; flex:none;
+  border:2px solid rgba(238,242,255,.35)}
+.board__who{display:flex; flex-direction:column}
+.board__label{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800;
+  font-size:26px; line-height:1}
+.board__sub{color:#9FAACB; font-size:13.5px}
+.board__score{display:flex; align-items:center; gap:2px; background:#050B1F; padding:0 6px}
+.board__num{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800;
+  font-size:clamp(34px,5vw,48px); color:#FFB03B; padding:6px 12px; line-height:1;
+  text-shadow:0 0 18px rgba(255,176,59,.35)}
+.board__sep{color:#5D6A92; font-size:20px}
+.board__caption{margin-top:12px; color:#C7CFE6; font-size:15px; max-width:62ch}
+.board__caption b{color:#EEF2FF}
+@media (max-width:640px){
+  .board{display:grid; grid-template-columns:1fr; width:100%}
+  .board__score{justify-content:center; padding:4px}
+  .board__side--away{flex-direction:row; text-align:left}
+}
+@media (prefers-reduced-motion:no-preference){
+  .board__num{animation:flip .7s cubic-bezier(.2,.7,.2,1) both}
+  .board__num + .board__sep + .board__num{animation-delay:.18s}
+  @keyframes flip{from{transform:translateY(40%); opacity:0; filter:blur(4px)}
+    to{transform:none; opacity:1; filter:none}}
+}
+
+/* 1x2 split bar */
+.bar{display:flex; gap:2px; height:12px; border-radius:4px; overflow:hidden}
+.bar--lg{height:18px}
+.bar span{display:block; min-width:2px}
+.bar .h{background:var(--home)} .bar .d{background:var(--draw)} .bar .a{background:var(--away)}
+.trio{display:flex; justify-content:space-between; font-size:13px; color:var(--ink-3); margin-top:5px}
+.trio b{color:var(--ink); font-weight:700}
+
+/* match cards */
+.matches{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(min(100%,350px),1fr))}
+.match{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:14px 16px 12px; display:flex; flex-direction:column; gap:12px}
+.bug{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px}
+.bug__team{display:flex; flex-direction:column; min-width:0}
+.bug__team--away{text-align:right}
+.bug__code{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:26px; line-height:1}
+.bug__name{font-size:13px; color:var(--ink-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bug__mid{min-width:76px; text-align:center; background:var(--bg); border:1px solid var(--line);
+  border-radius:8px; padding:5px 10px}
+.bug__score{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:28px;
+  line-height:1; color:var(--amber)}
+.bug__time{font-weight:700; font-size:15px}
+.bug__note{font-size:11.5px; color:var(--ink-3); display:block}
+.match__rows{display:flex; flex-direction:column; gap:8px}
+.mrow{display:grid; grid-template-columns:62px 1fr; gap:10px; align-items:center; font-size:13px}
+.mrow__k{color:var(--ink-3); font-weight:600}
+.crowd{display:flex; align-items:center; gap:4px; flex-wrap:wrap}
+.crowd img{width:28px; height:28px; border-radius:50%; border:2px solid transparent}
+.crowd .hit{border-color:var(--turf)}
+.crowd .miss{opacity:.38; filter:grayscale(.7)}
+.crowd__txt{margin-left:6px; font-size:13px; color:var(--ink-2)}
+.match details{border-top:1px solid var(--line); padding-top:8px}
+.match summary{cursor:pointer; font-size:13.5px; font-weight:600; color:var(--ink-2); list-style:none}
+.match summary::-webkit-details-marker{display:none}
+.match summary::before{content:"+"; display:inline-block; width:16px; color:var(--ink-3)}
+.match details[open] summary::before{content:"\2212"}
+.arms{display:flex; flex-direction:column; gap:7px; margin-top:10px}
+.arm{display:grid; grid-template-columns:22px 92px 1fr 70px; gap:8px; align-items:center; font-size:12.5px}
+.arm img{width:22px; height:22px; border-radius:50%}
+.arm__n{color:var(--ink-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.arm__p{text-align:right; color:var(--ink-3); font-size:12px}
+.flag{font-size:12px; color:var(--ink-3); font-style:italic}
+
+/* leaderboard */
+.lb{list-style:none; margin:0; padding:6px; display:flex; flex-direction:column}
+.lb li{display:grid; grid-template-columns:28px 44px minmax(0,1fr) auto; gap:12px; align-items:center;
+  padding:9px 10px; border-radius:10px}
+.lb li + li{border-top:1px solid var(--line)}
+.lb__rank{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:22px; color:var(--ink-3); text-align:center}
+.lb img{width:44px; height:44px; border-radius:50%}
+.lb__name{font-weight:700; line-height:1.2}
+.lb__nick{font-size:13px; color:var(--ink-3)}
+.lb__val{text-align:right}
+.lb__ll{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:24px; line-height:1}
+.lb__gap{font-size:12.5px; color:var(--ink-3)}
+.lb .is-market{background:color-mix(in srgb,var(--amber) 10%,transparent); border-top:none}
+.lb .is-market .lb__ll{color:var(--amber)}
+
+/* stats strip */
+.stats{display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  background:var(--line); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden}
+.stat{background:var(--panel); padding:16px 18px}
+.stat__v{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:34px; line-height:1.05}
+.stat__k{color:var(--ink-3); font-size:14px; margin-top:2px}
+
+/* diverging bankroll bars */
+.money{display:flex; flex-direction:column; gap:10px; padding:16px 18px}
+.money__row{display:grid; grid-template-columns:34px 130px 1fr 96px; gap:12px; align-items:center; font-size:14px}
+.money__row img{width:34px; height:34px; border-radius:50%}
+.money__track{position:relative; height:14px}
+.money__track::before{content:""; position:absolute; left:50%; top:-4px; bottom:-4px; width:1px; background:var(--line-strong)}
+.money__fill{position:absolute; top:0; bottom:0; border-radius:4px}
+.money__fill.up{left:50%; background:var(--turf-fill)}
+.money__fill.down{right:50%; background:var(--down)}
+.money__val{text-align:right; font-weight:700}
+.money__val.up{color:var(--turf)} .money__val.down{color:var(--down)}
+.money__axis{display:grid; grid-template-columns:34px 130px 1fr 96px; gap:12px; font-size:12px; color:var(--ink-3)}
+.money__axis span:nth-child(3){text-align:center}
+@media (max-width:560px){
+  .money__row,.money__axis{grid-template-columns:28px 1fr 84px; gap:8px}
+  .money__row img{width:28px; height:28px}
+  .money__track{grid-column:1 / -1; order:5}
+  .money__axis span:nth-child(-n+2),.money__axis span:nth-child(4){display:none}
+  .money__axis span:nth-child(3){grid-column:1 / -1}
+}
+
+/* upset cards */
+.upsets{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.upset{padding:16px 18px; display:flex; flex-direction:column; gap:6px; text-decoration:none}
+.upset__score{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:30px; line-height:1}
+.upset__score em{font-style:normal; color:var(--amber)}
+.upset__p{font-size:14px; color:var(--ink-2)}
+.upset__p b{color:var(--ink)}
+.upset__md{font-size:13px; color:var(--ink-3)}
+
+/* incidents */
+.log{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.log li{display:grid; grid-template-columns:110px 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--line)}
+.log li:first-child{border-top:none}
+.log__date{font-weight:700; color:var(--ink-2)}
+.log h3{font-size:21px; margin-bottom:4px}
+.log p{color:var(--ink-2); max-width:70ch}
+.log p + p{margin-top:6px}
+.log .fix{color:var(--ink-3)}
+@media (max-width:600px){ .log li{grid-template-columns:1fr; gap:4px} }
+
+/* matchday tiles */
+.tiles{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))}
+.tile{display:flex; flex-direction:column; gap:10px; padding:18px; text-decoration:none; min-height:190px;
+  position:relative}
+a.tile:hover{border-color:var(--line-strong); background:var(--panel-2)}
+.tile__md{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:56px; line-height:.9}
+.tile__md small{font-size:22px; font-weight:700; color:var(--ink-3); margin-right:4px}
+.tile__dates{font-weight:600; color:var(--ink-2)}
+.tile__body{font-size:14px; color:var(--ink-3); margin-top:auto}
+.tile__body b{color:var(--ink)}
+.state{position:absolute; top:16px; right:16px; font-size:12.5px; font-weight:700; padding:3px 10px;
+  border-radius:999px; border:1px solid var(--line-strong); color:var(--ink-2)}
+.state--next{border-color:var(--amber); color:var(--amber)}
+.state--live{border-color:var(--turf); color:var(--turf)}
+.tile--quiet{opacity:.72}
+.daygroup + .daygroup{margin-top:28px}
+.daygroup h3{margin-bottom:12px}
+
+/* models */
+.profiles{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
+.profile{display:flex; flex-direction:column; overflow:hidden}
+.profile__top{display:flex; gap:16px; align-items:center; padding:18px 18px 0}
+.profile__top img{width:96px; height:96px; border-radius:16px; flex:none}
+.profile__nick{color:var(--ink-3); font-size:14.5px}
+.profile__name{font-size:30px}
+.profile__tag{display:inline-block; margin-top:6px; font-size:12.5px; font-weight:700; color:var(--amber);
+  border:1px solid color-mix(in srgb,var(--amber) 55%,transparent); border-radius:999px; padding:1px 9px}
+.profile__body{padding:14px 18px 0; display:flex; flex-direction:column; gap:10px; font-size:15px; color:var(--ink-2)}
+.profile__idea{font-style:italic; color:var(--ink-3); font-size:14px; border-left:2px solid var(--line-strong); padding-left:10px}
+.profile__body{padding-bottom:16px}
+.profile__stats{margin-top:auto; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line)}
+.profile__stats div{padding:12px 14px}
+.profile__stats div + div{border-left:1px solid var(--line)}
+.profile__stats b{display:block; font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:24px; line-height:1.1}
+.profile__stats span{font-size:12.5px; color:var(--ink-3)}
+.profile--market{border-color:color-mix(in srgb,var(--amber) 45%,transparent)}
+
+/* sparkline small multiples */
+.sparks{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr))}
+.spark{padding:14px 16px; position:relative}
+.spark__head{display:flex; gap:10px; align-items:center}
+.spark__head img{width:34px; height:34px; border-radius:50%}
+.spark__name{font-weight:700; line-height:1.15}
+.spark__rec{font-size:12.5px; color:var(--ink-3)}
+.spark__val{margin-left:auto; text-align:right; font-weight:700}
+.spark__val small{display:block; font-weight:600; font-size:12.5px}
+.spark svg{width:100%; height:70px; display:block; margin-top:10px; overflow:visible}
+.spark .base{stroke:var(--line-strong); stroke-dasharray:3 3}
+.spark .line{fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round}
+.spark .line.up{stroke:var(--turf)} .spark .line.down{stroke:var(--down)}
+.spark .dot{r:4; stroke:var(--panel); stroke-width:2}
+.spark .dot.up{fill:var(--turf)} .spark .dot.down{fill:var(--down)}
+.sdot{position:absolute; width:10px; height:10px; border-radius:50%; background:var(--ink);
+  border:2px solid var(--panel); transform:translate(-50%,-50%); opacity:0; pointer-events:none}
+.sdot.on{opacity:1}
+.tip{position:absolute; pointer-events:none; background:var(--bg); border:1px solid var(--line-strong);
+  border-radius:8px; padding:6px 9px; font-size:12.5px; white-space:nowrap; transform:translate(-50%,-110%);
+  opacity:0; transition:opacity .12s}
+.tip.on{opacity:1}
+.up-t{color:var(--turf)} .down-t{color:var(--down)}
+
+/* tables */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:var(--panel)}
+table.t{border-collapse:collapse; width:100%; font-size:14.5px}
+.t th{text-align:left; font-weight:600; color:var(--ink-3); font-size:13px; padding:11px 12px;
+  border-bottom:1px solid var(--line-strong); white-space:nowrap; background:var(--panel)}
+.t td{padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap}
+.t tbody tr:last-child td{border-bottom:none}
+.t .n{text-align:right}
+.t .club{display:flex; align-items:center; gap:10px; font-weight:600}
+.t .code{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:17px; width:38px; color:var(--ink-3)}
+.t .pos{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:18px; width:40px}
+.t tr.zone-top8 .pos{color:var(--turf)}
+.t tr.zone-out td{color:var(--ink-3)}
+.t tr.cut td{border-top:2px solid var(--line-strong)}
+.t .pts{font-weight:800}
+.prob{display:inline-flex; align-items:center; gap:8px; justify-content:flex-end; min-width:92px}
+.prob i{display:inline-block; height:6px; border-radius:3px; background:var(--turf-fill)}
+.legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--ink-3); margin-top:12px}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:10px; height:10px; border-radius:3px; display:inline-block}
+.filters{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; align-items:center}
+.filters label{font-size:14px; color:var(--ink-3); display:flex; gap:8px; align-items:center}
+.filters select{font:inherit; color:var(--ink); background:var(--panel); border:1px solid var(--line-strong);
+  border-radius:8px; padding:6px 10px}
+.res-won{color:var(--turf); font-weight:700} .res-lost{color:var(--down); font-weight:700}
+.res-void{color:var(--ink-3); text-decoration:line-through}
+
+/* how it works */
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); counter-reset:step}
+.steps li{padding:18px; position:relative; counter-increment:step}
+.steps li::before{content:counter(step); font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900;
+  font-size:44px; line-height:1; color:var(--amber); display:block; margin-bottom:8px}
+.steps h3{margin-bottom:6px}
+.steps p{font-size:14.5px; color:var(--ink-2)}
+.rules{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.rule{padding:18px}
+.rule h3{margin-bottom:6px}
+.rule p{color:var(--ink-2); font-size:15px}
+.prose{max-width:70ch; color:var(--ink-2)}
+.prose p + p{margin-top:12px}
+.prose b{color:var(--ink)}
+.empty{color:var(--ink-3); font-style:italic; padding:18px}
+
+/* overview: next up + last matchday */
+.stack{display:flex; flex-direction:column; gap:24px}
+.nextup,.lastmd{padding:20px 20px 18px}
+.nextup__head{display:flex; justify-content:space-between; align-items:end; gap:12px; flex-wrap:wrap}
+.nextup__title{font-size:44px; font-weight:900}
+.nextup__note{color:var(--ink-3); font-size:14.5px; margin:6px 0 10px}
+.fx{list-style:none; margin:0 0 14px; padding:0}
+.fx li{display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:12px; align-items:center;
+  padding:10px 0; border-top:1px solid var(--line); font-size:14.5px}
+.fx__when{color:var(--ink-3); font-size:13.5px}
+.fx__teams b{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:19px}
+.fx__teams .muted{display:block; font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.fx__pick{text-align:right; font-weight:600; font-size:14px}
+.lastmd{display:grid; grid-template-columns:1fr auto; gap:12px 20px; align-items:center}
+.lastmd h3{font-size:30px; font-weight:900}
+.lastmd__best{display:flex; align-items:center; gap:12px}
+.lastmd__best img{width:52px; height:52px; border-radius:50%; border:2px solid var(--turf)}
+.lastmd__name{font-weight:700; font-size:17px}
+.lastmd__txt{color:var(--ink-2); grid-column:1 / -1}
+.lastmd .more{grid-column:1 / -1; justify-self:start}
+.lbhead{display:flex; justify-content:space-between; align-items:end; gap:10px; padding:18px 18px 4px}
+.lbhead h3{font-size:30px; font-weight:900}
+.mdnav{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:32px}
+@media (max-width:520px){
+  .fx li{grid-template-columns:1fr auto}
+  .fx__when{grid-column:1 / -1; margin-bottom:-6px}
+  .lastmd{grid-template-columns:1fr}
+}
+
+/* footer */
+.foot{border-top:1px solid var(--line); margin-top:24px; padding-block:28px 40px; color:var(--ink-3); font-size:14px}
+.foot__inner{display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between}
+.foot a{color:var(--ink-2)}
+</style>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap nav__inner">
+  <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+<circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.4"/>
+<path d="M16 9.5l5 3.6-1.9 5.9h-6.2l-1.9-5.9z" fill="#FFB03B"/>
+<path d="M16 9.5V3.5M21 13.1l5.6-1.9M19.1 19l3.4 4.8M12.9 19l-3.4 4.8M11 13.1l-5.6-1.9"
+ stroke="currentColor" stroke-width="1.6" fill="none" opacity=".55"/></svg><span class="brand__name">Forecast Lab <span>UCL 26/27</span></span></a>
+  <ul class="nav__links"><li><a href="index.html">Overview</a></li><li><a href="matchdays.html" aria-current="page">Matchdays</a></li><li><a href="models.html">Models</a></li><li><a href="bankrolls.html">Bankrolls</a></li><li><a href="table.html">Table</a></li><li><a href="how-it-works.html">How it works</a></li></ul>
+  <div class="nav__end"><a class="pill" href="matchday-5.html"><span class="pill__dot" aria-hidden="true"></span>Matchday 5<span class="pill__long"> · Tue 24 Nov</span></a>
+    <button class="theme-btn" type="button" aria-label="Switch to day mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+ stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+ stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</div></header><main id="main">
+<div class="band">
+  <picture class="band__img">
+    <source media="(max-width:700px)" srcset="assets/section-matchdays-800.webp">
+    <img src="assets/section-matchdays.webp" alt="" width="1600" height="533">
+  </picture>
+  <div class="wrap band__inner"><h1>Matchday 2</h1><p class="band__lede">Tuesday 13 October and Wednesday 14 October.</p></div>
+</div>
+<section class="section"><div class="wrap">
+  <div class="stats"><div class="stat"><p class="stat__v">18/18</p><p class="stat__k">games played</p></div><div class="stat"><p class="stat__v">10/16</p><p class="stat__k">market favourites won</p></div><div class="stat"><p class="stat__v">LightGBM</p><p class="stat__k">model of the matchday</p></div><div class="stat"><p class="stat__v">18/18</p><p class="stat__k">games forecast</p></div></div>
+  <div class="legend"><span><i style="background:var(--home)"></i>home win</span>
+      <span><i style="background:var(--draw)"></i>draw</span><span><i style="background:var(--away)"></i>away win</span>
+      <span><i style="background:var(--turf);border-radius:50%"></i>ring = model called it</span></div>
+</div></section>
+<section class="section"><div class="wrap"><div class="daygroup"><h3>Tuesday 13 October</h3><div class="matches"><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">RCL</span>
+          <span class="bug__name">Lens</span></div>
+        <div class="bug__mid"><span class="bug__score">0–2</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">SCP</span>
+          <span class="bug__name">Sporting CP</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 49%, draw 24%, away 27%"><span class="h" style="width:49.0%"></span><span class="d" style="width:24.0%"></span><span class="a" style="width:27.0%"></span></div><div class="trio"><span>home 49%</span><span>draw 24%</span><span>away <b>27%</b></span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Lens" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Lens" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Lens" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Lens" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Lens" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Sporting CP" width="28" height="28" loading="lazy"><span class="crowd__txt">1 of 6 called it</span></div><p class="flag">Forecast arrived after kickoff, so it isn't scored.</p><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 56%, draw 23%, away 21%"><span class="h" style="width:55.8%"></span><span class="d" style="width:23.2%"></span><span class="a" style="width:21.0%"></span></div><span class="arm__p">56 · 23 · 21</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 54%, draw 23%, away 23%"><span class="h" style="width:54.0%"></span><span class="d" style="width:23.0%"></span><span class="a" style="width:23.0%"></span></div><span class="arm__p">54 · 23 · 23</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 37%, draw 27%, away 36%"><span class="h" style="width:37.3%"></span><span class="d" style="width:27.0%"></span><span class="a" style="width:35.7%"></span></div><span class="arm__p">37 · 27 · 36</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 60%, draw 23%, away 17%"><span class="h" style="width:60.2%"></span><span class="d" style="width:22.8%"></span><span class="a" style="width:17.1%"></span></div><span class="arm__p">60 · 23 · 17</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 53%, draw 24%, away 23%"><span class="h" style="width:53.1%"></span><span class="d" style="width:24.2%"></span><span class="a" style="width:22.7%"></span></div><span class="arm__p">53 · 24 · 23</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 34%, draw 24%, away 43%"><span class="h" style="width:33.8%"></span><span class="d" style="width:23.6%"></span><span class="a" style="width:42.7%"></span></div><span class="arm__p">34 · 24 · 43</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">SAB</span>
+          <span class="bug__name">Sabah</span></div>
+        <div class="bug__mid"><span class="bug__score">2–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">SLA</span>
+          <span class="bug__name">Slavia Prague</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 12%, draw 19%, away 69%"><span class="h" style="width:12.3%"></span><span class="d" style="width:18.9%"></span><span class="a" style="width:68.8%"></span></div><div class="trio"><span>home <b>12%</b></span><span>draw 19%</span><span>away 69%</span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Slavia Prague" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Slavia Prague" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Slavia Prague" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Slavia Prague" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Slavia Prague" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Slavia Prague" width="28" height="28" loading="lazy"><span class="crowd__txt">0 of 6 called it</span></div><p class="flag">Forecast arrived after kickoff, so it isn't scored.</p><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 11%, draw 18%, away 71%"><span class="h" style="width:10.8%"></span><span class="d" style="width:18.3%"></span><span class="a" style="width:70.9%"></span></div><span class="arm__p">11 · 18 · 71</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 14%, draw 20%, away 66%"><span class="h" style="width:14.0%"></span><span class="d" style="width:20.0%"></span><span class="a" style="width:66.0%"></span></div><span class="arm__p">14 · 20 · 66</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 18%, draw 23%, away 59%"><span class="h" style="width:17.7%"></span><span class="d" style="width:22.8%"></span><span class="a" style="width:59.5%"></span></div><span class="arm__p">18 · 23 · 59</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 7%, draw 16%, away 76%"><span class="h" style="width:7.3%"></span><span class="d" style="width:16.3%"></span><span class="a" style="width:76.4%"></span></div><span class="arm__p">7 · 16 · 76</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 10%, draw 18%, away 73%"><span class="h" style="width:9.6%"></span><span class="d" style="width:17.6%"></span><span class="a" style="width:72.8%"></span></div><span class="arm__p">10 · 18 · 73</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 15%, draw 18%, away 67%"><span class="h" style="width:14.6%"></span><span class="d" style="width:18.3%"></span><span class="a" style="width:67.1%"></span></div><span class="arm__p">15 · 18 · 67</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">ARS</span>
+          <span class="bug__name">Arsenal</span></div>
+        <div class="bug__mid"><span class="bug__score">3–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">LIL</span>
+          <span class="bug__name">Lille</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 80%, draw 13%, away 6%"><span class="h" style="width:80.3%"></span><span class="d" style="width:13.4%"></span><span class="a" style="width:6.3%"></span></div><div class="trio"><span>home <b>80%</b></span><span>draw 13%</span><span>away 6%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 73%, draw 18%, away 9%"><span class="h" style="width:72.7%"></span><span class="d" style="width:18.1%"></span><span class="a" style="width:9.2%"></span></div><div class="trio"><span>home <b>73%</b></span><span>draw 18%</span><span>away 9%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Arsenal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Arsenal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Arsenal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Arsenal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Arsenal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Arsenal" width="28" height="28" loading="lazy"><span class="crowd__txt">6 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 71%, draw 19%, away 10%"><span class="h" style="width:70.9%"></span><span class="d" style="width:19.1%"></span><span class="a" style="width:10.0%"></span></div><span class="arm__p">71 · 19 · 10</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 73%, draw 18%, away 9%"><span class="h" style="width:72.6%"></span><span class="d" style="width:18.0%"></span><span class="a" style="width:9.3%"></span></div><span class="arm__p">73 · 18 · 9</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 81%, draw 13%, away 6%"><span class="h" style="width:80.8%"></span><span class="d" style="width:13.1%"></span><span class="a" style="width:6.1%"></span></div><span class="arm__p">81 · 13 · 6</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 79%, draw 16%, away 5%"><span class="h" style="width:79.4%"></span><span class="d" style="width:15.6%"></span><span class="a" style="width:4.9%"></span></div><span class="arm__p">79 · 16 · 5</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 69%, draw 20%, away 11%"><span class="h" style="width:68.6%"></span><span class="d" style="width:20.5%"></span><span class="a" style="width:10.9%"></span></div><span class="arm__p">69 · 20 · 11</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 64%, draw 22%, away 14%"><span class="h" style="width:63.9%"></span><span class="d" style="width:22.3%"></span><span class="a" style="width:13.7%"></span></div><span class="arm__p">64 · 22 · 14</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">ATM</span>
+          <span class="bug__name">Atlético Madrid</span></div>
+        <div class="bug__mid"><span class="bug__score">2–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">MUN</span>
+          <span class="bug__name">Manchester United</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 51%, draw 25%, away 24%"><span class="h" style="width:50.9%"></span><span class="d" style="width:25.4%"></span><span class="a" style="width:23.8%"></span></div><div class="trio"><span>home <b>51%</b></span><span>draw 25%</span><span>away 24%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 50%, draw 24%, away 26%"><span class="h" style="width:49.6%"></span><span class="d" style="width:24.2%"></span><span class="a" style="width:26.2%"></span></div><div class="trio"><span>home <b>50%</b></span><span>draw 24%</span><span>away 26%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Atlético Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Atlético Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Atlético Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Atlético Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Atlético Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Atlético Madrid" width="28" height="28" loading="lazy"><span class="crowd__txt">6 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 48%, draw 25%, away 27%"><span class="h" style="width:48.4%"></span><span class="d" style="width:24.6%"></span><span class="a" style="width:26.9%"></span></div><span class="arm__p">48 · 25 · 27</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 48%, draw 24%, away 28%"><span class="h" style="width:47.9%"></span><span class="d" style="width:24.1%"></span><span class="a" style="width:28.0%"></span></div><span class="arm__p">48 · 24 · 28</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 46%, draw 26%, away 28%"><span class="h" style="width:45.7%"></span><span class="d" style="width:26.3%"></span><span class="a" style="width:28.0%"></span></div><span class="arm__p">46 · 26 · 28</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 52%, draw 23%, away 25%"><span class="h" style="width:52.3%"></span><span class="d" style="width:23.1%"></span><span class="a" style="width:24.6%"></span></div><span class="arm__p">52 · 23 · 25</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 46%, draw 25%, away 29%"><span class="h" style="width:45.9%"></span><span class="d" style="width:24.9%"></span><span class="a" style="width:29.2%"></span></div><span class="arm__p">46 · 25 · 29</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 58%, draw 22%, away 20%"><span class="h" style="width:57.5%"></span><span class="d" style="width:22.2%"></span><span class="a" style="width:20.3%"></span></div><span class="arm__p">58 · 22 · 20</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">GAL</span>
+          <span class="bug__name">Galatasaray</span></div>
+        <div class="bug__mid"><span class="bug__score">1–4</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">BAR</span>
+          <span class="bug__name">Barcelona</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 11%, draw 14%, away 75%"><span class="h" style="width:10.6%"></span><span class="d" style="width:14.1%"></span><span class="a" style="width:75.4%"></span></div><div class="trio"><span>home 11%</span><span>draw 14%</span><span>away <b>75%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 22%, draw 20%, away 58%"><span class="h" style="width:21.9%"></span><span class="d" style="width:20.4%"></span><span class="a" style="width:57.8%"></span></div><div class="trio"><span>home 22%</span><span>draw 20%</span><span>away <b>58%</b></span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Barcelona" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Barcelona" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Barcelona" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Barcelona" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Barcelona" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Barcelona" width="28" height="28" loading="lazy"><span class="crowd__txt">6 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 20%, draw 20%, away 60%"><span class="h" style="width:20.0%"></span><span class="d" style="width:20.1%"></span><span class="a" style="width:59.9%"></span></div><span class="arm__p">20 · 20 · 60</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 23%, draw 20%, away 57%"><span class="h" style="width:22.7%"></span><span class="d" style="width:20.4%"></span><span class="a" style="width:56.9%"></span></div><span class="arm__p">23 · 20 · 57</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 32%, draw 27%, away 41%"><span class="h" style="width:31.7%"></span><span class="d" style="width:26.8%"></span><span class="a" style="width:41.5%"></span></div><span class="arm__p">32 · 27 · 41</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 20%, draw 17%, away 63%"><span class="h" style="width:19.6%"></span><span class="d" style="width:17.5%"></span><span class="a" style="width:62.9%"></span></div><span class="arm__p">20 · 17 · 63</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 18%, draw 20%, away 62%"><span class="h" style="width:18.4%"></span><span class="d" style="width:19.6%"></span><span class="a" style="width:62.1%"></span></div><span class="arm__p">18 · 20 · 62</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 19%, draw 18%, away 63%"><span class="h" style="width:18.7%"></span><span class="d" style="width:18.1%"></span><span class="a" style="width:63.2%"></span></div><span class="arm__p">19 · 18 · 63</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">INT</span>
+          <span class="bug__name">Inter Milan</span></div>
+        <div class="bug__mid"><span class="bug__score">3–4</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">BRU</span>
+          <span class="bug__name">Club Brugge</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 77%, draw 15%, away 8%"><span class="h" style="width:77.3%"></span><span class="d" style="width:14.5%"></span><span class="a" style="width:8.2%"></span></div><div class="trio"><span>home 77%</span><span>draw 15%</span><span>away <b>8%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 70%, draw 18%, away 12%"><span class="h" style="width:69.8%"></span><span class="d" style="width:17.8%"></span><span class="a" style="width:12.4%"></span></div><div class="trio"><span>home 70%</span><span>draw 18%</span><span>away <b>12%</b></span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Inter Milan" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Inter Milan" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Inter Milan" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Inter Milan" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Inter Milan" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Inter Milan" width="28" height="28" loading="lazy"><span class="crowd__txt">0 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 70%, draw 18%, away 12%"><span class="h" style="width:69.9%"></span><span class="d" style="width:17.8%"></span><span class="a" style="width:12.3%"></span></div><span class="arm__p">70 · 18 · 12</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 69%, draw 18%, away 13%"><span class="h" style="width:69.1%"></span><span class="d" style="width:17.8%"></span><span class="a" style="width:13.2%"></span></div><span class="arm__p">69 · 18 · 13</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 59%, draw 23%, away 18%"><span class="h" style="width:59.0%"></span><span class="d" style="width:23.0%"></span><span class="a" style="width:18.0%"></span></div><span class="arm__p">59 · 23 · 18</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 79%, draw 14%, away 7%"><span class="h" style="width:79.1%"></span><span class="d" style="width:14.1%"></span><span class="a" style="width:6.7%"></span></div><span class="arm__p">79 · 14 · 7</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 68%, draw 19%, away 13%"><span class="h" style="width:68.3%"></span><span class="d" style="width:18.6%"></span><span class="a" style="width:13.1%"></span></div><span class="arm__p">68 · 19 · 13</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 73%, draw 15%, away 11%"><span class="h" style="width:73.5%"></span><span class="d" style="width:15.3%"></span><span class="a" style="width:11.2%"></span></div><span class="arm__p">73 · 15 · 11</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">RBL</span>
+          <span class="bug__name">RB Leipzig</span></div>
+        <div class="bug__mid"><span class="bug__score">1–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">PSV</span>
+          <span class="bug__name">PSV Eindhoven</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 62%, draw 19%, away 19%"><span class="h" style="width:62.2%"></span><span class="d" style="width:18.9%"></span><span class="a" style="width:18.9%"></span></div><div class="trio"><span>home <b>62%</b></span><span>draw 19%</span><span>away 19%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 43%, draw 22%, away 35%"><span class="h" style="width:43.2%"></span><span class="d" style="width:22.0%"></span><span class="a" style="width:34.8%"></span></div><div class="trio"><span>home <b>43%</b></span><span>draw 22%</span><span>away 35%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: RB Leipzig" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: PSV Eindhoven" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: RB Leipzig" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: RB Leipzig" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: RB Leipzig" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: PSV Eindhoven" width="28" height="28" loading="lazy"><span class="crowd__txt">4 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 53%, draw 21%, away 27%"><span class="h" style="width:52.7%"></span><span class="d" style="width:20.7%"></span><span class="a" style="width:26.6%"></span></div><span class="arm__p">53 · 21 · 27</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 51%, draw 21%, away 28%"><span class="h" style="width:50.8%"></span><span class="d" style="width:20.7%"></span><span class="a" style="width:28.5%"></span></div><span class="arm__p">51 · 21 · 28</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 27%, draw 26%, away 47%"><span class="h" style="width:27.0%"></span><span class="d" style="width:26.1%"></span><span class="a" style="width:47.0%"></span></div><span class="arm__p">27 · 26 · 47</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 48%, draw 21%, away 31%"><span class="h" style="width:47.7%"></span><span class="d" style="width:21.3%"></span><span class="a" style="width:31.1%"></span></div><span class="arm__p">48 · 21 · 31</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 50%, draw 21%, away 29%"><span class="h" style="width:50.1%"></span><span class="d" style="width:21.3%"></span><span class="a" style="width:28.6%"></span></div><span class="arm__p">50 · 21 · 29</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 31%, draw 22%, away 47%"><span class="h" style="width:31.1%"></span><span class="d" style="width:21.9%"></span><span class="a" style="width:46.9%"></span></div><span class="arm__p">31 · 22 · 47</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">VIK</span>
+          <span class="bug__name">Viking</span></div>
+        <div class="bug__mid"><span class="bug__score">3–3</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">BAY</span>
+          <span class="bug__name">Bayern Munich</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 6%, draw 9%, away 85%"><span class="h" style="width:5.9%"></span><span class="d" style="width:8.6%"></span><span class="a" style="width:85.4%"></span></div><div class="trio"><span>home 6%</span><span>draw <b>9%</b></span><span>away 85%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 11%, draw 14%, away 75%"><span class="h" style="width:10.8%"></span><span class="d" style="width:13.9%"></span><span class="a" style="width:75.3%"></span></div><div class="trio"><span>home 11%</span><span>draw <b>14%</b></span><span>away 75%</span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Bayern Munich" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Bayern Munich" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Bayern Munich" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Bayern Munich" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Bayern Munich" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Bayern Munich" width="28" height="28" loading="lazy"><span class="crowd__txt">0 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 8%, draw 10%, away 82%"><span class="h" style="width:7.8%"></span><span class="d" style="width:10.2%"></span><span class="a" style="width:82.0%"></span></div><span class="arm__p">8 · 10 · 82</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 12%, draw 13%, away 75%"><span class="h" style="width:11.8%"></span><span class="d" style="width:12.9%"></span><span class="a" style="width:75.3%"></span></div><span class="arm__p">12 · 13 · 75</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 11%, draw 18%, away 71%"><span class="h" style="width:10.6%"></span><span class="d" style="width:18.0%"></span><span class="a" style="width:71.3%"></span></div><span class="arm__p">11 · 18 · 71</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 15%, draw 18%, away 67%"><span class="h" style="width:14.8%"></span><span class="d" style="width:18.2%"></span><span class="a" style="width:67.1%"></span></div><span class="arm__p">15 · 18 · 67</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 7%, draw 9%, away 84%"><span class="h" style="width:6.6%"></span><span class="d" style="width:9.1%"></span><span class="a" style="width:84.3%"></span></div><span class="arm__p">7 · 9 · 84</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 13%, draw 15%, away 72%"><span class="h" style="width:13.4%"></span><span class="d" style="width:14.8%"></span><span class="a" style="width:71.8%"></span></div><span class="arm__p">13 · 15 · 72</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">VIL</span>
+          <span class="bug__name">Villarreal</span></div>
+        <div class="bug__mid"><span class="bug__score">3–1</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">NAP</span>
+          <span class="bug__name">Napoli</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 46%, draw 26%, away 28%"><span class="h" style="width:45.7%"></span><span class="d" style="width:26.4%"></span><span class="a" style="width:27.9%"></span></div><div class="trio"><span>home <b>46%</b></span><span>draw 26%</span><span>away 28%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 44%, draw 25%, away 31%"><span class="h" style="width:43.9%"></span><span class="d" style="width:25.1%"></span><span class="a" style="width:31.0%"></span></div><div class="trio"><span>home <b>44%</b></span><span>draw 25%</span><span>away 31%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Villarreal" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Napoli" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Villarreal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Villarreal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Villarreal" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Villarreal" width="28" height="28" loading="lazy"><span class="crowd__txt">5 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 43%, draw 25%, away 32%"><span class="h" style="width:43.4%"></span><span class="d" style="width:25.0%"></span><span class="a" style="width:31.6%"></span></div><span class="arm__p">43 · 25 · 32</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 44%, draw 25%, away 31%"><span class="h" style="width:44.1%"></span><span class="d" style="width:24.8%"></span><span class="a" style="width:31.1%"></span></div><span class="arm__p">44 · 25 · 31</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 33%, draw 27%, away 40%"><span class="h" style="width:32.7%"></span><span class="d" style="width:26.9%"></span><span class="a" style="width:40.4%"></span></div><span class="arm__p">33 · 27 · 40</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 55%, draw 23%, away 22%"><span class="h" style="width:54.6%"></span><span class="d" style="width:23.2%"></span><span class="a" style="width:22.2%"></span></div><span class="arm__p">55 · 23 · 22</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 42%, draw 25%, away 33%"><span class="h" style="width:41.6%"></span><span class="d" style="width:25.4%"></span><span class="a" style="width:32.9%"></span></div><span class="arm__p">42 · 25 · 33</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 47%, draw 25%, away 28%"><span class="h" style="width:47.3%"></span><span class="d" style="width:25.1%"></span><span class="a" style="width:27.6%"></span></div><span class="arm__p">47 · 25 · 28</span></div></div></details></article></div></div><div class="daygroup"><h3>Wednesday 14 October</h3><div class="matches"><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">FEY</span>
+          <span class="bug__name">Feyenoord</span></div>
+        <div class="bug__mid"><span class="bug__score">3–2</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">COM</span>
+          <span class="bug__name">Como</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 27%, draw 23%, away 50%"><span class="h" style="width:27.1%"></span><span class="d" style="width:23.3%"></span><span class="a" style="width:49.6%"></span></div><div class="trio"><span>home <b>27%</b></span><span>draw 23%</span><span>away 50%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 36%, draw 25%, away 39%"><span class="h" style="width:35.8%"></span><span class="d" style="width:24.9%"></span><span class="a" style="width:39.3%"></span></div><div class="trio"><span>home <b>36%</b></span><span>draw 25%</span><span>away 39%</span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Como" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Feyenoord" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Como" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Como" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Como" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Como" width="28" height="28" loading="lazy"><span class="crowd__txt">1 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 33%, draw 25%, away 42%"><span class="h" style="width:33.2%"></span><span class="d" style="width:25.0%"></span><span class="a" style="width:41.8%"></span></div><span class="arm__p">33 · 25 · 42</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 33%, draw 25%, away 42%"><span class="h" style="width:33.3%"></span><span class="d" style="width:24.6%"></span><span class="a" style="width:42.1%"></span></div><span class="arm__p">33 · 25 · 42</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 50%, draw 25%, away 24%"><span class="h" style="width:50.4%"></span><span class="d" style="width:25.4%"></span><span class="a" style="width:24.2%"></span></div><span class="arm__p">50 · 25 · 24</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 35%, draw 27%, away 39%"><span class="h" style="width:35.0%"></span><span class="d" style="width:26.5%"></span><span class="a" style="width:38.5%"></span></div><span class="arm__p">35 · 27 · 39</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 32%, draw 25%, away 43%"><span class="h" style="width:31.8%"></span><span class="d" style="width:25.2%"></span><span class="a" style="width:43.0%"></span></div><span class="arm__p">32 · 25 · 43</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 31%, draw 23%, away 46%"><span class="h" style="width:31.3%"></span><span class="d" style="width:22.6%"></span><span class="a" style="width:46.1%"></span></div><span class="arm__p">31 · 23 · 46</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">LASK</span>
+          <span class="bug__name">LASK</span></div>
+        <div class="bug__mid"><span class="bug__score">3–6</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">LIV</span>
+          <span class="bug__name">Liverpool</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 11%, draw 16%, away 74%"><span class="h" style="width:10.6%"></span><span class="d" style="width:15.8%"></span><span class="a" style="width:73.6%"></span></div><div class="trio"><span>home 11%</span><span>draw 16%</span><span>away <b>74%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 17%, draw 18%, away 65%"><span class="h" style="width:16.8%"></span><span class="d" style="width:17.7%"></span><span class="a" style="width:65.5%"></span></div><div class="trio"><span>home 17%</span><span>draw 18%</span><span>away <b>65%</b></span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Liverpool" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Liverpool" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Liverpool" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Liverpool" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Liverpool" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: LASK" width="28" height="28" loading="lazy"><span class="crowd__txt">5 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 7%, draw 14%, away 80%"><span class="h" style="width:6.8%"></span><span class="d" style="width:13.5%"></span><span class="a" style="width:79.7%"></span></div><span class="arm__p">7 · 14 · 80</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 8%, draw 15%, away 77%"><span class="h" style="width:8.1%"></span><span class="d" style="width:14.8%"></span><span class="a" style="width:77.1%"></span></div><span class="arm__p">8 · 15 · 77</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 28%, draw 26%, away 46%"><span class="h" style="width:28.0%"></span><span class="d" style="width:26.3%"></span><span class="a" style="width:45.7%"></span></div><span class="arm__p">28 · 26 · 46</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 7%, draw 14%, away 79%"><span class="h" style="width:7.1%"></span><span class="d" style="width:13.8%"></span><span class="a" style="width:79.1%"></span></div><span class="arm__p">7 · 14 · 79</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 5%, draw 12%, away 83%"><span class="h" style="width:5.3%"></span><span class="d" style="width:11.9%"></span><span class="a" style="width:82.8%"></span></div><span class="arm__p">5 · 12 · 83</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 46%, draw 26%, away 28%"><span class="h" style="width:45.8%"></span><span class="d" style="width:25.8%"></span><span class="a" style="width:28.4%"></span></div><span class="arm__p">46 · 26 · 28</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">AVL</span>
+          <span class="bug__name">Aston Villa</span></div>
+        <div class="bug__mid"><span class="bug__score">6–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">FEN</span>
+          <span class="bug__name">Fenerbahçe</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 58%, draw 23%, away 19%"><span class="h" style="width:58.5%"></span><span class="d" style="width:22.6%"></span><span class="a" style="width:19.0%"></span></div><div class="trio"><span>home <b>58%</b></span><span>draw 23%</span><span>away 19%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 58%, draw 20%, away 22%"><span class="h" style="width:58.4%"></span><span class="d" style="width:20.0%"></span><span class="a" style="width:21.6%"></span></div><div class="trio"><span>home <b>58%</b></span><span>draw 20%</span><span>away 22%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Aston Villa" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Fenerbahçe" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Aston Villa" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Aston Villa" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Aston Villa" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Fenerbahçe" width="28" height="28" loading="lazy"><span class="crowd__txt">4 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 70%, draw 17%, away 13%"><span class="h" style="width:70.2%"></span><span class="d" style="width:17.3%"></span><span class="a" style="width:12.5%"></span></div><span class="arm__p">70 · 17 · 13</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 68%, draw 18%, away 14%"><span class="h" style="width:68.2%"></span><span class="d" style="width:17.9%"></span><span class="a" style="width:14.0%"></span></div><span class="arm__p">68 · 18 · 14</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 34%, draw 27%, away 39%"><span class="h" style="width:33.7%"></span><span class="d" style="width:26.9%"></span><span class="a" style="width:39.4%"></span></div><span class="arm__p">34 · 27 · 39</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 76%, draw 15%, away 9%"><span class="h" style="width:75.7%"></span><span class="d" style="width:15.0%"></span><span class="a" style="width:9.4%"></span></div><span class="arm__p">76 · 15 · 9</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 70%, draw 18%, away 13%"><span class="h" style="width:69.6%"></span><span class="d" style="width:17.7%"></span><span class="a" style="width:12.7%"></span></div><span class="arm__p">70 · 18 · 13</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 33%, draw 25%, away 42%"><span class="h" style="width:33.1%"></span><span class="d" style="width:25.3%"></span><span class="a" style="width:41.7%"></span></div><span class="arm__p">33 · 25 · 42</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">BOD</span>
+          <span class="bug__name">Bodø/Glimt</span></div>
+        <div class="bug__mid"><span class="bug__score">1–0</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">BVB</span>
+          <span class="bug__name">Borussia Dortmund</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 30%, draw 24%, away 46%"><span class="h" style="width:30.4%"></span><span class="d" style="width:23.6%"></span><span class="a" style="width:46.0%"></span></div><div class="trio"><span>home <b>30%</b></span><span>draw 24%</span><span>away 46%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 35%, draw 23%, away 42%"><span class="h" style="width:34.6%"></span><span class="d" style="width:23.2%"></span><span class="a" style="width:42.2%"></span></div><div class="trio"><span>home <b>35%</b></span><span>draw 23%</span><span>away 42%</span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Borussia Dortmund" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Bodø/Glimt" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Borussia Dortmund" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Bodø/Glimt" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Borussia Dortmund" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Borussia Dortmund" width="28" height="28" loading="lazy"><span class="crowd__txt">2 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 36%, draw 23%, away 41%"><span class="h" style="width:35.7%"></span><span class="d" style="width:22.8%"></span><span class="a" style="width:41.5%"></span></div><span class="arm__p">36 · 23 · 41</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 38%, draw 23%, away 39%"><span class="h" style="width:38.1%"></span><span class="d" style="width:22.6%"></span><span class="a" style="width:39.3%"></span></div><span class="arm__p">38 · 23 · 39</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 39%, draw 27%, away 34%"><span class="h" style="width:38.6%"></span><span class="d" style="width:27.0%"></span><span class="a" style="width:34.4%"></span></div><span class="arm__p">39 · 27 · 34</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 42%, draw 22%, away 36%"><span class="h" style="width:42.1%"></span><span class="d" style="width:22.0%"></span><span class="a" style="width:35.8%"></span></div><span class="arm__p">42 · 22 · 36</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 33%, draw 23%, away 44%"><span class="h" style="width:33.2%"></span><span class="d" style="width:22.9%"></span><span class="a" style="width:43.9%"></span></div><span class="arm__p">33 · 23 · 44</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 20%, draw 22%, away 58%"><span class="h" style="width:19.8%"></span><span class="d" style="width:21.8%"></span><span class="a" style="width:58.5%"></span></div><span class="arm__p">20 · 22 · 58</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">MCI</span>
+          <span class="bug__name">Manchester City</span></div>
+        <div class="bug__mid"><span class="bug__score">2–4</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">PSG</span>
+          <span class="bug__name">Paris Saint-Germain</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 44%, draw 24%, away 32%"><span class="h" style="width:44.1%"></span><span class="d" style="width:23.8%"></span><span class="a" style="width:32.1%"></span></div><div class="trio"><span>home 44%</span><span>draw 24%</span><span>away <b>32%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 52%, draw 23%, away 25%"><span class="h" style="width:52.1%"></span><span class="d" style="width:23.0%"></span><span class="a" style="width:24.9%"></span></div><div class="trio"><span>home 52%</span><span>draw 23%</span><span>away <b>25%</b></span></div></div></div></div><div class="crowd"><img class="miss" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Manchester City" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Manchester City" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Manchester City" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Manchester City" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Manchester City" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Manchester City" width="28" height="28" loading="lazy"><span class="crowd__txt">0 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 55%, draw 22%, away 23%"><span class="h" style="width:54.5%"></span><span class="d" style="width:22.3%"></span><span class="a" style="width:23.2%"></span></div><span class="arm__p">55 · 22 · 23</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 55%, draw 22%, away 23%"><span class="h" style="width:54.7%"></span><span class="d" style="width:22.1%"></span><span class="a" style="width:23.2%"></span></div><span class="arm__p">55 · 22 · 23</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 42%, draw 27%, away 31%"><span class="h" style="width:42.1%"></span><span class="d" style="width:26.7%"></span><span class="a" style="width:31.1%"></span></div><span class="arm__p">42 · 27 · 31</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 53%, draw 21%, away 26%"><span class="h" style="width:53.0%"></span><span class="d" style="width:21.1%"></span><span class="a" style="width:25.9%"></span></div><span class="arm__p">53 · 21 · 26</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 53%, draw 23%, away 25%"><span class="h" style="width:52.5%"></span><span class="d" style="width:22.9%"></span><span class="a" style="width:24.5%"></span></div><span class="arm__p">53 · 23 · 25</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 56%, draw 23%, away 21%"><span class="h" style="width:55.8%"></span><span class="d" style="width:22.8%"></span><span class="a" style="width:21.4%"></span></div><span class="arm__p">56 · 23 · 21</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">BET</span>
+          <span class="bug__name">Real Betis</span></div>
+        <div class="bug__mid"><span class="bug__score">3–2</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">POR</span>
+          <span class="bug__name">Porto</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 47%, draw 26%, away 28%"><span class="h" style="width:46.6%"></span><span class="d" style="width:25.6%"></span><span class="a" style="width:27.8%"></span></div><div class="trio"><span>home <b>47%</b></span><span>draw 26%</span><span>away 28%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 37%, draw 28%, away 35%"><span class="h" style="width:37.0%"></span><span class="d" style="width:27.8%"></span><span class="a" style="width:35.1%"></span></div><div class="trio"><span>home <b>37%</b></span><span>draw 28%</span><span>away 35%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Real Betis" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Porto" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Real Betis" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Real Betis" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Porto" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Real Betis" width="28" height="28" loading="lazy"><span class="crowd__txt">4 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 37%, draw 28%, away 35%"><span class="h" style="width:36.7%"></span><span class="d" style="width:28.2%"></span><span class="a" style="width:35.2%"></span></div><span class="arm__p">37 · 28 · 35</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 37%, draw 28%, away 36%"><span class="h" style="width:36.6%"></span><span class="d" style="width:27.9%"></span><span class="a" style="width:35.5%"></span></div><span class="arm__p">37 · 28 · 36</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 27%, draw 26%, away 47%"><span class="h" style="width:27.2%"></span><span class="d" style="width:26.1%"></span><span class="a" style="width:46.6%"></span></div><span class="arm__p">27 · 26 · 47</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 38%, draw 30%, away 32%"><span class="h" style="width:37.9%"></span><span class="d" style="width:29.9%"></span><span class="a" style="width:32.3%"></span></div><span class="arm__p">38 · 30 · 32</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 35%, draw 29%, away 36%"><span class="h" style="width:34.9%"></span><span class="d" style="width:28.7%"></span><span class="a" style="width:36.4%"></span></div><span class="arm__p">35 · 29 · 36</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 49%, draw 26%, away 25%"><span class="h" style="width:49.1%"></span><span class="d" style="width:26.3%"></span><span class="a" style="width:24.7%"></span></div><span class="arm__p">49 · 26 · 25</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">ROM</span>
+          <span class="bug__name">Roma</span></div>
+        <div class="bug__mid"><span class="bug__score">3–4</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">RMA</span>
+          <span class="bug__name">Real Madrid</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 27%, draw 24%, away 49%"><span class="h" style="width:27.0%"></span><span class="d" style="width:23.6%"></span><span class="a" style="width:49.4%"></span></div><div class="trio"><span>home 27%</span><span>draw 24%</span><span>away <b>49%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 33%, draw 25%, away 42%"><span class="h" style="width:33.2%"></span><span class="d" style="width:25.1%"></span><span class="a" style="width:41.7%"></span></div><div class="trio"><span>home 33%</span><span>draw 25%</span><span>away <b>42%</b></span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Real Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Real Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Real Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Real Madrid" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Real Madrid" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Roma" width="28" height="28" loading="lazy"><span class="crowd__txt">5 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 29%, draw 25%, away 46%"><span class="h" style="width:28.5%"></span><span class="d" style="width:25.1%"></span><span class="a" style="width:46.4%"></span></div><span class="arm__p">29 · 25 · 46</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 29%, draw 25%, away 46%"><span class="h" style="width:29.2%"></span><span class="d" style="width:25.2%"></span><span class="a" style="width:45.6%"></span></div><span class="arm__p">29 · 25 · 46</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 35%, draw 27%, away 38%"><span class="h" style="width:34.6%"></span><span class="d" style="width:27.0%"></span><span class="a" style="width:38.4%"></span></div><span class="arm__p">35 · 27 · 38</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 31%, draw 25%, away 44%"><span class="h" style="width:31.4%"></span><span class="d" style="width:24.6%"></span><span class="a" style="width:43.9%"></span></div><span class="arm__p">31 · 25 · 44</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 26%, draw 25%, away 48%"><span class="h" style="width:26.4%"></span><span class="d" style="width:25.2%"></span><span class="a" style="width:48.4%"></span></div><span class="arm__p">26 · 25 · 48</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 49%, draw 23%, away 28%"><span class="h" style="width:49.3%"></span><span class="d" style="width:23.2%"></span><span class="a" style="width:27.5%"></span></div><span class="arm__p">49 · 23 · 28</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">SHA</span>
+          <span class="bug__name">Shakhtar Donetsk</span></div>
+        <div class="bug__mid"><span class="bug__score">3–1</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">AEK</span>
+          <span class="bug__name">AEK Athens</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 36%, draw 28%, away 36%"><span class="h" style="width:35.9%"></span><span class="d" style="width:27.9%"></span><span class="a" style="width:36.2%"></span></div><div class="trio"><span>home <b>36%</b></span><span>draw 28%</span><span>away 36%</span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 43%, draw 28%, away 29%"><span class="h" style="width:43.4%"></span><span class="d" style="width:27.7%"></span><span class="a" style="width:28.9%"></span></div><div class="trio"><span>home <b>43%</b></span><span>draw 28%</span><span>away 29%</span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: Shakhtar Donetsk" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Shakhtar Donetsk" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: Shakhtar Donetsk" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: Shakhtar Donetsk" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: Shakhtar Donetsk" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: Shakhtar Donetsk" width="28" height="28" loading="lazy"><span class="crowd__txt">6 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 45%, draw 28%, away 27%"><span class="h" style="width:45.1%"></span><span class="d" style="width:27.6%"></span><span class="a" style="width:27.3%"></span></div><span class="arm__p">45 · 28 · 27</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 40%, draw 27%, away 32%"><span class="h" style="width:40.4%"></span><span class="d" style="width:27.2%"></span><span class="a" style="width:32.4%"></span></div><span class="arm__p">40 · 27 · 32</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 45%, draw 26%, away 28%"><span class="h" style="width:45.3%"></span><span class="d" style="width:26.3%"></span><span class="a" style="width:28.4%"></span></div><span class="arm__p">45 · 26 · 28</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 50%, draw 28%, away 22%"><span class="h" style="width:49.8%"></span><span class="d" style="width:27.7%"></span><span class="a" style="width:22.4%"></span></div><span class="arm__p">50 · 28 · 22</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 44%, draw 28%, away 28%"><span class="h" style="width:44.2%"></span><span class="d" style="width:28.0%"></span><span class="a" style="width:27.8%"></span></div><span class="arm__p">44 · 28 · 28</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 36%, draw 29%, away 35%"><span class="h" style="width:35.6%"></span><span class="d" style="width:29.3%"></span><span class="a" style="width:35.0%"></span></div><span class="arm__p">36 · 29 · 35</span></div></div></details></article><article class="match">
+      <div class="bug">
+        <div class="bug__team"><span class="bug__code">SLO</span>
+          <span class="bug__name">Slovan Bratislava</span></div>
+        <div class="bug__mid"><span class="bug__score">0–3</span><span class="bug__note">full time</span></div>
+        <div class="bug__team bug__team--away"><span class="bug__code">VFB</span>
+          <span class="bug__name">VfB Stuttgart</span></div>
+      </div><div class="match__rows"><div class="mrow"><span class="mrow__k">Market</span><div><div class="bar bar--lg" role="img" aria-label="market home 11%, draw 16%, away 74%"><span class="h" style="width:10.6%"></span><span class="d" style="width:15.6%"></span><span class="a" style="width:73.8%"></span></div><div class="trio"><span>home 11%</span><span>draw 16%</span><span>away <b>74%</b></span></div></div></div><div class="mrow"><span class="mrow__k">Models</span><div><div class="bar" role="img" aria-label="average of models home 24%, draw 20%, away 56%"><span class="h" style="width:23.7%"></span><span class="d" style="width:20.3%"></span><span class="a" style="width:56.0%"></span></div><div class="trio"><span>home 24%</span><span>draw 20%</span><span>away <b>56%</b></span></div></div></div></div><div class="crowd"><img class="hit" src="assets/avatar-dixon_coles.webp" alt="Dixon–Coles" title="Dixon–Coles: VfB Stuttgart" width="28" height="28" loading="lazy"><img class="miss" src="assets/avatar-elo_xleague.webp" alt="Elo" title="Elo: Slovan Bratislava" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-hier_bayes.webp" alt="Bayesian" title="Bayesian: VfB Stuttgart" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gbm.webp" alt="LightGBM" title="LightGBM: VfB Stuttgart" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-gnn.webp" alt="Graph net" title="Graph net: VfB Stuttgart" width="28" height="28" loading="lazy"><img class="hit" src="assets/avatar-sequence.webp" alt="Sequence" title="Sequence: VfB Stuttgart" width="28" height="28" loading="lazy"><span class="crowd__txt">5 of 6 called it</span></div><details><summary>Every model</summary><div class="arms"><div class="arm"><img src="assets/avatar-dixon_coles.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Dixon–Coles</span><div class="bar" role="img" aria-label="Dixon–Coles home 16%, draw 18%, away 66%"><span class="h" style="width:16.5%"></span><span class="d" style="width:17.6%"></span><span class="a" style="width:65.9%"></span></div><span class="arm__p">16 · 18 · 66</span></div><div class="arm"><img src="assets/avatar-hier_bayes.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Bayesian</span><div class="bar" role="img" aria-label="Bayesian home 20%, draw 19%, away 61%"><span class="h" style="width:20.1%"></span><span class="d" style="width:18.8%"></span><span class="a" style="width:61.1%"></span></div><span class="arm__p">20 · 19 · 61</span></div><div class="arm"><img src="assets/avatar-elo_xleague.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Elo</span><div class="bar" role="img" aria-label="Elo home 37%, draw 27%, away 36%"><span class="h" style="width:37.0%"></span><span class="d" style="width:27.0%"></span><span class="a" style="width:36.0%"></span></div><span class="arm__p">37 · 27 · 36</span></div><div class="arm"><img src="assets/avatar-gbm.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">LightGBM</span><div class="bar" role="img" aria-label="LightGBM home 18%, draw 19%, away 63%"><span class="h" style="width:18.4%"></span><span class="d" style="width:19.0%"></span><span class="a" style="width:62.7%"></span></div><span class="arm__p">18 · 19 · 63</span></div><div class="arm"><img src="assets/avatar-gnn.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Graph net</span><div class="bar" role="img" aria-label="Graph net home 15%, draw 17%, away 69%"><span class="h" style="width:14.6%"></span><span class="d" style="width:16.8%"></span><span class="a" style="width:68.6%"></span></div><span class="arm__p">15 · 17 · 69</span></div><div class="arm"><img src="assets/avatar-sequence.webp" alt="" width="180" height="180" loading="lazy"><span class="arm__n">Sequence</span><div class="bar" role="img" aria-label="Sequence home 35%, draw 23%, away 42%"><span class="h" style="width:35.4%"></span><span class="d" style="width:22.8%"></span><span class="a" style="width:41.8%"></span></div><span class="arm__p">35 · 23 · 42</span></div></div></details></article></div></div>
+  <div class="mdnav"><a class="more" href="matchday-1.html">Matchday 1</a><a class="more" href="matchdays.html">All matchdays</a><a class="more" href="matchday-3.html">Matchday 3</a></div>
+</div></section></main>
+<footer class="foot"><div class="wrap foot__inner">
+  <p>Fake money only. No real bets are placed, and the models never see betting odds.</p>
+  <p>Updated 19 Nov 2026, 10:44 UTC · <a href="https://github.com/sahildayal/UCL_PREDICTOR">Source on GitHub</a></p>
+</div></footer>
+<script>
+(function(){
+  var btn=document.querySelector('.theme-btn'); if(!btn) return;
+  btn.addEventListener('click',function(){
+    var root=document.documentElement;
+    var next=root.dataset.theme==='light'?'dark':'light';
+    root.dataset.theme=next;
+    btn.setAttribute('aria-label', next==='light'?'Switch to night mode':'Switch to day mode');
+    try{localStorage.setItem('ucl-theme',next);}catch(e){}
+  });
+  // Kickoff times are written in UTC; show them in the reader's own timezone.
+  document.querySelectorAll('time[data-kick]').forEach(function(el){
+    var d=new Date(el.getAttribute('datetime')); if(isNaN(d)) return;
+    el.textContent=d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    el.title=d.toLocaleString();
+  });
+})();
+</script>
+</body></html>

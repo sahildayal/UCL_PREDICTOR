@@ -622,3 +622,63 @@ def test_sequence_v2_starts_exactly_at_its_backbone():
     lam_h, lam_a = backbone.lambdas("a1", "b2", euro=True)
     assert abs(prediction.home_lambda - lam_h) < 1e-4
     assert abs(prediction.away_lambda - lam_a) < 1e-4
+
+
+# --- public site -------------------------------------------------------------
+
+def _site_inputs():
+    """Two briefs for one matchday (Tue + Wed), the Wednesday game in both."""
+    arms = {"dixon_coles": {"home": 0.5, "draw": 0.3, "away": 0.2},
+            "gbm": {"home": 0.2, "draw": 0.3, "away": 0.5}}
+    tue_game = {"date": "2026-11-03", "kickoff": "21:00", "matchday": 4, "home": "lens",
+                "away": "como", "home_display": "RC Lens", "away_display": "Como",
+                "arms": arms, "market": {"home": 0.3, "draw": 0.3, "away": 0.4}}
+    wed_game = dict(tue_game, date="2026-11-04", home="psv", away="club brugge",
+                    home_display="PSV", away_display="Club Brugge")
+    briefs = [
+        {"as_of": "2026-11-03", "generated_at": "2026-11-03T10:00:00+00:00",
+         "fixtures": [tue_game, wed_game], "qualification": [], "arm_summary": []},
+        {"as_of": "2026-11-04", "generated_at": "2026-11-04T10:00:00+00:00",
+         "fixtures": [dict(wed_game, arms={"gbm": {"home": 0.9, "draw": 0.05, "away": 0.05}})],
+         "qualification": [], "arm_summary": []},
+        {"as_of": "2026-11-10", "generated_at": "2026-11-10T10:00:00+00:00",
+         "fixtures": [], "qualification": [], "arm_summary": []},
+    ]
+    results = {("lens", "como", "2026-11-03"): (0, 1),
+               ("psv", "club brugge", "2026-11-04"): (2, 2)}
+    return briefs, results
+
+
+def test_site_counts_each_fixture_once_and_skips_empty_briefs(tmp_path):
+    """The old site counted Wednesday games twice and listed empty off-weeks."""
+    from ucl.report import site
+
+    briefs, results = _site_inputs()
+    ctx = site.build_context(briefs, results, schedule=[], ledger=None)
+    assert list(ctx["matchdays"]) == [4]
+    md = ctx["matchdays"][4]
+    assert len(md["rows"]) == 2 and md["played"] == 2 and md["status"] == "played"
+    wed = next(r for r in md["rows"] if r["key"][0] == "psv")
+    # the earliest on-time forecast is the one shown, as the scoreboard scores it
+    assert "dixon_coles" in wed["entry"]["arms"]
+
+
+def test_site_builds_every_page_and_redirects_old_urls(tmp_path):
+    from ucl.report import site
+
+    briefs, results = _site_inputs()
+    site.build_site(results, tmp_path, briefs=briefs, schedule=[], ledger=None)
+    for name in ("index.html", "matchdays.html", "models.html", "bankrolls.html",
+                 "table.html", "how-it-works.html", "matchday-4.html"):
+        assert (tmp_path / name).exists(), name
+    assert "matchday-4.html" in (tmp_path / "matchday-2026-11-04.html").read_text("utf-8")
+    assert "matchdays.html" in (tmp_path / "matchday-2026-11-10.html").read_text("utf-8")
+    index = (tmp_path / "index.html").read_text("utf-8")
+    assert "matchday ?" not in index.lower()
+
+
+def test_top_24_includes_the_top_8():
+    from ucl.report.site import _top24
+
+    assert _top24({"top8": 0.96, "playoff": 0.04}) == 1.0
+    assert _top24({"top8": 0.5, "playoff": 0.3, "advance": 0.8}) == 0.8

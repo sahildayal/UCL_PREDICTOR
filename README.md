@@ -8,9 +8,15 @@ decision to a human. There is no order placement anywhere in this repository and
 no path to add one by configuration.
 
 **Live dashboard: [sahildayal.me/UCL_PREDICTOR](https://sahildayal.me/UCL_PREDICTOR/)**
-— season scoreboard, the current matchday, and a permanent archive of every
-matchday as it was forecast before kickoff. Rebuilt automatically by
-`predict.yml` and `settle.yml`; nothing on it is hand-edited.
+— six pages behind one nav bar: Overview (models v market scoreboard, next
+matchday, leaderboard, upsets), Matchdays (one permanent page per matchday as it
+was forecast before kickoff, with results attached), Models (a profile per
+model), Bankrolls (paper equity curves and every bet), Table (live standings plus
+projected finish) and How it works (pipeline, rules, and every bug that touched a
+forecast). Rebuilt automatically by `predict.yml` and `settle.yml` from
+`src/ucl/report/site.py` and `theme.py`; nothing on it is hand-edited. Images in
+`docs/assets/` are AI-generated originals (no club crests, competition marks or
+real people).
 
 See [DESIGN.md](DESIGN.md) for why it is built the way it is.
 
