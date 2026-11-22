@@ -682,3 +682,21 @@ def test_top_24_includes_the_top_8():
 
     assert _top24({"top8": 0.96, "playoff": 0.04}) == 1.0
     assert _top24({"top8": 0.5, "playoff": 0.3, "advance": 0.8}) == 0.8
+
+
+def test_rail_lists_the_next_matchday_on_every_page(tmp_path):
+    """The left rail shows the next matchday's games and links each to its card."""
+    from ucl.report import site
+
+    briefs, results = _site_inputs()
+    schedule = [{"key": ("arsenal", "bayern munich", "2099-11-24"), "md": 5,
+                 "date": "2099-11-24", "time": "21:00",
+                 "home_name": "Arsenal", "away_name": "Bayern Munich"}]
+    site.build_site(results, tmp_path, briefs=briefs, schedule=schedule, ledger=None)
+    for name in ("index.html", "models.html", "table.html", "matchday-4.html"):
+        page = (tmp_path / name).read_text("utf-8")
+        assert 'class="rail"' in page and "Matchday 5" in page, name
+        assert 'href="matchday-5.html#m-arsenal-bayern-munich"' in page, name
+    assert 'id="m-arsenal-bayern-munich"' in (tmp_path / "matchday-5.html").read_text("utf-8")
+    # a played matchday is never offered as "up next"
+    assert "matchday-4.html#" not in (tmp_path / "index.html").read_text("utf-8")

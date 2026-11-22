@@ -425,6 +425,52 @@ table.t{border-collapse:collapse; width:100%; font-size:14.5px}
 .foot{border-top:1px solid var(--line); margin-top:24px; padding-block:28px 40px; color:var(--ink-3); font-size:14px}
 .foot__inner{display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between}
 .foot a{color:var(--ink-2)}
+
+/* upcoming-games rail: fills the empty left gutter on wide screens only */
+.bar--xs{height:5px; gap:1px; border-radius:3px}
+.rail{display:none}
+.match{scroll-margin-top:84px}
+.match:target{outline:2px solid var(--amber); outline-offset:2px}
+@media (min-width:1720px){
+  .rail{display:flex; flex-direction:column; position:fixed; z-index:10; top:76px;
+    max-height:calc(100vh - 92px);
+    width:min(296px, calc((100vw - 1200px) / 2 - 24px));
+    left:max(20px, calc((100vw - 1200px) / 2 - 320px));
+    background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow)}
+}
+:root[data-theme="light"] .rail{background:var(--panel)}
+.rail__head{padding:16px 18px 10px; border-bottom:1px solid var(--line)}
+.rail__kicker{color:var(--ink-3); font-size:13.5px; font-weight:600}
+.rail__title{font-size:30px; font-weight:900; margin-top:2px}
+.rail__title a{text-decoration:none}
+.rail__title a:hover{color:var(--amber)}
+.rail__body{overflow-y:auto; padding:4px 10px 8px; scrollbar-width:thin;
+  scrollbar-color:var(--line-strong) transparent}
+.rail__day{font-family:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif; font-size:13px;
+  font-weight:700; color:var(--ink-3); padding:12px 8px 4px; letter-spacing:.01em}
+.rail__list{list-style:none; margin:0; padding:0}
+.rf{display:grid; grid-template-columns:44px 96px minmax(40px,1fr); align-items:center; column-gap:10px;
+  padding:7px 8px; border-radius:8px; text-decoration:none; color:var(--ink-2)}
+.rf:hover{background:var(--panel); color:var(--ink)}
+.rf[aria-current="true"]{background:var(--panel-2); color:var(--ink);
+  box-shadow:inset 3px 0 0 var(--amber)}
+.rf .bar{grid-column:3}
+.rf__time{font-size:13.5px; color:var(--ink-3)}
+.rf__score{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:18px;
+  color:var(--amber); line-height:1}
+.rf__teams{display:flex; align-items:baseline; gap:7px; font-size:15px}
+.rf__teams b{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:18px;
+  letter-spacing:.03em; color:var(--ink); line-height:1}
+.rf__v{color:var(--ink-3); font-size:13px}
+.rf--done .rf__teams b{color:var(--ink-2)}
+.rail__foot{border-top:1px solid var(--line); padding:10px 18px 14px; display:grid; gap:8px}
+.rail__legend{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:13px; color:var(--ink-2)}
+.rail__legend span{display:inline-flex; align-items:center; gap:5px}
+.rail__legend i{width:10px; height:5px; border-radius:2px}
+.rail__legend i.h{background:var(--home)} .rail__legend i.d{background:var(--draw)} .rail__legend i.a{background:var(--away)}
+.rail__note{font-size:13.5px; color:var(--ink-3)}
+.rail__more{font-weight:700; font-size:14.5px; color:var(--ink); text-decoration-color:var(--amber);
+  text-underline-offset:4px}
 </style>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
@@ -441,7 +487,13 @@ table.t{border-collapse:collapse; width:100%; font-size:14.5px}
 <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
  stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
   </div>
-</div></header><main id="main">
+</div></header>
+<aside class="rail" aria-label="Upcoming games">
+  <div class="rail__head"><p class="rail__kicker">Up next</p>
+    <h2 class="rail__title"><a href="matchday-5.html">Matchday 5</a></h2></div>
+  <div class="rail__body"><h3 class="rail__day">Tuesday 24 Nov</h3><ol class="rail__list"><li><a class="rf" href="matchday-5.html#m-bodo-glimt-lask" title="Bodø/Glimt v LASK" data-card="m-bodo-glimt-lask"><span class="rf__time"><time data-kick datetime="2026-11-24T17:45:00+00:00">17:45 UTC</time></span><span class="rf__teams"><b>BOD</b><span class="rf__v">v</span><b>LASK</b></span></a></li><li><a class="rf" href="matchday-5.html#m-galatasaray-aston-villa" title="Galatasaray v Aston Villa" data-card="m-galatasaray-aston-villa"><span class="rf__time"><time data-kick datetime="2026-11-24T17:45:00+00:00">17:45 UTC</time></span><span class="rf__teams"><b>GAL</b><span class="rf__v">v</span><b>AVL</b></span></a></li><li><a class="rf" href="matchday-5.html#m-arsenal-borussia-dortmund" title="Arsenal v Borussia Dortmund" data-card="m-arsenal-borussia-dortmund"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>ARS</b><span class="rf__v">v</span><b>BVB</b></span></a></li><li><a class="rf" href="matchday-5.html#m-como-aek-athens" title="Como v AEK Athens" data-card="m-como-aek-athens"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>COM</b><span class="rf__v">v</span><b>AEK</b></span></a></li><li><a class="rf" href="matchday-5.html#m-feyenoord-porto" title="Feyenoord v Porto" data-card="m-feyenoord-porto"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>FEY</b><span class="rf__v">v</span><b>POR</b></span></a></li><li><a class="rf" href="matchday-5.html#m-manchester-city-napoli" title="Manchester City v Napoli" data-card="m-manchester-city-napoli"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>MCI</b><span class="rf__v">v</span><b>NAP</b></span></a></li><li><a class="rf" href="matchday-5.html#m-rb-leipzig-lens" title="RB Leipzig v Lens" data-card="m-rb-leipzig-lens"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>RBL</b><span class="rf__v">v</span><b>RCL</b></span></a></li><li><a class="rf" href="matchday-5.html#m-real-madrid-psv" title="Real Madrid v PSV Eindhoven" data-card="m-real-madrid-psv"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>RMA</b><span class="rf__v">v</span><b>PSV</b></span></a></li><li><a class="rf" href="matchday-5.html#m-slovan-bratislava-real-betis" title="Slovan Bratislava v Real Betis" data-card="m-slovan-bratislava-real-betis"><span class="rf__time"><time data-kick datetime="2026-11-24T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>SLO</b><span class="rf__v">v</span><b>BET</b></span></a></li></ol><h3 class="rail__day">Wednesday 25 Nov</h3><ol class="rail__list"><li><a class="rf" href="matchday-5.html#m-sabah-barcelona" title="Sabah v Barcelona" data-card="m-sabah-barcelona"><span class="rf__time"><time data-kick datetime="2026-11-25T17:45:00+00:00">17:45 UTC</time></span><span class="rf__teams"><b>SAB</b><span class="rf__v">v</span><b>BAR</b></span></a></li><li><a class="rf" href="matchday-5.html#m-slavia-prague-villarreal" title="Slavia Prague v Villarreal" data-card="m-slavia-prague-villarreal"><span class="rf__time"><time data-kick datetime="2026-11-25T17:45:00+00:00">17:45 UTC</time></span><span class="rf__teams"><b>SLA</b><span class="rf__v">v</span><b>VIL</b></span></a></li><li><a class="rf" href="matchday-5.html#m-atletico-madrid-viking" title="Atlético Madrid v Viking" data-card="m-atletico-madrid-viking"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>ATM</b><span class="rf__v">v</span><b>VIK</b></span></a></li><li><a class="rf" href="matchday-5.html#m-club-brugge-liverpool" title="Club Brugge v Liverpool" data-card="m-club-brugge-liverpool"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>BRU</b><span class="rf__v">v</span><b>LIV</b></span></a></li><li><a class="rf" href="matchday-5.html#m-inter-stuttgart" title="Inter Milan v VfB Stuttgart" data-card="m-inter-stuttgart"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>INT</b><span class="rf__v">v</span><b>VFB</b></span></a></li><li><a class="rf" href="matchday-5.html#m-lille-bayern-munich" title="Lille v Bayern Munich" data-card="m-lille-bayern-munich"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>LIL</b><span class="rf__v">v</span><b>BAY</b></span></a></li><li><a class="rf" href="matchday-5.html#m-psg-roma" title="Paris Saint-Germain v Roma" data-card="m-psg-roma"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>PSG</b><span class="rf__v">v</span><b>ROM</b></span></a></li><li><a class="rf" href="matchday-5.html#m-shakhtar-donetsk-fenerbahce" title="Shakhtar Donetsk v Fenerbahçe" data-card="m-shakhtar-donetsk-fenerbahce"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>SHA</b><span class="rf__v">v</span><b>FEN</b></span></a></li><li><a class="rf" href="matchday-5.html#m-sporting-manchester-united" title="Sporting CP v Manchester United" data-card="m-sporting-manchester-united"><span class="rf__time"><time data-kick datetime="2026-11-25T20:00:00+00:00">20:00 UTC</time></span><span class="rf__teams"><b>SCP</b><span class="rf__v">v</span><b>MUN</b></span></a></li></ol></div>
+  <div class="rail__foot"><p class="rail__note">Forecasts land on the morning of each game.</p><a class="rail__more" href="matchday-5.html">All 18 games</a></div>
+</aside><main id="main">
 <div class="band">
   <picture class="band__img">
     <source media="(max-width:700px)" srcset="assets/section-matchdays-800.webp">
@@ -502,6 +554,16 @@ table.t{border-collapse:collapse; width:100%; font-size:14.5px}
     el.textContent=d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
     el.title=d.toLocaleString();
   });
+  // On the matchday page, light up the rail entry for the game on screen.
+  var links=document.querySelectorAll('.rf[data-card]');
+  if(links.length && 'IntersectionObserver' in window){
+    var byId={}; links.forEach(function(a){byId[a.dataset.card]=a;});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      var a=byId[e.target.id]; if(!a) return;
+      if(e.isIntersecting) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+    });},{rootMargin:'-45% 0px -45% 0px'});
+    Object.keys(byId).forEach(function(id){var c=document.getElementById(id); if(c) io.observe(c);});
+  }
 })();
 </script>
 </body></html>

@@ -440,6 +440,52 @@ table.t{border-collapse:collapse; width:100%; font-size:14.5px}
 .foot{border-top:1px solid var(--line); margin-top:24px; padding-block:28px 40px; color:var(--ink-3); font-size:14px}
 .foot__inner{display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between}
 .foot a{color:var(--ink-2)}
+
+/* upcoming-games rail: fills the empty left gutter on wide screens only */
+.bar--xs{height:5px; gap:1px; border-radius:3px}
+.rail{display:none}
+.match{scroll-margin-top:84px}
+.match:target{outline:2px solid var(--amber); outline-offset:2px}
+@media (min-width:1720px){
+  .rail{display:flex; flex-direction:column; position:fixed; z-index:10; top:76px;
+    max-height:calc(100vh - 92px);
+    width:min(296px, calc((100vw - 1200px) / 2 - 24px));
+    left:max(20px, calc((100vw - 1200px) / 2 - 320px));
+    background:var(--bg-2); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow)}
+}
+:root[data-theme="light"] .rail{background:var(--panel)}
+.rail__head{padding:16px 18px 10px; border-bottom:1px solid var(--line)}
+.rail__kicker{color:var(--ink-3); font-size:13.5px; font-weight:600}
+.rail__title{font-size:30px; font-weight:900; margin-top:2px}
+.rail__title a{text-decoration:none}
+.rail__title a:hover{color:var(--amber)}
+.rail__body{overflow-y:auto; padding:4px 10px 8px; scrollbar-width:thin;
+  scrollbar-color:var(--line-strong) transparent}
+.rail__day{font-family:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif; font-size:13px;
+  font-weight:700; color:var(--ink-3); padding:12px 8px 4px; letter-spacing:.01em}
+.rail__list{list-style:none; margin:0; padding:0}
+.rf{display:grid; grid-template-columns:44px 96px minmax(40px,1fr); align-items:center; column-gap:10px;
+  padding:7px 8px; border-radius:8px; text-decoration:none; color:var(--ink-2)}
+.rf:hover{background:var(--panel); color:var(--ink)}
+.rf[aria-current="true"]{background:var(--panel-2); color:var(--ink);
+  box-shadow:inset 3px 0 0 var(--amber)}
+.rf .bar{grid-column:3}
+.rf__time{font-size:13.5px; color:var(--ink-3)}
+.rf__score{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:18px;
+  color:var(--amber); line-height:1}
+.rf__teams{display:flex; align-items:baseline; gap:7px; font-size:15px}
+.rf__teams b{font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; font-size:18px;
+  letter-spacing:.03em; color:var(--ink); line-height:1}
+.rf__v{color:var(--ink-3); font-size:13px}
+.rf--done .rf__teams b{color:var(--ink-2)}
+.rail__foot{border-top:1px solid var(--line); padding:10px 18px 14px; display:grid; gap:8px}
+.rail__legend{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:13px; color:var(--ink-2)}
+.rail__legend span{display:inline-flex; align-items:center; gap:5px}
+.rail__legend i{width:10px; height:5px; border-radius:2px}
+.rail__legend i.h{background:var(--home)} .rail__legend i.d{background:var(--draw)} .rail__legend i.a{background:var(--away)}
+.rail__note{font-size:13.5px; color:var(--ink-3)}
+.rail__more{font-weight:700; font-size:14.5px; color:var(--ink); text-decoration-color:var(--amber);
+  text-underline-offset:4px}
 """
 
 THEME_BOOT = """<script>
@@ -463,6 +509,16 @@ THEME_TOGGLE = """<script>
     el.textContent=d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
     el.title=d.toLocaleString();
   });
+  // On the matchday page, light up the rail entry for the game on screen.
+  var links=document.querySelectorAll('.rf[data-card]');
+  if(links.length && 'IntersectionObserver' in window){
+    var byId={}; links.forEach(function(a){byId[a.dataset.card]=a;});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      var a=byId[e.target.id]; if(!a) return;
+      if(e.isIntersecting) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+    });},{rootMargin:'-45% 0px -45% 0px'});
+    Object.keys(byId).forEach(function(id){var c=document.getElementById(id); if(c) io.observe(c);});
+  }
 })();
 </script>"""
 

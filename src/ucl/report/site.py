@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 from collections import defaultdict
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -385,11 +386,12 @@ def _money(value: float, signed: bool = False) -> str:
     return f"${value:,.0f}"
 
 
-def _bar(view: dict, *, large: bool = False, label: str = "") -> str:
+def _bar(view: dict, *, large: bool = False, small: bool = False, label: str = "") -> str:
     total = sum(view[k] for k in OUTCOMES) or 1
     h, d, a = (view[k] / total * 100 for k in OUTCOMES)
     aria = f"{label} home {h:.0f}%, draw {d:.0f}%, away {a:.0f}%".strip()
-    return (f'<div class="bar{" bar--lg" if large else ""}" role="img" aria-label="{esc(aria)}">'
+    size = " bar--lg" if large else (" bar--xs" if small else "")
+    return (f'<div class="bar{size}" role="img" aria-label="{esc(aria)}">'
             f'<span class="h" style="width:{h:.1f}%"></span>'
             f'<span class="d" style="width:{d:.1f}%"></span>'
             f'<span class="a" style="width:{a:.1f}%"></span></div>')
@@ -410,6 +412,11 @@ def _kick_html(row: dict) -> str:
         utc = datetime.fromisoformat(row["kick"]).strftime("%H:%M")
         return f'<time data-kick datetime="{esc(row["kick"])}">{utc} UTC</time>'
     return esc(row.get("time") or "")
+
+
+def _anchor(row: dict) -> str:
+    home, away, _ = row["key"]
+    return "m-" + re.sub(r"[^a-z0-9]+", "-", f"{home} {away}".lower()).strip("-")
 
 
 def match_card(row: dict) -> str:
@@ -433,7 +440,7 @@ def match_card(row: dict) -> str:
         note = ("Forecasts are published the morning of the match."
                 if not row["result"] else "Not forecast: played before the lab went live.")
         parts.append(f'<p class="flag">{note}</p>')
-        return f'<article class="match">{"".join(parts)}</article>'
+        return f'<article class="match" id="{_anchor(row)}">{"".join(parts)}</article>'
 
     market, consensus = _market(entry), _consensus(entry)
     rows_html = []
@@ -476,7 +483,7 @@ def match_card(row: dict) -> str:
         f'{_bar(v, label=_name(n))}<span class="arm__p">{v["home"]*100:.0f} · {v["draw"]*100:.0f} · {v["away"]*100:.0f}</span></div>'
         for n, v in sorted(views, key=lambda nv: ARMS.index(nv[0]) if nv[0] in ARMS else 99))
     parts.append(f'<details><summary>Every model</summary><div class="arms">{arm_rows}</div></details>')
-    return f'<article class="match">{"".join(parts)}</article>'
+    return f'<article class="match" id="{_anchor(row)}">{"".join(parts)}</article>'
 
 
 def _pick_word(pick: str, row: dict) -> str:
@@ -486,8 +493,54 @@ def _pick_word(pick: str, row: dict) -> str:
     return row.get("home_name") or home if pick == "home" else row.get("away_name") or away
 
 
+def rail(ctx: dict) -> str:
+    """Left-hand panel listing the next matchday's games, shown on wide screens only."""
+    focus = next((m for m in ctx["matchdays"].values() if m["status"] in ("live", "next")), None)
+    if not focus:
+        return ""
+    href = f"matchday-{focus['md']}.html"
+    days = []
+    for day in focus["dates"]:
+        items = []
+        for r in (r for r in focus["rows"] if r["date"] == day):
+            home, away, _ = r["key"]
+            names = f"{r.get('home_name') or home.title()} v {r.get('away_name') or away.title()}"
+            consensus = _consensus(r["entry"]) if r["entry"] else None
+            if r["result"]:
+                when = f'<span class="rf__score">{r["result"][0]}–{r["result"][1]}</span>'
+            else:
+                when = f'<span class="rf__time">{_kick_html(r)}</span>'
+            tip = names
+            if consensus:
+                t = sum(consensus.values()) or 1
+                tip += (f". Models: home {consensus['home']/t*100:.0f}%, draw "
+                        f"{consensus['draw']/t*100:.0f}%, away {consensus['away']/t*100:.0f}%")
+            bar = _bar(consensus, small=True, label="models") if consensus else ""
+            done = " rf--done" if r["result"] else ""
+            items.append(f'<li><a class="rf{done}" href="{href}#{_anchor(r)}" title="{esc(tip)}" '
+                         f'data-card="{_anchor(r)}">{when}<span class="rf__teams">'
+                         f'<b>{esc(_code(home))}</b><span class="rf__v">v</span><b>{esc(_code(away))}</b>'
+                         f'</span>{bar}</a></li>')
+        days.append(f'<h3 class="rail__day">{esc(_day(day, "%A %d %b"))}</h3>'
+                    f'<ol class="rail__list">{"".join(items)}</ol>')
+    if focus["forecast"]:
+        note = ('<p class="rail__legend"><span><i class="h"></i>home</span>'
+                '<span><i class="d"></i>draw</span><span><i class="a"></i>away</span>'
+                '<span class="muted">models’ average</span></p>')
+    else:
+        note = '<p class="rail__note">Forecasts land on the morning of each game.</p>'
+    label = "Live now" if focus["status"] == "live" else "Up next"
+    return f"""
+<aside class="rail" aria-label="Upcoming games">
+  <div class="rail__head"><p class="rail__kicker">{label}</p>
+    <h2 class="rail__title"><a href="{href}">Matchday {focus['md']}</a></h2></div>
+  <div class="rail__body">{''.join(days)}</div>
+  <div class="rail__foot">{note}<a class="rail__more" href="{href}">All {len(focus['rows'])} games</a></div>
+</aside>"""
+
+
 def _page(title: str, description: str, path: str, current: str, ctx: dict, body: str) -> str:
-    return (head(title, description, path=path) + nav(current, ctx["pill"])
+    return (head(title, description, path=path) + nav(current, ctx["pill"]) + rail(ctx)
             + f'<main id="main">{body}</main>' + foot(ctx["generated"]))
 
 
