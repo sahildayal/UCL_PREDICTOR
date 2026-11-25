@@ -1,10 +1,10 @@
 {
-  "saved_at": "2026-11-25T11:41:07+00:00",
+  "saved_at": "2026-11-25T17:41:19+00:00",
   "arms": {
     "dixon_coles:science": {
       "name": "dixon_coles",
       "regime": "science",
-      "bankroll": 9391.59,
+      "bankroll": 10288.03,
       "starting_bankroll": 10000.0,
       "hypothesis": "Club strength is league strength plus a shrunk club deviation; goals are Poisson with a low-score correction.",
       "bets": [
@@ -948,10 +948,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.02574216286305442,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -970,10 +970,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.05443832920163616,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -992,10 +992,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.008152353521348688,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -1014,10 +1014,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.012934645643751075,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -1036,10 +1036,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": -0.0036334925431930065,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -1058,10 +1058,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": -0.019264911834046106,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -1080,10 +1080,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.17904252611146587,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -1102,10 +1102,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.10330874218429398,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -1124,10 +1124,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.0556807276915825,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -1333,7 +1333,7 @@
     "dixon_coles:edge_gated": {
       "name": "dixon_coles",
       "regime": "edge_gated",
-      "bankroll": 8953.31,
+      "bankroll": 9642.54,
       "starting_bankroll": 10000.0,
       "hypothesis": "Club strength is league strength plus a shrunk club deviation; goals are Poisson with a low-score correction.",
       "bets": [
@@ -1617,10 +1617,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.05443832920163616,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 689.23,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -1672,7 +1672,7 @@
     "elo_xleague:science": {
       "name": "elo_xleague",
       "regime": "science",
-      "bankroll": 9275.5,
+      "bankroll": 10263.34,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single rating per club, updated match by match, is enough.",
       "bets": [
@@ -2616,10 +2616,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": -0.05561896809106848,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -2638,10 +2638,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": -0.1256670928130902,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -2660,10 +2660,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.20632119311124908,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -2682,10 +2682,10 @@
           "decimal_odds": 3.3996681847755363,
           "edge": 0.09336492836364085,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -2704,10 +2704,10 @@
           "decimal_odds": 3.159336697909157,
           "edge": 0.2210824445017578,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 315.93,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -2726,10 +2726,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": -0.09433239317910447,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -2748,10 +2748,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.28537453460444934,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -2770,10 +2770,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.31010161177937723,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -2792,10 +2792,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.36686833082921805,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -3001,7 +3001,7 @@
     "elo_xleague:edge_gated": {
       "name": "elo_xleague",
       "regime": "edge_gated",
-      "bankroll": 7259.01,
+      "bankroll": 10174.76,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single rating per club, updated match by match, is enough.",
       "bets": [
@@ -3439,10 +3439,10 @@
           "decimal_odds": 3.3996681847755363,
           "edge": 0.09336492836364085,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -3461,10 +3461,10 @@
           "decimal_odds": 3.159336697909157,
           "edge": 0.2210824445017578,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 2915.75,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -3560,7 +3560,7 @@
     "hier_bayes:science": {
       "name": "hier_bayes",
       "regime": "science",
-      "bankroll": 9391.59,
+      "bankroll": 10288.03,
       "starting_bankroll": 10000.0,
       "hypothesis": "Club ratings are drawn from league-level distributions; integrating over rating uncertainty beats conditioning on its mode, especially for clubs with few observed matches.",
       "bets": [
@@ -4504,10 +4504,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.03720815523093646,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -4526,10 +4526,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.03533102102390728,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -4548,10 +4548,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.060885950759402285,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -4570,10 +4570,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.04304420830452588,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -4592,10 +4592,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": -0.003574500147370263,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -4614,10 +4614,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": -0.024458507697994736,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -4636,10 +4636,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.2050908669142898,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -4658,10 +4658,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.11631429948998495,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -4680,10 +4680,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.09040160434926825,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -4889,7 +4889,7 @@
     "hier_bayes:edge_gated": {
       "name": "hier_bayes",
       "regime": "edge_gated",
-      "bankroll": 9639.47,
+      "bankroll": 10499.88,
       "starting_bankroll": 10000.0,
       "hypothesis": "Club ratings are drawn from league-level distributions; integrating over rating uncertainty beats conditioning on its mode, especially for clubs with few observed matches.",
       "bets": [
@@ -5195,10 +5195,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.03720815523093646,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -5217,10 +5217,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.03533102102390728,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 424.0,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -5239,10 +5239,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.04304420830452588,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 436.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -5272,7 +5272,7 @@
     "gbm:science": {
       "name": "gbm",
       "regime": "science",
-      "bankroll": 9720.31,
+      "bankroll": 10616.75,
       "starting_bankroll": 10000.0,
       "hypothesis": "Tree ensembles on form, rest and fatigue features improve on a ratings-only backbone.",
       "bets": [
@@ -6216,10 +6216,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.09503210351736469,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -6238,10 +6238,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.06333054240206315,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -6260,10 +6260,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": 0.05279883032630117,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -6282,10 +6282,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.07853039460552097,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -6304,10 +6304,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": 0.07517478070872424,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -6326,10 +6326,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": 0.1347821402227548,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -6348,10 +6348,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.1887655157803234,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -6370,10 +6370,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.09704276678403523,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -6392,10 +6392,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": 0.03693067320223187,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -6601,7 +6601,7 @@
     "gbm:edge_gated": {
       "name": "gbm",
       "regime": "edge_gated",
-      "bankroll": 6927.92,
+      "bankroll": 10218.64,
       "starting_bankroll": 10000.0,
       "hypothesis": "Tree ensembles on form, rest and fatigue features improve on a ratings-only backbone.",
       "bets": [
@@ -7039,10 +7039,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.09503210351736469,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -7061,10 +7061,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.06333054240206315,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 973.06,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -7083,10 +7083,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": 0.05279883032630117,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 895.01,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -7105,10 +7105,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.07853039460552097,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 942.16,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -7127,10 +7127,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": 0.07517478070872424,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -7149,10 +7149,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": 0.1347821402227548,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -7171,10 +7171,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": 0.03693067320223187,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 480.49,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -7336,7 +7336,7 @@
     "gnn:science": {
       "name": "gnn",
       "regime": "science",
-      "bankroll": 9176.8,
+      "bankroll": 10073.24,
       "starting_bankroll": 10000.0,
       "hypothesis": "Propagating club representations along the fixture graph captures cross-league strength better than a scalar rating.",
       "bets": [
@@ -8280,10 +8280,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.004260172087423686,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -8302,10 +8302,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.04936741845681103,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -8324,10 +8324,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.016902378738962387,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -8346,10 +8346,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.03303609073881686,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -8368,10 +8368,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": 0.02972658374799353,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -8390,10 +8390,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": -0.04311263860365577,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -8412,10 +8412,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.22018594657095153,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -8434,10 +8434,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.13915000107589237,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -8456,10 +8456,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.018368746795012547,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -8665,7 +8665,7 @@
     "gnn:edge_gated": {
       "name": "gnn",
       "regime": "edge_gated",
-      "bankroll": 8834.85,
+      "bankroll": 9846.13,
       "starting_bankroll": 10000.0,
       "hypothesis": "Propagating club representations along the fixture graph captures cross-league strength better than a scalar rating.",
       "bets": [
@@ -9015,10 +9015,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": 0.04936741845681103,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 648.74,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -9037,10 +9037,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.03303609073881686,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 362.54,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -9114,7 +9114,7 @@
     "sequence:science": {
       "name": "sequence",
       "regime": "science",
-      "bankroll": 8884.76,
+      "bankroll": 9951.72,
       "starting_bankroll": 10000.0,
       "hypothesis": "Recent-form trajectory carries signal beyond a static rating.",
       "bets": [
@@ -10058,10 +10058,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": -0.06748525144670392,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -10080,10 +10080,10 @@
           "decimal_odds": 6.8990548547276696,
           "edge": 0.2809467159118535,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -10102,10 +10102,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": 0.00942748794040349,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -10124,10 +10124,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.26921058082899324,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -10146,10 +10146,10 @@
           "decimal_odds": 3.159336697909157,
           "edge": 0.2138935693109551,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 315.93,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -10168,10 +10168,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": -0.023864802664422036,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -10190,10 +10190,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.011174111705328893,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -10212,10 +10212,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.30233152647997275,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -10234,10 +10234,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.11015732858681904,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -10443,7 +10443,7 @@
     "sequence:edge_gated": {
       "name": "sequence",
       "regime": "edge_gated",
-      "bankroll": 3700.65,
+      "bankroll": 7296.39,
       "starting_bankroll": 10000.0,
       "hypothesis": "Recent-form trajectory carries signal beyond a static rating.",
       "bets": [
@@ -10815,10 +10815,10 @@
           "decimal_odds": 6.8990548547276696,
           "edge": 0.2809467159118535,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -10837,10 +10837,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.26921058082899324,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 2000.84,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -10859,10 +10859,10 @@
           "decimal_odds": 3.159336697909157,
           "edge": 0.2138935693109551,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 1594.9,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -10980,7 +10980,7 @@
     "elo_xleague_v2:science": {
       "name": "elo_xleague_v2",
       "regime": "science",
-      "bankroll": 9150.86,
+      "bankroll": 10047.3,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single club rating is enough once each league carries its own offset, learned only from cross-border matches.",
       "bets": [
@@ -11418,10 +11418,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.0433454586993649,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -11440,10 +11440,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": -0.07398469448237244,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -11462,10 +11462,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.019352381926962647,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -11484,10 +11484,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.03249949729796564,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -11506,10 +11506,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": -0.046327111876990124,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -11528,10 +11528,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": 0.026993471985266804,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -11550,10 +11550,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.20465961090348256,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -11572,10 +11572,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.16122037971455871,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -11594,10 +11594,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.09176648496107087,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -11803,7 +11803,7 @@
     "elo_xleague_v2:edge_gated": {
       "name": "elo_xleague_v2",
       "regime": "edge_gated",
-      "bankroll": 7845.61,
+      "bankroll": 8171.42,
       "starting_bankroll": 10000.0,
       "hypothesis": "A single club rating is enough once each league carries its own offset, learned only from cross-border matches.",
       "bets": [
@@ -11955,10 +11955,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.0433454586993649,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -11977,10 +11977,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.03249949729796564,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 325.81,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -12098,7 +12098,7 @@
     "sequence_v2:science": {
       "name": "sequence_v2",
       "regime": "science",
-      "bankroll": 8673.14,
+      "bankroll": 9569.58,
       "starting_bankroll": 10000.0,
       "hypothesis": "Recent performance against expectation corrects a cross-league rating backbone.",
       "bets": [
@@ -12514,10 +12514,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.035395841452197985,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -12536,10 +12536,10 @@
           "decimal_odds": 1.4541084847656782,
           "edge": -0.04897506137021446,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 145.41,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -12558,10 +12558,10 @@
           "decimal_odds": 1.3238866396761133,
           "edge": -0.003258112539677449,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.39,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -12580,10 +12580,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.06475449752431067,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 224.53,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
@@ -12602,10 +12602,10 @@
           "decimal_odds": 2.3063157894736843,
           "edge": -0.05708187673241327,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-0",
           "note": ""
         },
         {
@@ -12624,10 +12624,10 @@
           "decimal_odds": 1.3632401157184186,
           "edge": 0.001503269199580215,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "2-2",
           "note": ""
         },
         {
@@ -12646,10 +12646,10 @@
           "decimal_odds": 1.42627197039778,
           "edge": -0.08189183491729668,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 142.63,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "3-1",
           "note": ""
         },
         {
@@ -12668,10 +12668,10 @@
           "decimal_odds": 1.1883333333333335,
           "edge": -0.08791889243268469,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 118.83,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "5-1",
           "note": ""
         },
         {
@@ -12690,10 +12690,10 @@
           "decimal_odds": 1.3265182186234818,
           "edge": -0.13811419415882098,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 132.65,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-2",
           "note": ""
         },
         {
@@ -12899,7 +12899,7 @@
     "sequence_v2:edge_gated": {
       "name": "sequence_v2",
       "regime": "edge_gated",
-      "bankroll": 7119.54,
+      "bankroll": 7805.6,
       "starting_bankroll": 10000.0,
       "hypothesis": "Recent performance against expectation corrects a cross-league rating backbone.",
       "bets": [
@@ -13095,10 +13095,10 @@
           "decimal_odds": 1.5255896037221242,
           "edge": 0.035395841452197985,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
+          "status": "lost",
           "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "1-1",
           "note": ""
         },
         {
@@ -13117,10 +13117,10 @@
           "decimal_odds": 2.2452637232785477,
           "edge": 0.06475449752431067,
           "placed_at": "2026-11-24T12:54:24+00:00",
-          "status": "open",
-          "payout": 0.0,
-          "settled_at": null,
-          "result": null,
+          "status": "won",
+          "payout": 686.06,
+          "settled_at": "2026-11-25T17:41:19+00:00",
+          "result": "0-1",
           "note": ""
         },
         {
